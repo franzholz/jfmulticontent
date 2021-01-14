@@ -1,5 +1,6 @@
 2020-01-14  Franz Holzinger  <franz@ttproducts.de>
-    * compatibility TYPO3 10.4: rewrite class MigrateFlexformSheetIdentifierUpdate 
+    * compatibility TYPO3 10.4 and PHP 7.4
+    * compatibility TYPO3 10.4: rewrite flexform conversion tool class MigrateFlexformSheetIdentifierUpdate 
 
 2020-02-10  Franz Holzinger  <franz@ttproducts.de>
     * fix bug  #3: replace GeneralUtility::slashJS by static::slashJS which is a copy of the other slashJS method.
