@@ -4,7 +4,7 @@ I have developed the existing jfmulticontent extension for the TYPO3 version 8.7
 
 ## Flexform Migration
 
-The upgrade script must be executed in the Install Tool or in the Extension Manager once. All the flexform sheet names must have a leading 's_'. This transformation is done in the update script. Older versions of this extension require some more modifications, which the Extension Manager update script will perform.
+The upgrade script must be executed in the Install Tool or in the Extension Manager once. All the flexform sheet names must have a leading 's_'. This transformation is done in the update script. The extension typo3db_legacy must be installed fo it to work. Older versions of this extension require some more modifications, which are also available from the Extension Manager update script.
 
 ## Third Party Extennsions
 
