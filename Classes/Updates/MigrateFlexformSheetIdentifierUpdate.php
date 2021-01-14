@@ -18,7 +18,13 @@ use JambageCom\Jfmulticontent\Utility\DatabaseUtility;
 use TYPO3\CMS\Core\Charset\CharsetConverter;
 use TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Install\Updates\AbstractUpdate;
+use TYPO3\CMS\Install\Updates\ChattyInterface;
+use TYPO3\CMS\Install\Updates\Confirmation;
+use TYPO3\CMS\Install\Updates\ConfirmableInterface;
+use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
+use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
+use TYPO3\CMS\Install\Service\UpgradeWizardsService;
+
 
 /**
  * Migrate Flexform sheet identifier
@@ -35,8 +41,13 @@ use TYPO3\CMS\Install\Updates\AbstractUpdate;
  * <s_general></s_general>
  *
  */
-class MigrateFlexformSheetIdentifierUpdate extends AbstractUpdate
+class MigrateFlexformSheetIdentifierUpdate implements UpgradeWizardInterface, ConfirmableInterface, ChattyInterface
 {
+     /**
+     * @var OutputInterface
+     */
+    protected $output;
+
     /**
      * @var string
      */
@@ -48,21 +59,71 @@ class MigrateFlexformSheetIdentifierUpdate extends AbstractUpdate
     protected $identifier = JFMULTICONTENT_EXT . 'MigrateFlexformSheetIdentifierUpdate';
 
     /**
-     * Checks whether updates are required.
+     * Setter injection for output into upgrade wizards
      *
-     * @param string &$description The description for the update
-     * @return bool Whether an update is required (TRUE) or not (FALSE)
+     * @param OutputInterface $output
      */
-    public function checkForUpdate (&$description)
+    public function setOutput(OutputInterface $output): void
+    {
+        $this->output = $output;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string Longer description of this updater
+     */
+    public function getDescription(): string
+    {
+        return 'Migrate very old flexform XML into a new form.';
+    }
+
+    /**
+     * @return string Unique identifier of this updater
+     */
+    public function getIdentifier(): string
+    {
+        return $this->identifier;
+    }
+
+    /**
+     * Checks whether updates are required.
+     * Return a confirmation message instance
+     *
+     * @return \TYPO3\CMS\Install\Updates\Confirmation
+     */
+    public function getConfirmation(): Confirmation
     {
         $contentElementsWithWrongSheetTitle = $this->getUpdatableContentElements(1);
 
-        $description .= 'There are <b>' . \count($contentElementsWithWrongSheetTitle) . ' content elements</b> with sheet titles which are missing the leading \'s_\' ' .
+        $message = 'There are <b>' . \count($contentElementsWithWrongSheetTitle) . ' content elements</b> with sheet titles which are missing the leading \'s_\' ' .
             '.<br>' .
-            'Caution! Please make sure that you\'ve made a backup copy of tt_content ' .
-            'before executing this update wizard.<br><br>';
+            'Caution! Please make sure that you have made a backup copy of the table tt_content ' .
+            'before you start executing this update wizard.<br><br>';
 
-        return \count($contentElementsWithWrongSheetTitle) > 0;
+        $confirm = 'Yes, please migrate';
+        $deny = 'No, don\'t migrate';
+        $result = GeneralUtility::makeInstance(
+            Confirmation::class,
+            $title,
+            $message,
+            false,
+            $confirm,
+            $deny,
+            \count($contentElementsWithWrongSheetTitle) > 0
+        );
+
+        return $result;
     }
 
     /**
@@ -105,6 +166,21 @@ class MigrateFlexformSheetIdentifierUpdate extends AbstractUpdate
     }
 
     /**
+     * Execute the update
+     * Called when a wizard reports that an update is necessary
+     *
+     * @return bool
+     */
+    public function executeUpdate(): bool
+    {
+        $queries = [];
+        $message = '';
+        $result = $this->performUpdate($queries, $message);
+        $this->output->write($message);
+        return $result;
+    }
+
+    /**
      * Returns content elements, based on DCE, with old sheet identifier
      *
      * @return array tt_content rows
@@ -144,5 +220,33 @@ class MigrateFlexformSheetIdentifierUpdate extends AbstractUpdate
             ->fetchAll();
 
         return $result;
+    }
+
+    /**
+     * Is an update necessary?
+     * Is used to determine whether a wizard needs to be run.
+     * Check if data for migration exists.
+     *
+     * @return bool
+     */
+    public function updateNecessary(): bool
+    {
+        $contentElementsWithWrongSheetTitle = $this->getUpdatableContentElements(1);
+
+        return (\count($contentElementsWithWrongSheetTitle) > 0);
+    } 
+	
+    /**
+     * Returns an array of class names of Prerequisite classes
+     * This way a wizard can define dependencies like "database up-to-date" or
+     * "reference index updated"
+     *
+     * @return string[]
+     */
+    public function getPrerequisites(): array
+    {
+        return [
+            DatabaseUpdatedPrerequisite::class
+        ];
     }
 }
