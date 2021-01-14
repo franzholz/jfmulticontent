@@ -62,7 +62,13 @@ call_user_func(function () {
         }
     }
 
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43(JFMULTICONTENT_EXT, 'pi1/class.tx_jfmulticontent_pi1.php', '_pi1', 'list_type', 1);
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43(
+        JFMULTICONTENT_EXT,
+        'pi1/class.tx_jfmulticontent_pi1.php',
+        '_pi1',
+        'list_type',
+        1
+    );
     
     if (
         version_compare(TYPO3_version, '9.0.0', '>=')
@@ -70,7 +76,5 @@ call_user_func(function () {
         $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][JFMULTICONTENT_EXT . 'MigrateFlexformSheetIdentifierUpdate'] =
         \JambageCom\Jfmulticontent\Updates\MigrateFlexformSheetIdentifierUpdate::class;
     }
-
-
 });
 
