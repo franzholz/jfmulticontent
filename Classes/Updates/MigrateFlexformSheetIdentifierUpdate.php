@@ -14,7 +14,12 @@ namespace JambageCom\Jfmulticontent\Updates;
  * The TYPO3 project - inspiring people to share!
  */
 
+ 
+use Symfony\Component\Console\Output\OutputInterface;
+
+
 use JambageCom\Jfmulticontent\Utility\DatabaseUtility;
+
 use TYPO3\CMS\Core\Charset\CharsetConverter;
 use TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
