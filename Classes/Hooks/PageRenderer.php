@@ -68,6 +68,7 @@ class PageRenderer
 		} else {
 			$allJsInFooter = FALSE;
 		}
+
 		// add all defined JS files
 		if (count($this->jsFiles) > 0) {
 			foreach ($this->jsFiles as $jsToLoad) {
@@ -87,7 +88,8 @@ class PageRenderer
                             $pagerender->addJsFile($file, 'text/javascript', $this->conf['jsMinify']);
                         }
 					} else {
-						GeneralUtility::devLog("'{$jsToLoad}' does not exist!", $this->extKey, 2);
+                        $logger = $this->getLogger();
+                        $logger->error('File "' . $jsToLoad . '" does not exist!', []);
 					}
 				}
 			}
@@ -126,7 +128,8 @@ class PageRenderer
 				if ($file) {
                     $pagerender->addCssFile($file, 'stylesheet', 'all', '', $this->conf['cssMinify']);
 				} else {
-					GeneralUtility::devLog("'{$cssToLoad}' does not exist!", $this->extKey, 2);
+                    $logger = $this->getLogger();
+                    $logger->error('File "' . $cssToLoad . '" does not exist!', []);
 				}
 			}
 		}
@@ -139,7 +142,8 @@ class PageRenderer
 					// Theres no possibility to add conditions for IE by pagerenderer, so this will be added in additionalHeaderData
 					$GLOBALS['TSFE']->additionalHeaderData['cssFile_'.$this->extKey.'_'.$file] = '<!--[if '.$cssToLoad['rule'].']><link rel="stylesheet" type="text/css" href="'.$file.'" media="all" /><![endif]-->'.chr(10);
 				} else {
-					GeneralUtility::devLog("'{$cssToLoad['file']}' does not exist!", $this->extKey, 2);
+                    $logger = $this->getLogger();
+                    $logger->error('File "' . $cssToLoad['file'] . '" does not exist!', []);
 				}
 			}
 		}
@@ -245,5 +249,15 @@ class PageRenderer
 		include(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($key) . 'ext_emconf.php');
 		return $EM_CONF[$key]['version'];
 	}
+
+    /**
+     * @return \TYPO3\CMS\Core\Log\Logger
+     */
+    protected function getLogger()
+    {
+        /** @var $logger \TYPO3\CMS\Core\Log\Logger */
+        $result = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
+        return $result;
+    }
 }
 

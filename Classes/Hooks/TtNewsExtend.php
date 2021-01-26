@@ -164,7 +164,8 @@ class TtNewsExtend
                             $pagerender->addJsFile($file, 'text/javascript', $this->conf['jsMinify']);
                         }
 					} else {
-						GeneralUtility::devLog("'{$jsToLoad}' does not exist!", $this->extKey, 2);
+                        $logger = $this->getLogger();
+                        $logger->error('File "' . $jsToLoad . '" does not exist!', []);
 					}
 				}
 			}
@@ -203,7 +204,8 @@ class TtNewsExtend
 				if ($file) {
                     $pagerender->addCssFile($file, 'stylesheet', 'all', '', $this->conf['cssMinify']);
 				} else {
-					GeneralUtility::devLog("'{$cssToLoad}' does not exist!", $this->extKey, 2);
+                    $logger = $this->getLogger();
+                    $logger->error('File "' . $cssToLoad . '" does not exist!', []);
 				}
 			}
 		}
@@ -325,19 +327,22 @@ class TtNewsExtend
 		$this->setFlexFormData();
 		if (! isset($this->piFlexForm['data'])) {
 			if ($devlog === TRUE) {
-				GeneralUtility::devLog("Flexform Data not set", $this->extKey, 1);
+                $logger = $this->getLogger();
+                $logger->error('Flexform data not set', []);
 			}
 			return NULL;
 		}
 		if (! isset($this->piFlexForm['data'][$sheet])) {
 			if ($devlog === TRUE) {
-				GeneralUtility::devLog("Flexform sheet '{$sheet}' not defined", $this->extKey, 1);
+                $logger = $this->getLogger();
+                $logger->error('Flexform sheet "' . $sheet - '" not defined', []);
 			}
 			return NULL;
 		}
 		if (! isset($this->piFlexForm['data'][$sheet]['lDEF'][$name])) {
 			if ($devlog === TRUE) {
-				GeneralUtility::devLog("Flexform Data [{$sheet}][{$name}] does not exist", $this->extKey, 1);
+                $logger = $this->getLogger();
+                $logger->error('Flexform data [' . $sheet . '][' . $name . '] does not exist', []);
 			}
 			return NULL;
 		}
@@ -347,6 +352,16 @@ class TtNewsExtend
 			return $this->piFlexForm['data'][$sheet]['lDEF'][$name];
 		}
 	}
+
+    /**
+     * @return \TYPO3\CMS\Core\Log\Logger
+     */
+    protected function getLogger()
+    {
+        /** @var $logger \TYPO3\CMS\Core\Log\Logger */
+        $result = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
+        return $result;
+    }
 }
 
 

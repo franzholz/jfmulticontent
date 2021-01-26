@@ -1,3 +1,9 @@
+
+
+
+2020-01-26  Franz Holzinger  <franz@ttproducts.de>
+    * compatibility TYPO3 10.4: Fix bug #6. Use the FileWriter instead of the deleted GeneralUtility::devLog .
+
 2020-01-14  Franz Holzinger  <franz@ttproducts.de>
     * compatibility TYPO3 10.4 and PHP 7.4
     * compatibility TYPO3 10.4: rewrite flexform conversion tool class MigrateFlexformSheetIdentifierUpdate 

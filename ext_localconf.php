@@ -75,6 +75,17 @@ call_user_func(function () {
     ) {
         $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][JFMULTICONTENT_EXT . 'MigrateFlexformSheetIdentifierUpdate'] =
         \JambageCom\Jfmulticontent\Updates\MigrateFlexformSheetIdentifierUpdate::class;
+
+        $GLOBALS['TYPO3_CONF_VARS']['LOG']['JambageCom']['Jfmulticontent'] = [
+            'writerConfiguration' => [
+                \TYPO3\CMS\Core\Log\LogLevel::DEBUG => [
+                    \JambageCom\Jfmulticontent\Log\Writer\FileWriter::class => [
+                        'mode' => $extensionConfiguration['FILEWRITER']
+                    ]
+                ]
+            ],
+        ];
     }
 });
+
 

@@ -1640,20 +1640,30 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 		return $return_string;
 	}
 
-	/**
-	* Return a errormessage if needed
-	* @param string $msg
-	* @param boolean $js
-	* @return string
-	*/
-	public function outputError ($msg='', $js=false) {
-		GeneralUtility::devLog($msg, $this->extKey, 3);
-		if ($this->confArr['frontendErrorMsg'] || !isset($this->confArr['frontendErrorMsg'])) {
-			return ($js ? 'alert(' . GeneralUtility::quoteJSvalue($msg) . ')' : '<p>' . $msg . '</p>');
-		} else {
-			return null;
-		}
-	}
+    /**
+    * Return a errormessage if needed
+    * @param string $msg
+    * @param boolean $js
+    * @return string
+    */
+    public function outputError ($msg = '', $js = false)
+    {
+        if (
+            $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT]['FILEWRITER']
+        ) {
+            $logger = $this->getLogger();
+            $logger->error($msg, []);
+        }
+            
+        if (
+            $this->confArr['frontendErrorMsg'] ||
+            !isset($this->confArr['frontendErrorMsg'])
+        ) {
+            return ($js ? 'alert(' . GeneralUtility::quoteJSvalue($msg) . ')' : '<p>' . $msg . '</p>');
+        } else {
+            return null;
+        }
+    }
 
 	/**
 	* Set the piFlexform data
@@ -1681,22 +1691,28 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
 		if (!isset($this->piFlexForm['data'])) {
 			if ($devlog === true) {
-				GeneralUtility::devLog('Flexform Data not set', $this->extKey, 1);
+                $logger = $this->getLogger();
+				$logger->debug('Flexform data not set.');
 			}
 			return null;
 		}
+
 		if (!isset($this->piFlexForm['data'][$sheet])) {
 			if ($devlog === true) {
-				GeneralUtility::devLog('Flexform sheet ' . $sheet . ' not defined', $this->extKey, 1);
+                $logger = $this->getLogger();
+				$logger->debug('Flexform sheet ' . $sheet . ' not defined');
 			}
 			return null;
 		}
+
 		if (!isset($this->piFlexForm['data'][$sheet]['lDEF'][$name])) {
 			if ($devlog === true) {
-				GeneralUtility::devLog('Flexform Data [' . $sheet . '][' . $name . '] does not exist', $this->extKey, 1);
+                $logger = $this->getLogger();
+				$logger->debug('Flexform data [' . $sheet . '][' . $name . '] does not exist');
 			}
 			return null;
 		}
+
 		if (isset($this->piFlexForm['data'][$sheet]['lDEF'][$name]['vDEF'])) {
 			$result = $this->pi_getFFvalue($this->piFlexForm, $name, $sheet);
 		} else {
@@ -1732,6 +1748,15 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         return $GLOBALS['TSFE'];
     }
 
+    /**
+     * @return \TYPO3\CMS\Core\Log\Logger
+     */
+    protected function getLogger()
+    {
+        /** @var $logger \TYPO3\CMS\Core\Log\Logger */
+        $result = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
+        return $result;
+    }
 }
 
 

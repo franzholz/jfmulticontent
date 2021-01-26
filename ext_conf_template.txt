@@ -81,3 +81,6 @@ anythingSliderModes = horizontal,vertical,fade
 # cat=basic/dev/1000; type=user[JambageCom\Jfmulticontent\Backend\TsparserExtensionUpdate->render]; label=Updater
 updateMessage = 0
 
+  # cat=basic/conf; type=options[Off=0,Debug=1,File Writer=2,Debug & Filewriter=3]; label= File Writer: Activate the File Writer to debug error messages in the file typo3temp/log/Jfmulticontent_%s.log'.
+FILEWRITER = 1
+
