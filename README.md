@@ -1,6 +1,6 @@
 # TYPO3 extension jfmulticontent
 
-I have developed the existing jfmulticontent extension for the TYPO3 version 8.7. TYPO3 9 is working.
+I have developed the existing jfmulticontent extension for the TYPO3 versions 8.7 - 9.5. TYPO3 10 needs more testing.
 
 ## Flexform Migration
 
