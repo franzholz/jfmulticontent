@@ -3,10 +3,6 @@ defined('TYPO3_MODE') || die('Access denied.');
 
 call_user_func(function () {
 
-    if (!defined ('JFMULTICONTENT_EXT')) {
-        define('JFMULTICONTENT_EXT', 'jfmulticontent');
-    }
-
     $table = 'tt_content';
 
     $listType = JFMULTICONTENT_EXT . '_pi1';
@@ -29,56 +25,54 @@ call_user_func(function () {
     //     $GLOBALS['TCA']['tt_content']['columns']['colPos']['config']['disableNoMatchingValueElement'] = 1; // neu FHO
     }
 
-
-
-    $temporaryColumns = array(
-        'tx_jfmulticontent_view' => array(
+    $temporaryColumns = [
+        'tx_jfmulticontent_view' => [
             'exclude' => 1,
             'onChange' => 'reload',
             'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.view',
-            'config' => array (
+            'config' => [
                 'type' => 'select',
                 'size' => 1,
                 'maxitems' => 1,
                 'default' => 'content',
-                'items' => array(
-                    array('LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.view.I.0', 'content'),
-                    array('LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.view.I.1', 'page'),
-                    array('LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.view.I.2', 'irre'),
-                ),
+                'items' => [
+                    ['LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.view.I.0', 'content'],
+                    ['LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.view.I.1', 'page'],
+                    ['LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.view.I.2', 'irre'],
+                ],
                 'itemsProcFunc' => \JambageCom\Jfmulticontent\Hooks\ItemsProcFunc::class . '->getViews',
-            )
-        ),
-        'tx_jfmulticontent_pages' => array(
+            ]
+        ],
+        'tx_jfmulticontent_pages' => [
             'exclude' => 1,
             'displayCond' => 'FIELD:tx_jfmulticontent_view:IN:page',
             'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.pages',
-            'config' => array (
+            'config' => [
                 'type' => 'group',
                 'internal_type' => 'db',
                 'allowed' => 'pages',
                 'size' => 12,
                 'minitems' => 0,
                 'maxitems' => 1000,
-                'wizards' => array(
-                    'suggest' => array(
+                'wizards' => [
+                    'suggest' => [
                         'type' => 'suggest',
-                    ),
-                ),
-            )
-        ),
-        'tx_jfmulticontent_irre' => Array (
+                    ],
+                ],
+            ]
+        ],
+        'tx_jfmulticontent_irre' => [
             'exclude' => 1,
             'displayCond' => 'FIELD:tx_jfmulticontent_view:IN:irre',
             'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.irre',
-            'config' => array (
+            'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tt_content',
                 'foreign_field' => 'tx_jfmulticontent_irre_parentid',
                 'foreign_sortby' => 'sorting',
                 'foreign_label' => 'header',
                 'maxitems' => 1000,
-                'appearance' => array(
+                'appearance' => [
                     'showSynchronizationLink' => FALSE,
                     'showAllLocalizationLink' => FALSE,
                     'showPossibleLocalizationRecords' => FALSE,
@@ -86,14 +80,14 @@ call_user_func(function () {
                     'expandSingle' => TRUE,
                     'newRecordLinkAddTitle' => TRUE,
                     'useSortable' => TRUE,
-                ),
-                'behaviour' => array(
+                ],
+                'behaviour' => [
                     'localizeChildrenAtParentLocalization' => 1,
                     'localizationMode' => 'select',
-                ),
-            )
-        ),
-    );
+                ],
+            ]
+        ],
+    ];
 
 
     if ($confArr['useStoragePidOnly']) {
@@ -107,111 +101,111 @@ call_user_func(function () {
             $foreignTableWhere = 'AND tt_content.pid=###PAGE_TSCONFIG_ID### AND tt_content.hidden=0 AND tt_content.deleted=0 AND tt_content.sys_language_uid IN (0,-1) ORDER BY tt_content.uid';
         }
 
-        $temporaryColumns['tx_jfmulticontent_contents'] = array(
+        $temporaryColumns['tx_jfmulticontent_contents'] = [
             'exclude' => 1,
             'displayCond' => 'FIELD:tx_jfmulticontent_view:IN:,content',
             'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents',
-            'config' => array (
+            'config' => [
                 'type' => 'select',
                 'foreign_table' => 'tt_content',
                 'foreign_table_where' => $foreignTableWhere,
                 'size' => 12,
                 'minitems' => 0,
                 'maxitems' => 1000,
-                'wizards' => array(
+                'wizards' => [
                     '_PADDING'  => 2,
                     '_VERTICAL' => 1,
-                    'add' => array(
+                    'add' => [
                         'type'   => 'script',
                         'title'  => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents_add',
                         'icon'   => 'add.gif',
-                        'module' => array(
+                        'module' => [
                             'name' => 'wizard_add',
-                        ),
-                        'params' => array(
+                        ],
+                        'params' => [
                             'table'    => 'tt_content',
                             'pid'      => '###PAGE_TSCONFIG_ID###',
                             'setValue' => 'prepend'
-                        ),
-                    ),
-                    'list' => array(
+                        ],
+                    ],
+                    'list' => [
                         'type'   => 'script',
                         'title'  => 'List',
                         'icon'   => 'list.gif',
-                        'module' => array(
+                        'module' => [
                             'name' => 'wizard_list',
-                        ),
-                        'params' => array(
+                        ],
+                        'params' => [
                             'table' => 'tt_content',
                             'pid'   => '###PAGE_TSCONFIG_ID###',
-                        ),
-                    ),
-                    'edit' => array(
+                        ],
+                    ],
+                    'edit' => [
                         'type'   => 'popup',
                         'title'  => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents_edit',
                         'icon'   => 'edit2.gif',
-                        'module' => array(
+                        'module' => [
                             'name' => 'wizard_edit',
-                        ),
+                        ],
                         'popup_onlyOpenIfSelected' => 1,
                         'JSopenParams' => 'height=600,width=800,status=0,menubar=0,scrollbars=1',
-                    ),
-                ),
-            )
-        );
+                    ],
+                ],
+            ]
+        ];
     } else {
-        $temporaryColumns['tx_jfmulticontent_contents'] = array(
+        $temporaryColumns['tx_jfmulticontent_contents'] = [
             'exclude' => 1,
             'displayCond' => 'FIELD:tx_jfmulticontent_view:IN:,content',
             'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents',
-            'config' => array (
+            'config' => [
                 'type' => 'group',
                 'internal_type' => 'db',
                 'allowed' => 'tt_content',
                 'size' => 12,
                 'minitems' => 0,
                 'maxitems' => 1000,
-                'wizards' => array(
+                'wizards' => [
                     '_PADDING'  => 2,
                     '_VERTICAL' => 1,
-                    'add' => array(
+                    'add' => [
                         'type'   => 'script',
                         'title'  => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents_add',
                         'icon'   => 'add.gif',
-                        'module' => array(
+                        'module' => [
                             'name' => 'wizard_add',
-                        ),
-                        'params' => array(
+                        ],
+                        'params' => [
                             'table'    => 'tt_content',
                             'pid'      => '###PAGE_TSCONFIG_ID###',
                             'setValue' => 'prepend'
-                        ),
-                    ),
-                    'list' => array(
+                        ],
+                    ],
+                    'list' => [
                         'type'   => 'script',
                         'title'  => 'List',
                         'icon'   => 'list.gif',
-                        'module' => array(
+                        'module' => [
                             'name' => 'wizard_list',
-                        ),
-                        'params' => array(
+                        ],
+                        'params' => [
                             'table' => 'tt_content',
                             'pid'   => '###PAGE_TSCONFIG_ID###',
-                        ),
-                    ),
-                    'edit' => array(
+                        ],
+                    ],
+                    'edit' => [
                         'type'   => 'popup',
                         'title'  => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents_edit',
                         'icon'   => 'edit2.gif',
-                        'module' => array(
+                        'module' => [
                             'name' => 'wizard_edit',
-                        ),
+                        ],
                         'popup_onlyOpenIfSelected' => 1,
                         'JSopenParams' => 'height=600,width=800,status=0,menubar=0,scrollbars=1',
-                    ),
-                ),
-            )
-        );
+                    ],
+                ],
+            ]
+        ];
     }
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns($table, $temporaryColumns);
@@ -219,11 +213,11 @@ call_user_func(function () {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($listType, 'FILE:EXT:' . JFMULTICONTENT_EXT . '/flexform_ds.xml');
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
-        array(
+        [
             'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.list_type_pi1',
             $listType,
             'EXT:' . JFMULTICONTENT_EXT . '/ext_icon.gif'
-        ),
+        ],
         'list_type',
         JFMULTICONTENT_EXT
     );
