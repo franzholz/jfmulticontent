@@ -1,5 +1,5 @@
 
-# cat=basic/enable/010; type=boolean; label=Use General Record Storage page only: If set, only content can be choosen from the defined storage syfolder. In TYPO3 > 7.4 you must set TSConfig like this: TCEFORM.tt_content.tx_jfmulticontent_contents.PAGE_TSCONFIG_ID = 17
+# cat=basic/enable/010; type=boolean; label=Use General Record Storage page only: If set, content can only be chosen from the defined storage syfolder. In TYPO3 > 7.4 you must set TSConfig like this: TCEFORM.tt_content.tx_jfmulticontent_contents.PAGE_TSCONFIG_ID = 17
 useStoragePidOnly = 1
 
 # cat=basic/enable/020; type=boolean; label=Activate tt_news codes: Enables the additional codes in tt_news
@@ -81,6 +81,6 @@ anythingSliderModes = horizontal,vertical,fade
 # cat=basic/dev/1000; type=user[JambageCom\Jfmulticontent\Backend\TsparserExtensionUpdate->render]; label=Updater
 updateMessage = 0
 
-  # cat=basic/conf; type=options[Off=0,Debug=1,File Writer=2,Debug & Filewriter=3]; label= File Writer: Activate the File Writer to debug error messages in the file typo3temp/log/Jfmulticontent_%s.log'.
+# cat=basic/conf; type=options[Off=0,Debug=1,File Writer=2,Debug & Filewriter=3]; label= File Writer: Activate the File Writer to debug error messages in the file typo3temp/log/Jfmulticontent_%s.log'.
 FILEWRITER = 1
 
