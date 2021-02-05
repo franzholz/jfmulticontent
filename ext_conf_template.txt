@@ -1,5 +1,5 @@
 
-# cat=basic/enable/010; type=boolean; label=Use General Record Storage page only: If set, content can only be chosen from the defined storage syfolder. In TYPO3 > 7.4 you must set TSConfig like this: TCEFORM.tt_content.tx_jfmulticontent_contents.PAGE_TSCONFIG_ID = 17
+# cat=basic/enable/010; type=boolean; label=Use General Record Storage page only: If set, content can only be chosen from the defined storage syfolder. In TYPO3 > 7.4 you must also set TSConfig like this: TCEFORM.tt_content.tx_jfmulticontent_contents.PAGE_TSCONFIG_ID = 17
 useStoragePidOnly = 1
 
 # cat=basic/enable/020; type=boolean; label=Activate tt_news codes: Enables the additional codes in tt_news
