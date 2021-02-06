@@ -124,8 +124,16 @@ class ItemsProcFunc
 			),
 		);
 		$confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT];
-		$styles = $confArr['style.'];
-		if (count($styles) > 0) {
+        $styles = '';
+        if (
+            version_compare(TYPO3_version, '10.0.0', '<')
+        ) {
+            $styles = $confArr['style.'];
+        } else {
+            $styles = $confArr['style'];
+        }
+
+        if (count($styles) > 0) {
 			foreach ($styles as $key => $val) {
 				if ($val) {
 					$availableStyles[] = $key;

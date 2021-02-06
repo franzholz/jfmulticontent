@@ -94,7 +94,7 @@ class TsparserExtensionUpdate
 			'addBrowseLinks',
 			'tabSelectByHash',
 			'colPosOfIrreContent',
-			'style.',
+			'style',
 			'classInner',
 			'frontendErrorMsg',
 			'anythingSliderThemeFolder',
@@ -102,6 +102,14 @@ class TsparserExtensionUpdate
 			'easyAccordionSkinFolder',
 		);
 
+        if (
+            version_compare(TYPO3_version, '10.0.0', '<')
+        ) {
+            $confDefault[] = 'style.';
+            $key = array_search('style', $confDefault);
+            unset($confDefault[$key]);
+        }
+    
         $extensionConfiguration = array();
 
         if (

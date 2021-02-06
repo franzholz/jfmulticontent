@@ -1,5 +1,7 @@
 
 
+2020-02-06  Franz Holzinger  <franz@ttproducts.de>
+    * compatibility TYPO3 10.4: The styles are stored in the configuration array with the key "style" instead of "style.".
 
 2020-01-26  Franz Holzinger  <franz@ttproducts.de>
     * compatibility TYPO3 10.4: Fix bug #6. Use the FileWriter instead of the deleted GeneralUtility::devLog .
