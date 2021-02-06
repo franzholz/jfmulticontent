@@ -32,6 +32,7 @@ call_user_func(function () {
             'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.view',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'size' => 1,
                 'maxitems' => 1,
                 'default' => 'content',
@@ -107,9 +108,10 @@ call_user_func(function () {
             'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'foreign_table' => 'tt_content',
                 'foreign_table_where' => $foreignTableWhere,
-                'size' => 12,
+                'size' => 20,
                 'minitems' => 0,
                 'maxitems' => 1000,
                 'wizards' => [
@@ -223,5 +225,4 @@ call_user_func(function () {
     );
 
 });
-
 
