@@ -17,7 +17,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>10</size>
 								<maxitems>1</maxitems>
                                 <itemsProcFunc>JambageCom\Jfmulticontent\Hooks\ItemsProcFunc->getStyle</itemsProcFunc>
 							</config>
@@ -34,7 +34,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>3</size>
 								<maxitems>1</maxitems>
 								<default></default>
 								<items type="array">
@@ -65,7 +65,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>10</size>
 								<maxitems>1</maxitems>
                                 <itemsProcFunc>JambageCom\Jfmulticontent\Hooks\ItemsProcFunc->getClassInner</itemsProcFunc>
 							</config>
@@ -79,7 +79,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>10</size>
 								<maxitems>1</maxitems>
                                 <itemsProcFunc>JambageCom\Jfmulticontent\Hooks\ItemsProcFunc->getClassInner</itemsProcFunc>
 							</config>
@@ -93,7 +93,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>10</size>
 								<maxitems>1</maxitems>
 								<itemsProcFunc>JambageCom\Jfmulticontent\Hooks\ItemsProcFunc->getClassInner</itemsProcFunc>
 							</config>
@@ -107,7 +107,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>10</size>
 								<maxitems>1</maxitems>
 								<itemsProcFunc>JambageCom\Jfmulticontent\Hooks\ItemsProcFunc->getClassInner</itemsProcFunc>
 							</config>
@@ -121,7 +121,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>10</size>
 								<maxitems>1</maxitems>
 								<itemsProcFunc>JambageCom\Jfmulticontent\Hooks\ItemsProcFunc->getClassInner</itemsProcFunc>
 							</config>
@@ -624,7 +624,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -651,7 +651,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -693,7 +693,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -720,7 +720,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>3</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -747,7 +747,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>4</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -778,7 +778,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -805,7 +805,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>10</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -872,7 +872,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>4</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -947,7 +947,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -974,7 +974,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>10</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -994,7 +994,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>10</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -1029,7 +1029,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1056,7 +1056,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1083,7 +1083,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1110,7 +1110,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1137,7 +1137,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1164,7 +1164,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1191,7 +1191,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1218,7 +1218,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1245,7 +1245,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1272,7 +1272,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1299,7 +1299,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1326,7 +1326,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1353,7 +1353,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1380,7 +1380,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1407,7 +1407,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>10</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -1474,7 +1474,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>4</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -1520,7 +1520,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1565,7 +1565,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>10</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -1632,7 +1632,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>4</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -1693,7 +1693,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1720,7 +1720,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1747,7 +1747,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1774,7 +1774,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1801,7 +1801,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1831,7 +1831,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>10</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -1881,7 +1881,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1971,7 +1971,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -1998,7 +1998,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>10</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -2065,7 +2065,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>1</size>
+								<size>4</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -2111,7 +2111,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -2138,7 +2138,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -2166,7 +2166,7 @@
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
                                 <size>1</size>
-                                <maxitems>1</maxitems>
+                                <maxitems>3</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
                                         <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
@@ -2192,7 +2192,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -2219,7 +2219,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -2246,7 +2246,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -2273,7 +2273,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -2300,7 +2300,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -2327,7 +2327,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -2369,7 +2369,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -2396,7 +2396,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -2423,7 +2423,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -2450,7 +2450,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -2479,7 +2479,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -2524,7 +2524,7 @@
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
-                                <size>1</size>
+                                <size>3</size>
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
@@ -2624,4 +2624,3 @@
 		</s_special>
 	</sheets>
 </T3DataStructure>
-

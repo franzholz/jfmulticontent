@@ -1,6 +1,7 @@
 
 
 2020-02-06  Franz Holzinger  <franz@ttproducts.de>
+    * increase the size of the flexform select boxes
     * compatibility TYPO3 10.4: The styles are stored in the configuration array with the key "style" instead of "style.".
 
 2020-01-26  Franz Holzinger  <franz@ttproducts.de>
