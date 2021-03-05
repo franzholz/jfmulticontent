@@ -56,10 +56,10 @@ class TtNewsExtend
 			case 'LIST_ACCORDION': {
 				$content .= $newsObject->displayList();
 				// Add all CSS and JS files
-				if (T3JQUERY === TRUE) {
+				if (T3JQUERY === true) {
 					tx_t3jquery::addJqJS();
 				} else {
-					$this->addJsFile($this->conf['jQueryLibrary'], TRUE);
+					$this->addJsFile($this->conf['jQueryLibrary'], true);
 					$this->addJsFile($this->conf['jQueryEasing']);
 					$this->addJsFile($this->conf['jQueryUI']);
 				}
@@ -70,10 +70,10 @@ class TtNewsExtend
 			case 'LIST_SLIDER': {
 				$content .= $newsObject->displayList();
 				// Add all CSS and JS files
-				if (T3JQUERY === TRUE) {
+				if (T3JQUERY === true) {
 					tx_t3jquery::addJqJS();
 				} else {
-					$this->addJsFile($this->conf['jQueryLibrary'], TRUE);
+					$this->addJsFile($this->conf['jQueryLibrary'], true);
 					$this->addJsFile($this->conf['jQueryEasing']);
 				}
 				$this->addJsFile($this->conf['sliderJS']);
@@ -84,10 +84,10 @@ class TtNewsExtend
 			case 'LIST_SLIDEDECK': {
 				$content .= $newsObject->displayList();
 				// Add all CSS and JS files
-				if (T3JQUERY === TRUE) {
+				if (T3JQUERY === true) {
 					tx_t3jquery::addJqJS();
 				} else {
-					$this->addJsFile($this->conf['jQueryLibrary'], TRUE);
+					$this->addJsFile($this->conf['jQueryLibrary'], true);
 					$this->addJsFile($this->conf['jQueryEasing']);
 				}
 				$this->addJsFile($this->conf['slidedeckJS']);
@@ -99,10 +99,10 @@ class TtNewsExtend
 			case 'LIST_EASYACCORDION': {
 				$content .= $newsObject->displayList();
 				// Add all CSS and JS files
-				if (T3JQUERY === TRUE) {
+				if (T3JQUERY === true) {
 					tx_t3jquery::addJqJS();
 				} else {
-					$this->addJsFile($this->conf['jQueryLibrary'], TRUE);
+					$this->addJsFile($this->conf['jQueryLibrary'], true);
 				}
 				$this->addJsFile($this->conf['easyaccordionJS']);
 				$this->addCssFile($this->conf['easyaccordionCSS']);
@@ -141,14 +141,14 @@ class TtNewsExtend
         $pagerender = GeneralUtility::makeInstance(PageRenderer::class) ;
 		// Fix moveJsFromHeaderToFooter (add all scripts to the footer)
 		if ($GLOBALS['TSFE']->config['config']['moveJsFromHeaderToFooter']) {
-			$allJsInFooter = TRUE;
+			$allJsInFooter = true;
 		} else {
-			$allJsInFooter = FALSE;
+			$allJsInFooter = false;
 		}
 		// add all defined JS files
 		if (count($this->jsFiles) > 0) {
 			foreach ($this->jsFiles as $jsToLoad) {
-				if (T3JQUERY === TRUE) {
+				if (T3JQUERY === true) {
 					$conf = array(
 						'jsfile' => $jsToLoad,
 						'tofooter' => ($this->conf['jsInFooter'] || $allJsInFooter),
@@ -177,7 +177,7 @@ class TtNewsExtend
 			}
 			$conf = array();
 			$conf['jsdata'] = $temp_js;
-			if (T3JQUERY === TRUE && class_exists(\TYPO3\CMS\Core\Utility\VersionNumberUtility) && \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger($this->getExtensionVersion('t3jquery')) >= 1002000) {
+			if (T3JQUERY === true && class_exists(\TYPO3\CMS\Core\Utility\VersionNumberUtility) && \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger($this->getExtensionVersion('t3jquery')) >= 1002000) {
 				$conf['tofooter'] = ($this->conf['jsInFooter'] || $allJsInFooter);
 				$conf['jsminify'] = $this->conf['jsMinify'];
 				$conf['jsinline'] = $this->conf['jsInline'];
@@ -225,9 +225,18 @@ class TtNewsExtend
 	 * @param string $path
 	 * return string
 	 */
-	public function getPath($path="")
-	{
-		return $GLOBALS['TSFE']->tmpl->getFileName($path);
+	public function getPath($path = '') {
+        $result = '';
+        if (
+            version_compare(TYPO3_version, '9.4.0', '>=')
+        ) {
+            $sanitizer = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\Resource\FilePathSanitizer::class);
+            $result = $sanitizer->sanitize($path);
+        } else {
+            $result = $GLOBALS['TSFE']->tmpl->getFileName($path);
+        }
+
+		return $result;
 	}
 
 	/**
@@ -237,10 +246,10 @@ class TtNewsExtend
 	 * @param boolean $first
 	 * @return void
 	 */
-	public function addJsFile($script="", $first=FALSE)
+	public function addJsFile($script = '', $first = false)
 	{
 		if ($this->getPath($script) && ! in_array($script, $this->jsFiles)) {
-			if ($first === TRUE) {
+			if ($first === true) {
 				$this->jsFiles = array_merge(array($script), $this->jsFiles);
 			} else {
 				$this->jsFiles[] = $script;
@@ -254,7 +263,7 @@ class TtNewsExtend
 	 * @param string $script
 	 * @return void
 	 */
-	public function addJS($script="")
+	public function addJS($script = '')
 	{
 		if (! in_array($script, $this->js)) {
 			$this->js[] = $script;
@@ -267,7 +276,7 @@ class TtNewsExtend
 	 * @param string $script
 	 * @return void
 	 */
-	public function addCssFile($script="")
+	public function addCssFile($script = '')
 	{
 		if ($this->getPath($script) && ! in_array($script, $this->cssFiles)) {
 			$this->cssFiles[] = $script;
@@ -280,7 +289,7 @@ class TtNewsExtend
 	 * @param string $script
 	 * @return void
 	 */
-	public function addCSS($script="")
+	public function addCSS($script = '')
 	{
 		if (! in_array($script, $this->css)) {
 			$this->css[] = $script;
@@ -322,25 +331,25 @@ class TtNewsExtend
 	 * @param boolean $devlog
 	 * @return string
 	 */
-	protected function getFlexformData($sheet='', $name='', $devlog=TRUE)
+	protected function getFlexformData($sheet = '', $name = '', $devlog = true)
 	{
 		$this->setFlexFormData();
 		if (! isset($this->piFlexForm['data'])) {
-			if ($devlog === TRUE) {
+			if ($devlog === true) {
                 $logger = $this->getLogger();
                 $logger->error('Flexform data not set', []);
 			}
 			return NULL;
 		}
 		if (! isset($this->piFlexForm['data'][$sheet])) {
-			if ($devlog === TRUE) {
+			if ($devlog === true) {
                 $logger = $this->getLogger();
                 $logger->error('Flexform sheet "' . $sheet - '" not defined', []);
 			}
 			return NULL;
 		}
 		if (! isset($this->piFlexForm['data'][$sheet]['lDEF'][$name])) {
-			if ($devlog === TRUE) {
+			if ($devlog === true) {
                 $logger = $this->getLogger();
                 $logger->error('Flexform data [' . $sheet . '][' . $name . '] does not exist', []);
 			}
