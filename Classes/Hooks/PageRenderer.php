@@ -61,18 +61,18 @@ class PageRenderer
 	* @return void
 	*/
 	public function addResources() {
-        $pagerender = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class) ;
+        $pageRenderer = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class) ;
 		// Fix moveJsFromHeaderToFooter (add all scripts to the footer)
 		if ($GLOBALS['TSFE']->config['config']['moveJsFromHeaderToFooter']) {
-			$allJsInFooter = TRUE;
+			$allJsInFooter = true;
 		} else {
-			$allJsInFooter = FALSE;
+			$allJsInFooter = false;
 		}
 
 		// add all defined JS files
 		if (count($this->jsFiles) > 0) {
 			foreach ($this->jsFiles as $jsToLoad) {
-				if (T3JQUERY === TRUE) {
+				if (T3JQUERY === true) {
 					$conf = array(
 						'jsfile' => $jsToLoad,
 						'tofooter' => ($this->conf['jsInFooter'] || $allJsInFooter),
@@ -83,9 +83,9 @@ class PageRenderer
 					$file = $this->getPath($jsToLoad);
 					if ($file) {
                         if ($this->conf['jsInFooter'] || $allJsInFooter) {
-                            $pagerender->addJsFooterFile($file, 'text/javascript', $this->conf['jsMinify']);
+                            $pageRenderer->addJsFooterFile($file, 'text/javascript', $this->conf['jsMinify']);
                         } else {
-                            $pagerender->addJsFile($file, 'text/javascript', $this->conf['jsMinify']);
+                            $pageRenderer->addJsFile($file, 'text/javascript', $this->conf['jsMinify']);
                         }
 					} else {
                         $logger = $this->getLogger();
@@ -101,7 +101,7 @@ class PageRenderer
 			}
 			$conf = array();
 			$conf['jsdata'] = $temp_js;
-			if (T3JQUERY === TRUE && class_exists(\TYPO3\CMS\Core\Utility\VersionNumberUtility::class) && \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger($this->getExtensionVersion('t3jquery')) >= 1002000) {
+			if (T3JQUERY === true && class_exists(\TYPO3\CMS\Core\Utility\VersionNumberUtility::class) && \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger($this->getExtensionVersion('t3jquery')) >= 1002000) {
 				$conf['tofooter'] = ($this->conf['jsInFooter'] || $allJsInFooter);
 				$conf['jsminify'] = $this->conf['jsMinify'];
 				$conf['jsinline'] = $this->conf['jsInline'];
@@ -113,9 +113,9 @@ class PageRenderer
 					$GLOBALS['TSFE']->inlineJS[$hash] = $temp_js;
 				} else {
 					if ($this->conf['jsInFooter'] || $allJsInFooter) {
-						$pagerender->addJsFooterInlineCode($hash, $temp_js, $this->conf['jsMinify']);
+						$pageRenderer->addJsFooterInlineCode($hash, $temp_js, $this->conf['jsMinify']);
 					} else {
-						$pagerender->addJsInlineCode($hash, $temp_js, $this->conf['jsMinify']);
+						$pageRenderer->addJsInlineCode($hash, $temp_js, $this->conf['jsMinify']);
 					}
 				}
 			}
@@ -126,7 +126,7 @@ class PageRenderer
 				// Add script only once
 				$file = $this->getPath($cssToLoad);
 				if ($file) {
-                    $pagerender->addCssFile($file, 'stylesheet', 'all', '', $this->conf['cssMinify']);
+                    $pageRenderer->addCssFile($file, 'stylesheet', 'all', '', $this->conf['cssMinify']);
 				} else {
                     $logger = $this->getLogger();
                     $logger->error('File "' . $cssToLoad . '" does not exist!', []);
@@ -140,7 +140,13 @@ class PageRenderer
 				$file = $this->getPath($cssToLoad['file']);
 				if ($file) {
 					// Theres no possibility to add conditions for IE by pagerenderer, so this will be added in additionalHeaderData
-					$GLOBALS['TSFE']->additionalHeaderData['cssFile_'.$this->extKey.'_'.$file] = '<!--[if '.$cssToLoad['rule'].']><link rel="stylesheet" type="text/css" href="'.$file.'" media="all" /><![endif]-->'.chr(10);
+                    $headerKey = 'cssFile_' . $this->extKey . '_' . $file;
+                    $headerData = '<!--[if ' . $cssToLoad['rule'] . ']><link rel="stylesheet" type="text/css" href="' . $file . '" media="all" /><![endif]-->' . CRLF;
+                    if (version_compare(TYPO3_version, '9.5.0', '>=')) {
+                        $pageRenderer->addHeaderData($headerData);
+                    } else {
+                        $GLOBALS['TSFE']->additionalHeaderData[$headerKey] = $headerData;
+					}
 				} else {
                     $logger = $this->getLogger();
                     $logger->error('File "' . $cssToLoad['file'] . '" does not exist!', []);
@@ -153,7 +159,7 @@ class PageRenderer
 				$temp_css .= $cssToPut;
 			}
 			$hash = md5($temp_css);
-            $pagerender->addCssInlineBlock($hash, $temp_css, $this->conf['cssMinify']);
+            $pageRenderer->addCssInlineBlock($hash, $temp_css, $this->conf['cssMinify']);
 		}
 	}
 
@@ -163,8 +169,18 @@ class PageRenderer
 	 * @param string $path
 	 * return string
 	 */
-	public function getPath($path="") {
-		return $GLOBALS['TSFE']->tmpl->getFileName($path);
+	public function getPath($path = '') {
+        $result = '';
+        if (
+            version_compare(TYPO3_version, '9.4.0', '>=')
+        ) {
+            $sanitizer = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\Resource\FilePathSanitizer::class);
+            $result = $sanitizer->sanitize($path);
+        } else {
+            $result = $GLOBALS['TSFE']->tmpl->getFileName($path);
+        }
+
+		return $result;
 	}
 
 	/**
@@ -174,9 +190,9 @@ class PageRenderer
 	 * @param boolean $first
 	 * @return void
 	 */
-	public function addJsFile($script="", $first=FALSE) {
+	public function addJsFile($script = '', $first = false) {
 		if ($this->getPath($script) && ! in_array($script, $this->jsFiles)) {
-			if ($first === TRUE) {
+			if ($first === true) {
 				$this->jsFiles = array_merge(array($script), $this->jsFiles);
 			} else {
 				$this->jsFiles[] = $script;
@@ -190,7 +206,7 @@ class PageRenderer
 	 * @param string $script
 	 * @return void
 	 */
-	public function addJS($script="") {
+	public function addJS($script = '') {
 		if (! in_array($script, $this->js)) {
 			$this->js[] = $script;
 		}
@@ -202,8 +218,8 @@ class PageRenderer
 	 * @param string $script
 	 * @return void
 	 */
-	public function addCssFile($script="") {
-		if ($this->getPath($script) && ! in_array($script, $this->cssFiles)) {
+	public function addCssFile($script = '') {
+		if ($this->getPath($script) && !in_array($script, $this->cssFiles)) {
 			$this->cssFiles[] = $script;
 		}
 	}
@@ -215,7 +231,7 @@ class PageRenderer
 	 * @param string $include for example use "lte IE 7"
 	 * @return void
 	 */
-	public function addCssFileInc($script="", $include='IE') {
+	public function addCssFileInc($script = '', $include = 'IE') {
 		if ($this->getPath($script) && ! in_array($script, $this->cssFiles) && $include) {
 			$this->cssFilesInc[] = array(
 				'file' => $script,
@@ -230,7 +246,7 @@ class PageRenderer
 	 * @param string $script
 	 * @return void
 	 */
-	public function addCSS($script="") {
+	public function addCSS($script = '') {
 		if (! in_array($script, $this->css)) {
 			$this->css[] = $script;
 		}
