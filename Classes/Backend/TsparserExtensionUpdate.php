@@ -46,33 +46,19 @@ class TsparserExtensionUpdate
 	 */
 	public function render(&$params, &$tsObj)
 	{
-		$out = '';
+        $out = '';
 
-		$checkConfig = null;
-		if ($this->checkConfig() === false) {
-			$checkConfig = '
-	<div class="typo3-message message-warning">
-		<div class="message-header">' . $GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/locallang.xml:extmng.classInnerHeader') . '</div>
-		<div class="message-body">
-			' . $GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/locallang.xml:extmng.classInner') . '
-		</div>
-	</div>';
-		}
-
-        $url = 'mod.php?&id=0&M=tools_em&CMD[showExt]=jfmulticontent&SET[singleDetails]=updateModule';
-
-		$out .= '
-<div style="position:absolute;top:10px;right:10px; width:300px;">
-	<div class="typo3-message message-information">
-		<div class="message-header">' . $GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/locallang.xml:extmng.updatermsgHeader') . '</div>
-		<div class="message-body">
-			' . $GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/locallang.xml:extmng.updatermsg') . '<br />
-			<a style="text-decoration:underline;" href="' . $url . '">
-			' . $GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/locallang.xml:extmng.updatermsgLink') . '</a>
-		</div>
-	</div>
-	' . $checkConfig . '
-</div>';
+        if ($this->checkConfig() === false) {
+            $out .= '
+    <div style="position:absolute;top:10px;right:10px; width:300px;">
+        <div class="typo3-message message-information">
+            <div class="message-header">' . $GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/locallang.xml:extmng.updatermsgInstall') . '</div>
+            <div class="message-body">
+                ' . $GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/locallang.xml:extmng.updatermsg') . '<br />
+            </div>
+        </div>
+    </div>';
+        }
 
 		return $out;
 	}

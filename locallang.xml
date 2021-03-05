@@ -11,10 +11,7 @@
 			<label index="cms_layout.style">Display: %s</label>
 			<label index="cms_layout.not_configured">Plugin is not configured!</label>
 			<label index="extmng.updatermsgHeader">Important!</label>
-			<label index="extmng.updatermsg">jfmulticontent comes with a new updater-script which fixes old content elements. You have to run this script once in the Extension Manager, if you are updating from an older installation.</label>
-
-			<label index="extmng.classInnerHeader">Warning!</label>
-			<label index="extmng.classInner">You have to use the "Update"-Button in the Extension Manager once to ensure proper working for all functions in this extension.</label>
+			<label index="extmng.updatermsgInstall">jfmulticontent comes with a new updater-script which fixes old content elements. You have to run this script once in the Install Tool, if you are updating from an older installation.</label>
 
 			<label index="updater.back">[&lt;- back]</label>
 			<label index="updater.reload">[reload this page]</label>
