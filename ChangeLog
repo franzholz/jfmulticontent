@@ -1,14 +1,17 @@
-2020-3-05  Franz Holzinger  <franz@ttproducts.de>
+2021-03-08  Franz Holzinger  <franz@ttproducts.de>
+    * compatibility TYPO3 10.4: Replace $tsfe->tmpl->getFileName by $sanitizer->sanitize
+
+2021-03-05  Franz Holzinger  <franz@ttproducts.de>
     * Remove the possibility for an update from the extension manager.
 
-2020-02-06  Franz Holzinger  <franz@ttproducts.de>
+2021-02-06  Franz Holzinger  <franz@ttproducts.de>
     * increase the size of the flexform select boxes
     * compatibility TYPO3 10.4: The styles are stored in the configuration array with the key "style" instead of "style.".
 
-2020-01-26  Franz Holzinger  <franz@ttproducts.de>
+2021-01-26  Franz Holzinger  <franz@ttproducts.de>
     * compatibility TYPO3 10.4: Fix bug #6. Use the FileWriter instead of the deleted GeneralUtility::devLog .
 
-2020-01-14  Franz Holzinger  <franz@ttproducts.de>
+2021-01-14  Franz Holzinger  <franz@ttproducts.de>
     * compatibility TYPO3 10.4 and PHP 7.4
     * compatibility TYPO3 10.4: rewrite flexform conversion tool class MigrateFlexformSheetIdentifierUpdate 
 

@@ -86,6 +86,12 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 		$parser = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Service\MarkerBasedTemplateService::class);
 		$this->pagerenderer = GeneralUtility::makeInstance(\JambageCom\Jfmulticontent\Hooks\PageRenderer::class);
 		$this->pagerenderer->setConf($this->conf);
+		$sanitizer = null;
+        if (
+            version_compare(TYPO3_version, '9.4.0', '>=')
+        ) {
+            $sanitizer = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\Resource\FilePathSanitizer::class);
+        }
 
 		// Plugin or template?
 		if ($this->cObj->data['list_type'] == $this->extKey . '_pi1') {
@@ -736,22 +742,25 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 		}
 
 		// The template
-		$incFile = $tsfe->tmpl->getFileName($this->conf['templateFile']);
+		$incFile = ((is_object($sanitizer) ? $sanitizer->sanitize($this->conf['templateFile']) : $tsfe->tmpl->getFileName($this->conf['templateFile']));
+
 		if (file_exists($incFile)) {
             $this->templateFile = file_get_contents($incFile);
         }
 		if (!$this->templateFile) {
-            $incFile = $tsfe->tmpl->getFileName('EXT:' . JFMULTICONTENT_EXT . '/res/tx_jfmulticontent_pi1.tmpl');
+            $fileName = 'EXT:' . JFMULTICONTENT_EXT . '/res/tx_jfmulticontent_pi1.tmpl';
+            $incFile = ((is_object($sanitizer) ? $sanitizer->sanitize($fileName) : $tsfe->tmpl->getFileName($fileName);
 			$this->templateFile = file_get_contents($incFile);
 		}
 		// The template for JS
-		$incFile = $tsfe->tmpl->getFileName($this->conf['templateFileJS']);
+		$incFile = ((is_object($sanitizer) ? $sanitizer->sanitize($this->conf['templateFileJS']) : $tsfe->tmpl->getFileName($this->conf['templateFileJS']);
 		if (file_exists($incFile)) {
             $this->templateFileJS = file_get_contents($incFile);
         }
 		if (!$this->templateFileJS) {
-            $incFile = $tsfe->tmpl->getFileName('EXT:' . JFMULTICONTENT_EXT . '/res/tx_jfmulticontent_pi1.js');
-			$this->templateFileJS = file_get_contents($incFile);
+            $fileName = 'EXT:' . JFMULTICONTENT_EXT . '/res/tx_jfmulticontent_pi1.js';
+            $incFile = ((is_object($sanitizer) ? $sanitizer->sanitize($fileName) : $tsfe->tmpl->getFileName($fileName);
+ 			$this->templateFileJS = file_get_contents($incFile);
 		}
 
 		// define the jQuery mode and function
