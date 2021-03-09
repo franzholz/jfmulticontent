@@ -169,15 +169,17 @@ class PageRenderer
 	 * @param string $path
 	 * return string
 	 */
-	public function getPath($path = '') {
+	public function getPath($path) {
         $result = '';
-        if (
-            version_compare(TYPO3_version, '9.4.0', '>=')
-        ) {
-            $sanitizer = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\Resource\FilePathSanitizer::class);
-            $result = $sanitizer->sanitize($path);
-        } else {
-            $result = $GLOBALS['TSFE']->tmpl->getFileName($path);
+        if ($path != '') {
+            if (
+                version_compare(TYPO3_version, '9.4.0', '>=')
+            ) {
+                $sanitizer = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\Resource\FilePathSanitizer::class);
+                $result = $sanitizer->sanitize($path);
+            } else {
+                $result = $GLOBALS['TSFE']->tmpl->getFileName($path);
+            }
         }
 
 		return $result;
