@@ -1,12 +1,12 @@
 # TYPO3 extension jfmulticontent
 
-I have developed the existing jfmulticontent extension for the TYPO3 versions 8.7 - 9.5. TYPO3 10 needs more testing.
+I have developed the existing jfmulticontent extension for the TYPO3 versions 8.7 - 10.4.
 
 ## Flexform Migration
 
 The upgrade script must be executed in the Install Tool or in the Extension Manager once. All the flexform sheet names must have a leading 's_'. This transformation is done in the update script. The extension typo3db_legacy must be installed fo it to work. When upgrading from older versions of this extension some more modifications are required, which have been only available from the Extension Manager UPDATE script of the previous versions.
 
-## Third Party Extennsions
+## Third Party Extensions
 
 The extension t3jquery seems not to exist any more and TYPO3 10 will provide jQuery for extensions. Any support for t3jquery shall therefore be dropped in a later version.
 
