@@ -1,3 +1,6 @@
+2021-03-10  Franz Holzinger  <franz@ttproducts.de>
+    * bugfix: TCA type db has no wizards of the old kind. Replace them by a new configuration.
+
 2021-03-08  Franz Holzinger  <franz@ttproducts.de>
     * compatibility TYPO3 10.4: Replace $tsfe->tmpl->getFileName by $sanitizer->sanitize
 

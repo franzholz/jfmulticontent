@@ -90,125 +90,40 @@ call_user_func(function () {
         ],
     ];
 
-
-    if ($confArr['useStoragePidOnly']) {
-
-        $foreignTableWhere = '';
-        if (
-            version_compare(TYPO3_version, '9.0.0', '>=')
-        ) {
-            $foreignTableWhere = 'AND {#tt_content}.{#pid} = ###PAGE_TSCONFIG_ID### AND {#tt_content}.{#hidden} = 0 AND {#tt_content}.{#deleted} = 0 AND {#tt_content}.{#sys_language_uid} IN (0,-1) ORDER BY tt_content.uid';
-        } else {
-            $foreignTableWhere = 'AND tt_content.pid=###PAGE_TSCONFIG_ID### AND tt_content.hidden=0 AND tt_content.deleted=0 AND tt_content.sys_language_uid IN (0,-1) ORDER BY tt_content.uid';
-        }
-
-        $temporaryColumns['tx_jfmulticontent_contents'] = [
-            'exclude' => 1,
-            'displayCond' => 'FIELD:tx_jfmulticontent_view:IN:,content',
-            'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'foreign_table' => 'tt_content',
-                'foreign_table_where' => $foreignTableWhere,
-                'size' => 20,
-                'minitems' => 0,
-                'maxitems' => 1000,
-                'wizards' => [
-                    '_PADDING'  => 2,
-                    '_VERTICAL' => 1,
-                    'add' => [
-                        'type'   => 'script',
-                        'title'  => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents_add',
-                        'icon'   => 'add.gif',
-                        'module' => [
-                            'name' => 'wizard_add',
-                        ],
-                        'params' => [
-                            'table'    => 'tt_content',
-                            'pid'      => '###PAGE_TSCONFIG_ID###',
-                            'setValue' => 'prepend'
-                        ],
-                    ],
-                    'list' => [
-                        'type'   => 'script',
-                        'title'  => 'List',
-                        'icon'   => 'list.gif',
-                        'module' => [
-                            'name' => 'wizard_list',
-                        ],
-                        'params' => [
-                            'table' => 'tt_content',
-                            'pid'   => '###PAGE_TSCONFIG_ID###',
-                        ],
-                    ],
-                    'edit' => [
-                        'type'   => 'popup',
-                        'title'  => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents_edit',
-                        'icon'   => 'edit2.gif',
-                        'module' => [
-                            'name' => 'wizard_edit',
-                        ],
-                        'popup_onlyOpenIfSelected' => 1,
-                        'JSopenParams' => 'height=600,width=800,status=0,menubar=0,scrollbars=1',
-                    ],
+    $temporaryColumns['tx_jfmulticontent_contents'] = [
+        'exclude' => 1,
+        'displayCond' => 'FIELD:tx_jfmulticontent_view:IN:content',
+        'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents',
+        'config' => [
+            'type' => 'group',
+            'internal_type' => 'db',
+            'allowed' => 'tt_content',
+            'size' => 12,
+            'minitems' => 0,
+            'maxitems' => 1000,
+            'fieldControl' => [
+                'elementBrowser' => [
+                    'disabled' => $confArr['useStoragePidOnly'],
+                ],
+                'addRecord' => [
+                    'disabled' => $confArr['useStoragePidOnly'],
+                    'pid' => '###PAGE_TSCONFIG_ID###',
+                    'options' => [
+                        'title'  => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents_add'
+                    ]
+                ],
+                'editPopup' => [
+                    'disabled' => false,
+                    'options' => [
+                        'title'  => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents_edit'
+                    ]
+                ],
+                'listModule' => [
+                    'disabled' => false
                 ],
             ]
-        ];
-    } else {
-        $temporaryColumns['tx_jfmulticontent_contents'] = [
-            'exclude' => 1,
-            'displayCond' => 'FIELD:tx_jfmulticontent_view:IN:,content',
-            'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents',
-            'config' => [
-                'type' => 'group',
-                'internal_type' => 'db',
-                'allowed' => 'tt_content',
-                'size' => 12,
-                'minitems' => 0,
-                'maxitems' => 1000,
-                'wizards' => [
-                    '_PADDING'  => 2,
-                    '_VERTICAL' => 1,
-                    'add' => [
-                        'type'   => 'script',
-                        'title'  => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents_add',
-                        'icon'   => 'add.gif',
-                        'module' => [
-                            'name' => 'wizard_add',
-                        ],
-                        'params' => [
-                            'table'    => 'tt_content',
-                            'pid'      => '###PAGE_TSCONFIG_ID###',
-                            'setValue' => 'prepend'
-                        ],
-                    ],
-                    'list' => [
-                        'type'   => 'script',
-                        'title'  => 'List',
-                        'icon'   => 'list.gif',
-                        'module' => [
-                            'name' => 'wizard_list',
-                        ],
-                        'params' => [
-                            'table' => 'tt_content',
-                            'pid'   => '###PAGE_TSCONFIG_ID###',
-                        ],
-                    ],
-                    'edit' => [
-                        'type'   => 'popup',
-                        'title'  => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents_edit',
-                        'icon'   => 'edit2.gif',
-                        'module' => [
-                            'name' => 'wizard_edit',
-                        ],
-                        'popup_onlyOpenIfSelected' => 1,
-                        'JSopenParams' => 'height=600,width=800,status=0,menubar=0,scrollbars=1',
-                    ],
-                ],
-            ]
-        ];
-    }
+        ]
+    ];
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns($table, $temporaryColumns);
 
