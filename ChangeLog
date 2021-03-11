@@ -1,3 +1,6 @@
+2021-03-11  Franz Holzinger  <franz@ttproducts.de>
+    * bugfix: The TCA field tx_jfmulticontent_contents must be of type select, if useStoragePidOnly == 1. In this case it must not be possible to select other tt_content records.
+
 2021-03-10  Franz Holzinger  <franz@ttproducts.de>
     * bugfix: TCA type db has no wizards of the old kind. Replace them by a new configuration.
 
