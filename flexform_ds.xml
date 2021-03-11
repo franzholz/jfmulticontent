@@ -17,7 +17,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>10</size>
+								<size>4</size>
 								<maxitems>1</maxitems>
                                 <itemsProcFunc>JambageCom\Jfmulticontent\Hooks\ItemsProcFunc->getStyle</itemsProcFunc>
 							</config>
@@ -65,7 +65,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>10</size>
+								<size>4</size>
 								<maxitems>1</maxitems>
                                 <itemsProcFunc>JambageCom\Jfmulticontent\Hooks\ItemsProcFunc->getClassInner</itemsProcFunc>
 							</config>
@@ -79,7 +79,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>10</size>
+								<size>4</size>
 								<maxitems>1</maxitems>
                                 <itemsProcFunc>JambageCom\Jfmulticontent\Hooks\ItemsProcFunc->getClassInner</itemsProcFunc>
 							</config>
@@ -93,7 +93,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>10</size>
+								<size>4</size>
 								<maxitems>1</maxitems>
 								<itemsProcFunc>JambageCom\Jfmulticontent\Hooks\ItemsProcFunc->getClassInner</itemsProcFunc>
 							</config>
@@ -107,7 +107,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>10</size>
+								<size>4</size>
 								<maxitems>1</maxitems>
 								<itemsProcFunc>JambageCom\Jfmulticontent\Hooks\ItemsProcFunc->getClassInner</itemsProcFunc>
 							</config>
@@ -121,7 +121,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>10</size>
+								<size>4</size>
 								<maxitems>1</maxitems>
 								<itemsProcFunc>JambageCom\Jfmulticontent\Hooks\ItemsProcFunc->getClassInner</itemsProcFunc>
 							</config>
@@ -805,7 +805,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>10</size>
+								<size>4</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -974,7 +974,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>10</size>
+								<size>4</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -994,7 +994,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>10</size>
+								<size>4</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -1407,7 +1407,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>10</size>
+								<size>4</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -1565,7 +1565,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>10</size>
+								<size>4</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -1831,7 +1831,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>10</size>
+								<size>4</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
@@ -1998,7 +1998,7 @@
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
-								<size>10</size>
+								<size>4</size>
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
