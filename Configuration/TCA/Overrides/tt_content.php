@@ -21,7 +21,7 @@ call_user_func(function () {
                 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.colPosOfIrreContent',
                 $colPosOfIrreContent
         ];
-    //     $GLOBALS['TCA']['tt_content']['columns']['colPos']['config']['disableNoMatchingValueElement'] = 1; // neu FHO
+    //     $GLOBALS['TCA']['tt_content']['columns']['colPos']['config']['disableNoMatchingValueElement'] = 1; // I have commented this out.
     }
 
     $temporaryColumns = [
