@@ -1,3 +1,6 @@
+2021-03-12  Franz Holzinger  <franz@ttproducts.de>
+    * Remove the file class.ext_update.php used for upgrades from previous versions of jfmulticontent. Modifications in the flexform style sheet names have required to execute this update script from the extension manager. If you upgrade from a very old version then you must use version 2.11.2 to execute this file and update the records of the table tt_content with list_type = "jfmulticontent_pi1" AND CType = "list" .
+
 2021-03-11  Franz Holzinger  <franz@ttproducts.de>
     * bugfix: The TCA field tx_jfmulticontent_contents must be of type select, if useStoragePidOnly == 1. In this case it must not be possible to select other tt_content records.
 
@@ -16,6 +19,8 @@
 
 2021-01-26  Franz Holzinger  <franz@ttproducts.de>
     * compatibility TYPO3 10.4: Fix bug #6. Use the FileWriter instead of the deleted GeneralUtility::devLog .
+2021-03-12  Franz Holzinger  <franz@ttproducts.de>
+    * Remove the file class.ext_update.php. Any necessary upgrade modifications in the database table tt_content must be executed from the previous versions of this extension.
 
 2021-01-14  Franz Holzinger  <franz@ttproducts.de>
     * compatibility TYPO3 10.4 and PHP 7.4
