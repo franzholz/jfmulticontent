@@ -1,4 +1,7 @@
 2021-05-31  Franz Holzinger  <franz@ttproducts.de>
+    * bugfix issue #5: The local class DataHandler must be used for the \TYPO3\CMS\Core\DataHandling\DataHandler processDatamapClass hook.
+
+2021-05-31  Franz Holzinger  <franz@ttproducts.de>
     * bugfix issue #7: Add missing title parameter to confirmation dialog for the upgrade wizard.
 
 2021-03-12  Franz Holzinger  <franz@ttproducts.de>
