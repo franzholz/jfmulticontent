@@ -1,3 +1,6 @@
+2021-05-31  Franz Holzinger  <franz@ttproducts.de>
+    * bugfix issue #7: Add missing title parameter to confirmation dialog for the upgrade wizard.
+
 2021-03-12  Franz Holzinger  <franz@ttproducts.de>
     * Remove the file class.ext_update.php used for upgrades from previous versions of jfmulticontent. Modifications in the flexform style sheet names have required to execute this update script from the extension manager. If you upgrade from a very old version then you must use version 2.11.2 to execute this file and update the records of the table tt_content with list_type = "jfmulticontent_pi1" AND CType = "list" .
     * add requirement for extension typo3db_legacy

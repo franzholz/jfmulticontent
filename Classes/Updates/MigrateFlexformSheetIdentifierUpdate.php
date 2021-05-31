@@ -111,6 +111,7 @@ class MigrateFlexformSheetIdentifierUpdate implements UpgradeWizardInterface, Co
     {
         $contentElementsWithWrongSheetTitle = $this->getUpdatableContentElements(1);
 
+        $title = 'Attention!';
         $message = 'There are <b>' . \count($contentElementsWithWrongSheetTitle) . ' content elements</b> with sheet titles which are missing the leading \'s_\' ' .
             '.<br>' .
             'Caution! Please make sure that you have made a backup copy of the table tt_content ' .
