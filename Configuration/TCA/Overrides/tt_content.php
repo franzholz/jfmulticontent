@@ -82,12 +82,15 @@ call_user_func(function () {
                     'useSortable' => true,
                 ],
                 'behaviour' => [
-                    'localizeChildrenAtParentLocalization' => 1,
                     'localizationMode' => 'select',
                 ],
             ]
         ],
     ];
+
+    if (version_compare(TYPO3_version, '10.0.0', '<')) {
+        $temporaryColumns['tx_jfmulticontent_irre']['config']['behaviour']['localizeChildrenAtParentLocalization'] = 1;
+    }
 
     if ($confArr['useStoragePidOnly']) {
 
