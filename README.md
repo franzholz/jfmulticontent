@@ -14,11 +14,11 @@ Now you can use the extension lib_jquery. In this case its jquery-x.min.js libra
 
 The extension patchlayout is recommended to be installed in order to allow a column number -1.
 
-The database queries require the extension typo3db_legacy to be installed in TYPO3 9 and TYPO3 10.
+The database queries require the extension typo3db_legacy to be installed in TYPO3 9, TYPO3 10 and TYPO3 11.
 
 ## Contributions
 
-Any contributions are welcome. Just create an issue or write a pull request.
+Any contributions are welcome. Just create an issue or even write a pull request.
 
 
 ## TSConfig Requirement
