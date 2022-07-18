@@ -52,9 +52,9 @@ class TsparserExtensionUpdate
             $out .= '
     <div style="position:absolute;top:10px;right:10px; width:300px;">
         <div class="typo3-message message-information">
-            <div class="message-header">' . $GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/locallang.xml:extmng.updatermsgInstall') . '</div>
+            <div class="message-header">' . $GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/Resources/Private/Language/locallang.xlf:extmng.updatermsgInstall') . '</div>
             <div class="message-body">
-                ' . $GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/locallang.xml:extmng.updatermsg') . '<br />
+                ' . $GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/Resources/Private/Language/locallang.xlf:extmng.updatermsg') . '<br />
             </div>
         </div>
     </div>';
@@ -63,30 +63,29 @@ class TsparserExtensionUpdate
 		return $out;
 	}
 
-	/**
-	 * Check the config for a given feature
-	 * 
-	 * @return boolean
-	 */
-	public function checkConfig()
-	{
-		$confDefault = array(
-			'useStoragePidOnly',
-			'ttNewsCodes',
-			'useSelectInsteadCheckbox',
-			'useOwnUserFuncForPages',
-			'openExternalLink',
-			'showEmptyContent',
-			'addBrowseLinks',
-			'tabSelectByHash',
-			'colPosOfIrreContent',
-			'style',
-			'classInner',
-			'frontendErrorMsg',
-			'anythingSliderThemeFolder',
-			'anythingSliderModes',
-			'easyAccordionSkinFolder',
-		);
+    /**
+    * Check the config for a given feature
+    * 
+    * @return boolean
+    */
+    public function checkConfig()
+    {
+        $confDefault = [
+            'useStoragePidOnly',
+            'ttNewsCodes',
+            'useSelectInsteadCheckbox',
+            'useOwnUserFuncForPages',
+            'openExternalLink',
+            'showEmptyContent',
+            'tabSelectByHash',
+            'colPosOfIrreContent',
+            'style',
+            'classInner',
+            'frontendErrorMsg',
+            'anythingSliderThemeFolder',
+            'anythingSliderModes',
+            'easyAccordionSkinFolder',
+        ];
 
         if (
             version_compare(TYPO3_version, '10.0.0', '<')
@@ -96,7 +95,7 @@ class TsparserExtensionUpdate
             unset($confDefault[$key]);
         }
     
-        $extensionConfiguration = array();
+        $extensionConfiguration = [];
 
         if (
             version_compare(TYPO3_version, '9.0.0', '>=')

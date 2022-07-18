@@ -42,8 +42,8 @@ class WizardIcon
         $params = '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=' . $listType;
 
         $wizardItem = array(
-            'title' => $GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang.xml:pi1_title'),
-            'description' => $GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang.xml:pi1_plus_wiz_description'),
+            'title' => $GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang.xlf:pi1_title'),
+            'description' => $GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang.xlf:pi1_plus_wiz_description'),
             'params' => $params
         );
 

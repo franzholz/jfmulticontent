@@ -41,18 +41,21 @@ class ItemsProcFunc
 	 * @return array
 	 */
 	public function getViews ($config, $item) {
-		$optionList = array();
-		if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['jfmulticontent']['getViews'])) {
+		$optionList = [];
+		if (
+            isset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['jfmulticontent']['getViews']) &&
+            is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['jfmulticontent']['getViews'])
+        ) {
 			foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['jfmulticontent']['getViews'] as $_classRef) {
 				$_procObj = GeneralUtility::getUserObj($_classRef);
 				if (
                     !method_exists($_procObj, 'isActive') ||
                     (method_exists($_procObj, 'isActive') && $_procObj->isActive())
                 ) {
-					$optionList[] = array(
+					$optionList[] = [
 						trim($_procObj->getname()),
 						trim($_procObj->getIdentifier()),
-					);
+					];
 				}
 			}
 		}
@@ -66,63 +69,63 @@ class ItemsProcFunc
 	 * @param array $item
 	 */
 	public function getStyle ($config, $item) {
-		$allStyles = array(
-			array(
-				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.style.I.0'),
+		$allStyles = [
+			[
+				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.0'),
 				'2column',
 				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_0.gif',
-			),
-			array(
-				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.style.I.1'),
+			],
+			[
+				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.1'),
 				'3column',
 				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_1.gif',
-			),
-			array(
-				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.style.I.2'),
+			],
+			[
+				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.2'),
 				'4column',
 				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_2.gif',
-			),
-			array(
-				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.style.I.6'),
+			],
+			[
+				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.6'),
 				'5column',
 				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_6.gif',
-			),
-			array(
-				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.style.I.3'),
+			],
+			[
+				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.3'),
 				'tab',
 				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_3.gif',
-			),
-			array(
-				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.style.I.4'),
+			],
+			[
+				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.4'),
 				'accordion',
 				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_4.gif',
-			),
-			array(
-				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.style.I.5'),
+			],
+			[
+				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.5'),
 				'slider',
 				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_5.gif',
-			),
-			array(
-				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.style.I.7'),
+			],
+			[
+				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.7'),
 				'slidedeck',
 				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_7.gif',
-			),
-			array(
-				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.style.I.8'),
+			],
+			[
+				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.8'),
 				'easyaccordion',
 				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_8.gif',
-			),
-			array(
-				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.style.I.9'),
+			],
+			[
+				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.9'),
 				'booklet',
 				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_9.gif',
-			),
-			array(
-				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.style.I.10'),
+			],
+			[
+				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.10'),
 				'typoscript',
 				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_10.png',
-			),
-		);
+			],
+		];
 		$confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT];
         $styles = '';
         if (
@@ -141,17 +144,20 @@ class ItemsProcFunc
 			}
 		}
 		if (count($availableStyles) < 1) {
-			$availableStyles = array('2column','3column','4column','5column','tab','accordion','slider','slidedeck','easyaccordion','booklet');
+			$availableStyles = ['2column','3column','4column','5column','tab','accordion','slider','slidedeck','easyaccordion','booklet'];
 		}
-		$allowedStyles = array();
+		$allowedStyles = [];
 		foreach ($allStyles as $key => $style) {
 			if (in_array(trim($style[1]), $availableStyles)) {
 				$allowedStyles[] = $style;
 			}
 		}
-		$pageTS = \TYPO3\CMS\Backend\Utility\BackendUtility::getPagesTSconfig($config['row']['pid']);
-		$jfmulticontentStyles = GeneralUtility::trimExplode(',', $pageTS['mod.']['jfmulticontent.']['availableStyles'], TRUE);
-		$optionList = array();
+		$jfmulticontentStyles = [];
+		if (isset($config['row']['pid'])) {
+            $pageTS = \TYPO3\CMS\Backend\Utility\BackendUtility::getPagesTSconfig($config['row']['pid']);
+            $jfmulticontentStyles = GeneralUtility::trimExplode(',', $pageTS['mod.']['jfmulticontent.']['availableStyles'], true);
+        }
+		$optionList = [];
 		if (count($jfmulticontentStyles) > 0) {
 			foreach ($allowedStyles as $key => $style) {
 				if (in_array(trim($style[1]), $jfmulticontentStyles)) {
@@ -173,28 +179,31 @@ class ItemsProcFunc
 		$confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT];
 		$availableClasses = GeneralUtility::trimExplode(',', $confArr['classInner']);
 		if (count($availableClasses) < 1 || !$confArr['classInner']) {
-			$availableClasses = array('','16','20','25','33','38','40','50','60','62','66','75','80');
+			$availableClasses = ['', '16', '20', '25', '33', '38', '40', '50', '60', '62', '66', '75', '80'];
 		}
-		$pageTS = \TYPO3\CMS\Backend\Utility\BackendUtility::getPagesTSconfig($config['row']['pid']);
+		$jfmulticontentClasses = [];
+		if (isset($config['row']['pid'])) {
+            $pageTS = \TYPO3\CMS\Backend\Utility\BackendUtility::getPagesTSconfig($config['row']['pid']);
 
-		$jfmulticontentClasses = GeneralUtility::trimExplode(',', $pageTS['mod.']['jfmulticontent.']['classInner'], TRUE);
-		$optionList = array();
+            $jfmulticontentClasses = GeneralUtility::trimExplode(',', $pageTS['mod.']['jfmulticontent.']['classInner'], true);
+        }
+		$optionList = [];
 
 		if (count($jfmulticontentClasses) > 0) {
 			foreach ($availableClasses as $key => $availableClass) {
 				if (in_array(trim($availableClass), $jfmulticontentClasses)) {
-					$optionList[] = array(
+					$optionList[] = [
 						trim($availableClass),
 						trim($availableClass),
-					);
+					];
 				}
 			}
 		} else {
 			foreach ($availableClasses as $key => $availableClass) {
-				$optionList[] = array(
+				$optionList[] = [
 					trim($availableClass),
 					trim($availableClass),
-				);
+				];
 			}
 		}
 		$config['items'] = array_merge($config['items'], $optionList);
@@ -213,14 +222,14 @@ class ItemsProcFunc
 		}
 		$items = GeneralUtility::get_dirs(GeneralUtility::getFileAbsFileName($confArr['anythingSliderThemeFolder']));
 		if (count($items) > 0) {
-			$optionList = array();
+			$optionList = [];
 			foreach ($items as $key => $item) {
 				$item = trim($item);
 				if (! preg_match('/^\./', $item)) {
-					$optionList[] = array(
+					$optionList[] = [
 						$item,
 						$item
-					);
+					];
 				}
 			}
 			$config['items'] = array_merge($config['items'], $optionList);
@@ -236,26 +245,29 @@ class ItemsProcFunc
 		$confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT];
 		$availableModes = GeneralUtility::trimExplode(',', $confArr['anythingSliderModes']);
 		if (count($availableModes) < 1 || ! $confArr['anythingSliderModes']) {
-			$availableModes = array('horizontal', 'vertical', 'fade');
+			$availableModes = ['horizontal', 'vertical', 'fade'];
 		}
-		$pageTS = \TYPO3\CMS\Backend\Utility\BackendUtility::getPagesTSconfig($config['row']['pid']);
-		$jfmulticontentModes = GeneralUtility::trimExplode(',', $pageTS['mod.']['jfmulticontent.']['anythingSliderModes'], TRUE);
-		$optionList = array();
+		$jfmulticontentModes = [];
+		if (isset($config['row']['pid'])) {
+            $pageTS = \TYPO3\CMS\Backend\Utility\BackendUtility::getPagesTSconfig($config['row']['pid']);
+            $jfmulticontentModes = GeneralUtility::trimExplode(',', $pageTS['mod.']['jfmulticontent.']['anythingSliderModes'], true);
+        }
+		$optionList = [];
 		if (count($jfmulticontentModes) > 0) {
 			foreach ($availableModes as $key => $availableMode) {
 				if (in_array(trim($availableMode), $jfmulticontentModes)) {
-					$optionList[] = array(
+					$optionList[] = [
 						trim($availableMode),
 						trim($availableMode),
-					);
+					];
 				}
 			}
 		} else {
 			foreach ($availableModes as $key => $availableMode) {
-				$optionList[] = array(
+				$optionList[] = [
 					trim($availableMode),
 					trim($availableMode),
-				);
+				];
 			}
 		}
 		$config['items'] = array_merge($config['items'], $optionList);
@@ -274,14 +286,14 @@ class ItemsProcFunc
 		}
 		$items = GeneralUtility::get_dirs(GeneralUtility::getFileAbsFileName($confArr['easyAccordionSkinFolder']));
 		if (count($items) > 0) {
-			$optionList = array();
+			$optionList = [];
 			foreach ($items as $key => $item) {
 				$item = trim($item);
 				if (! preg_match('/^\./', $item)) {
-					$optionList[] = array(
+					$optionList[] = [
 						ucfirst($item),
 						$item
-					);
+					];
 				}
 			}
 			$config['items'] = array_merge($config['items'], $optionList);

@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf" date="2022-07-18T15:21:02Z" product-name="jfmulticontent">
+		<header/>
+		<body>
+			<trans-unit id="tt_content.list_type_pi1" resname="tt_content.list_type_pi1" >
+				<source>Multiple Content</source>
+			</trans-unit>
+			<trans-unit id="tt_content.colPosOfIrreContent" resname="tt_content.colPosOfIrreContent" >
+				<source>Multiple Content</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.view" resname="tt_content.tx_jfmulticontent.view" >
+				<source>View</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.view.I.0" resname="tt_content.tx_jfmulticontent.view.I.0" >
+				<source>Contents</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.view.I.1" resname="tt_content.tx_jfmulticontent.view.I.1" >
+				<source>Pages</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.view.I.2" resname="tt_content.tx_jfmulticontent.view.I.2" >
+				<source>Inline content</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.pages" resname="tt_content.tx_jfmulticontent.pages" >
+				<source>Pages to display</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.contents" resname="tt_content.tx_jfmulticontent.contents" >
+				<source>Contents to display</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.irre" resname="tt_content.tx_jfmulticontent.irre" >
+				<source>Insert inline content</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.contents_add" resname="tt_content.tx_jfmulticontent.contents_add" >
+				<source>Create new record</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.contents_edit" resname="tt_content.tx_jfmulticontent.contents_edit" >
+				<source>Edit</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sheet_general" resname="tt_content.tx_jfmulticontent.sheet_general" >
+				<source>General</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.style" resname="tt_content.tx_jfmulticontent.style" >
+				<source>Style</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.style.I.0" resname="tt_content.tx_jfmulticontent.style.I.0" >
+				<source>2 columns</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.style.I.1" resname="tt_content.tx_jfmulticontent.style.I.1" >
+				<source>3 columns</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.style.I.2" resname="tt_content.tx_jfmulticontent.style.I.2" >
+				<source>4 columns</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.style.I.6" resname="tt_content.tx_jfmulticontent.style.I.6" >
+				<source>5 columns</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.style.I.3" resname="tt_content.tx_jfmulticontent.style.I.3" >
+				<source>Tabs</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.style.I.4" resname="tt_content.tx_jfmulticontent.style.I.4" >
+				<source>Accordion</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.style.I.5" resname="tt_content.tx_jfmulticontent.style.I.5" >
+				<source>Slider</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.style.I.7" resname="tt_content.tx_jfmulticontent.style.I.7" >
+				<source>SlideDeck</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.style.I.8" resname="tt_content.tx_jfmulticontent.style.I.8" >
+				<source>easyAccordion</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.style.I.9" resname="tt_content.tx_jfmulticontent.style.I.9" >
+				<source>Booklet</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.style.I.10" resname="tt_content.tx_jfmulticontent.style.I.10" >
+				<source>TypoScript</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.columnOrder" resname="tt_content.tx_jfmulticontent.columnOrder" >
+				<source>Column Order</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.0" resname="tt_content.tx_jfmulticontent.columnOrder.I.0" >
+				<source>only one row (no repeat)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.1" resname="tt_content.tx_jfmulticontent.columnOrder.I.1" >
+				<source>left to right, top to down</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.2" resname="tt_content.tx_jfmulticontent.columnOrder.I.2" >
+				<source>right to left, top to down</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.3" resname="tt_content.tx_jfmulticontent.columnOrder.I.3" >
+				<source>top to down, left to right</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.4" resname="tt_content.tx_jfmulticontent.columnOrder.I.4" >
+				<source>top to down, right to left</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.column1" resname="tt_content.tx_jfmulticontent.column1" >
+				<source>Column class 1</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.column2" resname="tt_content.tx_jfmulticontent.column2" >
+				<source>Column class 2</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.column3" resname="tt_content.tx_jfmulticontent.column3" >
+				<source>Column class 3</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.column4" resname="tt_content.tx_jfmulticontent.column4" >
+				<source>Column class 4</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.column5" resname="tt_content.tx_jfmulticontent.column5" >
+				<source>Column class 5</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.equalize" resname="tt_content.tx_jfmulticontent.equalize" >
+				<source>Equalize columns</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sheet_title" resname="tt_content.tx_jfmulticontent.sheet_title" >
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.titles" resname="tt_content.tx_jfmulticontent.titles" >
+				<source>Overwrite titles (One title per line)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sheet_attribute" resname="tt_content.tx_jfmulticontent.sheet_attribute" >
+				<source>Attributes</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.attributes" resname="tt_content.tx_jfmulticontent.attributes" >
+				<source>Attributes for columns (One set of attributes per line)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sheet_options" resname="tt_content.tx_jfmulticontent.sheet_options" >
+				<source>Options</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabCollapsible" resname="tt_content.tx_jfmulticontent.tabCollapsible" >
+				<source>Collapsible</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabFxHeight" resname="tt_content.tx_jfmulticontent.tabFxHeight" >
+				<source>FX height</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabFxOpacity" resname="tt_content.tx_jfmulticontent.tabFxOpacity" >
+				<source>FX opacity</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabFxDuration" resname="tt_content.tx_jfmulticontent.tabFxDuration" >
+				<source>FX duration</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabFxDuration.I.0" resname="tt_content.tx_jfmulticontent.tabFxDuration.I.0" >
+				<source>Default (Normal)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabFxDuration.I.1" resname="tt_content.tx_jfmulticontent.tabFxDuration.I.1" >
+				<source>Slow</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabFxDuration.I.2" resname="tt_content.tx_jfmulticontent.tabFxDuration.I.2" >
+				<source>Normal</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabFxDuration.I.3" resname="tt_content.tx_jfmulticontent.tabFxDuration.I.3" >
+				<source>Fast</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabHideEffect" resname="tt_content.tx_jfmulticontent.tabHideEffect" >
+				<source>Hide Effect</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabHideEffect.I.1" resname="tt_content.tx_jfmulticontent.tabHideEffect.I.1" >
+				<source>None</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabHideEffect.I.2" resname="tt_content.tx_jfmulticontent.tabHideEffect.I.2" >
+				<source>fade</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabHideEffect.I.3" resname="tt_content.tx_jfmulticontent.tabHideEffect.I.3" >
+				<source>slide</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabHideTransition" resname="tt_content.tx_jfmulticontent.tabHideTransition" >
+				<source>Hide transition</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabHideTransitiondir" resname="tt_content.tx_jfmulticontent.tabHideTransitiondir" >
+				<source>Hide transition dircetion</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabHideTransitionduration" resname="tt_content.tx_jfmulticontent.tabHideTransitionduration" >
+				<source>Hide transition duration (in ms)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabShowEffect" resname="tt_content.tx_jfmulticontent.tabShowEffect" >
+				<source>Show Effect</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabShowEffect.I.1" resname="tt_content.tx_jfmulticontent.tabShowEffect.I.1" >
+				<source>None</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabShowEffect.I.2" resname="tt_content.tx_jfmulticontent.tabShowEffect.I.2" >
+				<source>fade</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabShowEffect.I.3" resname="tt_content.tx_jfmulticontent.tabShowEffect.I.3" >
+				<source>slide</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabShowTransition" resname="tt_content.tx_jfmulticontent.tabShowTransition" >
+				<source>Show transition</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabShowTransitiondir" resname="tt_content.tx_jfmulticontent.tabShowTransitiondir" >
+				<source>Show transition dircetion</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabShowTransitionduration" resname="tt_content.tx_jfmulticontent.tabShowTransitionduration" >
+				<source>Show transition duration (in ms)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabEvent" resname="tt_content.tx_jfmulticontent.tabEvent" >
+				<source>Event</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabEvent.I.1" resname="tt_content.tx_jfmulticontent.tabEvent.I.1" >
+				<source>Click</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabEvent.I.2" resname="tt_content.tx_jfmulticontent.tabEvent.I.2" >
+				<source>Mouseover</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabHeightStyle" resname="tt_content.tx_jfmulticontent.tabHeightStyle" >
+				<source>Height Style</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabHeightStyle.I.1" resname="tt_content.tx_jfmulticontent.tabHeightStyle.I.1" >
+				<source>Auto</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabHeightStyle.I.2" resname="tt_content.tx_jfmulticontent.tabHeightStyle.I.2" >
+				<source>Fill</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabHeightStyle.I.3" resname="tt_content.tx_jfmulticontent.tabHeightStyle.I.3" >
+				<source>Content</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabOpen" resname="tt_content.tx_jfmulticontent.tabOpen" >
+				<source>Opened content</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabRandomContent" resname="tt_content.tx_jfmulticontent.tabRandomContent" >
+				<source>Open random content</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabCookieExpires" resname="tt_content.tx_jfmulticontent.tabCookieExpires" >
+				<source>Cookie expiration (If set, the &quot;opened&quot; option will be ignored)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.tabCookieRoot" resname="tt_content.tx_jfmulticontent.tabCookieRoot" >
+				<source>Set cookie path to root &quot;/&quot;</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionAutoHeight" resname="tt_content.tx_jfmulticontent.accordionAutoHeight" >
+				<source>Auto height</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionCollapsible" resname="tt_content.tx_jfmulticontent.accordionCollapsible" >
+				<source>Collapsible</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionClosed" resname="tt_content.tx_jfmulticontent.accordionClosed" >
+				<source>Closed at startup</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionOpen" resname="tt_content.tx_jfmulticontent.accordionOpen" >
+				<source>Opened content</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionRandomContent" resname="tt_content.tx_jfmulticontent.accordionRandomContent" >
+				<source>Open random content</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionEvent" resname="tt_content.tx_jfmulticontent.accordionEvent" >
+				<source>Event</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionEvent.I.0" resname="tt_content.tx_jfmulticontent.accordionEvent.I.0" >
+				<source>Default (Click)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionEvent.I.1" resname="tt_content.tx_jfmulticontent.accordionEvent.I.1" >
+				<source>Click</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionEvent.I.2" resname="tt_content.tx_jfmulticontent.accordionEvent.I.2" >
+				<source>Mouseover</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionHeightStyle" resname="tt_content.tx_jfmulticontent.accordionHeightStyle" >
+				<source>Height Style</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionHeightStyle.I.1" resname="tt_content.tx_jfmulticontent.accordionHeightStyle.I.1" >
+				<source>Auto</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionHeightStyle.I.2" resname="tt_content.tx_jfmulticontent.accordionHeightStyle.I.2" >
+				<source>Fill</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionHeightStyle.I.3" resname="tt_content.tx_jfmulticontent.accordionHeightStyle.I.3" >
+				<source>Content</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionAnimate" resname="tt_content.tx_jfmulticontent.accordionAnimate" >
+				<source>Animation</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionAnimated" resname="tt_content.tx_jfmulticontent.accordionAnimated" >
+				<source>Animation</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionAnimated.I.0" resname="tt_content.tx_jfmulticontent.accordionAnimated.I.0" >
+				<source>Default (Slide)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionAnimated.I.1" resname="tt_content.tx_jfmulticontent.accordionAnimated.I.1" >
+				<source>BounceSlide</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionAnimated.I.2" resname="tt_content.tx_jfmulticontent.accordionAnimated.I.2" >
+				<source>easeslide</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionTransition" resname="tt_content.tx_jfmulticontent.accordionTransition" >
+				<source>Type of transition</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionTransition.I.0" resname="tt_content.tx_jfmulticontent.accordionTransition.I.0" >
+				<source>Use Animation</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionTransitiondir" resname="tt_content.tx_jfmulticontent.accordionTransitiondir" >
+				<source>Direction of transition</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.accordionTransitionduration" resname="tt_content.tx_jfmulticontent.accordionTransitionduration" >
+				<source>Duration of transition (in ms)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderWidth" resname="tt_content.tx_jfmulticontent.sliderWidth" >
+				<source>Width</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderHeight" resname="tt_content.tx_jfmulticontent.sliderHeight" >
+				<source>Height</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderResizeContents" resname="tt_content.tx_jfmulticontent.sliderResizeContents" >
+				<source>Resize contents</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderTheme" resname="tt_content.tx_jfmulticontent.sliderTheme" >
+				<source>Theme</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderTheme.I.0" resname="tt_content.tx_jfmulticontent.sliderTheme.I.0" >
+				<source>default</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderMode" resname="tt_content.tx_jfmulticontent.sliderMode" >
+				<source>Mode</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderOpen" resname="tt_content.tx_jfmulticontent.sliderOpen" >
+				<source>Opened content</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderRandomContent" resname="tt_content.tx_jfmulticontent.sliderRandomContent" >
+				<source>Open random content</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderHashTags" resname="tt_content.tx_jfmulticontent.sliderHashTags" >
+				<source>Change URL (hash tag)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderBuildArrows" resname="tt_content.tx_jfmulticontent.sliderBuildArrows" >
+				<source>Build Arrows</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderToggleArrows" resname="tt_content.tx_jfmulticontent.sliderToggleArrows" >
+				<source>Toggle Arrows</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderNavigation" resname="tt_content.tx_jfmulticontent.sliderNavigation" >
+				<source>Show navigation</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderStartStop" resname="tt_content.tx_jfmulticontent.sliderStartStop" >
+				<source>Show start/stop</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderPanelFromHeader" resname="tt_content.tx_jfmulticontent.sliderPanelFromHeader" >
+				<source>Paneltext from title</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderToggleControls" resname="tt_content.tx_jfmulticontent.sliderToggleControls" >
+				<source>Toggle Controls</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderAutoStart" resname="tt_content.tx_jfmulticontent.sliderAutoStart" >
+				<source>Start autoplay</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderPauseOnHover" resname="tt_content.tx_jfmulticontent.sliderPauseOnHover" >
+				<source>Pause on mouseover</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderAllowRapidChange" resname="tt_content.tx_jfmulticontent.sliderAllowRapidChange" >
+				<source>Allow rapid change</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderResumeOnVideoEnd" resname="tt_content.tx_jfmulticontent.sliderResumeOnVideoEnd" >
+				<source>Resume on video end</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderStopAtEnd" resname="tt_content.tx_jfmulticontent.sliderStopAtEnd" >
+				<source>Stop at end</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderPlayRtl" resname="tt_content.tx_jfmulticontent.sliderPlayRtl" >
+				<source>Play rtl</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderTransition" resname="tt_content.tx_jfmulticontent.sliderTransition" >
+				<source>Type of transition</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderTransitiondir" resname="tt_content.tx_jfmulticontent.sliderTransitiondir" >
+				<source>Direction of transition</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderTransitionduration" resname="tt_content.tx_jfmulticontent.sliderTransitionduration" >
+				<source>Duration of transition (in ms)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.sliderAutoplay" resname="tt_content.tx_jfmulticontent.sliderAutoplay" >
+				<source>Autoplay</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.slidedeckHeight" resname="tt_content.tx_jfmulticontent.slidedeckHeight" >
+				<source>Height in px</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.slidedeckTransition" resname="tt_content.tx_jfmulticontent.slidedeckTransition" >
+				<source>Type of transition</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.slidedeckTransitiondir" resname="tt_content.tx_jfmulticontent.slidedeckTransitiondir" >
+				<source>Direction of transition</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.slidedeckTransitionduration" resname="tt_content.tx_jfmulticontent.slidedeckTransitionduration" >
+				<source>Duration of transition (in ms)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.slidedeckStart" resname="tt_content.tx_jfmulticontent.slidedeckStart" >
+				<source>Opened content</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.slidedeckActivecorner" resname="tt_content.tx_jfmulticontent.slidedeckActivecorner" >
+				<source>Add indicator for overlapping</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.slidedeckIndex" resname="tt_content.tx_jfmulticontent.slidedeckIndex" >
+				<source>Activate slide indexes</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.slidedeckScroll" resname="tt_content.tx_jfmulticontent.slidedeckScroll" >
+				<source>Activate mousewheel</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.slidedeckKeys" resname="tt_content.tx_jfmulticontent.slidedeckKeys" >
+				<source>Activate activation keys</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.slidedeckHidespines" resname="tt_content.tx_jfmulticontent.slidedeckHidespines" >
+				<source>Hide spines</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.easyaccordionSkin" resname="tt_content.tx_jfmulticontent.easyaccordionSkin" >
+				<source>Skin</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.easyaccordionSkin.I.0" resname="tt_content.tx_jfmulticontent.easyaccordionSkin.I.0" >
+				<source>From Typoscript</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.easyaccordionOpen" resname="tt_content.tx_jfmulticontent.easyaccordionOpen" >
+				<source>Opened content</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.easyaccordionWidth" resname="tt_content.tx_jfmulticontent.easyaccordionWidth" >
+				<source>Width</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.easyaccordionSlideNum" resname="tt_content.tx_jfmulticontent.easyaccordionSlideNum" >
+				<source>Show numbers</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletWidth" resname="tt_content.tx_jfmulticontent.bookletWidth" >
+				<source>Width</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletHeight" resname="tt_content.tx_jfmulticontent.bookletHeight" >
+				<source>Height</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletSpeed" resname="tt_content.tx_jfmulticontent.bookletSpeed" >
+				<source>Speed (in ms)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletStartingPage" resname="tt_content.tx_jfmulticontent.bookletStartingPage" >
+				<source>Starting page</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletRTL" resname="tt_content.tx_jfmulticontent.bookletRTL" >
+				<source>Direction right to left</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletTransition" resname="tt_content.tx_jfmulticontent.bookletTransition" >
+				<source>Type of transition</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletTransitiondir" resname="tt_content.tx_jfmulticontent.bookletTransitiondir" >
+				<source>Direction of transition</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletPagePadding" resname="tt_content.tx_jfmulticontent.bookletPagePadding" >
+				<source>Page padding</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletPageNumbers" resname="tt_content.tx_jfmulticontent.bookletPageNumbers" >
+				<source>Show page numbers</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletManual" resname="tt_content.tx_jfmulticontent.bookletManual" >
+				<source>Manual page turning</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletShadows" resname="tt_content.tx_jfmulticontent.bookletShadows" >
+				<source>Show shadows</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletClosed" resname="tt_content.tx_jfmulticontent.bookletClosed" >
+				<source>Booklet closed</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletCovers" resname="tt_content.tx_jfmulticontent.bookletCovers" >
+				<source>Show covers</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletAutoCenter" resname="tt_content.tx_jfmulticontent.bookletAutoCenter" >
+				<source>Center closed booklet</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletHash" resname="tt_content.tx_jfmulticontent.bookletHash" >
+				<source>Use hash</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletKeyboard" resname="tt_content.tx_jfmulticontent.bookletKeyboard" >
+				<source>Use keyboard</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletAuto" resname="tt_content.tx_jfmulticontent.bookletAuto" >
+				<source>Autoplay</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletDelay" resname="tt_content.tx_jfmulticontent.bookletDelay" >
+				<source>Delay for autoplay</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletOverlays" resname="tt_content.tx_jfmulticontent.bookletOverlays" >
+				<source>Activate overlay</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletArrows" resname="tt_content.tx_jfmulticontent.bookletArrows" >
+				<source>Show arrows</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletArrowsHide" resname="tt_content.tx_jfmulticontent.bookletArrowsHide" >
+				<source>Hide arrows if mouseout</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.bookletHovers" resname="tt_content.tx_jfmulticontent.bookletHovers" >
+				<source>Hover effect</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.typoscriptInfo" resname="tt_content.tx_jfmulticontent.typoscriptInfo" >
+				<source>All settings will be taken from typoscript!</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.autoplayDuration" resname="tt_content.tx_jfmulticontent.autoplayDuration" >
+				<source>Delay for autoplay (in ms)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.autoplayContinuing" resname="tt_content.tx_jfmulticontent.autoplayContinuing" >
+				<source>Continuing</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.autoplayCycle" resname="tt_content.tx_jfmulticontent.autoplayCycle" >
+				<source>Cycle</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.options" resname="tt_content.tx_jfmulticontent.options" >
+				<source>Insert your own options</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_jfmulticontent.optionsOverride" resname="tt_content.tx_jfmulticontent.optionsOverride" >
+				<source>Override all options</source>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.from_ts" resname="tt_content.pi_flexform.from_ts" >
+				<source>From Typoscript</source>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.no" resname="tt_content.pi_flexform.no" >
+				<source>No</source>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.yes" resname="tt_content.pi_flexform.yes" >
+				<source>Yes</source>
+			</trans-unit>
+			<trans-unit id="browserlink_tab" resname="browserlink_tab" >
+				<source>Multicontent</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

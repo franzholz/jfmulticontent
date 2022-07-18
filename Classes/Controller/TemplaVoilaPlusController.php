@@ -104,7 +104,7 @@ class TemplaVoilaPlusController
         }
         $page_flex_array = GeneralUtility::xml2array($flexformXml);
 
-        $content_ids = array();
+        $content_ids = [];
         if (isset($page_flex_array['data'])) {
             if (isset($page_flex_array['data']['sDEF'])) {
                 if (count($page_flex_array['data']['sDEF']['lDEF']) > 0) {
@@ -117,7 +117,7 @@ class TemplaVoilaPlusController
             }
         }
 
-        $content = NULL;
+        $content = null;
         foreach ($content_ids as $content_id) {
             $tsfe->register['uid'] = $content_id;
             $content .= $this->cObj->cObjGetSingle($conf['contentRender'], $conf['contentRender.']);

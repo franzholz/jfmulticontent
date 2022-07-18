@@ -11,7 +11,7 @@ call_user_func(function () {
         define('T3JQUERY', false);
     }
 
-    $extensionConfiguration = array();
+    $extensionConfiguration = [];
 
     if (isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][JFMULTICONTENT_EXT])) {
         $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][JFMULTICONTENT_EXT]);
@@ -53,14 +53,6 @@ call_user_func(function () {
 
     // Save the content
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][JFMULTICONTENT_EXT] = \JambageCom\Jfmulticontent\Hooks\DataHandler::class;
-
-    if ($extensionConfiguration['addBrowseLinks']) {
-        // Add browseLinksHook
-        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/class.browse_links.php']['browseLinksHook'][] = \JambageCom\Jfmulticontent\Hooks\ElementBrowser::class;
-        if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('rtehtmlarea')) {
-            $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/rtehtmlarea/mod3/class.tx_rtehtmlarea_browse_links.php']['browseLinksHook'][] = \JambageCom\Jfmulticontent\Hooks\ElementBrowser::class;
-        }
-    }
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43(
         JFMULTICONTENT_EXT,

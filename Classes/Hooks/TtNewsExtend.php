@@ -38,18 +38,18 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class TtNewsExtend
 {
-	public $conf = array();
-	public $cObj = NULL;
+	public $conf = [];
+	public $cObj = null;
 	public $extKey = 'jfmulticontent';
-	public $jsFiles = array();
-	public $js = array();
-	public $cssFiles = array();
-	public $css = array();
-	public $piFlexForm = array();
+	public $jsFiles = [];
+	public $js = [];
+	public $cssFiles = [];
+	public $css = [];
+	public $piFlexForm = [];
 
 	public function extraCodesProcessor($newsObject)
 	{
-		$content = NULL;
+		$content = null;
 		$this->cObj = $newsObject->cObj;
 		$this->conf = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_jfmulticontent_pi1.'];
 		switch ($newsObject->theCode) {
@@ -175,7 +175,7 @@ class TtNewsExtend
 			foreach ($this->js as $jsToPut) {
 				$temp_js .= $jsToPut;
 			}
-			$conf = array();
+			$conf = [];
 			$conf['jsdata'] = $temp_js;
 			if (T3JQUERY === true && class_exists(\TYPO3\CMS\Core\Utility\VersionNumberUtility) && \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger($this->getExtensionVersion('t3jquery')) >= 1002000) {
 				$conf['tofooter'] = ($this->conf['jsInFooter'] || $allJsInFooter);
@@ -341,21 +341,21 @@ class TtNewsExtend
                 $logger = $this->getLogger();
                 $logger->error('Flexform data not set', []);
 			}
-			return NULL;
+			return null;
 		}
 		if (! isset($this->piFlexForm['data'][$sheet])) {
 			if ($devlog === true) {
                 $logger = $this->getLogger();
                 $logger->error('Flexform sheet "' . $sheet - '" not defined', []);
 			}
-			return NULL;
+			return null;
 		}
 		if (! isset($this->piFlexForm['data'][$sheet]['lDEF'][$name])) {
 			if ($devlog === true) {
                 $logger = $this->getLogger();
                 $logger->error('Flexform data [' . $sheet . '][' . $name . '] does not exist', []);
 			}
-			return NULL;
+			return null;
 		}
 		if (isset($this->piFlexForm['data'][$sheet]['lDEF'][$name]['vDEF'])) {
 			return $this->pi_getFFvalue($this->piFlexForm, $name, $sheet);

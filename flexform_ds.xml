@@ -6,14 +6,14 @@
 		<s_general>
 			<ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sheet_general</sheetTitle>
+					<sheetTitle>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sheet_general</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
 					<style>
 						<TCEforms>
 							<onChange>reload</onChange>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.style</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -30,7 +30,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:IN:,2column,3column,4column,5column</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.columnOrder</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.columnOrder</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -39,17 +39,17 @@
 								<default></default>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.columnOrder.I.0</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.columnOrder.I.0</numIndex>
 										<numIndex index="1"></numIndex>
 										<numIndex index="2">EXT:jfmulticontent/selicon_tt_content_tx_jfmulticontent_columnOrder_0.gif</numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.columnOrder.I.1</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.columnOrder.I.1</numIndex>
 										<numIndex index="1">1</numIndex>
 										<numIndex index="2">EXT:jfmulticontent/selicon_tt_content_tx_jfmulticontent_columnOrder_1.gif</numIndex>
 									</numIndex>
 									<numIndex index="2" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.columnOrder.I.2</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.columnOrder.I.2</numIndex>
 										<numIndex index="1">2</numIndex>
 										<numIndex index="2">EXT:jfmulticontent/selicon_tt_content_tx_jfmulticontent_columnOrder_2.gif</numIndex>
 									</numIndex>
@@ -61,7 +61,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:IN:,2column,3column,4column,5column</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.column1</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.column1</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -75,7 +75,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:IN:,2column,3column,4column,5column</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.column2</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.column2</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -89,7 +89,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:IN:3column,4column,5column</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.column3</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.column3</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -103,7 +103,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:IN:4column,5column</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.column4</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.column4</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -117,7 +117,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:IN:5column</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.column5</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.column5</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -131,7 +131,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:IN:,2column,3column,4column,5column</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.equalize</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.equalize</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -139,15 +139,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -161,7 +161,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:tab</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabCollapsible</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabCollapsible</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -169,15 +169,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -188,7 +188,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:tab</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabOpen</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabOpen</label>
 							<config>
 								<type>input</type>
 								<size>2</size>
@@ -202,7 +202,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:tab</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabRandomContent</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabRandomContent</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -210,15 +210,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -229,7 +229,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:tab</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabEvent</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabEvent</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -237,15 +237,15 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabEvent.I.1</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabEvent.I.1</numIndex>
 										<numIndex index="1">click</numIndex>
 									</numIndex>
 									<numIndex index="2" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabEvent.I.2</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabEvent.I.2</numIndex>
 										<numIndex index="1">mouseover</numIndex>
 									</numIndex>
 								</items>
@@ -256,7 +256,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:tab</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabHeightStyle</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabHeightStyle</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -264,19 +264,19 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabHeightStyle.I.1</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabHeightStyle.I.1</numIndex>
 										<numIndex index="1">auto</numIndex>
 									</numIndex>
 									<numIndex index="2" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabHeightStyle.I.2</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabHeightStyle.I.2</numIndex>
 										<numIndex index="1">fill</numIndex>
 									</numIndex>
 									<numIndex index="3" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabHeightStyle.I.3</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabHeightStyle.I.3</numIndex>
 										<numIndex index="1">content</numIndex>
 									</numIndex>
 								</items>
@@ -287,7 +287,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:tab</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabCookieExpires</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabCookieExpires</label>
 							<config>
 								<type>input</type>
 								<size>6</size>
@@ -302,7 +302,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:tab</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabCookieRoot</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabCookieRoot</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -310,15 +310,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -329,7 +329,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:tab</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabHideEffect</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabHideEffect</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -337,19 +337,19 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabShowEffect.I.1</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabShowEffect.I.1</numIndex>
 										<numIndex index="1">none</numIndex>
 									</numIndex>
 									<numIndex index="2" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabShowEffect.I.2</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabShowEffect.I.2</numIndex>
 										<numIndex index="1">fadeOut</numIndex>
 									</numIndex>
 									<numIndex index="3" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabShowEffect.I.3</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabShowEffect.I.3</numIndex>
 										<numIndex index="1">slideUp</numIndex>
 									</numIndex>
 								</items>
@@ -360,7 +360,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:tab</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabHideTransition</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabHideTransition</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -368,7 +368,7 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
@@ -427,7 +427,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:tab</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabHideTransitiondir</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabHideTransitiondir</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -435,7 +435,7 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
@@ -458,7 +458,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:tab</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabHideTransitionduration</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabHideTransitionduration</label>
 							<config>
 								<type>input</type>
 								<size>6</size>
@@ -473,7 +473,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:tab</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabShowEffect</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabShowEffect</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -481,19 +481,19 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabShowEffect.I.1</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabShowEffect.I.1</numIndex>
 										<numIndex index="1">none</numIndex>
 									</numIndex>
 									<numIndex index="2" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabShowEffect.I.2</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabShowEffect.I.2</numIndex>
 										<numIndex index="1">fadeIn</numIndex>
 									</numIndex>
 									<numIndex index="3" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabShowEffect.I.3</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabShowEffect.I.3</numIndex>
 										<numIndex index="1">slideDown</numIndex>
 									</numIndex>
 								</items>
@@ -504,7 +504,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:tab</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabShowTransition</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabShowTransition</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -512,7 +512,7 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
@@ -571,7 +571,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:tab</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabShowTransitiondir</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabShowTransitiondir</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -579,7 +579,7 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
@@ -602,7 +602,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:tab</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.tabShowTransitionduration</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.tabShowTransitionduration</label>
 							<config>
 								<type>input</type>
 								<size>6</size>
@@ -620,7 +620,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:accordion</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.accordionCollapsible</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.accordionCollapsible</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -628,15 +628,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -647,7 +647,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:accordion</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.accordionClosed</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.accordionClosed</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -655,15 +655,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -674,7 +674,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:accordion</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.accordionOpen</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.accordionOpen</label>
 							<config>
 								<type>input</type>
 								<size>2</size>
@@ -689,7 +689,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:accordion</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.accordionRandomContent</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.accordionRandomContent</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -697,15 +697,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -716,7 +716,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:accordion</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.accordionEvent</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.accordionEvent</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -724,15 +724,15 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.accordionEvent.I.1</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.accordionEvent.I.1</numIndex>
 										<numIndex index="1">click</numIndex>
 									</numIndex>
 									<numIndex index="2" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.accordionEvent.I.2</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.accordionEvent.I.2</numIndex>
 										<numIndex index="1">mouseover</numIndex>
 									</numIndex>
 								</items>
@@ -743,7 +743,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:accordion</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.accordionHeightStyle</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.accordionHeightStyle</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -751,19 +751,19 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.accordionHeightStyle.I.1</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.accordionHeightStyle.I.1</numIndex>
 										<numIndex index="1">auto</numIndex>
 									</numIndex>
 									<numIndex index="2" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.accordionHeightStyle.I.2</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.accordionHeightStyle.I.2</numIndex>
 										<numIndex index="1">fill</numIndex>
 									</numIndex>
 									<numIndex index="3" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.accordionHeightStyle.I.3</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.accordionHeightStyle.I.3</numIndex>
 										<numIndex index="1">content</numIndex>
 									</numIndex>
 								</items>
@@ -774,7 +774,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:accordion</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.accordionAnimate</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.accordionAnimate</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -782,15 +782,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -801,7 +801,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:accordion</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.accordionTransition</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.accordionTransition</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -809,7 +809,7 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
@@ -868,7 +868,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:accordion</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.accordionTransitiondir</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.accordionTransitiondir</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -876,7 +876,7 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
@@ -899,7 +899,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:accordion</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.accordionTransitionduration</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.accordionTransitionduration</label>
 							<config>
 								<type>input</type>
 								<size>6</size>
@@ -917,7 +917,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderWidth</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderWidth</label>
 							<config>
 								<type>input</type>
 								<size>16</size>
@@ -930,7 +930,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderHeight</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderHeight</label>
 							<config>
 								<type>input</type>
 								<size>16</size>
@@ -943,7 +943,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderResizeContents</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderResizeContents</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -951,15 +951,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -970,7 +970,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderTheme</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderTheme</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -978,7 +978,7 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 								</items>
@@ -990,7 +990,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderMode</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderMode</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -998,7 +998,7 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 								</items>
@@ -1010,7 +1010,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderOpen</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderOpen</label>
 							<config>
 								<type>input</type>
 								<size>2</size>
@@ -1025,7 +1025,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderRandomContent</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderRandomContent</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1033,15 +1033,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1052,7 +1052,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderHashTags</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderHashTags</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1060,15 +1060,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1079,7 +1079,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderBuildArrows</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderBuildArrows</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1087,15 +1087,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1106,7 +1106,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderToggleArrows</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderToggleArrows</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1114,15 +1114,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1133,7 +1133,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderNavigation</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderNavigation</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1141,15 +1141,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1160,7 +1160,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderStartStop</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderStartStop</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1168,15 +1168,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1187,7 +1187,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderPanelFromHeader</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderPanelFromHeader</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1195,15 +1195,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1214,7 +1214,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderToggleControls</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderToggleControls</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1222,15 +1222,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1241,7 +1241,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderAutoStart</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderAutoStart</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1249,15 +1249,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1268,7 +1268,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderPauseOnHover</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderPauseOnHover</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1276,15 +1276,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1295,7 +1295,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderAllowRapidChange</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderAllowRapidChange</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1303,15 +1303,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1322,7 +1322,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderResumeOnVideoEnd</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderResumeOnVideoEnd</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1330,15 +1330,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1349,7 +1349,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderStopAtEnd</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderStopAtEnd</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1357,15 +1357,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1376,7 +1376,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderPlayRtl</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderPlayRtl</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1384,15 +1384,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1403,7 +1403,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderTransition</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderTransition</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1411,7 +1411,7 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
@@ -1470,7 +1470,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderTransitiondir</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderTransitiondir</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1478,7 +1478,7 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
@@ -1501,7 +1501,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderTransitionduration</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderTransitionduration</label>
 							<config>
 								<type>input</type>
 								<size>6</size>
@@ -1516,7 +1516,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slider</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sliderAutoplay</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sliderAutoplay</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1524,15 +1524,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1546,7 +1546,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slidedeck</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.slidedeckHeight</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.slidedeckHeight</label>
 							<config>
 								<type>input</type>
 								<size>6</size>
@@ -1561,7 +1561,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slidedeck</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.slidedeckTransition</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.slidedeckTransition</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1569,7 +1569,7 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
@@ -1628,7 +1628,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slidedeck</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.slidedeckTransitiondir</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.slidedeckTransitiondir</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1636,7 +1636,7 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
@@ -1659,7 +1659,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slidedeck</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.slidedeckTransitionduration</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.slidedeckTransitionduration</label>
 							<config>
 								<type>input</type>
 								<size>6</size>
@@ -1674,7 +1674,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slidedeck</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.slidedeckStart</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.slidedeckStart</label>
 							<config>
 								<type>input</type>
 								<size>2</size>
@@ -1689,7 +1689,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slidedeck</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.slidedeckActivecorner</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.slidedeckActivecorner</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1697,15 +1697,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1716,7 +1716,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slidedeck</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.slidedeckIndex</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.slidedeckIndex</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1724,15 +1724,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1743,7 +1743,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slidedeck</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.slidedeckScroll</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.slidedeckScroll</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1751,15 +1751,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1770,7 +1770,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slidedeck</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.slidedeckKeys</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.slidedeckKeys</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1778,15 +1778,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1797,7 +1797,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:slidedeck</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.slidedeckHidespines</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.slidedeckHidespines</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1805,15 +1805,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1827,7 +1827,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:easyaccordion</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.easyaccordionSkin</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.easyaccordionSkin</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1835,7 +1835,7 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 								</items>
@@ -1847,7 +1847,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:easyaccordion</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.easyaccordionOpen</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.easyaccordionOpen</label>
 							<config>
 								<type>input</type>
 								<size>2</size>
@@ -1862,7 +1862,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:easyaccordion</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.easyaccordionWidth</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.easyaccordionWidth</label>
 							<config>
 								<type>input</type>
 								<size>6</size>
@@ -1877,7 +1877,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:easyaccordion</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.easyaccordionSlideNum</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.easyaccordionSlideNum</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1885,15 +1885,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1907,7 +1907,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletWidth</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletWidth</label>
 							<config>
 								<type>input</type>
 								<size>6</size>
@@ -1922,7 +1922,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletHeight</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletHeight</label>
 							<config>
 								<type>input</type>
 								<size>6</size>
@@ -1937,7 +1937,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletSpeed</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletSpeed</label>
 							<config>
 								<type>input</type>
 								<size>6</size>
@@ -1952,7 +1952,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletStartingPage</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletStartingPage</label>
 							<config>
 								<type>input</type>
 								<size>3</size>
@@ -1967,7 +1967,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletRTL</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletRTL</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -1975,15 +1975,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -1994,7 +1994,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletTransition</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletTransition</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -2002,7 +2002,7 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
@@ -2061,7 +2061,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletTransitiondir</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletTransitiondir</label>
 							<config>
 								<type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -2069,7 +2069,7 @@
 								<maxitems>1</maxitems>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
@@ -2092,7 +2092,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletPagePadding</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletPagePadding</label>
 							<config>
 								<type>input</type>
 								<size>6</size>
@@ -2107,7 +2107,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletPageNumbers</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletPageNumbers</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -2115,15 +2115,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -2134,7 +2134,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletManual</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletManual</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -2142,15 +2142,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -2161,7 +2161,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletShadows</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletShadows</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -2169,15 +2169,15 @@
                                 <maxitems>3</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -2188,7 +2188,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletClosed</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletClosed</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -2196,15 +2196,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -2215,7 +2215,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletCovers</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletCovers</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -2223,15 +2223,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -2242,7 +2242,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletAutoCenter</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletAutoCenter</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -2250,15 +2250,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -2269,7 +2269,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletHash</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletHash</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -2277,15 +2277,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -2296,7 +2296,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletKeyboard</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletKeyboard</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -2304,15 +2304,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -2323,7 +2323,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletAuto</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletAuto</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -2331,15 +2331,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -2350,7 +2350,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletDelay</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletDelay</label>
 							<config>
 								<type>input</type>
 								<size>6</size>
@@ -2365,7 +2365,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletOverlays</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletOverlays</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -2373,15 +2373,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -2392,7 +2392,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletArrows</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletArrows</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -2400,15 +2400,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -2419,7 +2419,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletArrowsHide</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletArrowsHide</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -2427,15 +2427,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -2446,7 +2446,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:=:booklet</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.bookletHovers</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.bookletHovers</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -2454,15 +2454,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -2483,15 +2483,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -2505,7 +2505,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:IN:slider,slidedeck,easyaccordion</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.autoplayDuration</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.autoplayDuration</label>
 							<config>
 								<type>input</type>
 								<size>6</size>
@@ -2520,7 +2520,7 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<displayCond>FIELD:style:IN:slidedeck</displayCond>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.autoplayCycle</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.autoplayCycle</label>
 							<config>
                                 <type>select</type>
                                 <renderType>selectSingleBox</renderType>
@@ -2528,15 +2528,15 @@
                                 <maxitems>1</maxitems>
                                 <items type="array">
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.from_ts</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.from_ts</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.yes</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.yes</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.pi_flexform.no</numIndex>
+                                        <numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.no</numIndex>
                                         <numIndex index="1">0</numIndex>
                                     </numIndex>
                                 </items>
@@ -2549,14 +2549,14 @@
 		<s_title>
 			<ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sheet_title</sheetTitle>
+					<sheetTitle>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sheet_title</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
 					<titles>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.titles</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.titles</label>
 							<config>
 								<type>text</type>
 								<wrap>OFF</wrap>
@@ -2571,14 +2571,14 @@
 		<s_attribute>
 			<ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sheet_attribute</sheetTitle>
+					<sheetTitle>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sheet_attribute</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
 					<attributes>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.attributes</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.attributes</label>
 							<config>
 								<type>text</type>
 								<wrap>OFF</wrap>
@@ -2593,14 +2593,14 @@
 		<s_special>
 			<ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.sheet_options</sheetTitle>
+					<sheetTitle>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.sheet_options</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
 					<options>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.options</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.options</label>
 							<config>
 								<type>text</type>
 								<wrap>OFF</wrap>
@@ -2612,7 +2612,7 @@
 					<optionsOverride>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jfmulticontent/locallang_db.xml:tt_content.tx_jfmulticontent.optionsOverride</label>
+							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.optionsOverride</label>
 							<config>
 								<type>check</type>
 								<default>0</default>

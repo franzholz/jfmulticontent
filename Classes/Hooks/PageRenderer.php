@@ -39,13 +39,13 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class PageRenderer
 {
-	public $conf = array();
+	public $conf = [];
 	public $extKey = 'jfmulticontent';
-	private $jsFiles = array();
-	private $js = array();
-	private $cssFiles = array();
-	private $cssFilesInc = array();
-	private $css = array();
+	private $jsFiles = [];
+	private $js = [];
+	private $cssFiles = [];
+	private $cssFilesInc = [];
+	private $css = [];
 
 	/**
 	 * Set the configuration for the pagerenderer
@@ -73,11 +73,11 @@ class PageRenderer
 		if (count($this->jsFiles) > 0) {
 			foreach ($this->jsFiles as $jsToLoad) {
 				if (T3JQUERY === true) {
-					$conf = array(
+					$conf = [
 						'jsfile' => $jsToLoad,
 						'tofooter' => ($this->conf['jsInFooter'] || $allJsInFooter),
 						'jsminify' => $this->conf['jsMinify'],
-					);
+					];
 					tx_t3jquery::addJS('', $conf);
 				} else {
 					$file = $this->getPath($jsToLoad);
@@ -99,7 +99,7 @@ class PageRenderer
 			foreach ($this->js as $jsToPut) {
 				$temp_js .= $jsToPut;
 			}
-			$conf = array();
+			$conf = [];
 			$conf['jsdata'] = $temp_js;
 			if (T3JQUERY === true && class_exists(\TYPO3\CMS\Core\Utility\VersionNumberUtility::class) && \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger($this->getExtensionVersion('t3jquery')) >= 1002000) {
 				$conf['tofooter'] = ($this->conf['jsInFooter'] || $allJsInFooter);
@@ -195,7 +195,7 @@ class PageRenderer
 	public function addJsFile($script = '', $first = false) {
 		if ($this->getPath($script) && ! in_array($script, $this->jsFiles)) {
 			if ($first === true) {
-				$this->jsFiles = array_merge(array($script), $this->jsFiles);
+				$this->jsFiles = array_merge([$script], $this->jsFiles);
 			} else {
 				$this->jsFiles[] = $script;
 			}
@@ -235,10 +235,10 @@ class PageRenderer
 	 */
 	public function addCssFileInc($script = '', $include = 'IE') {
 		if ($this->getPath($script) && ! in_array($script, $this->cssFiles) && $include) {
-			$this->cssFilesInc[] = array(
+			$this->cssFilesInc[] = [
 				'file' => $script,
 				'rule' => $include,
-			);
+			];
 		}
 	}
 

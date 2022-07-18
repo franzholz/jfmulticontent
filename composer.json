@@ -27,8 +27,8 @@
     "GPL-2.0-or-later"
   ],
   "require": {
-    "php": "^7.2",
-    "typo3/cms-core": "^7.6 || ^8.7 || ^9.5 || ^10.4"
+    "php": "^7.4 || ^8.0",
+    "typo3/cms-core": "^9.5 || ^10.4 || ^11.5"
   },
   "suggest": {
     "friendsoftypo3/typo3db-legacy": "^1.0"
@@ -43,7 +43,6 @@
     ]
   },
   "replace": {
-    "jambagecom/jfmulticontent": "self.version",
     "typo3-ter/jfmulticontent": "self.version"
   },
   "extra": {

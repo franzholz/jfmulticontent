@@ -51,10 +51,10 @@ class CmsBackend
 			$data = GeneralUtility::xml2array($params['row']['pi_flexform']);
 
 			if (is_array($data) && $data['data']['s_general']['lDEF']['style']['vDEF']) {
-				$result = sprintf($GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/locallang.xml:cms_layout.style'), '<strong>' . $data['data']['s_general']['lDEF']['style']['vDEF'] . '</strong><br/>');
+				$result = sprintf($GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/Resources/Private/Language/locallang.xlf:cms_layout.style'), '<strong>' . $data['data']['s_general']['lDEF']['style']['vDEF'] . '</strong><br/>');
 			}
 			if (!$result) {
-				$result = $GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/locallang.xml:cms_layout.not_configured') . '<br/>';
+				$result = $GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/Resources/Private/Language/locallang.xlf:cms_layout.not_configured') . '<br/>';
 			}
 		}
 

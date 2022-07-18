@@ -20,9 +20,6 @@ openExternalLink = 0
 # cat=basic/enable/070; type=boolean; label=Show empty content: If set, an empty content will be shown as well
 showEmptyContent = 0
 
-# cat=basic/enable/080; type=boolean; label=Add Browse Links: If set, there will be an additional tab in the link-browser
-addBrowseLinks = 0
-
 # cat=basic/enable/090; type=boolean; label=Select tab by Hash-Value: If set, the tabs can be selected by hash-value in URL
 tabSelectByHash = 0
 

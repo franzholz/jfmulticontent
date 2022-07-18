@@ -10,6 +10,9 @@ call_user_func(function () {
     $GLOBALS['TCA'][$table]['types']['list']['subtypes_excludelist'][$listType] = 'layout,select_key,pages';
     $GLOBALS['TCA'][$table]['types']['list']['subtypes_addlist'][$listType] = 'tx_jfmulticontent_view,tx_jfmulticontent_pages,tx_jfmulticontent_contents,tx_jfmulticontent_irre,pi_flexform';
     // Add reload field to tt_content
+    if (!isset($GLOBALS['TCA'][$table]['ctrl']['requestUpdate'])) {
+        $GLOBALS['TCA'][$table]['ctrl']['requestUpdate'] = '';
+    }
     $GLOBALS['TCA'][$table]['ctrl']['requestUpdate'] .= ($GLOBALS['TCA'][$table]['ctrl']['requestUpdate'] ? ',' : '') . 'tx_jfmulticontent_view';
 
     $confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT];
@@ -18,7 +21,7 @@ call_user_func(function () {
     if (!isset($GLOBALS['TCA'][$table]['columns']['colPos']['config']['items'][$colPosOfIrreContent])) {
         // Add the new colPos to the array, only if the ID does not exist...
         $GLOBALS['TCA'][$table]['columns']['colPos']['config']['items'][$colPosOfIrreContent] = [
-                'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.colPosOfIrreContent',
+                'LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.colPosOfIrreContent',
                 $colPosOfIrreContent
         ];
     //     $GLOBALS['TCA']['tt_content']['columns']['colPos']['config']['disableNoMatchingValueElement'] = 1; // I have commented this out.
@@ -28,7 +31,7 @@ call_user_func(function () {
         'tx_jfmulticontent_view' => [
             'exclude' => 1,
             'onChange' => 'reload',
-            'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.view',
+            'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.view',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -36,9 +39,9 @@ call_user_func(function () {
                 'maxitems' => 1,
                 'default' => 'content',
                 'items' => [
-                    ['LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.view.I.0', 'content'],
-                    ['LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.view.I.1', 'page'],
-                    ['LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.view.I.2', 'irre'],
+                    ['LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.view.I.0', 'content'],
+                    ['LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.view.I.1', 'page'],
+                    ['LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.view.I.2', 'irre'],
                 ],
                 'itemsProcFunc' => \JambageCom\Jfmulticontent\Hooks\ItemsProcFunc::class . '->getViews',
             ]
@@ -46,7 +49,7 @@ call_user_func(function () {
         'tx_jfmulticontent_pages' => [
             'exclude' => 1,
             'displayCond' => 'FIELD:tx_jfmulticontent_view:IN:page',
-            'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.pages',
+            'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.pages',
             'config' => [
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -64,7 +67,7 @@ call_user_func(function () {
         'tx_jfmulticontent_irre' => [
             'exclude' => 1,
             'displayCond' => 'FIELD:tx_jfmulticontent_view:IN:irre',
-            'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.irre',
+            'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.irre',
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tt_content',
@@ -106,7 +109,7 @@ call_user_func(function () {
         $temporaryColumns['tx_jfmulticontent_contents'] = [
             'exclude' => 1,
             'displayCond' => 'FIELD:tx_jfmulticontent_view:IN:content',
-            'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents',
+            'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.contents',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
@@ -120,7 +123,7 @@ call_user_func(function () {
                     'editPopup' => [ 
                         'disabled' => false,
                         'options' => [
-                            'title'  => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents_edit'
+                            'title'  => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.contents_edit'
                         ]
                     ],
                     'addRecord' => [ 
@@ -136,7 +139,7 @@ call_user_func(function () {
         $temporaryColumns['tx_jfmulticontent_contents'] = [
             'exclude' => 1,
             'displayCond' => 'FIELD:tx_jfmulticontent_view:IN:content',
-            'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents',
+            'label' => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.contents',
             'config' => [
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -157,13 +160,13 @@ call_user_func(function () {
                         'disabled' => $confArr['useStoragePidOnly'] == '1',
                         'pid' => '###PAGE_TSCONFIG_ID###',
                         'options' => [
-                            'title'  => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents_add'
+                            'title'  => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.contents_add'
                         ]
                     ],
                     'editPopup' => [
                         'disabled' => false,
                         'options' => [
-                            'title'  => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.tx_jfmulticontent.contents_edit'
+                            'title'  => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.contents_edit'
                         ]
                     ],
                     'listModule' => [
@@ -180,13 +183,12 @@ call_user_func(function () {
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
         [
-            'LLL:EXT:' . JFMULTICONTENT_EXT . '/locallang_db.xml:tt_content.list_type_pi1',
+            'LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
             $listType,
             'EXT:' . JFMULTICONTENT_EXT . '/ext_icon.gif'
         ],
         'list_type',
         JFMULTICONTENT_EXT
     );
-
 });
 

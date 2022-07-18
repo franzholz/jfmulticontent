@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="messages" date="2022-07-18T15:21:09Z" product-name="jfmulticontent">
+	<file source-language="en" datatype="plaintext" original="EXT:jfmulticontent/Resources/Private/Language/Pi1/locallang.xlf" date="2022-07-18T15:20:53Z" product-name="jfmulticontent">
+		<header/>
+		<body>
+			<trans-unit id="list_mode_1" resname="list_mode_1" >
+				<source/>
+			</trans-unit>
+			<trans-unit id="slider_start" resname="slider_start" >
+				<source>Go</source>
+			</trans-unit>
+			<trans-unit id="slider_stop" resname="slider_stop" >
+				<source>Stop</source>
+			</trans-unit>
+			<trans-unit id="slider_forward" resname="slider_forward" >
+				<source>&amp;raquo;</source>
+			</trans-unit>
+			<trans-unit id="slider_back" resname="slider_back" >
+				<source>&amp;laquo;</source>
+			</trans-unit>
+			<trans-unit id="slider_panel" resname="slider_panel" >
+				<source>Panel %i%</source>
+			</trans-unit>
+			<trans-unit id="default_quote_title_template" resname="default_quote_title_template" >
+				<source>###TITLE###</source>
+			</trans-unit>
+			<trans-unit id="tab_quote_title_template" resname="tab_quote_title_template" >
+				<source>###TITLE###</source>
+			</trans-unit>
+			<trans-unit id="accordion_quote_title_template" resname="accordion_quote_title_template" >
+				<source>###TITLE###</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -8,7 +8,7 @@ $EM_CONF[$_EXTKEY] = [
     'title' => 'Multiple Content',
     'description' => 'Arranges multiple contents into one content element with multiple columns, accordions, tabs, slider, slidedeck, easyAccordion or Booklet. This extension will also extend tt_news with two new lists.',
     'category' => 'plugin',
-    'version' => '2.11.5',
+    'version' => '2.12.0',
     'state' => 'stable',
     'clearcacheonload' => 1,
     'author' => 'Franz Holzinger, Jürgen Furrer',
@@ -16,8 +16,8 @@ $EM_CONF[$_EXTKEY] = [
     'author_company' => '',
     'constraints' => [
         'depends' => [
-            'php' => '7.2.0-7.4.99',
-            'typo3' => '7.6.0-10.4.99'
+            'php' => '7.4.0-8.1.99',
+            'typo3' => '9.5.0-11.5.99'
         ],
         'conflicts' => [
         ],
