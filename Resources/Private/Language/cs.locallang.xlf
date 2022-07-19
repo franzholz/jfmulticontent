@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:jfmulticontent/Resources/Private/Language/locallang.xlf" date="2022-07-18T15:20:53Z" product-name="jfmulticontent" target-language="cs">
+    <header/>
+    <body>
+      <trans-unit id="pi1_title" resname="pi1_title">
+        <source>Multiple Content</source>
+        <target state="needs-translation">Multiple Content</target>
+      </trans-unit>
+      <trans-unit id="pi1_plus_wiz_description" resname="pi1_plus_wiz_description">
+        <source>Create a multiple content</source>
+        <target state="needs-translation">Create a multiple content</target>
+      </trans-unit>
+      <trans-unit id="cms_layout.style" resname="cms_layout.style">
+        <source>Display: %s</source>
+        <target state="needs-translation">Display: %s</target>
+      </trans-unit>
+      <trans-unit id="cms_layout.not_configured" resname="cms_layout.not_configured">
+        <source>Plugin is not configured!</source>
+        <target state="needs-translation">Plugin is not configured!</target>
+      </trans-unit>
+      <trans-unit id="extmng.updatermsgHeader" resname="extmng.updatermsgHeader">
+        <source>Important!</source>
+        <target state="needs-translation">Important!</target>
+      </trans-unit>
+      <trans-unit id="extmng.updatermsgInstall" resname="extmng.updatermsgInstall">
+        <source>jfmulticontent comes with a new updater-script which fixes old content elements. You have to run this script once in the Install Tool, if you are updating from an older installation.</source>
+        <target state="needs-translation">jfmulticontent comes with a new updater-script which fixes old content elements. You have to run this script once in the Install Tool, if you are updating from an older installation.</target>
+      </trans-unit>
+      <trans-unit id="updater.back" resname="updater.back">
+        <source>[&lt;- back]</source>
+        <target state="needs-translation">[&lt;- back]</target>
+      </trans-unit>
+      <trans-unit id="updater.reload" resname="updater.reload">
+        <source>[reload this page]</source>
+        <target state="needs-translation">[reload this page]</target>
+      </trans-unit>
+      <trans-unit id="updater.warningHeader" resname="updater.warningHeader">
+        <source>Important! Please Read!</source>
+        <target state="needs-translation">Important! Please Read!</target>
+      </trans-unit>
+      <trans-unit id="updater.nothingtodo" resname="updater.nothingtodo">
+        <source>Nothing to do</source>
+        <target state="needs-translation">Nothing to do</target>
+      </trans-unit>
+      <trans-unit id="updater.actions" resname="updater.actions">
+        <source>Actions:</source>
+        <target state="needs-translation">Actions:</target>
+      </trans-unit>
+      <trans-unit id="updater.updateresults" resname="updater.updateresults">
+        <source>Update results:</source>
+        <target state="needs-translation">Update results:</target>
+      </trans-unit>
+      <trans-unit id="updater.warningMsg" resname="updater.warningMsg" xml:space="preserve">
+				<source>
+				The updater manipulates your database and due to the huge amount of configuration variants it is 
+				possible that it &lt;br&gt;might not produce the expected results.&lt;br&gt;
+				So backup your database (at least the table tt_content) or do a t3d export of your site 
+				&lt;strong&gt;BEFORE&lt;/strong&gt; &lt;br&gt;
+				you click on any of the &quot;DO IT&quot; Buttons.
+			</source>
+			<target state="needs-translation">
+				The updater manipulates your database and due to the huge amount of configuration variants it is 
+				possible that it &lt;br&gt;might not produce the expected results.&lt;br&gt;
+				So backup your database (at least the table tt_content) or do a t3d export of your site 
+				&lt;strong&gt;BEFORE&lt;/strong&gt; &lt;br&gt;
+				you click on any of the "DO IT" Buttons.
+			</target></trans-unit>
+      <trans-unit id="updater.lbl_searchFlexForm" resname="updater.lbl_searchFlexForm">
+        <source>Search &quot;old values&quot; in FF</source>
+        <target state="needs-translation">Search "old values" in FF</target>
+      </trans-unit>
+      <trans-unit id="updater.msg_searchFlexForm" resname="updater.msg_searchFlexForm">
+        <source>Search for jfmulticontent content elements with old values in flexforms (These sheets have been renamed with a prefix s_, or the fields where moved to another sheet):</source>
+        <target state="needs-translation">Search for jfmulticontent content elements with old values in flexforms (These sheets have been renamed with a prefix s_, or the fields where moved to another sheet):</target>
+      </trans-unit>
+      <trans-unit id="updater.foundMsg_searchFlexForm" resname="updater.foundMsg_searchFlexForm">
+        <source>Found ###COUNT### content elements.</source>
+        <target state="needs-translation">Found ###COUNT### content elements.</target>
+      </trans-unit>
+      <trans-unit id="updater.question_searchFlexForm" resname="updater.question_searchFlexForm">
+        <source>Should the updater fix this settings?</source>
+        <target state="needs-translation">Should the updater fix this settings?</target>
+      </trans-unit>
+      <trans-unit id="updater.questionInfo_searchFlexForm" resname="updater.questionInfo_searchFlexForm">
+        <source>(If you click &quot;DO IT&quot; all old fields will be moved to the new flexform sheet)</source>
+        <target state="needs-translation">(If you click "DO IT" all old fields will be moved to the new flexform sheet)</target>
+      </trans-unit>
+      <trans-unit id="updater.lbl_searchWrongStyle" resname="updater.lbl_searchWrongStyle">
+        <source>Search &quot;wrong style&quot; in FF</source>
+        <target state="needs-translation">Search "wrong style" in FF</target>
+      </trans-unit>
+      <trans-unit id="updater.msg_searchWrongStyle" resname="updater.msg_searchWrongStyle">
+        <source>Search for jfmulticontent content elements with wrong style in flexforms:</source>
+        <target state="needs-translation">Search for jfmulticontent content elements with wrong style in flexforms:</target>
+      </trans-unit>
+      <trans-unit id="updater.foundMsg_searchWrongStyle" resname="updater.foundMsg_searchWrongStyle">
+        <source>Found ###COUNT### content elements.</source>
+        <target state="needs-translation">Found ###COUNT### content elements.</target>
+      </trans-unit>
+      <trans-unit id="updater.question_searchWrongStyle" resname="updater.question_searchWrongStyle">
+        <source>Should the updater fix this settings?</source>
+        <target state="needs-translation">Should the updater fix this settings?</target>
+      </trans-unit>
+      <trans-unit id="updater.questionInfo_searchWrongStyle" resname="updater.questionInfo_searchWrongStyle">
+        <source>(If you click &quot;DO IT&quot; the flexform will be fix with the correct style)</source>
+        <target state="needs-translation">(If you click "DO IT" the flexform will be fix with the correct style)</target>
+      </trans-unit>
+      <trans-unit id="updater.lbl_searchWrongLanguage" resname="updater.lbl_searchWrongLanguage">
+        <source>Search &quot;wrong languages&quot; in contentlist</source>
+        <target state="needs-translation">Search "wrong languages" in contentlist</target>
+      </trans-unit>
+      <trans-unit id="updater.msg_searchWrongLanguage" resname="updater.msg_searchWrongLanguage">
+        <source>Search for jfmulticontent content elements with wrong languages in contentlist:</source>
+        <target state="needs-translation">Search for jfmulticontent content elements with wrong languages in contentlist:</target>
+      </trans-unit>
+      <trans-unit id="updater.foundMsg_searchWrongLanguage" resname="updater.foundMsg_searchWrongLanguage">
+        <source>Found ###COUNT### content elements.</source>
+        <target state="needs-translation">Found ###COUNT### content elements.</target>
+      </trans-unit>
+      <trans-unit id="updater.question_searchWrongLanguage" resname="updater.question_searchWrongLanguage">
+        <source>Should the updater fix this settings?</source>
+        <target state="needs-translation">Should the updater fix this settings?</target>
+      </trans-unit>
+      <trans-unit id="updater.questionInfo_searchWrongLanguage" resname="updater.questionInfo_searchWrongLanguage">
+        <source>(If you click &quot;DO IT&quot; the contentlist will be fix with the default language)</source>
+        <target state="needs-translation">(If you click "DO IT" the contentlist will be fix with the default language)</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
