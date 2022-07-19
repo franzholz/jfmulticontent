@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="en" datatype="plaintext" original="EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf" date="2022-07-18T15:21:02Z" product-name="jfmulticontent" target-language="zh-TW">
+  <file source-language="en" datatype="plaintext" original="EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf" date="2022-07-18T15:21:02Z" product-name="jfmulticontent" target-language="zh-CN">
     <header/>
     <body>
       <trans-unit id="tt_content.list_type_pi1" resname="tt_content.list_type_pi1">
