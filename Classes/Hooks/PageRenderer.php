@@ -142,11 +142,7 @@ class PageRenderer
 					// Theres no possibility to add conditions for IE by pagerenderer, so this will be added in additionalHeaderData
                     $headerKey = 'cssFile_' . $this->extKey . '_' . $file;
                     $headerData = '<!--[if ' . $cssToLoad['rule'] . ']><link rel="stylesheet" type="text/css" href="' . $file . '" media="all" /><![endif]-->' . CRLF;
-                    if (version_compare(TYPO3_version, '9.5.0', '>=')) {
-                        $pageRenderer->addHeaderData($headerData);
-                    } else {
-                        $GLOBALS['TSFE']->additionalHeaderData[$headerKey] = $headerData;
-					}
+                    $pageRenderer->addHeaderData($headerData);
 				} else {
                     $logger = $this->getLogger();
                     $logger->error('File "' . $cssToLoad['file'] . '" does not exist!', []);
@@ -172,14 +168,8 @@ class PageRenderer
 	public function getPath($path) {
         $result = '';
         if ($path != '') {
-            if (
-                version_compare(TYPO3_version, '9.4.0', '>=')
-            ) {
-                $sanitizer = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\Resource\FilePathSanitizer::class);
-                $result = $sanitizer->sanitize($path);
-            } else {
-                $result = $GLOBALS['TSFE']->tmpl->getFileName($path);
-            }
+            $sanitizer = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\Resource\FilePathSanitizer::class);
+            $result = $sanitizer->sanitize($path);
         }
 
 		return $result;

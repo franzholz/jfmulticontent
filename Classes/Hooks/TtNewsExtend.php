@@ -228,14 +228,8 @@ class TtNewsExtend
 	public function getPath($path) {
         $result = '';
         if ($path != '') {
-            if (
-                version_compare(TYPO3_version, '9.4.0', '>=')
-            ) {
-                $sanitizer = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\Resource\FilePathSanitizer::class);
-                $result = $sanitizer->sanitize($path);
-            } else {
-                $result = $GLOBALS['TSFE']->tmpl->getFileName($path);
-            }
+            $sanitizer = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\Resource\FilePathSanitizer::class);
+            $result = $sanitizer->sanitize($path);
         }
 
 		return $result;

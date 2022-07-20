@@ -95,17 +95,9 @@ class TsparserExtensionUpdate
             unset($confDefault[$key]);
         }
     
-        $extensionConfiguration = [];
-
-        if (
-            version_compare(TYPO3_version, '9.0.0', '>=')
-        ) {
-            $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-                \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
-            )->get('jfmulticontent');
-        } else {
-            $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['jfmulticontent']);
-        }
+        $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+            \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
+        )->get('jfmulticontent');
 
 		$confArr = $extensionConfiguration;
 		foreach ($confDefault as $val) {

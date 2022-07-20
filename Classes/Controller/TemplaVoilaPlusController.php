@@ -46,48 +46,32 @@ class TemplaVoilaPlusController
 
         $row = NULL;
         if ($tsfe->sys_language_content) {
-            if (
-                version_compare(TYPO3_version, '9.0.0', '>=')
-            ) {
-                // SELECT * FROM `pages_language_overlay` WHERE `deleted`=0 AND `hidden`=0 AND `pid`=<mypid> AND `sys_language_uid`=<mylanguageid>
-                $queryBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)->getQueryBuilderForTable('pages_language_overlay');
-                $queryBuilder->setRestrictions(GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer::class));
-                $row = $queryBuilder->select('*')
-                    ->from('pages_language_overlay')
-                    ->where(
-                        $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($pageID, \PDO::PARAM_INT))
-                    )
-                    ->andWhere(
-                        $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter($tsfe->sys_language_content, \PDO::PARAM_INT))
-                    )
-                    ->execute()
-                    ->fetchAll();
-            } else {
-                $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery('*', 'pages_language_overlay', 'deleted=0 AND hidden=0 AND pid=' . intval($pageID) . ' AND sys_language_uid=' . $tsfe->sys_language_content, '', '', 1);
-                $row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res);
-                $GLOBALS['TYPO3_DB']->sql_free_result($res);
-            }
+            // SELECT * FROM `pages_language_overlay` WHERE `deleted`=0 AND `hidden`=0 AND `pid`=<mypid> AND `sys_language_uid`=<mylanguageid>
+            $queryBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)->getQueryBuilderForTable('pages_language_overlay');
+            $queryBuilder->setRestrictions(GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer::class));
+            $row = $queryBuilder->select('*')
+                ->from('pages_language_overlay')
+                ->where(
+                    $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($pageID, \PDO::PARAM_INT))
+                )
+                ->andWhere(
+                    $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter($tsfe->sys_language_content, \PDO::PARAM_INT))
+                )
+                ->execute()
+                ->fetchAll();
         }
 
         if (!is_array($row)) {
-            if (
-                version_compare(TYPO3_version, '9.0.0', '>=')
-            ) {
-                // SELECT * FROM `pages` WHERE `deleted`=0 AND `hidden`=0 AND `uid`=<mypid> 
-                $queryBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)->getQueryBuilderForTable('pages');
-                $queryBuilder->setRestrictions(GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer::class));
-                $row = $queryBuilder->select('*')
-                    ->from('pages')
-                    ->where(
-                        $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($pageID, \PDO::PARAM_INT))
-                    )
-                    ->execute()
-                    ->fetchAll();
-            } else {
-                $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery('*', 'pages', 'deleted=0 AND hidden=0 AND uid='.intval($pageID), '', '', 1);
-                $row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res);
-                $GLOBALS['TYPO3_DB']->sql_free_result($res);
-            }
+            // SELECT * FROM `pages` WHERE `deleted`=0 AND `hidden`=0 AND `uid`=<mypid> 
+            $queryBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)->getQueryBuilderForTable('pages');
+            $queryBuilder->setRestrictions(GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer::class));
+            $row = $queryBuilder->select('*')
+                ->from('pages')
+                ->where(
+                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($pageID, \PDO::PARAM_INT))
+                )
+                ->execute()
+                ->fetchAll();
         }
 
         if (is_array($row)) {

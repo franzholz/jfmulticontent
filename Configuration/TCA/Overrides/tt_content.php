@@ -97,14 +97,7 @@ call_user_func(function () {
 
     if ($confArr['useStoragePidOnly']) {
 
-        $foreignTableWhere = '';
-        if (
-            version_compare(TYPO3_version, '9.0.0', '>=')
-        ) {
-            $foreignTableWhere = 'AND {#tt_content}.{#pid} = ###PAGE_TSCONFIG_ID### AND {#tt_content}.{#hidden} = 0 AND {#tt_content}.{#deleted} = 0 AND {#tt_content}.{#sys_language_uid} IN (0,-1) ORDER BY tt_content.uid';
-        } else {
-            $foreignTableWhere = 'AND tt_content.pid=###PAGE_TSCONFIG_ID### AND tt_content.hidden=0 AND tt_content.deleted=0 AND tt_content.sys_language_uid IN (0,-1) ORDER BY tt_content.uid';
-        }
+        $foreignTableWhere = 'AND {#tt_content}.{#pid} = ###PAGE_TSCONFIG_ID### AND {#tt_content}.{#hidden} = 0 AND {#tt_content}.{#deleted} = 0 AND {#tt_content}.{#sys_language_uid} IN (0,-1) ORDER BY tt_content.uid';
 
         $temporaryColumns['tx_jfmulticontent_contents'] = [
             'exclude' => 1,

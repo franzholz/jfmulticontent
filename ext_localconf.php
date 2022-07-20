@@ -11,17 +11,9 @@ call_user_func(function () {
         define('T3JQUERY', false);
     }
 
-    $extensionConfiguration = [];
-
-    if (isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][JFMULTICONTENT_EXT])) {
-        $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][JFMULTICONTENT_EXT]);
-    } else if (
-        version_compare(TYPO3_version, '9.0.0', '>=')
-    ) {
-        $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-            \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
-        )->get(JFMULTICONTENT_EXT);
-    }
+    $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+        \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
+    )->get(JFMULTICONTENT_EXT);
     $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT] = $extensionConfiguration;
 
     if ($extensionConfiguration['ttNewsCodes']) {
@@ -62,22 +54,18 @@ call_user_func(function () {
         1
     );
     
-    if (
-        version_compare(TYPO3_version, '9.0.0', '>=')
-    ) {
-        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][JFMULTICONTENT_EXT . 'MigrateFlexformSheetIdentifierUpdate'] =
-        \JambageCom\Jfmulticontent\Updates\MigrateFlexformSheetIdentifierUpdate::class;
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][JFMULTICONTENT_EXT . 'MigrateFlexformSheetIdentifierUpdate'] =
+    \JambageCom\Jfmulticontent\Updates\MigrateFlexformSheetIdentifierUpdate::class;
 
-        $GLOBALS['TYPO3_CONF_VARS']['LOG']['JambageCom']['Jfmulticontent'] = [
-            'writerConfiguration' => [
-                \TYPO3\CMS\Core\Log\LogLevel::DEBUG => [
-                    \JambageCom\Jfmulticontent\Log\Writer\FileWriter::class => [
-                        'mode' => $extensionConfiguration['FILEWRITER']
-                    ]
+    $GLOBALS['TYPO3_CONF_VARS']['LOG']['JambageCom']['Jfmulticontent'] = [
+        'writerConfiguration' => [
+            \TYPO3\CMS\Core\Log\LogLevel::DEBUG => [
+                \JambageCom\Jfmulticontent\Log\Writer\FileWriter::class => [
+                    'mode' => $extensionConfiguration['FILEWRITER']
                 ]
-            ],
-        ];
-    }
+            ]
+        ],
+    ];
 });
 
 
