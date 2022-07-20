@@ -49,7 +49,7 @@
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sheet_general" resname="tt_content.tx_jfmulticontent.sheet_general">
         <source>General</source>
-        <target state="needs-translation">General</target>
+        <target state="translated">Allgemein</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style" resname="tt_content.tx_jfmulticontent.style">
         <source>Style</source>
@@ -81,7 +81,7 @@
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style.I.5" resname="tt_content.tx_jfmulticontent.style.I.5">
         <source>Slider</source>
-        <target state="needs-translation">Slider</target>
+        <target state="translated">Slider</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style.I.7" resname="tt_content.tx_jfmulticontent.style.I.7">
         <source>SlideDeck</source>
@@ -149,7 +149,7 @@
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sheet_title" resname="tt_content.tx_jfmulticontent.sheet_title">
         <source>Title</source>
-        <target state="needs-translation">Title</target>
+        <target state="translated">Titel</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.titles" resname="tt_content.tx_jfmulticontent.titles">
         <source>Overwrite titles (One title per line)</source>
@@ -209,11 +209,11 @@
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabHideEffect.I.2" resname="tt_content.tx_jfmulticontent.tabHideEffect.I.2">
         <source>fade</source>
-        <target state="needs-translation">fade</target>
+        <target state="translated">überblenden</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabHideEffect.I.3" resname="tt_content.tx_jfmulticontent.tabHideEffect.I.3">
         <source>slide</source>
-        <target state="needs-translation">slide</target>
+        <target state="translated">slide</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabHideTransition" resname="tt_content.tx_jfmulticontent.tabHideTransition">
         <source>Hide transition</source>
@@ -237,11 +237,11 @@
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabShowEffect.I.2" resname="tt_content.tx_jfmulticontent.tabShowEffect.I.2">
         <source>fade</source>
-        <target state="needs-translation">fade</target>
+        <target state="translated">überblenden</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabShowEffect.I.3" resname="tt_content.tx_jfmulticontent.tabShowEffect.I.3">
         <source>slide</source>
-        <target state="needs-translation">slide</target>
+        <target state="translated">slide</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabShowTransition" resname="tt_content.tx_jfmulticontent.tabShowTransition">
         <source>Show transition</source>
@@ -265,7 +265,7 @@
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabEvent.I.2" resname="tt_content.tx_jfmulticontent.tabEvent.I.2">
         <source>Mouseover</source>
-        <target state="needs-translation">Mouseover</target>
+        <target state="translated">Darüberfahren der Maus</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabHeightStyle" resname="tt_content.tx_jfmulticontent.tabHeightStyle">
         <source>Height Style</source>
@@ -293,11 +293,11 @@
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabCookieExpires" resname="tt_content.tx_jfmulticontent.tabCookieExpires">
         <source>Cookie expiration (If set, the &quot;opened&quot; option will be ignored)</source>
-        <target state="needs-translation">Cookie expiration (If set, the "opened" option will be ignored)</target>
+        <target state="translated">Cookie-Ablaufdatum (wenn gesetzt, wird die Option "geöffnet" ignoriert)</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabCookieRoot" resname="tt_content.tx_jfmulticontent.tabCookieRoot">
         <source>Set cookie path to root &quot;/&quot;</source>
-        <target state="needs-translation">Set cookie path to root "/"</target>
+        <target state="translated">Cookie-Pfad zu root "/" setzen</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionAutoHeight" resname="tt_content.tx_jfmulticontent.accordionAutoHeight">
         <source>Auto height</source>
@@ -329,7 +329,7 @@
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionEvent.I.1" resname="tt_content.tx_jfmulticontent.accordionEvent.I.1">
         <source>Click</source>
-        <target state="needs-translation">Click</target>
+        <target state="translated">Klick</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionEvent.I.2" resname="tt_content.tx_jfmulticontent.accordionEvent.I.2">
         <source>Mouseover</source>
