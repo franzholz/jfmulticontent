@@ -3,85 +3,85 @@
   <file source-language="en" datatype="plaintext" original="EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf" date="2022-07-18T15:21:02Z" product-name="jfmulticontent" target-language="de">
     <header/>
     <body>
-      <trans-unit id="tt_content.list_type_pi1" resname="tt_content.list_type_pi1">
+      <trans-unit id="tt_content.list_type_pi1" resname="tt_content.list_type_pi1" approved="yes">
         <source>Multiple Content</source>
-        <target state="translated">Mehrfache Inhaltselemente</target>
+        <target state="final">Mehrfache Inhaltselemente</target>
       </trans-unit>
-      <trans-unit id="tt_content.colPosOfIrreContent" resname="tt_content.colPosOfIrreContent">
+      <trans-unit id="tt_content.colPosOfIrreContent" resname="tt_content.colPosOfIrreContent" approved="yes">
         <source>Multiple Content</source>
-        <target state="translated">Mehrfache Inhaltselemente</target>
+        <target state="final">Mehrfache Inhaltselemente</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.view" resname="tt_content.tx_jfmulticontent.view">
+      <trans-unit id="tt_content.tx_jfmulticontent.view" resname="tt_content.tx_jfmulticontent.view" approved="yes">
         <source>View</source>
-        <target state="translated">Ansicht</target>
+        <target state="final">Ansicht</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.view.I.0" resname="tt_content.tx_jfmulticontent.view.I.0">
+      <trans-unit id="tt_content.tx_jfmulticontent.view.I.0" resname="tt_content.tx_jfmulticontent.view.I.0" approved="yes">
         <source>Contents</source>
-        <target state="translated">Inhalte</target>
+        <target state="final">Inhalte</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.view.I.1" resname="tt_content.tx_jfmulticontent.view.I.1">
+      <trans-unit id="tt_content.tx_jfmulticontent.view.I.1" resname="tt_content.tx_jfmulticontent.view.I.1" approved="yes">
         <source>Pages</source>
-        <target state="translated">Seiten</target>
+        <target state="final">Seiten</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.view.I.2" resname="tt_content.tx_jfmulticontent.view.I.2">
+      <trans-unit id="tt_content.tx_jfmulticontent.view.I.2" resname="tt_content.tx_jfmulticontent.view.I.2" approved="yes">
         <source>Inline content</source>
-        <target state="translated">Inline-Inhalte</target>
+        <target state="final">Inline-Inhalte</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.pages" resname="tt_content.tx_jfmulticontent.pages">
+      <trans-unit id="tt_content.tx_jfmulticontent.pages" resname="tt_content.tx_jfmulticontent.pages" approved="yes">
         <source>Pages to display</source>
-        <target state="translated">Anzuzeigende Seiten</target>
+        <target state="final">Anzuzeigende Seiten</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.contents" resname="tt_content.tx_jfmulticontent.contents">
+      <trans-unit id="tt_content.tx_jfmulticontent.contents" resname="tt_content.tx_jfmulticontent.contents" approved="yes">
         <source>Contents to display</source>
-        <target state="translated">Inhalte zum anzeigen</target>
+        <target state="final">Inhalte zum Anzeigen</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.irre" resname="tt_content.tx_jfmulticontent.irre">
+      <trans-unit id="tt_content.tx_jfmulticontent.irre" resname="tt_content.tx_jfmulticontent.irre" approved="yes">
         <source>Insert inline content</source>
-        <target state="translated">Inline-Inhalt einfügen</target>
+        <target state="final">Inline-Inhalt einfügen</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.contents_add" resname="tt_content.tx_jfmulticontent.contents_add">
+      <trans-unit id="tt_content.tx_jfmulticontent.contents_add" resname="tt_content.tx_jfmulticontent.contents_add" approved="yes">
         <source>Create new record</source>
-        <target state="translated">Neuer Eintrag erstellen</target>
+        <target state="final">Neuen Eintrag erstellen</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.contents_edit" resname="tt_content.tx_jfmulticontent.contents_edit">
+      <trans-unit id="tt_content.tx_jfmulticontent.contents_edit" resname="tt_content.tx_jfmulticontent.contents_edit" approved="yes">
         <source>Edit</source>
-        <target state="translated">Editieren</target>
+        <target state="final">Bearbeiten</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.sheet_general" resname="tt_content.tx_jfmulticontent.sheet_general">
+      <trans-unit id="tt_content.tx_jfmulticontent.sheet_general" resname="tt_content.tx_jfmulticontent.sheet_general" approved="yes">
         <source>General</source>
-        <target state="translated">Allgemein</target>
+        <target state="final">Allgemein</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.style" resname="tt_content.tx_jfmulticontent.style">
+      <trans-unit id="tt_content.tx_jfmulticontent.style" resname="tt_content.tx_jfmulticontent.style" approved="yes">
         <source>Style</source>
-        <target state="translated">Anzeige</target>
+        <target state="final">Anzeige</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.style.I.0" resname="tt_content.tx_jfmulticontent.style.I.0">
+      <trans-unit id="tt_content.tx_jfmulticontent.style.I.0" resname="tt_content.tx_jfmulticontent.style.I.0" approved="yes">
         <source>2 columns</source>
-        <target state="translated">2 Spalten</target>
+        <target state="final">2 Spalten</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.style.I.1" resname="tt_content.tx_jfmulticontent.style.I.1">
+      <trans-unit id="tt_content.tx_jfmulticontent.style.I.1" resname="tt_content.tx_jfmulticontent.style.I.1" approved="yes">
         <source>3 columns</source>
-        <target state="translated">3 Spalten</target>
+        <target state="final">3 Spalten</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.style.I.2" resname="tt_content.tx_jfmulticontent.style.I.2">
+      <trans-unit id="tt_content.tx_jfmulticontent.style.I.2" resname="tt_content.tx_jfmulticontent.style.I.2" approved="yes">
         <source>4 columns</source>
-        <target state="translated">4 Spalten</target>
+        <target state="final">4 Spalten</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.style.I.6" resname="tt_content.tx_jfmulticontent.style.I.6">
+      <trans-unit id="tt_content.tx_jfmulticontent.style.I.6" resname="tt_content.tx_jfmulticontent.style.I.6" approved="yes">
         <source>5 columns</source>
-        <target state="translated">5 Spalten</target>
+        <target state="final">5 Spalten</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.style.I.3" resname="tt_content.tx_jfmulticontent.style.I.3">
+      <trans-unit id="tt_content.tx_jfmulticontent.style.I.3" resname="tt_content.tx_jfmulticontent.style.I.3" approved="yes">
         <source>Tabs</source>
-        <target state="translated">Tabulator</target>
+        <target state="final">Tabulator</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.style.I.4" resname="tt_content.tx_jfmulticontent.style.I.4">
+      <trans-unit id="tt_content.tx_jfmulticontent.style.I.4" resname="tt_content.tx_jfmulticontent.style.I.4" approved="yes">
         <source>Accordion</source>
-        <target state="translated">Akkordeon</target>
+        <target state="final">Akkordeon</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style.I.5" resname="tt_content.tx_jfmulticontent.style.I.5">
         <source>Slider</source>
-        <target state="translated">Slider</target>
+        <target state="translated">Schieberegler</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style.I.7" resname="tt_content.tx_jfmulticontent.style.I.7">
         <source>SlideDeck</source>
@@ -93,179 +93,179 @@
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style.I.9" resname="tt_content.tx_jfmulticontent.style.I.9">
         <source>Booklet</source>
-        <target state="needs-translation">Booklet</target>
+        <target state="translated">Broschüre</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style.I.10" resname="tt_content.tx_jfmulticontent.style.I.10">
         <source>TypoScript</source>
-        <target state="needs-translation">TypoScript</target>
+        <target state="translated">TypoScript</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.columnOrder" resname="tt_content.tx_jfmulticontent.columnOrder">
+      <trans-unit id="tt_content.tx_jfmulticontent.columnOrder" resname="tt_content.tx_jfmulticontent.columnOrder" approved="yes">
         <source>Column Order</source>
-        <target state="translated">Spaltensortierung</target>
+        <target state="final">Spaltensortierung</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.0" resname="tt_content.tx_jfmulticontent.columnOrder.I.0">
+      <trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.0" resname="tt_content.tx_jfmulticontent.columnOrder.I.0" approved="yes">
         <source>only one row (no repeat)</source>
-        <target state="translated">nur eine Zeile (keine Wiederholung)</target>
+        <target state="final">nur eine Zeile (keine Wiederholung)</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.1" resname="tt_content.tx_jfmulticontent.columnOrder.I.1">
+      <trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.1" resname="tt_content.tx_jfmulticontent.columnOrder.I.1" approved="yes">
         <source>left to right, top to down</source>
-        <target state="translated">links nach rechts, oben nach unten</target>
+        <target state="final">links nach rechts, oben nach unten</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.2" resname="tt_content.tx_jfmulticontent.columnOrder.I.2">
+      <trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.2" resname="tt_content.tx_jfmulticontent.columnOrder.I.2" approved="yes">
         <source>right to left, top to down</source>
-        <target state="translated">rechts nach links, oben nach unten</target>
+        <target state="final">rechts nach links, oben nach unten</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.3" resname="tt_content.tx_jfmulticontent.columnOrder.I.3">
+      <trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.3" resname="tt_content.tx_jfmulticontent.columnOrder.I.3" approved="yes">
         <source>top to down, left to right</source>
-        <target state="translated">oben nach unten, links nach rechts</target>
+        <target state="final">oben nach unten, links nach rechts</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.4" resname="tt_content.tx_jfmulticontent.columnOrder.I.4">
+      <trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.4" resname="tt_content.tx_jfmulticontent.columnOrder.I.4" approved="yes">
         <source>top to down, right to left</source>
-        <target state="translated">open nach unten, rechts nach links</target>
+        <target state="final">open nach unten, rechts nach links</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.column1" resname="tt_content.tx_jfmulticontent.column1">
+      <trans-unit id="tt_content.tx_jfmulticontent.column1" resname="tt_content.tx_jfmulticontent.column1" approved="yes">
         <source>Column class 1</source>
-        <target state="translated">Spaltenklasse 1</target>
+        <target state="final">Spaltenklasse 1</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.column2" resname="tt_content.tx_jfmulticontent.column2">
+      <trans-unit id="tt_content.tx_jfmulticontent.column2" resname="tt_content.tx_jfmulticontent.column2" approved="yes">
         <source>Column class 2</source>
-        <target state="translated">Spaltenklasse 2</target>
+        <target state="final">Spaltenklasse 2</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.column3" resname="tt_content.tx_jfmulticontent.column3">
+      <trans-unit id="tt_content.tx_jfmulticontent.column3" resname="tt_content.tx_jfmulticontent.column3" approved="yes">
         <source>Column class 3</source>
-        <target state="translated">Spaltenklasse 3</target>
+        <target state="final">Spaltenklasse 3</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.column4" resname="tt_content.tx_jfmulticontent.column4">
+      <trans-unit id="tt_content.tx_jfmulticontent.column4" resname="tt_content.tx_jfmulticontent.column4" approved="yes">
         <source>Column class 4</source>
-        <target state="translated">Spaltenklasse 4</target>
+        <target state="final">Spaltenklasse 4</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.column5" resname="tt_content.tx_jfmulticontent.column5">
+      <trans-unit id="tt_content.tx_jfmulticontent.column5" resname="tt_content.tx_jfmulticontent.column5" approved="yes">
         <source>Column class 5</source>
-        <target state="translated">Spaltenklasse 5</target>
+        <target state="final">Spaltenklasse 5</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.equalize" resname="tt_content.tx_jfmulticontent.equalize">
+      <trans-unit id="tt_content.tx_jfmulticontent.equalize" resname="tt_content.tx_jfmulticontent.equalize" approved="yes">
         <source>Equalize columns</source>
-        <target state="translated">Spalten angleichen</target>
+        <target state="final">Spalten angleichen</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.sheet_title" resname="tt_content.tx_jfmulticontent.sheet_title">
+      <trans-unit id="tt_content.tx_jfmulticontent.sheet_title" resname="tt_content.tx_jfmulticontent.sheet_title" approved="yes">
         <source>Title</source>
-        <target state="translated">Titel</target>
+        <target state="final">Titel</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.titles" resname="tt_content.tx_jfmulticontent.titles">
+      <trans-unit id="tt_content.tx_jfmulticontent.titles" resname="tt_content.tx_jfmulticontent.titles" approved="yes">
         <source>Overwrite titles (One title per line)</source>
-        <target state="translated">Titel überschreiben (Ein Titel pro Zeile)</target>
+        <target state="final">Titel überschreiben (Ein Titel pro Zeile)</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.sheet_attribute" resname="tt_content.tx_jfmulticontent.sheet_attribute">
+      <trans-unit id="tt_content.tx_jfmulticontent.sheet_attribute" resname="tt_content.tx_jfmulticontent.sheet_attribute" approved="yes">
         <source>Attributes</source>
-        <target state="translated">Attribute</target>
+        <target state="final">Attribute</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.attributes" resname="tt_content.tx_jfmulticontent.attributes">
+      <trans-unit id="tt_content.tx_jfmulticontent.attributes" resname="tt_content.tx_jfmulticontent.attributes" approved="yes">
         <source>Attributes for columns (One set of attributes per line)</source>
-        <target state="translated">Attribute für Spalten (Ein Attributset pro Zeile)</target>
+        <target state="final">Attribute für Spalten (Ein Attributset pro Zeile)</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.sheet_options" resname="tt_content.tx_jfmulticontent.sheet_options">
+      <trans-unit id="tt_content.tx_jfmulticontent.sheet_options" resname="tt_content.tx_jfmulticontent.sheet_options" approved="yes">
         <source>Options</source>
-        <target state="translated">Optionen</target>
+        <target state="final">Optionen</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabCollapsible" resname="tt_content.tx_jfmulticontent.tabCollapsible">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabCollapsible" resname="tt_content.tx_jfmulticontent.tabCollapsible" approved="yes">
         <source>Collapsible</source>
-        <target state="translated">Zusammenklappbar</target>
+        <target state="final">Zusammenklappbar</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabFxHeight" resname="tt_content.tx_jfmulticontent.tabFxHeight">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabFxHeight" resname="tt_content.tx_jfmulticontent.tabFxHeight" approved="yes">
         <source>FX height</source>
-        <target state="translated">Effekt Höhe</target>
+        <target state="final">Effekt Höhe</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabFxOpacity" resname="tt_content.tx_jfmulticontent.tabFxOpacity">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabFxOpacity" resname="tt_content.tx_jfmulticontent.tabFxOpacity" approved="yes">
         <source>FX opacity</source>
-        <target state="translated">Effekt Transparents</target>
+        <target state="final">Effekt Transparents</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabFxDuration" resname="tt_content.tx_jfmulticontent.tabFxDuration">
         <source>FX duration</source>
-        <target state="translated">Effekt länge</target>
+        <target state="translated">Effekt Länge</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabFxDuration.I.0" resname="tt_content.tx_jfmulticontent.tabFxDuration.I.0">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabFxDuration.I.0" resname="tt_content.tx_jfmulticontent.tabFxDuration.I.0" approved="yes">
         <source>Default (Normal)</source>
-        <target state="translated">Standard (Normal)</target>
+        <target state="final">Standard (Normal)</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabFxDuration.I.1" resname="tt_content.tx_jfmulticontent.tabFxDuration.I.1">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabFxDuration.I.1" resname="tt_content.tx_jfmulticontent.tabFxDuration.I.1" approved="yes">
         <source>Slow</source>
-        <target state="translated">Langsam</target>
+        <target state="final">Langsam</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabFxDuration.I.2" resname="tt_content.tx_jfmulticontent.tabFxDuration.I.2">
         <source>Normal</source>
-        <target state="needs-translation">Normal</target>
+        <target state="translated">Normal</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabFxDuration.I.3" resname="tt_content.tx_jfmulticontent.tabFxDuration.I.3">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabFxDuration.I.3" resname="tt_content.tx_jfmulticontent.tabFxDuration.I.3" approved="yes">
         <source>Fast</source>
-        <target state="translated">Schnell</target>
+        <target state="final">Schnell</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabHideEffect" resname="tt_content.tx_jfmulticontent.tabHideEffect">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabHideEffect" resname="tt_content.tx_jfmulticontent.tabHideEffect" approved="yes">
         <source>Hide Effect</source>
-        <target state="translated">Verbergen-Effekt</target>
+        <target state="final">Verbergen-Effekt</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabHideEffect.I.1" resname="tt_content.tx_jfmulticontent.tabHideEffect.I.1">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabHideEffect.I.1" resname="tt_content.tx_jfmulticontent.tabHideEffect.I.1" approved="yes">
         <source>None</source>
-        <target state="translated">Keiner</target>
+        <target state="final">Keiner</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabHideEffect.I.2" resname="tt_content.tx_jfmulticontent.tabHideEffect.I.2">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabHideEffect.I.2" resname="tt_content.tx_jfmulticontent.tabHideEffect.I.2" approved="yes">
         <source>fade</source>
-        <target state="translated">überblenden</target>
+        <target state="final">überblenden</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabHideEffect.I.3" resname="tt_content.tx_jfmulticontent.tabHideEffect.I.3">
         <source>slide</source>
         <target state="translated">slide</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabHideTransition" resname="tt_content.tx_jfmulticontent.tabHideTransition">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabHideTransition" resname="tt_content.tx_jfmulticontent.tabHideTransition" approved="yes">
         <source>Hide transition</source>
-        <target state="translated">Verbergen-Übergang</target>
+        <target state="final">Verbergen-Übergang</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabHideTransitiondir" resname="tt_content.tx_jfmulticontent.tabHideTransitiondir">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabHideTransitiondir" resname="tt_content.tx_jfmulticontent.tabHideTransitiondir" approved="yes">
         <source>Hide transition dircetion</source>
-        <target state="translated">Richtung des Verbergen-Übergangs</target>
+        <target state="final">Richtung des Verbergen-Übergangs</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabHideTransitionduration" resname="tt_content.tx_jfmulticontent.tabHideTransitionduration">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabHideTransitionduration" resname="tt_content.tx_jfmulticontent.tabHideTransitionduration" approved="yes">
         <source>Hide transition duration (in ms)</source>
-        <target state="translated">Dauer des Verbergen-Übergangs (in ms)</target>
+        <target state="final">Dauer des Verbergen-Übergangs (in ms)</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabShowEffect" resname="tt_content.tx_jfmulticontent.tabShowEffect">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabShowEffect" resname="tt_content.tx_jfmulticontent.tabShowEffect" approved="yes">
         <source>Show Effect</source>
-        <target state="translated">Zeigen-Effekt</target>
+        <target state="final">Zeigen-Effekt</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabShowEffect.I.1" resname="tt_content.tx_jfmulticontent.tabShowEffect.I.1">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabShowEffect.I.1" resname="tt_content.tx_jfmulticontent.tabShowEffect.I.1" approved="yes">
         <source>None</source>
-        <target state="translated">Keiner</target>
+        <target state="final">Keiner</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabShowEffect.I.2" resname="tt_content.tx_jfmulticontent.tabShowEffect.I.2">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabShowEffect.I.2" resname="tt_content.tx_jfmulticontent.tabShowEffect.I.2" approved="yes">
         <source>fade</source>
-        <target state="translated">überblenden</target>
+        <target state="final">überblenden</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabShowEffect.I.3" resname="tt_content.tx_jfmulticontent.tabShowEffect.I.3">
         <source>slide</source>
         <target state="translated">slide</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabShowTransition" resname="tt_content.tx_jfmulticontent.tabShowTransition">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabShowTransition" resname="tt_content.tx_jfmulticontent.tabShowTransition" approved="yes">
         <source>Show transition</source>
-        <target state="translated">Zeigen-Übergang</target>
+        <target state="final">Zeigen-Übergang</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabShowTransitiondir" resname="tt_content.tx_jfmulticontent.tabShowTransitiondir">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabShowTransitiondir" resname="tt_content.tx_jfmulticontent.tabShowTransitiondir" approved="yes">
         <source>Show transition dircetion</source>
-        <target state="translated">Richtung des Zeigen-Übergangs</target>
+        <target state="final">Richtung des Zeigen-Übergangs</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabShowTransitionduration" resname="tt_content.tx_jfmulticontent.tabShowTransitionduration">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabShowTransitionduration" resname="tt_content.tx_jfmulticontent.tabShowTransitionduration" approved="yes">
         <source>Show transition duration (in ms)</source>
-        <target state="translated">Dauer des Zeigen-Übergangs (in ms)</target>
+        <target state="final">Dauer des Zeigen-Übergangs (in ms)</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabEvent" resname="tt_content.tx_jfmulticontent.tabEvent">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabEvent" resname="tt_content.tx_jfmulticontent.tabEvent" approved="yes">
         <source>Event</source>
-        <target state="translated">Ereignis</target>
+        <target state="final">Ereignis</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabEvent.I.1" resname="tt_content.tx_jfmulticontent.tabEvent.I.1">
         <source>Click</source>
-        <target state="translated">Klick</target>
+        <target state="translated">Klicken</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabEvent.I.2" resname="tt_content.tx_jfmulticontent.tabEvent.I.2">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabEvent.I.2" resname="tt_content.tx_jfmulticontent.tabEvent.I.2" approved="yes">
         <source>Mouseover</source>
-        <target state="translated">Darüberfahren der Maus</target>
+        <target state="final">Darüberfahren der Maus</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabHeightStyle" resname="tt_content.tx_jfmulticontent.tabHeightStyle">
         <source>Height Style</source>
@@ -279,61 +279,61 @@
         <source>Fill</source>
         <target state="translated">Füllen</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabHeightStyle.I.3" resname="tt_content.tx_jfmulticontent.tabHeightStyle.I.3">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabHeightStyle.I.3" resname="tt_content.tx_jfmulticontent.tabHeightStyle.I.3" approved="yes">
         <source>Content</source>
-        <target state="translated">Inhalt</target>
+        <target state="final">Inhalt</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabOpen" resname="tt_content.tx_jfmulticontent.tabOpen">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabOpen" resname="tt_content.tx_jfmulticontent.tabOpen" approved="yes">
         <source>Opened content</source>
-        <target state="translated">Geöffneter Inhalt</target>
+        <target state="final">Geöffneter Inhalt</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabRandomContent" resname="tt_content.tx_jfmulticontent.tabRandomContent">
         <source>Open random content</source>
-        <target state="translated">Öffne zufälliger Inhalt</target>
+        <target state="translated">Öffne zufälligen Inhalt</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabCookieExpires" resname="tt_content.tx_jfmulticontent.tabCookieExpires">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabCookieExpires" resname="tt_content.tx_jfmulticontent.tabCookieExpires" approved="yes">
         <source>Cookie expiration (If set, the &quot;opened&quot; option will be ignored)</source>
-        <target state="translated">Cookie-Ablaufdatum (wenn gesetzt, wird die Option "geöffnet" ignoriert)</target>
+        <target state="final">Cookie-Ablaufdatum (wenn gesetzt, wird die Option "geöffnet" ignoriert)</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.tabCookieRoot" resname="tt_content.tx_jfmulticontent.tabCookieRoot">
+      <trans-unit id="tt_content.tx_jfmulticontent.tabCookieRoot" resname="tt_content.tx_jfmulticontent.tabCookieRoot" approved="yes">
         <source>Set cookie path to root &quot;/&quot;</source>
-        <target state="translated">Cookie-Pfad zu root "/" setzen</target>
+        <target state="final">Cookie-Pfad zu root "/" setzen</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionAutoHeight" resname="tt_content.tx_jfmulticontent.accordionAutoHeight">
         <source>Auto height</source>
-        <target state="translated">Automatische höhe</target>
+        <target state="translated">Automatische Höhe</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.accordionCollapsible" resname="tt_content.tx_jfmulticontent.accordionCollapsible">
+      <trans-unit id="tt_content.tx_jfmulticontent.accordionCollapsible" resname="tt_content.tx_jfmulticontent.accordionCollapsible" approved="yes">
         <source>Collapsible</source>
-        <target state="translated">Zusammenklappbar</target>
+        <target state="final">Zusammenklappbar</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionClosed" resname="tt_content.tx_jfmulticontent.accordionClosed">
         <source>Closed at startup</source>
-        <target state="translated">Beim start geschlossen</target>
+        <target state="translated">Beim Start geschlossen</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.accordionOpen" resname="tt_content.tx_jfmulticontent.accordionOpen">
+      <trans-unit id="tt_content.tx_jfmulticontent.accordionOpen" resname="tt_content.tx_jfmulticontent.accordionOpen" approved="yes">
         <source>Opened content</source>
-        <target state="translated">Geöffneter Inhalt</target>
+        <target state="final">Geöffneter Inhalt</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionRandomContent" resname="tt_content.tx_jfmulticontent.accordionRandomContent">
         <source>Open random content</source>
-        <target state="translated">Öffne zufälliger Inhalt</target>
+        <target state="translated">Öffne zufälligen Inhalt</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.accordionEvent" resname="tt_content.tx_jfmulticontent.accordionEvent">
+      <trans-unit id="tt_content.tx_jfmulticontent.accordionEvent" resname="tt_content.tx_jfmulticontent.accordionEvent" approved="yes">
         <source>Event</source>
-        <target state="translated">Ereignis</target>
+        <target state="final">Ereignis</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.accordionEvent.I.0" resname="tt_content.tx_jfmulticontent.accordionEvent.I.0">
+      <trans-unit id="tt_content.tx_jfmulticontent.accordionEvent.I.0" resname="tt_content.tx_jfmulticontent.accordionEvent.I.0" approved="yes">
         <source>Default (Click)</source>
-        <target state="translated">Standard</target>
+        <target state="final">Standard</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.accordionEvent.I.1" resname="tt_content.tx_jfmulticontent.accordionEvent.I.1">
+      <trans-unit id="tt_content.tx_jfmulticontent.accordionEvent.I.1" resname="tt_content.tx_jfmulticontent.accordionEvent.I.1" approved="yes">
         <source>Click</source>
-        <target state="translated">Klick</target>
+        <target state="final">Klick</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionEvent.I.2" resname="tt_content.tx_jfmulticontent.accordionEvent.I.2">
         <source>Mouseover</source>
-        <target state="needs-translation">Mouseover</target>
+        <target state="translated">Darüberfahren der Maus</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionHeightStyle" resname="tt_content.tx_jfmulticontent.accordionHeightStyle">
         <source>Height Style</source>
@@ -353,11 +353,11 @@
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionAnimate" resname="tt_content.tx_jfmulticontent.accordionAnimate">
         <source>Animation</source>
-        <target state="needs-translation">Animation</target>
+        <target state="translated">Animation</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionAnimated" resname="tt_content.tx_jfmulticontent.accordionAnimated">
         <source>Animation</source>
-        <target state="needs-translation">Animation</target>
+        <target state="translated">Animation</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionAnimated.I.0" resname="tt_content.tx_jfmulticontent.accordionAnimated.I.0">
         <source>Default (Slide)</source>
@@ -401,7 +401,7 @@
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderTheme" resname="tt_content.tx_jfmulticontent.sliderTheme">
         <source>Theme</source>
-        <target state="needs-translation">Theme</target>
+        <target state="translated">Erscheinungsbild</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderTheme.I.0" resname="tt_content.tx_jfmulticontent.sliderTheme.I.0">
         <source>default</source>
@@ -421,15 +421,15 @@
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderHashTags" resname="tt_content.tx_jfmulticontent.sliderHashTags">
         <source>Change URL (hash tag)</source>
-        <target state="needs-translation">Change URL (hash tag)</target>
+        <target state="translated">URL ändern (Hash-Tag)</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderBuildArrows" resname="tt_content.tx_jfmulticontent.sliderBuildArrows">
         <source>Build Arrows</source>
-        <target state="needs-translation">Build Arrows</target>
+        <target state="translated">Baupfeile</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderToggleArrows" resname="tt_content.tx_jfmulticontent.sliderToggleArrows">
         <source>Toggle Arrows</source>
-        <target state="needs-translation">Toggle Arrows</target>
+        <target state="translated">Pfeile umschalten</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderNavigation" resname="tt_content.tx_jfmulticontent.sliderNavigation">
         <source>Show navigation</source>
@@ -441,7 +441,7 @@
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderPanelFromHeader" resname="tt_content.tx_jfmulticontent.sliderPanelFromHeader">
         <source>Paneltext from title</source>
-        <target state="needs-translation">Paneltext from title</target>
+        <target state="translated">Paneltext aus Titel</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderToggleControls" resname="tt_content.tx_jfmulticontent.sliderToggleControls">
         <source>Toggle Controls</source>
@@ -463,25 +463,25 @@
         <source>Resume on video end</source>
         <target state="translated">Fortsetzen bei Video-Ende</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.sliderStopAtEnd" resname="tt_content.tx_jfmulticontent.sliderStopAtEnd">
+      <trans-unit id="tt_content.tx_jfmulticontent.sliderStopAtEnd" resname="tt_content.tx_jfmulticontent.sliderStopAtEnd" approved="yes">
         <source>Stop at end</source>
-        <target state="translated">Stoppen am Ende</target>
+        <target state="final">Stoppen am Ende</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.sliderPlayRtl" resname="tt_content.tx_jfmulticontent.sliderPlayRtl">
+      <trans-unit id="tt_content.tx_jfmulticontent.sliderPlayRtl" resname="tt_content.tx_jfmulticontent.sliderPlayRtl" approved="yes">
         <source>Play rtl</source>
-        <target state="translated">Abspielen rechts-nach-links</target>
+        <target state="final">Abspielen rechts-nach-links</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.sliderTransition" resname="tt_content.tx_jfmulticontent.sliderTransition">
+      <trans-unit id="tt_content.tx_jfmulticontent.sliderTransition" resname="tt_content.tx_jfmulticontent.sliderTransition" approved="yes">
         <source>Type of transition</source>
-        <target state="translated">Übergangsart</target>
+        <target state="final">Übergangsart</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.sliderTransitiondir" resname="tt_content.tx_jfmulticontent.sliderTransitiondir">
+      <trans-unit id="tt_content.tx_jfmulticontent.sliderTransitiondir" resname="tt_content.tx_jfmulticontent.sliderTransitiondir" approved="yes">
         <source>Direction of transition</source>
-        <target state="translated">Übergangsrichtung</target>
+        <target state="final">Übergangsrichtung</target>
       </trans-unit>
-      <trans-unit id="tt_content.tx_jfmulticontent.sliderTransitionduration" resname="tt_content.tx_jfmulticontent.sliderTransitionduration">
+      <trans-unit id="tt_content.tx_jfmulticontent.sliderTransitionduration" resname="tt_content.tx_jfmulticontent.sliderTransitionduration" approved="yes">
         <source>Duration of transition (in ms)</source>
-        <target state="translated">Übergangsdauer (in ms)</target>
+        <target state="final">Übergangsdauer (in ms)</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderAutoplay" resname="tt_content.tx_jfmulticontent.sliderAutoplay">
         <source>Autoplay</source>
@@ -509,11 +509,11 @@
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.slidedeckActivecorner" resname="tt_content.tx_jfmulticontent.slidedeckActivecorner">
         <source>Add indicator for overlapping</source>
-        <target state="needs-translation">Add indicator for overlapping</target>
+        <target state="translated">Indikator für Überlappung hinzufügen</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.slidedeckIndex" resname="tt_content.tx_jfmulticontent.slidedeckIndex">
         <source>Activate slide indexes</source>
-        <target state="needs-translation">Activate slide indexes</target>
+        <target state="translated">Slide-Indizes aktivieren</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.slidedeckScroll" resname="tt_content.tx_jfmulticontent.slidedeckScroll">
         <source>Activate mousewheel</source>
@@ -525,11 +525,11 @@
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.slidedeckHidespines" resname="tt_content.tx_jfmulticontent.slidedeckHidespines">
         <source>Hide spines</source>
-        <target state="needs-translation">Hide spines</target>
+        <target state="translated">Verstecke Stacheln</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.easyaccordionSkin" resname="tt_content.tx_jfmulticontent.easyaccordionSkin">
         <source>Skin</source>
-        <target state="needs-translation">Skin</target>
+        <target state="translated">Erscheinungsbild</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.easyaccordionSkin.I.0" resname="tt_content.tx_jfmulticontent.easyaccordionSkin.I.0">
         <source>From Typoscript</source>
@@ -649,7 +649,7 @@
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.autoplayCycle" resname="tt_content.tx_jfmulticontent.autoplayCycle">
         <source>Cycle</source>
-        <target state="needs-translation">Cycle</target>
+        <target state="translated">Zyklus</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.options" resname="tt_content.tx_jfmulticontent.options">
         <source>Insert your own options</source>
@@ -669,11 +669,11 @@
       </trans-unit>
       <trans-unit id="tt_content.pi_flexform.yes" resname="tt_content.pi_flexform.yes">
         <source>Yes</source>
-        <target state="needs-translation">Yes</target>
+        <target state="translated">Ja</target>
       </trans-unit>
       <trans-unit id="browserlink_tab" resname="browserlink_tab">
         <source>Multicontent</source>
-        <target state="needs-translation">Multicontent</target>
+        <target state="translated">Multicontent</target>
       </trans-unit>
     </body>
   </file>
