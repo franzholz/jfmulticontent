@@ -1478,6 +1478,7 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
 		$titles = '';
 		$columns = '';
+		
 		// fetch all contents
 		for ($a = 0; $a < $this->contentCount; $a++) {
 			$markerArray = [];
@@ -1496,14 +1497,14 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 				$markerArray['ATTRIBUTE'] .= $this->cObj->stdWrap($this->classes[$a], ['wrap' => ' class="' . $this->contentClass[$a] . '"', 'required' => 1]);
 			}
 			// Set the active class for the active slide
-			if (($a+1) ==  $this->conf['config.']['easyaccordionOpen']) {
+			if (($a + 1) ==  $this->conf['config.']['easyaccordionOpen']) {
 				$markerArray['EASYACCORDION_ACTIVE'] = 'class="active"';
 			} else {
 				$markerArray['EASYACCORDION_ACTIVE'] = '';
 			}
 
 			// render the content
-			$markerArray['CONTENT_ID'] = $this->content_id[$a];
+			$markerArray['CONTENT_ID'] = $this->content_id[$a] ?? '';
 			$markerArray['ID']         = $a + 1;
 			$markerArray['TITLE']      = null;
 
@@ -1522,7 +1523,7 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 			// define the used wrap
 			if ($a == 0) {
 				$wrap = $contentWrap_array[0];
-			} elseif (($a+1) == $this->contentCount) {
+			} elseif (($a + 1) == $this->contentCount) {
 				$wrap = $contentWrap_array[2];
 			} else {
 				$wrap = $contentWrap_array[1];
@@ -1569,10 +1570,11 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 				}
 			} else {
 				// wrap the content
-				$markerArray['CONTENT'] = $this->cObj->stdWrap($this->cElements[$a], ['wrap' => $wrap]);
+				$markerArray['CONTENT'] =
+                    $this->cObj->stdWrap($this->cElements[$a] ?? '', ['wrap' => $wrap]);
 				$addContent = true;
 			}
-			$markerArray['REL'] = htmlspecialchars($this->rels[$a]);
+			$markerArray['REL'] = htmlspecialchars($this->rels[$a] ?? '');
 			// Generate the QUOTE_TITLE
 			$markerArray['DEFAULT_QUOTE_TITLE']   = htmlspecialchars($parser->substituteMarkerArray($this->pi_getLL('default_quote_title_template'), $markerArray, '###|###', 0));
 			$markerArray['TAB_QUOTE_TITLE']       = htmlspecialchars($parser->substituteMarkerArray($this->pi_getLL('tab_quote_title_template'), $markerArray, '###|###', 0));
@@ -1706,10 +1708,13 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
      * This function is used to escape any ' -characters when transferring text to JavaScript!
      *
      * @param string $string String to escape
+     * @param bool $extended If set, also backslashes are escaped.
+     * @param string $char The character to escape, default is ' (single-quote)
      * @return string Processed input string
      */
     public static function slashJS ($string)
     {
+        $char = '\'';
         return str_replace($char, '\\' . $char, $string);
     }
 

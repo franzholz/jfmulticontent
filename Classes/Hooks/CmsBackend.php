@@ -47,6 +47,8 @@ class CmsBackend
 	 */
 	public function getExtensionSummary ($params, &$pObj)
 	{
+        $result = '';
+
 		if ($params['row']['list_type'] == 'jfmulticontent_pi1') {
 			$data = GeneralUtility::xml2array($params['row']['pi_flexform']);
 
