@@ -49,10 +49,19 @@ class DataHandler
 	 * @see tx_templavoila_tcemain::processDatamap_afterDatabaseOperations()
 	 */
 	public function processDatamap_preProcessFieldArray(array &$incomingFieldArray, $table, $id, \TYPO3\CMS\Core\DataHandling\DataHandler &$pObj) {
-		if ($incomingFieldArray['list_type'] != 'jfmulticontent_pi1') {
-			if (is_array($pObj->datamap['tt_content'])) {
+		if (
+            isset($incomingFieldArray['list_type']) &&
+            $incomingFieldArray['list_type'] != 'jfmulticontent_pi1'
+        ) {
+			if (
+                isset($pObj->datamap['tt_content']) &&
+                is_array($pObj->datamap['tt_content'])
+            ) {
 				foreach ($pObj->datamap['tt_content'] as $key => $val) {
-					if ($val['list_type'] == 'jfmulticontent_pi1' && $val['tx_jfmulticontent_view'] == 'irre') {
+					if (
+                        $val['list_type'] == 'jfmulticontent_pi1' && 
+                        $val['tx_jfmulticontent_view'] == 'irre'
+                    ) {
 						// Change the colPos of the IRRE tt_content values
 						$confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT];
 						$incomingFieldArray['colPos'] = $confArr['colPosOfIrreContent'];
@@ -61,8 +70,8 @@ class DataHandler
                             \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('templavoilaplus') ||
                             \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('templavoila')
                         ) {
-							$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tx_templavoilaplus_tcemain']['doNotInsertElementRefsToPage'] = TRUE;
-							$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tx_templavoila_tcemain']['doNotInsertElementRefsToPage'] = TRUE;
+							$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tx_templavoilaplus_tcemain']['doNotInsertElementRefsToPage'] = true;
+							$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tx_templavoila_tcemain']['doNotInsertElementRefsToPage'] = true;
 						}
 					}
 				}
