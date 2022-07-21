@@ -1,6 +1,7 @@
 2022-07-21  Franz Holzinger  <franz@ttproducts.de>
     * fix PHP error
     * fix compatibility issues
+    * no typo3db_legacy required 
 
 2022-07-18  Franz Holzinger  <franz@ttproducts.de>
     * move language files into Crowdin format supported since TYPO3 9

@@ -24,7 +24,6 @@ $EM_CONF[$_EXTKEY] = [
         'suggests' => [
             'lib_jquery' => '2.1.0-0.0.0',
             'patchlayout' => '0.0.1-0.1.9',
-            'typo3db_legacy' => '1.0.0-1.1.99',
         ],
     ],
 ];
