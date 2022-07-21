@@ -63,7 +63,7 @@ class PageRenderer
 	public function addResources() {
         $pageRenderer = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class) ;
 		// Fix moveJsFromHeaderToFooter (add all scripts to the footer)
-		if ($GLOBALS['TSFE']->config['config']['moveJsFromHeaderToFooter']) {
+		if ($pageRenderer->getMoveJsFromHeaderToFooter()) {
 			$allJsInFooter = true;
 		} else {
 			$allJsInFooter = false;
@@ -96,6 +96,7 @@ class PageRenderer
 		}
 		// add all defined JS script
 		if (count($this->js) > 0) {
+            $temp_js = '';
 			foreach ($this->js as $jsToPut) {
 				$temp_js .= $jsToPut;
 			}

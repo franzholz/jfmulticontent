@@ -22,7 +22,8 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-
+use TYPO3\CMS\Core\Context\Context;
+use TYPO3\CMS\Core\Context\LanguageAspect;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\Page\PageRepository;
 
@@ -74,7 +75,11 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 		$this->pi_setPiVarDefaults();
 		$this->pi_loadLL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/Pi1/locallang.xlf');
 
-		$tsfe = $this->getTypoScriptFrontendController();
+		$context = GeneralUtility::makeInstance(Context::class);
+        /** @var LanguageAspect $languageAspect */
+        $languageAspect = $context->getAspect('language');
+        $versioningWorkspaceId = $context->getPropertyFromAspect('workspace', 'id');
+        $tsfe = $this->getTypoScriptFrontendController();
 		$this->setFlexFormData();
 		$jQueryAvailable = false;
 		if (class_exists(\Sonority\LibJquery\Hooks\PageRenderer::class)) {
@@ -89,7 +94,10 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $sanitizer = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\Resource\FilePathSanitizer::class);
 
 		// Plugin or template?
-		if ($this->cObj->data['list_type'] == $this->extKey . '_pi1') {
+		if (
+            isset($this->cObj->data['list_type']) &&
+            $this->cObj->data['list_type'] == $this->extKey . '_pi1'
+        ) {
 
 			// It's a content, all data from flexform
 
@@ -532,7 +540,7 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 						$this->rels[] = $this->cObj->cObjGetSingle($view['rel'], $view['rel.']);
 					} else {
 						$row = null;
-						if ($tsfe->sys_language_content) {
+						if ($languageAspect->getContentId()) {
                             // SELECT * FROM `pages_language_overlay` WHERE `deleted`=0 AND `hidden`=0 AND `pid`=<mypid> AND `sys_language_uid`=<mylanguageid>
                             $queryBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)->getQueryBuilderForTable('pages_language_overlay');
                             $queryBuilder->setRestrictions(GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer::class));
@@ -542,7 +550,7 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                                     $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($page_ids[$a], \PDO::PARAM_INT))
                                 )
                                 ->andWhere(
-                                    $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter($tsfe->sys_language_content, \PDO::PARAM_INT))
+                                    $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter($languageAspect->getContentId(), \PDO::PARAM_INT))
                                 )
                                 ->setMaxResults(1)
                                 ->execute();
@@ -599,27 +607,31 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                         ->execute();
                     $row = $statement->fetch();
 
-					if ($tsfe->sys_language_content) {
-						$row = $tsfe->sys_page->getRecordOverlay('tt_content', $row, $tsfe->sys_language_content, $tsfe->sys_language_contentOL);
-					} elseif ($tsfe->sys_page->versioningPreview) {
+					if ($languageAspect->getContentId()) {
+						$row = $tsfe->sys_page->getRecordOverlay('tt_content', $row, $languageAspect->getContentId(), $languageAspect->getLegacyOverlayType());
+					} elseif ($versioningWorkspaceId) {
 						$tsfe->sys_page->versionOL('tt_content', $row);
 					}
-					$tsfe->register['uid'] = $row['_LOCALIZED_UID'] ? $row['_LOCALIZED_UID'] : $row['uid'];
-					$tsfe->register['title'] = (strlen(trim($this->titles[$a])) > 0 ? $this->titles[$a] : $row['header']);
-					if ($this->titles[$a] == '' || !isset($this->titles[$a])) {
+
+					if (is_array($row)) {
+                        $tsfe->register['uid'] = !empty($row['_LOCALIZED_UID']) ? $row['_LOCALIZED_UID'] : $row['uid'];
+                        $tsfe->register['title'] = (isset($this->titles[$a]) && strlen(trim($this->titles[$a])) > 0 ? $this->titles[$a] : $row['header']);
+                    }
+
+					if (!isset($this->titles[$a]) || $this->titles[$a] == '') {
 						$this->titles[$a] = $this->cObj->cObjGetSingle($view['title'], $view['title.']);
 						$tsfe->register['title'] = $this->titles[$a];
 					}
 
 					$innerContent = $this->cObj->cObjGetSingle($view['content'], $view['content.']);
 					$this->cElements[] = $innerContent;
-					$this->rels[] = $this->cObj->cObjGetSingle($view['rel'], $view['rel.']);
+					$this->rels[] = $this->cObj->cObjGetSingle($view['rel'] ?? '', $view['rel.'] ?? []);
 					$this->content_id[$a] = $content_ids[$a];
 				}
 			} else if ($this->conf['config.']['view'] == 'irre') {
 				// get the content ID's
-				$elementUID = ($this->cObj->data['_LOCALIZED_UID']) ? $this->cObj->data['_LOCALIZED_UID'] : $this->cObj->data['uid'];
-				if ($tsfe->sys_page->versioningPreview) {
+				$elementUID = !empty($this->cObj->data['_LOCALIZED_UID']) ? $this->cObj->data['_LOCALIZED_UID'] : $this->cObj->data['uid'];
+				if ($versioningWorkspaceId) {
 					$elementUID = $this->cObj->data['_ORIG_uid'];
 				}
 
@@ -635,12 +647,15 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                     ->execute();
                 $a = 0;
                 while ($row = $statement->fetch()) {
-                    $this->addIRREContent($a, $row, $view);
+                    $this->addIRREContent($a, $context, $row, $view);
                 }
             }
 
 			// HOOK for additional views
-			if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['jfmulticontent']['getViews'])) {
+			if (
+                isset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['jfmulticontent']['getViews']) &&
+                is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['jfmulticontent']['getViews'])
+            ) {
 				foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['jfmulticontent']['getViews'] as $_classRef) {
 					$_procObj = GeneralUtility::getUserObj($_classRef);
 					if ($this->conf['config.']['view'] == $_procObj->getIdentifier()) {
@@ -1339,15 +1354,19 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 	/**
 	 * add a IRRE content record
      * @param integer $a index
+     * @param string $context The context in which the method is called (e.g. typoLink).
      * @param array $row record
 	 * @return void
 	 */
-    public function addIRREContent (&$a, $row, $view) {
+    public function addIRREContent (&$a, $context, $row, $view) {
         $tsfe = $this->getTypoScriptFrontendController();
+        /** @var LanguageAspect $languageAspect */
+        $languageAspect = $context->getAspect('language');
+        $versioningWorkspaceId = $context->getPropertyFromAspect('workspace', 'id');
 
-        if ($tsfe->sys_language_content) {
-            $row = $tsfe->sys_page->getRecordOverlay('tt_content', $row, $tsfe->sys_language_content, $tsfe->sys_language_contentOL);
-        } elseif ($tsfe->sys_page->versioningPreview) {
+        if ($languageAspect->getContentId()) {
+            $row = $tsfe->sys_page->getRecordOverlay('tt_content', $row, $languageAspect->getContentId(), $languageAspect->getLegacyOverlayType());
+        } elseif ($versioningWorkspaceId) {
             $tsfe->sys_page->versionOL('tt_content', $row);
         }
         $uid = $row['_LOCALIZED_UID'] ? $row['_LOCALIZED_UID'] : $row['uid'];
@@ -1457,16 +1476,22 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 			$this->conf['config.']['easyaccordionOpen'] = $this->contentCount;
 		}
 
+		$titles = '';
+		$columns = '';
 		// fetch all contents
 		for ($a = 0; $a < $this->contentCount; $a++) {
 			$markerArray = [];
 			// get the attribute if exist
 			$markerArray['ATTRIBUTE'] = '';
-			if ($this->attributes[$a] != '') {
+			if (!empty($this->attributes[$a])) {
 				$markerArray['ATTRIBUTE'] .= ' ' . $this->attributes[$a];
 			}
 			// if the attribute does not have a class entry, the class will be wraped for yaml (c33l, c33l, c33r)
-			if ($this->classes[$a] && isset($this->contentClass[$a]) && !preg_match('/class\=/i', $markerArray['ATTRIBUTE'])) {
+			if (
+                !empty($this->classes[$a]) && 
+                isset($this->contentClass[$a]) &&
+                !preg_match('/class\=/i', $markerArray['ATTRIBUTE'])
+            ) {
 				// wrap the class
 				$markerArray['ATTRIBUTE'] .= $this->cObj->stdWrap($this->classes[$a], ['wrap' => ' class="' . $this->contentClass[$a] . '"', 'required' => 1]);
 			}
@@ -1683,7 +1708,7 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
      * @param string $string String to escape
      * @return string Processed input string
      */
-    public static function slashJS($string)
+    public static function slashJS ($string)
     {
         return str_replace($char, '\\' . $char, $string);
     }
@@ -1707,7 +1732,7 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
     /**
      * @return \TYPO3\CMS\Core\Log\Logger
      */
-    protected function getLogger()
+    protected function getLogger ()
     {
         /** @var $logger \TYPO3\CMS\Core\Log\Logger */
         $result = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
@@ -1715,7 +1740,3 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
     }
 }
 
-
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/jfmulticontent/pi1/class.tx_jfmulticontent_pi1.php'])	{
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/jfmulticontent/pi1/class.tx_jfmulticontent_pi1.php']);
-}
