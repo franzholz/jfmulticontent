@@ -1263,7 +1263,7 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 					$options['direction'] = 'direction: \'RTL\'';
 				}
 				if ($this->conf['config.']['bookletTransition']) {
-					$options['transition'] = "easing: '".(in_array($this->conf['config.']['bookletTransition'], ["swing", "linear")] ? "" : "ease{$this->conf['config.']['bookletTransitiondir']}")."{$this->conf['config.']['bookletTransition']}'";
+					$options['transition'] = "easing: '" . (in_array($this->conf['config.']['bookletTransition'], ["swing", "linear"]) ? "" : "ease{$this->conf['config.']['bookletTransitiondir']}") . "{$this->conf['config.']['bookletTransition']}'";
 				}
 				if (is_numeric($this->conf['config.']['bookletPagePadding'])) {
 					$options['pagePadding'] = 'pagePadding: ' . $this->conf['config.']['bookletPagePadding'];
