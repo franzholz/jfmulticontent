@@ -21,7 +21,7 @@ Any contributions are welcome. Just create an issue or even write a pull request
 
 ## TSConfig Requirement
 
-You must set TSConfig like this:
+You must set TSConfig with one page id like this:
 ### example:
 ```
 TCEFORM.tt_content.tx_jfmulticontent_contents.PAGE_TSCONFIG_ID = 17
@@ -29,6 +29,7 @@ TCEFORM.tt_content.tx_jfmulticontent_contents.PAGE_TSCONFIG_ID = 17
 ```
 
 The starting point page record for the plugin does not exist any more in TYPO3.
+A ###PAGE_TSCONFIG_IDLIST### with multiple page ids is not supported at the moment.
 
 ## Sponsors
 
