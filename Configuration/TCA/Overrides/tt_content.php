@@ -18,7 +18,9 @@ call_user_func(function () {
     $confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT];
     $colPosOfIrreContent = intval($confArr['colPosOfIrreContent']);
 
-    if (!isset($GLOBALS['TCA'][$table]['columns']['colPos']['config']['items'][$colPosOfIrreContent])) {
+    if (
+        !isset($GLOBALS['TCA'][$table]['columns']['colPos']['config']['items'][$colPosOfIrreContent])
+    ) {
         // Add the new colPos to the array, only if the ID does not exist...
         $GLOBALS['TCA'][$table]['columns']['colPos']['config']['items'][$colPosOfIrreContent] = [
                 'LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.colPosOfIrreContent',
@@ -95,7 +97,7 @@ call_user_func(function () {
         $temporaryColumns['tx_jfmulticontent_irre']['config']['behaviour']['localizeChildrenAtParentLocalization'] = 1;
     }
 
-    if ($confArr['useStoragePidOnly']) {
+    if (!empty($confArr['useStoragePidOnly'])) {
 
         $foreignTableWhere = 'AND {#tt_content}.{#pid} = ###PAGE_TSCONFIG_ID### AND {#tt_content}.{#hidden} = 0 AND {#tt_content}.{#deleted} = 0 AND {#tt_content}.{#sys_language_uid} IN (0,-1) ORDER BY tt_content.uid';
 
@@ -147,10 +149,10 @@ call_user_func(function () {
                 ],
                 'fieldControl' => [
                     'elementBrowser' => [
-                        'disabled' => $confArr['useStoragePidOnly'] == '1',
+                        'disabled' => '0',
                     ],
                     'addRecord' => [
-                        'disabled' => $confArr['useStoragePidOnly'] == '1',
+                        'disabled' => '0',
                         'pid' => '###PAGE_TSCONFIG_ID###',
                         'options' => [
                             'title'  => 'LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.contents_add'

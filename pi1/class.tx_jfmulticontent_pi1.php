@@ -222,6 +222,7 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 				if ($this->lConf['equalize'] < 2) {
 					$this->conf['config.']['equalize'] = $this->lConf['equalize'];
 				}
+
 				// tab
 				if ($this->lConf['tabCollapsible'] < 2) {
 					$this->conf['config.']['tabCollapsible'] = $this->lConf['tabCollapsible'];
@@ -526,7 +527,7 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
 			if ($this->conf['config.']['view'] == 'page') {
 				// get the page ID's
-				$page_ids = GeneralUtility::trimExplode(',', $this->cObj->data['tx_jfmulticontent_pages']);
+				$page_ids = GeneralUtility::trimExplode(',', $this->cObj->data['tx_jfmulticontent_pages'], true);
 
 				// get the informations for every page
 				for ($a = 0; $a < count($page_ids); $a++) {
@@ -591,10 +592,11 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 				}
 			} else if ($this->conf['config.']['view'] == 'content') {
 				// get the content ID's
-				$content_ids = GeneralUtility::trimExplode(',', $this->cObj->data['tx_jfmulticontent_contents']);
+				$content_ids = GeneralUtility::trimExplode(',', $this->cObj->data['tx_jfmulticontent_contents'], true);
 				
 				// get the informations for every content
 				for ($a = 0; $a < count($content_ids); $a++) {
+
                     // SELECT * FROM `tt_content` WHERE `deleted`=0 AND `hidden`=0 AND `uid`=<mycontentid>
                     $queryBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)->getQueryBuilderForTable('tt_content');
                     $queryBuilder->setRestrictions(GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer::class));
@@ -1583,7 +1585,7 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 			if (isset($this->conf['additionalContentMarkers'])) {
 				$additonalMarkerArray = [];
 				// get additional markers
-				$additionalMarkers = GeneralUtility::trimExplode(', ', $this->conf['additionalContentMarkers']);
+				$additionalMarkers = GeneralUtility::trimExplode(', ', $this->conf['additionalContentMarkers'], true);
 				// get additional marker configuration
 				if(count($additionalMarkers) > 0) {
 					foreach($additionalMarkers as $additonalMarker) {
@@ -1609,7 +1611,7 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 		if (isset($this->conf['additionalMarkers'])) {
 			$additonalMarkerArray = [];
 			// get additional markers
-			$additionalMarkers = GeneralUtility::trimExplode(', ', $this->conf['additionalMarkers']);
+			$additionalMarkers = GeneralUtility::trimExplode(', ', $this->conf['additionalMarkers'], true);
 			// get additional marker configuration
 			if(count($additionalMarkers) > 0) {
 				foreach($additionalMarkers as $additonalMarker) {
@@ -1666,7 +1668,7 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 	 * @param string $sheet
 	 * @param string $name
 	 * @param boolean $devlog
-	 * @return string
+	 * @return string | null
 	 */
 	protected function getFlexformData ($sheet = '', $name = '', $devlog = true)
 	{
