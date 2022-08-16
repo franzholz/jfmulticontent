@@ -130,6 +130,7 @@ call_user_func(function () {
                 ]
             ]
         ];
+
     } else {
         $temporaryColumns['tx_jfmulticontent_contents'] = [
             'exclude' => 1,
@@ -185,5 +186,6 @@ call_user_func(function () {
         'list_type',
         JFMULTICONTENT_EXT
     );
+    
 });
 

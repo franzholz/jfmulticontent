@@ -1,5 +1,5 @@
 
-# cat=basic/enable/010; type=boolean; label=Use General Record Storage page only: If set, content can only be chosen from the defined storage syfolder only. And then not record browser is shown and no record addition wizard. You must in all cases (even if 0) set a TSConfig like this: TCEFORM.tt_content.tx_jfmulticontent_contents.PAGE_TSCONFIG_ID = 17
+# cat=basic/enable/010; type=boolean; label=Use General Record Storage page only: If set, content can be chosen from the defined storage sysfolder only. And then no record browser is shown and no record addition wizard. You must in all cases (even if 0) set a TSConfig like this: TCEFORM.tt_content.tx_jfmulticontent_contents.PAGE_TSCONFIG_ID = 17
 useStoragePidOnly = 1
 
 # cat=basic/enable/020; type=boolean; label=Activate tt_news codes: Enables the additional codes in tt_news
