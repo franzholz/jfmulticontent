@@ -7,7 +7,7 @@ call_user_func(function () {
 
     $listType = JFMULTICONTENT_EXT . '_pi1';
 
-    $GLOBALS['TCA'][$table]['types']['list']['subtypes_excludelist'][$listType] = 'layout,select_key,pages';
+    $GLOBALS['TCA'][$table]['types']['list']['subtypes_excludelist'][$listType] = 'layout,pages';
     $GLOBALS['TCA'][$table]['types']['list']['subtypes_addlist'][$listType] = 'tx_jfmulticontent_view,tx_jfmulticontent_pages,tx_jfmulticontent_contents,tx_jfmulticontent_irre,pi_flexform';
     // Add reload field to tt_content
     if (!isset($GLOBALS['TCA'][$table]['ctrl']['requestUpdate'])) {
