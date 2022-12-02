@@ -175,13 +175,13 @@ call_user_func(function () {
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns($table, $temporaryColumns);
 
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($listType, 'FILE:EXT:' . JFMULTICONTENT_EXT . '/flexform_ds.xml');
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($listType, 'FILE:EXT:' . JFMULTICONTENT_EXT . '/Configuration/FlexForms/flexform_ds.xml');
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
         [
             'LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
             $listType,
-            'EXT:' . JFMULTICONTENT_EXT . '/ext_icon.gif'
+            'EXT:' . JFMULTICONTENT_EXT . '/Resources/Public/Icons/Extension.gif'
         ],
         'list_type',
         JFMULTICONTENT_EXT

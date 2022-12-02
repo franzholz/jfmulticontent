@@ -37,7 +37,7 @@ class WizardIcon
      */
     public function proc(array $wizardItems)
     {
-        $wizardIcon = 'pi1/ce_wiz.gif';
+        $wizardIcon = 'Resources/Public/Icons/ce_wiz.gif';
         $listType = JFMULTICONTENT_EXT . '_pi1';
         $params = '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=' . $listType;
 

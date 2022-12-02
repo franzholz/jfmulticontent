@@ -33,7 +33,7 @@
 							<label>LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.columnOrder</label>
 							<config>
 								<type>select</type>
-                                <renderType>selectSingleBox</renderType>
+                                <renderType>selectSingle</renderType>
 								<size>3</size>
 								<maxitems>1</maxitems>
 								<default></default>
@@ -41,17 +41,17 @@
 									<numIndex index="0" type="array">
 										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.columnOrder.I.0</numIndex>
 										<numIndex index="1"></numIndex>
-										<numIndex index="2">EXT:jfmulticontent/selicon_tt_content_tx_jfmulticontent_columnOrder_0.gif</numIndex>
+										<numIndex index="2">EXT:jfmulticontent/Resources/Public/Icons/selicon_tt_content_tx_jfmulticontent_columnOrder_0.gif</numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
 										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.columnOrder.I.1</numIndex>
 										<numIndex index="1">1</numIndex>
-										<numIndex index="2">EXT:jfmulticontent/selicon_tt_content_tx_jfmulticontent_columnOrder_1.gif</numIndex>
+										<numIndex index="2">EXT:jfmulticontent/Resources/Public/Icons/selicon_tt_content_tx_jfmulticontent_columnOrder_1.gif</numIndex>
 									</numIndex>
 									<numIndex index="2" type="array">
 										<numIndex index="0">LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.columnOrder.I.2</numIndex>
 										<numIndex index="1">2</numIndex>
-										<numIndex index="2">EXT:jfmulticontent/selicon_tt_content_tx_jfmulticontent_columnOrder_2.gif</numIndex>
+										<numIndex index="2">EXT:jfmulticontent/Resources/Public/Icons/selicon_tt_content_tx_jfmulticontent_columnOrder_2.gif</numIndex>
 									</numIndex>
 								</items>
 							</config>

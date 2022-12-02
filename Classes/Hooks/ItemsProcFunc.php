@@ -40,7 +40,7 @@ class ItemsProcFunc
 	 * Get defined views for dropdown (from hook)
 	 * @return array
 	 */
-	public function getViews ($config, $item) {
+	public function getViews ($config, $item) {	
 		$optionList = [];
 		if (
             isset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['jfmulticontent']['getViews']) &&
@@ -73,57 +73,57 @@ class ItemsProcFunc
 			[
 				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.0'),
 				'2column',
-				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_0.gif',
+				'EXT:' . JFMULTICONTENT_EXT . '/Resources/Public/Icons/selicon_tt_content_tx_jfmulticontent_style_0.gif',
 			],
 			[
 				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.1'),
 				'3column',
-				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_1.gif',
+				'EXT:' . JFMULTICONTENT_EXT . '/Resources/Public/Icons/selicon_tt_content_tx_jfmulticontent_style_1.gif',
 			],
 			[
 				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.2'),
 				'4column',
-				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_2.gif',
+				'EXT:' . JFMULTICONTENT_EXT . '/Resources/Public/Icons/selicon_tt_content_tx_jfmulticontent_style_2.gif',
 			],
 			[
 				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.6'),
 				'5column',
-				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_6.gif',
+				'EXT:' . JFMULTICONTENT_EXT . '/Resources/Public/Icons/selicon_tt_content_tx_jfmulticontent_style_6.gif',
 			],
 			[
 				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.3'),
 				'tab',
-				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_3.gif',
+				'EXT:' . JFMULTICONTENT_EXT . '/Resources/Public/Icons/selicon_tt_content_tx_jfmulticontent_style_3.gif',
 			],
 			[
 				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.4'),
 				'accordion',
-				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_4.gif',
+				'EXT:' . JFMULTICONTENT_EXT . '/Resources/Public/Icons/selicon_tt_content_tx_jfmulticontent_style_4.gif',
 			],
 			[
 				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.5'),
 				'slider',
-				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_5.gif',
+				'EXT:' . JFMULTICONTENT_EXT . '/Resources/Public/Icons/selicon_tt_content_tx_jfmulticontent_style_5.gif',
 			],
 			[
 				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.7'),
 				'slidedeck',
-				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_7.gif',
+				'EXT:' . JFMULTICONTENT_EXT . '/Resources/Public/Icons/selicon_tt_content_tx_jfmulticontent_style_7.gif',
 			],
 			[
 				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.8'),
 				'easyaccordion',
-				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_8.gif',
+				'EXT:' . JFMULTICONTENT_EXT . '/Resources/Public/Icons/selicon_tt_content_tx_jfmulticontent_style_8.gif',
 			],
 			[
 				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.9'),
 				'booklet',
-				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_9.gif',
+				'EXT:' . JFMULTICONTENT_EXT . '/Resources/Public/Icons/selicon_tt_content_tx_jfmulticontent_style_9.gif',
 			],
 			[
 				$GLOBALS['LANG']->sL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.style.I.10'),
 				'typoscript',
-				'EXT:' . JFMULTICONTENT_EXT . '/selicon_tt_content_tx_jfmulticontent_style_10.png',
+				'EXT:' . JFMULTICONTENT_EXT . '/Resources/Public/Icons/selicon_tt_content_tx_jfmulticontent_style_10.png',
 			],
 		];
 		$confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT];
