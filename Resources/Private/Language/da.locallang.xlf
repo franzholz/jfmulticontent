@@ -5,7 +5,7 @@
     <body>
       <trans-unit id="pi1_title" resname="pi1_title">
         <source>Multiple Content</source>
-        <target state="needs-translation">Multiple Content</target>
+        <target state="translated">Multiple Content</target>
       </trans-unit>
       <trans-unit id="pi1_plus_wiz_description" resname="pi1_plus_wiz_description">
         <source>Create a multiple content</source>
