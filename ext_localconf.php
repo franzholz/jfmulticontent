@@ -1,5 +1,5 @@
 <?php
-defined('TYPO3_MODE') || die('Access denied.');
+defined('TYPO3') || die('Access denied.');
 defined('TYPO3_version') || die('The constant TYPO3_version is undefined in jfmulticontent!');
 
 call_user_func(function () {
