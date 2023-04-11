@@ -9,6 +9,5 @@ call_user_func(function () {
         'Configuration/TypoScript/PluginSetup/',
         'Multi content'
     );
-
 });
 

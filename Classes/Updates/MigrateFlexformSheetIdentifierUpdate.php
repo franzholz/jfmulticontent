@@ -56,12 +56,12 @@ class MigrateFlexformSheetIdentifierUpdate implements UpgradeWizardInterface, Co
     /**
      * @var string
      */
-    protected $title = 'EXT:' . JFMULTICONTENT_EXT . ' - Migrate flexform sheet identifiers';
+    protected $title = 'EXT:jfmulticontent - Migrate flexform sheet identifiers';
 
     /**
      * @var string
      */
-    protected $identifier = JFMULTICONTENT_EXT . 'MigrateFlexformSheetIdentifierUpdate';
+    protected $identifier = 'jfmulticontentMigrateFlexformSheetIdentifierUpdate';
 
     /**
      * Setter injection for output into upgrade wizards
