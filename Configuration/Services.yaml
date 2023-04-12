@@ -1,0 +1,6 @@
+services:
+  JambageCom\Jfmulticontent\EventListener\PageContentPreviewRenderingListener:
+    tags:
+      - name: event.listener
+        identifier: 'jfmulticontentCodeListener'
+        event: TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent
