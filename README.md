@@ -34,6 +34,11 @@ TCEFORM.tt_content.tx_jfmulticontent_contents.PAGE_TSCONFIG_ID = 17
 The starting point page record for the plugin does not exist any more in TYPO3.
 A ###PAGE_TSCONFIG_IDLIST### with multiple page ids is not supported at the moment.
 
+### Content Plugin Wizard
+
+If you want to allow a content element wizard for jfmulticontent, then you must use the 
+backend page module, edit the page properties resources tab and add the Page TSconfig for jfmulticontent: Multiple Content Element Wizard
+
 ## Sponsors
 
 The Booklet has been sponsored by made in nature WERBEAGENTUR (https://www.made-in-nature.de/leistungen/typo3) .
