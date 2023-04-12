@@ -127,14 +127,7 @@ class ItemsProcFunc
 			],
 		];
 		$confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT];
-        $styles = '';
-        if (
-            version_compare(TYPO3_version, '10.0.0', '<')
-        ) {
-            $styles = $confArr['style.'];
-        } else {
-            $styles = $confArr['style'];
-        }
+        $styles = $confArr['style'];
 
         if (count($styles) > 0) {
 			foreach ($styles as $key => $val) {
@@ -144,7 +137,7 @@ class ItemsProcFunc
 			}
 		}
 		if (count($availableStyles) < 1) {
-			$availableStyles = ['2column','3column','4column','5column','tab','accordion','slider','slidedeck','easyaccordion','booklet'];
+			$availableStyles = ['2column', '3column', '4column', '5column', 'tab', 'accordion',' slider', 'slidedeck', 'easyaccordion', 'booklet'];
 		}
 		$allowedStyles = [];
 		foreach ($allStyles as $key => $style) {

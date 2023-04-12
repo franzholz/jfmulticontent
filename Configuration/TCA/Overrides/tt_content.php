@@ -92,10 +92,6 @@ call_user_func(function () {
         ],
     ];
 
-    if (version_compare(TYPO3_version, '10.0.0', '<')) {
-        $temporaryColumns['tx_jfmulticontent_irre']['config']['behaviour']['localizeChildrenAtParentLocalization'] = 1;
-    }
-
     if (!empty($confArr['useStoragePidOnly'])) {
 
         $foreignTableWhere = 'AND {#tt_content}.{#pid} = ###PAGE_TSCONFIG_ID### AND {#tt_content}.{#hidden} = 0 AND {#tt_content}.{#deleted} = 0 AND {#tt_content}.{#sys_language_uid} IN (0,-1) ORDER BY tt_content.uid';

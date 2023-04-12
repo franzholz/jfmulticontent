@@ -1,6 +1,5 @@
 <?php
 defined('TYPO3') || die('Access denied.');
-defined('TYPO3_version') || die('The constant TYPO3_version is undefined in jfmulticontent!');
 
 call_user_func(function () {
     if (!defined ('JFMULTICONTENT_EXT')) {
@@ -18,22 +17,22 @@ call_user_func(function () {
 
     if ($extensionConfiguration['ttNewsCodes']) {
         // Add the additional CODES to tt_news
-        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tt_news']['what_to_display'][] = array(
+        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tt_news']['what_to_display'][] = [
             0 => 'LIST_ACCORDION',
             1 => 'LIST_ACCORDION'
-        );
-        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tt_news']['what_to_display'][] = array(
+        ];
+        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tt_news']['what_to_display'][] = [
             0 => 'LIST_SLIDER',
             1 => 'LIST_SLIDER'
-        );
-        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tt_news']['what_to_display'][] = array(
+        ];
+        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tt_news']['what_to_display'][] = [
             0 => 'LIST_SLIDEDECK',
             1 => 'LIST_SLIDEDECK'
-        );
-        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tt_news']['what_to_display'][] = array(
+        ];
+        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tt_news']['what_to_display'][] = [
             0 => 'LIST_EASYACCORDION',
             1 => 'LIST_EASYACCORDION'
-        );
+        ];
         $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tt_news']['extraCodesHook'][] = \JambageCom\Jfmulticontent\Hooks\TtNewsExtend::class;
         $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tt_news']['extraGlobalMarkerHook'][] = \JambageCom\Jfmulticontent\Hooks\TtNewsExtend::class;
     }
@@ -67,5 +66,4 @@ call_user_func(function () {
         ],
     ];
 });
-
 

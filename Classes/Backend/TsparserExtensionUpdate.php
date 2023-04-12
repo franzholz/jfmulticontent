@@ -86,14 +86,6 @@ class TsparserExtensionUpdate
             'anythingSliderModes',
             'easyAccordionSkinFolder',
         ];
-
-        if (
-            version_compare(TYPO3_version, '10.0.0', '<')
-        ) {
-            $confDefault[] = 'style.';
-            $key = array_search('style', $confDefault);
-            unset($confDefault[$key]);
-        }
     
         $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
             \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
