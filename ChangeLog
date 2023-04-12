@@ -1,6 +1,6 @@
 
 2023-04-11  Franz Holzinger  <franz@ttproducts.de>
-    * rename Classes/Controller/Plugin/WizardIcon.php => Classes/Controller/WizardIcon.php
+    * Implement content plugin wizard by NewContentElement.tsconfig. This must be inserted manually from the page properties TSConfig if needed.
 
 2023-04-08  Franz Holzinger  <franz@ttproducts.de>
     * compatibility: deprecation no. 92947 - replace TYPO3_MODE constant by TYPO3
