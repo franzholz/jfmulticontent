@@ -1,9 +1,7 @@
 <?php
 defined('TYPO3') || die('Access denied.');
 
-call_user_func(function () {
-    $extensionKey = 'jfmulticontent';
-    $table = 'tt_content';
+call_user_func(function($extensionKey, $table) {
     $listType = $extensionKey . '_pi1';
 
     $GLOBALS['TCA'][$table]['types']['list']['subtypes_excludelist'][$listType] = 'layout,pages';
@@ -181,6 +179,5 @@ call_user_func(function () {
         'list_type',
         $extensionKey
     );
-    
-});
+}, 'jfmulticontent', basename(__FILE__, '.php'));
 
