@@ -64,7 +64,7 @@ class DataHandler
                         $val['tx_jfmulticontent_view'] == 'irre'
                     ) {
                         // Change the colPos of the IRRE tt_content values
-                        $confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT];
+                        $confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['jfmulticontent'];
                         $incomingFieldArray['colPos'] = $confArr['colPosOfIrreContent'];
                         // Workaround for TemplaVoilaPlus
                         if (

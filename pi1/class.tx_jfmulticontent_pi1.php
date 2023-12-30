@@ -47,7 +47,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
 {
     public $prefixId      = 'tx_jfmulticontent_pi1';
     public $scriptRelPath = 'pi1/class.tx_jfmulticontent_pi1.php';
-    public $extKey        = JFMULTICONTENT_EXT;
+    public $extKey        = 'jfmulticontent';
     public $pi_checkCHash = true;
     public $conf = [];
     private $lConf = [];
@@ -81,7 +81,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
         $this->content = $content;
         $this->conf = $conf;
         $this->pi_setPiVarDefaults();
-        $this->pi_loadLL('LLL:EXT:' . JFMULTICONTENT_EXT . '/Resources/Private/Language/Pi1/locallang.xlf');
+        $this->pi_loadLL('LLL:EXT:' . $this->extKey . '/Resources/Private/Language/Pi1/locallang.xlf');
 
         $context = GeneralUtility::makeInstance(Context::class);
         /** @var LanguageAspect $languageAspect */
@@ -95,7 +95,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
         }
 
         // get the config from EXT
-        $this->confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT];
+        $this->confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$this->extKey];
         $parser = GeneralUtility::makeInstance(MarkerBasedTemplateService::class);
         $this->pagerenderer = GeneralUtility::makeInstance(\JambageCom\Jfmulticontent\Hooks\PageRenderer::class);
         $this->pagerenderer->setConf($this->conf);
@@ -720,7 +720,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
             $this->templateFile = file_get_contents($incFile);
         }
         if (!$this->templateFile) {
-            $fileName = 'EXT:' . JFMULTICONTENT_EXT . '/res/tx_jfmulticontent_pi1.tmpl';
+            $fileName = 'EXT:' . $this->extKey . '/res/tx_jfmulticontent_pi1.tmpl';
             $incFile = $sanitizer->sanitize($fileName);
             $this->templateFile = file_get_contents($incFile);
         }
@@ -730,7 +730,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
             $this->templateFileJS = file_get_contents($incFile);
         }
         if (!$this->templateFileJS) {
-            $fileName = 'EXT:' . JFMULTICONTENT_EXT . '/res/tx_jfmulticontent_pi1.js';
+            $fileName = 'EXT:' . $this->extKey . '/res/tx_jfmulticontent_pi1.js';
             $incFile = $sanitizer->sanitize($fileName);
             $this->templateFileJS = file_get_contents($incFile);
         }
@@ -1643,7 +1643,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
     public function outputError($msg = '', $js = false)
     {
         if (
-            $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT]['FILEWRITER']
+            $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$this->extKey]['FILEWRITER']
         ) {
             $logger = $this->getLogger();
             $logger->error($msg, []);

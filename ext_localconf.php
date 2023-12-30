@@ -2,19 +2,15 @@
 
 defined('TYPO3') || die('Access denied.');
 
-call_user_func(function (): void {
-    if (!defined('JFMULTICONTENT_EXT')) {
-        define('JFMULTICONTENT_EXT', 'jfmulticontent');
-    }
-
+call_user_func(function ($extensionKey): void {
     if (!defined('T3JQUERY')) {
         define('T3JQUERY', false);
     }
 
     $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
         \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
-    )->get(JFMULTICONTENT_EXT);
-    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT] = $extensionConfiguration;
+    )->get($extensionKey);
+    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$extensionKey] = $extensionConfiguration;
 
     if ($extensionConfiguration['ttNewsCodes']) {
         // Add the additional CODES to tt_news
@@ -41,20 +37,20 @@ call_user_func(function (): void {
     $listType = 'jfmulticontent_pi1';
 
     // Page module hook
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['list_type_Info'][$listType][JFMULTICONTENT_EXT] = 'JambageCom\\Jfmulticontent\\Hooks\\CmsBackend->getExtensionSummary';
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['list_type_Info'][$listType][$extensionKey] = 'JambageCom\\Jfmulticontent\\Hooks\\CmsBackend->getExtensionSummary';
 
     // Save the content
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][JFMULTICONTENT_EXT] = \JambageCom\Jfmulticontent\Hooks\DataHandler::class;
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][$extensionKey] = \JambageCom\Jfmulticontent\Hooks\DataHandler::class;
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43(
-        JFMULTICONTENT_EXT,
+        $extensionKey,
         'pi1/class.tx_jfmulticontent_pi1.php',
         '_pi1',
         'list_type',
         1
     );
 
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][JFMULTICONTENT_EXT . 'MigrateFlexformSheetIdentifierUpdate'] =
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][$extensionKey . 'MigrateFlexformSheetIdentifierUpdate'] =
     \JambageCom\Jfmulticontent\Updates\MigrateFlexformSheetIdentifierUpdate::class;
 
     $GLOBALS['TYPO3_CONF_VARS']['LOG']['JambageCom']['Jfmulticontent'] = [
@@ -66,4 +62,5 @@ call_user_func(function (): void {
             ]
         ],
     ];
-});
+}, 'jfmulticontent');
+

@@ -109,7 +109,7 @@ class TtNewsExtend
                 }
                 $this->addJsFile($this->conf['easyaccordionJS']);
                 $this->addCssFile($this->conf['easyaccordionCSS']);
-                $confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT];
+                $confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['jfmulticontent'];
                 $this->addCssFile($confArr['easyAccordionSkinFolder'] . $this->conf['config.']['easyaccordionSkin'] . "/style.css");
                 $this->addResources();
                 break;

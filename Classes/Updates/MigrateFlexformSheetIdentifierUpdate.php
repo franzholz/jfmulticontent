@@ -200,7 +200,7 @@ class MigrateFlexformSheetIdentifierUpdate implements UpgradeWizardInterface, Co
             ->where(
                 $queryBuilder->expr()->like(
                     'list_type',
-                    $queryBuilder->createNamedParameter(JFMULTICONTENT_EXT . '_pi1')
+                    $queryBuilder->createNamedParameter('jfmulticontent' . '_pi1')
                 ),
                 $queryBuilder->expr()->notLike(
                     'pi_flexform',
