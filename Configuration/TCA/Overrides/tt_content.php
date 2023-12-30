@@ -1,7 +1,8 @@
 <?php
+
 defined('TYPO3') || die('Access denied.');
 
-call_user_func(function($extensionKey, $table) {
+call_user_func(function ($extensionKey, $table) {
     $listType = $extensionKey . '_pi1';
 
     $GLOBALS['TCA'][$table]['types']['list']['subtypes_excludelist'][$listType] = 'layout,pages';
@@ -23,7 +24,7 @@ call_user_func(function($extensionKey, $table) {
                 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.colPosOfIrreContent',
                 $colPosOfIrreContent
         ];
-    //     $GLOBALS['TCA']['tt_content']['columns']['colPos']['config']['disableNoMatchingValueElement'] = 1; // I have commented this out.
+        //     $GLOBALS['TCA']['tt_content']['columns']['colPos']['config']['disableNoMatchingValueElement'] = 1; // I have commented this out.
     }
 
     $temporaryColumns = [
@@ -107,17 +108,17 @@ call_user_func(function($extensionKey, $table) {
                 'autoSizeMax' => 20,
                 'minitems' => 0,
                 'maxitems' => 1000,
-                'fieldControl' => [ 
-                    'editPopup' => [ 
+                'fieldControl' => [
+                    'editPopup' => [
                         'disabled' => false,
                         'options' => [
                             'title'  => 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.contents_edit'
                         ]
                     ],
-                    'addRecord' => [ 
+                    'addRecord' => [
                         'disabled' => true,
                     ],
-                    'listModule' => [ 
+                    'listModule' => [
                         'disabled' => false,
                     ],
                 ]
@@ -136,8 +137,8 @@ call_user_func(function($extensionKey, $table) {
                 'size' => 12,
                 'minitems' => 0,
                 'maxitems' => 1000,
-                'suggestOptions' => [ 
-                'default' => [ 
+                'suggestOptions' => [
+                'default' => [
                     'pidList' => '###PAGE_TSCONFIG_ID###',
                 ],
                 ],
@@ -180,4 +181,3 @@ call_user_func(function($extensionKey, $table) {
         $extensionKey
     );
 }, 'jfmulticontent', basename(__FILE__, '.php'));
-

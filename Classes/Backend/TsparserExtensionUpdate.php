@@ -2,7 +2,6 @@
 
 namespace JambageCom\Jfmulticontent\Backend;
 
-
 /***************************************************************
  *  Copyright notice
  *
@@ -39,13 +38,13 @@ namespace JambageCom\Jfmulticontent\Backend;
  */
 class TsparserExtensionUpdate
 {
-	/**
-	 * Shows the update Message
-	 *
-	 * @return	string
-	 */
-	public function render(&$params, &$tsObj)
-	{
+    /**
+     * Shows the update Message
+     *
+     * @return	string
+     */
+    public function render(&$params, &$tsObj)
+    {
         $out = '';
 
         if ($this->checkConfig() === false) {
@@ -60,12 +59,12 @@ class TsparserExtensionUpdate
     </div>';
         }
 
-		return $out;
-	}
+        return $out;
+    }
 
     /**
     * Check the config for a given feature
-    * 
+    *
     * @return boolean
     */
     public function checkConfig()
@@ -86,18 +85,17 @@ class TsparserExtensionUpdate
             'anythingSliderModes',
             'easyAccordionSkinFolder',
         ];
-    
+
         $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
             \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
         )->get('jfmulticontent');
 
-		$confArr = $extensionConfiguration;
-		foreach ($confDefault as $val) {
-			if (!isset($confArr[$val]) && !isset($_POST['data'][$val])) {
-				return false;
-			}
-		}
-		return true;
-	}
+        $confArr = $extensionConfiguration;
+        foreach ($confDefault as $val) {
+            if (!isset($confArr[$val]) && !isset($_POST['data'][$val])) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
-

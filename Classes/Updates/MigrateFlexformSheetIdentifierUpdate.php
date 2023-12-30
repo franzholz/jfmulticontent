@@ -1,4 +1,5 @@
 <?php
+
 namespace JambageCom\Jfmulticontent\Updates;
 
 /*
@@ -14,7 +15,7 @@ namespace JambageCom\Jfmulticontent\Updates;
  * The TYPO3 project - inspiring people to share!
  */
 
- 
+
 use Symfony\Component\Console\Output\OutputInterface;
 
 
@@ -29,7 +30,6 @@ use TYPO3\CMS\Install\Updates\ConfirmableInterface;
 use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 use TYPO3\CMS\Install\Service\UpgradeWizardsService;
-
 
 /**
  * Migrate Flexform sheet identifier
@@ -48,9 +48,9 @@ use TYPO3\CMS\Install\Service\UpgradeWizardsService;
  */
 class MigrateFlexformSheetIdentifierUpdate implements UpgradeWizardInterface, ConfirmableInterface, ChattyInterface
 {
-     /**
-     * @var OutputInterface
-     */
+    /**
+    * @var OutputInterface
+    */
     protected $output;
 
     /**
@@ -139,7 +139,7 @@ class MigrateFlexformSheetIdentifierUpdate implements UpgradeWizardInterface, Co
      * @param string|array &$customMessages Custom messages
      * @return bool Whether everything went smoothly or not
      */
-    public function performUpdate (array &$dbQueries, &$customMessages)
+    public function performUpdate(array &$dbQueries, &$customMessages)
     {
         /** @var FlexFormTools $flexFormTools */
         $flexFormTools = GeneralUtility::makeInstance(FlexFormTools::class);
@@ -191,7 +191,7 @@ class MigrateFlexformSheetIdentifierUpdate implements UpgradeWizardInterface, Co
      *
      * @return array tt_content rows
      */
-    protected function getUpdatableContentElements ($limit = 0) : array
+    protected function getUpdatableContentElements($limit = 0): array
     {
         $queryBuilder = DatabaseUtility::getConnectionPool()->getQueryBuilderForTable('tt_content');
         $query = $queryBuilder
@@ -207,7 +207,7 @@ class MigrateFlexformSheetIdentifierUpdate implements UpgradeWizardInterface, Co
                     $queryBuilder->createNamedParameter('%<sheet index=\"s\\_%')
                 )
             );
-            
+
         if ($limit) {
             $query = $query->setMaxResults($limit);
         }
@@ -220,7 +220,7 @@ class MigrateFlexformSheetIdentifierUpdate implements UpgradeWizardInterface, Co
             $replace[] = '\'' . $value . '\'';
         }
 
-        $sql = str_replace($search, $replace, $sql);    
+        $sql = str_replace($search, $replace, $sql);
 
         $result = $query->execute()
             ->fetchAll();
@@ -240,8 +240,8 @@ class MigrateFlexformSheetIdentifierUpdate implements UpgradeWizardInterface, Co
         $contentElementsWithWrongSheetTitle = $this->getUpdatableContentElements(1);
 
         return (\count($contentElementsWithWrongSheetTitle) > 0);
-    } 
-	
+    }
+
     /**
      * Returns an array of class names of Prerequisite classes
      * This way a wizard can define dependencies like "database up-to-date" or

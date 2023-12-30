@@ -39,44 +39,44 @@ namespace JambageCom\Jfmulticontent\Hooks;
  */
 class DataHandler
 {
-	/**
-	 * Checks if the colPos will be manipulated and if TemplaVoilaPlus references should be disabled for this record
-	 *
-	 * @param array $incomingFieldArray
-	 * @param string $table
-	 * @param integer $id
-	 * @param \TYPO3\CMS\Core\DataHandling\DataHandler $pObj
-	 * @see tx_templavoila_tcemain::processDatamap_afterDatabaseOperations()
-	 */
-	public function processDatamap_preProcessFieldArray(array &$incomingFieldArray, $table, $id, \TYPO3\CMS\Core\DataHandling\DataHandler &$pObj) {
-		if (
+    /**
+     * Checks if the colPos will be manipulated and if TemplaVoilaPlus references should be disabled for this record
+     *
+     * @param array $incomingFieldArray
+     * @param string $table
+     * @param integer $id
+     * @param \TYPO3\CMS\Core\DataHandling\DataHandler $pObj
+     * @see tx_templavoila_tcemain::processDatamap_afterDatabaseOperations()
+     */
+    public function processDatamap_preProcessFieldArray(array &$incomingFieldArray, $table, $id, \TYPO3\CMS\Core\DataHandling\DataHandler &$pObj)
+    {
+        if (
             isset($incomingFieldArray['list_type']) &&
             $incomingFieldArray['list_type'] != 'jfmulticontent_pi1'
         ) {
-			if (
+            if (
                 isset($pObj->datamap['tt_content']) &&
                 is_array($pObj->datamap['tt_content'])
             ) {
-				foreach ($pObj->datamap['tt_content'] as $key => $val) {
-					if (
-                        $val['list_type'] == 'jfmulticontent_pi1' && 
+                foreach ($pObj->datamap['tt_content'] as $key => $val) {
+                    if (
+                        $val['list_type'] == 'jfmulticontent_pi1' &&
                         $val['tx_jfmulticontent_view'] == 'irre'
                     ) {
-						// Change the colPos of the IRRE tt_content values
-						$confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT];
-						$incomingFieldArray['colPos'] = $confArr['colPosOfIrreContent'];
-						// Workaround for TemplaVoilaPlus
-						if (
+                        // Change the colPos of the IRRE tt_content values
+                        $confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT];
+                        $incomingFieldArray['colPos'] = $confArr['colPosOfIrreContent'];
+                        // Workaround for TemplaVoilaPlus
+                        if (
                             \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('templavoilaplus') ||
                             \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('templavoila')
                         ) {
-							$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tx_templavoilaplus_tcemain']['doNotInsertElementRefsToPage'] = true;
-							$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tx_templavoila_tcemain']['doNotInsertElementRefsToPage'] = true;
-						}
-					}
-				}
-			}
-		}
-	}
+                            $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tx_templavoilaplus_tcemain']['doNotInsertElementRefsToPage'] = true;
+                            $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tx_templavoila_tcemain']['doNotInsertElementRefsToPage'] = true;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
-

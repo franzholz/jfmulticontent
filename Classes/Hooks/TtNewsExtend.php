@@ -28,7 +28,6 @@ namespace JambageCom\Jfmulticontent\Hooks;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-
 /**
  * 'tx_jfmulticontent_ttnews_extend' for the 'jfmulticontent' extension.
  *
@@ -38,325 +37,326 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class TtNewsExtend
 {
-	public $conf = [];
-	public $cObj = null;
-	public $extKey = 'jfmulticontent';
-	public $jsFiles = [];
-	public $js = [];
-	public $cssFiles = [];
-	public $css = [];
-	public $piFlexForm = [];
+    public $conf = [];
+    public $cObj = null;
+    public $extKey = 'jfmulticontent';
+    public $jsFiles = [];
+    public $js = [];
+    public $cssFiles = [];
+    public $css = [];
+    public $piFlexForm = [];
 
-	public function extraCodesProcessor($newsObject)
-	{
-		$content = null;
-		$this->cObj = $newsObject->cObj;
-		$this->conf = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_jfmulticontent_pi1.'];
-		switch ($newsObject->theCode) {
-			case 'LIST_ACCORDION': {
-				$content .= $newsObject->displayList();
-				// Add all CSS and JS files
-				if (T3JQUERY === true) {
-					tx_t3jquery::addJqJS();
-				} else {
-					$this->addJsFile($this->conf['jQueryLibrary'], true);
-					$this->addJsFile($this->conf['jQueryEasing']);
-					$this->addJsFile($this->conf['jQueryUI']);
-				}
-				$this->addCssFile($this->conf['jQueryUIstyle']);
-				$this->addResources();
-				break;
-			}
-			case 'LIST_SLIDER': {
-				$content .= $newsObject->displayList();
-				// Add all CSS and JS files
-				if (T3JQUERY === true) {
-					tx_t3jquery::addJqJS();
-				} else {
-					$this->addJsFile($this->conf['jQueryLibrary'], true);
-					$this->addJsFile($this->conf['jQueryEasing']);
-				}
-				$this->addJsFile($this->conf['sliderJS']);
-				$this->addCssFile($this->conf['sliderCSS']);
-				$this->addResources();
-				break;
-			}
-			case 'LIST_SLIDEDECK': {
-				$content .= $newsObject->displayList();
-				// Add all CSS and JS files
-				if (T3JQUERY === true) {
-					tx_t3jquery::addJqJS();
-				} else {
-					$this->addJsFile($this->conf['jQueryLibrary'], true);
-					$this->addJsFile($this->conf['jQueryEasing']);
-				}
-				$this->addJsFile($this->conf['slidedeckJS']);
-				$this->addCssFile($this->conf['slidedeckCSS']);
-				$this->addJsFile($this->conf['jQueryMouseWheel']);
-				$this->addResources();
-				break;
-			}
-			case 'LIST_EASYACCORDION': {
-				$content .= $newsObject->displayList();
-				// Add all CSS and JS files
-				if (T3JQUERY === true) {
-					tx_t3jquery::addJqJS();
-				} else {
-					$this->addJsFile($this->conf['jQueryLibrary'], true);
-				}
-				$this->addJsFile($this->conf['easyaccordionJS']);
-				$this->addCssFile($this->conf['easyaccordionCSS']);
-				$confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT];
-				$this->addCssFile($confArr['easyAccordionSkinFolder'] . $this->conf['config.']['easyaccordionSkin'] . "/style.css");
-				$this->addResources();
-				break;
-			}
-		}
-		return $content;
-	}
+    public function extraCodesProcessor($newsObject)
+    {
+        $content = null;
+        $this->cObj = $newsObject->cObj;
+        $this->conf = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_jfmulticontent_pi1.'];
+        switch ($newsObject->theCode) {
+            case 'LIST_ACCORDION': {
+                $content .= $newsObject->displayList();
+                // Add all CSS and JS files
+                if (T3JQUERY === true) {
+                    tx_t3jquery::addJqJS();
+                } else {
+                    $this->addJsFile($this->conf['jQueryLibrary'], true);
+                    $this->addJsFile($this->conf['jQueryEasing']);
+                    $this->addJsFile($this->conf['jQueryUI']);
+                }
+                $this->addCssFile($this->conf['jQueryUIstyle']);
+                $this->addResources();
+                break;
+            }
+            case 'LIST_SLIDER': {
+                $content .= $newsObject->displayList();
+                // Add all CSS and JS files
+                if (T3JQUERY === true) {
+                    tx_t3jquery::addJqJS();
+                } else {
+                    $this->addJsFile($this->conf['jQueryLibrary'], true);
+                    $this->addJsFile($this->conf['jQueryEasing']);
+                }
+                $this->addJsFile($this->conf['sliderJS']);
+                $this->addCssFile($this->conf['sliderCSS']);
+                $this->addResources();
+                break;
+            }
+            case 'LIST_SLIDEDECK': {
+                $content .= $newsObject->displayList();
+                // Add all CSS and JS files
+                if (T3JQUERY === true) {
+                    tx_t3jquery::addJqJS();
+                } else {
+                    $this->addJsFile($this->conf['jQueryLibrary'], true);
+                    $this->addJsFile($this->conf['jQueryEasing']);
+                }
+                $this->addJsFile($this->conf['slidedeckJS']);
+                $this->addCssFile($this->conf['slidedeckCSS']);
+                $this->addJsFile($this->conf['jQueryMouseWheel']);
+                $this->addResources();
+                break;
+            }
+            case 'LIST_EASYACCORDION': {
+                $content .= $newsObject->displayList();
+                // Add all CSS and JS files
+                if (T3JQUERY === true) {
+                    tx_t3jquery::addJqJS();
+                } else {
+                    $this->addJsFile($this->conf['jQueryLibrary'], true);
+                }
+                $this->addJsFile($this->conf['easyaccordionJS']);
+                $this->addCssFile($this->conf['easyaccordionCSS']);
+                $confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT];
+                $this->addCssFile($confArr['easyAccordionSkinFolder'] . $this->conf['config.']['easyaccordionSkin'] . "/style.css");
+                $this->addResources();
+                break;
+            }
+        }
+        return $content;
+    }
 
-	/**
-	 * Return additional markers for tt_news
-	 * @param $markerArray
-	 * @param $row
-	 * @param $conf
-	 * @param $pObj
-	 * @return array
-	 */
-	public function extraGlobalMarkerProcessor(&$pObj, $markerArray)
-	{
-		$conf = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_jfmulticontent_pi1.'];
-		$markerArray['###EASY_ACCORDION_SKIN###'] = $conf['config.']['easyaccordionSkin'];
+    /**
+     * Return additional markers for tt_news
+     * @param $markerArray
+     * @param $row
+     * @param $conf
+     * @param $pObj
+     * @return array
+     */
+    public function extraGlobalMarkerProcessor(&$pObj, $markerArray)
+    {
+        $conf = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_jfmulticontent_pi1.'];
+        $markerArray['###EASY_ACCORDION_SKIN###'] = $conf['config.']['easyaccordionSkin'];
 
-		return $markerArray;
-	}
+        return $markerArray;
+    }
 
-	/**
-	 * Include all defined resources (JS / CSS)
-	 *
-	 * @return void
-	 */
-	public function addResources()
-	{
+    /**
+     * Include all defined resources (JS / CSS)
+     *
+     * @return void
+     */
+    public function addResources()
+    {
         $pagerender = GeneralUtility::makeInstance(PageRenderer::class) ;
-		// Fix moveJsFromHeaderToFooter (add all scripts to the footer)
-		if ($GLOBALS['TSFE']->config['config']['moveJsFromHeaderToFooter']) {
-			$allJsInFooter = true;
-		} else {
-			$allJsInFooter = false;
-		}
-		// add all defined JS files
-		if (count($this->jsFiles) > 0) {
-			foreach ($this->jsFiles as $jsToLoad) {
-				if (T3JQUERY === true) {
-					$conf = array(
-						'jsfile' => $jsToLoad,
-						'tofooter' => ($this->conf['jsInFooter'] || $allJsInFooter),
-						'jsminify' => $this->conf['jsMinify'],
-					);
-					tx_t3jquery::addJS('', $conf);
-				} else {
-					$file = $this->getPath($jsToLoad);
-					if ($file) {
+        // Fix moveJsFromHeaderToFooter (add all scripts to the footer)
+        if ($GLOBALS['TSFE']->config['config']['moveJsFromHeaderToFooter']) {
+            $allJsInFooter = true;
+        } else {
+            $allJsInFooter = false;
+        }
+        // add all defined JS files
+        if (count($this->jsFiles) > 0) {
+            foreach ($this->jsFiles as $jsToLoad) {
+                if (T3JQUERY === true) {
+                    $conf = array(
+                        'jsfile' => $jsToLoad,
+                        'tofooter' => ($this->conf['jsInFooter'] || $allJsInFooter),
+                        'jsminify' => $this->conf['jsMinify'],
+                    );
+                    tx_t3jquery::addJS('', $conf);
+                } else {
+                    $file = $this->getPath($jsToLoad);
+                    if ($file) {
                         if ($this->conf['jsInFooter'] || $allJsInFooter) {
                             $pagerender->addJsFooterFile($file, 'text/javascript', $this->conf['jsMinify']);
                         } else {
                             $pagerender->addJsFile($file, 'text/javascript', $this->conf['jsMinify']);
                         }
-					} else {
+                    } else {
                         $logger = $this->getLogger();
                         $logger->error('File "' . $jsToLoad . '" does not exist!', []);
-					}
-				}
-			}
-		}
-		// add all defined JS script
-		if (count($this->js) > 0) {
-			foreach ($this->js as $jsToPut) {
-				$temp_js .= $jsToPut;
-			}
-			$conf = [];
-			$conf['jsdata'] = $temp_js;
-			if (T3JQUERY === true && class_exists(\TYPO3\CMS\Core\Utility\VersionNumberUtility) && \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger($this->getExtensionVersion('t3jquery')) >= 1002000) {
-				$conf['tofooter'] = ($this->conf['jsInFooter'] || $allJsInFooter);
-				$conf['jsminify'] = $this->conf['jsMinify'];
-				$conf['jsinline'] = $this->conf['jsInline'];
-				tx_t3jquery::addJS('', $conf);
-			} else {
-				// Add script only once
-				$hash = md5($temp_js);
-				if ($this->conf['jsInline']) {
-					$GLOBALS['TSFE']->inlineJS[$hash] = $temp_js;
-				} else {
-					if ($this->conf['jsInFooter'] || $allJsInFooter) {
-						$pagerender->addJsFooterInlineCode($hash, $temp_js, $this->conf['jsMinify']);
-					} else {
-						$pagerender->addJsInlineCode($hash, $temp_js, $this->conf['jsMinify']);
-					}
-				}
-			}
-		}
-		// add all defined CSS files
-		if (count($this->cssFiles) > 0) {
-			foreach ($this->cssFiles as $cssToLoad) {
-				// Add script only once
-				$file = $this->getPath($cssToLoad);
-				if ($file) {
+                    }
+                }
+            }
+        }
+        // add all defined JS script
+        if (count($this->js) > 0) {
+            foreach ($this->js as $jsToPut) {
+                $temp_js .= $jsToPut;
+            }
+            $conf = [];
+            $conf['jsdata'] = $temp_js;
+            if (T3JQUERY === true && class_exists(\TYPO3\CMS\Core\Utility\VersionNumberUtility) && \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger($this->getExtensionVersion('t3jquery')) >= 1002000) {
+                $conf['tofooter'] = ($this->conf['jsInFooter'] || $allJsInFooter);
+                $conf['jsminify'] = $this->conf['jsMinify'];
+                $conf['jsinline'] = $this->conf['jsInline'];
+                tx_t3jquery::addJS('', $conf);
+            } else {
+                // Add script only once
+                $hash = md5($temp_js);
+                if ($this->conf['jsInline']) {
+                    $GLOBALS['TSFE']->inlineJS[$hash] = $temp_js;
+                } else {
+                    if ($this->conf['jsInFooter'] || $allJsInFooter) {
+                        $pagerender->addJsFooterInlineCode($hash, $temp_js, $this->conf['jsMinify']);
+                    } else {
+                        $pagerender->addJsInlineCode($hash, $temp_js, $this->conf['jsMinify']);
+                    }
+                }
+            }
+        }
+        // add all defined CSS files
+        if (count($this->cssFiles) > 0) {
+            foreach ($this->cssFiles as $cssToLoad) {
+                // Add script only once
+                $file = $this->getPath($cssToLoad);
+                if ($file) {
                     $pagerender->addCssFile($file, 'stylesheet', 'all', '', $this->conf['cssMinify']);
-				} else {
+                } else {
                     $logger = $this->getLogger();
                     $logger->error('File "' . $cssToLoad . '" does not exist!', []);
-				}
-			}
-		}
-		// add all defined CSS Script
-		if (count($this->css) > 0) {
-			foreach ($this->css as $cssToPut) {
-				$temp_css .= $cssToPut;
-			}
-			$hash = md5($temp_css);
+                }
+            }
+        }
+        // add all defined CSS Script
+        if (count($this->css) > 0) {
+            foreach ($this->css as $cssToPut) {
+                $temp_css .= $cssToPut;
+            }
+            $hash = md5($temp_css);
             $pagerender->addCssInlineBlock($hash, $temp_css, $this->conf['cssMinify']);
-		}
-	}
+        }
+    }
 
-	/**
-	 * Return the webbased path
-	 * 
-	 * @param string $path
-	 * return string
-	 */
-	public function getPath($path) {
+    /**
+     * Return the webbased path
+     *
+     * @param string $path
+     * return string
+     */
+    public function getPath($path)
+    {
         $result = '';
         if ($path != '') {
             $sanitizer = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\Resource\FilePathSanitizer::class);
             $result = $sanitizer->sanitize($path);
         }
 
-		return $result;
-	}
+        return $result;
+    }
 
-	/**
-	 * Add additional JS file
-	 * 
-	 * @param string $script
-	 * @param boolean $first
-	 * @return void
-	 */
-	public function addJsFile($script = '', $first = false)
-	{
-		if ($this->getPath($script) && ! in_array($script, $this->jsFiles)) {
-			if ($first === true) {
-				$this->jsFiles = array_merge(array($script), $this->jsFiles);
-			} else {
-				$this->jsFiles[] = $script;
-			}
-		}
-	}
+    /**
+     * Add additional JS file
+     *
+     * @param string $script
+     * @param boolean $first
+     * @return void
+     */
+    public function addJsFile($script = '', $first = false)
+    {
+        if ($this->getPath($script) && ! in_array($script, $this->jsFiles)) {
+            if ($first === true) {
+                $this->jsFiles = array_merge(array($script), $this->jsFiles);
+            } else {
+                $this->jsFiles[] = $script;
+            }
+        }
+    }
 
-	/**
-	 * Add JS to header
-	 * 
-	 * @param string $script
-	 * @return void
-	 */
-	public function addJS($script = '')
-	{
-		if (! in_array($script, $this->js)) {
-			$this->js[] = $script;
-		}
-	}
+    /**
+     * Add JS to header
+     *
+     * @param string $script
+     * @return void
+     */
+    public function addJS($script = '')
+    {
+        if (! in_array($script, $this->js)) {
+            $this->js[] = $script;
+        }
+    }
 
-	/**
-	 * Add additional CSS file
-	 * 
-	 * @param string $script
-	 * @return void
-	 */
-	public function addCssFile($script = '')
-	{
-		if ($this->getPath($script) && ! in_array($script, $this->cssFiles)) {
-			$this->cssFiles[] = $script;
-		}
-	}
+    /**
+     * Add additional CSS file
+     *
+     * @param string $script
+     * @return void
+     */
+    public function addCssFile($script = '')
+    {
+        if ($this->getPath($script) && ! in_array($script, $this->cssFiles)) {
+            $this->cssFiles[] = $script;
+        }
+    }
 
-	/**
-	 * Add CSS to header
-	 * 
-	 * @param string $script
-	 * @return void
-	 */
-	public function addCSS($script = '')
-	{
-		if (! in_array($script, $this->css)) {
-			$this->css[] = $script;
-		}
-	}
+    /**
+     * Add CSS to header
+     *
+     * @param string $script
+     * @return void
+     */
+    public function addCSS($script = '')
+    {
+        if (! in_array($script, $this->css)) {
+            $this->css[] = $script;
+        }
+    }
 
-	/**
-	 * Returns the version of an extension (in 4.4 its possible to this with \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getExtensionVersion)
-	 * @param string $key
-	 * @return string
-	 */
-	public function getExtensionVersion($key)
-	{
-		if (! \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded($key)) {
-			return '';
-		}
-		$_EXTKEY = $key;
-		include(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($key) . 'ext_emconf.php');
-		return $EM_CONF[$key]['version'];
-	}
+    /**
+     * Returns the version of an extension (in 4.4 its possible to this with \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getExtensionVersion)
+     * @param string $key
+     * @return string
+     */
+    public function getExtensionVersion($key)
+    {
+        if (! \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded($key)) {
+            return '';
+        }
+        $_EXTKEY = $key;
+        include(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($key) . 'ext_emconf.php');
+        return $EM_CONF[$key]['version'];
+    }
 
-	/**
-	* Set the piFlexform data
-	*
-	* @return void
-	*/
-	protected function setFlexFormData()
-	{
-		if (! count($this->piFlexForm)) {
-			$this->pi_initPIflexForm();
-			$this->piFlexForm = $this->cObj->data['pi_flexform'];
-		}
-	}
+    /**
+    * Set the piFlexform data
+    *
+    * @return void
+    */
+    protected function setFlexFormData()
+    {
+        if (! count($this->piFlexForm)) {
+            $this->pi_initPIflexForm();
+            $this->piFlexForm = $this->cObj->data['pi_flexform'];
+        }
+    }
 
-	/**
-	 * Extract the requested information from flexform
-	 * @param string $sheet
-	 * @param string $name
-	 * @param boolean $devlog
-	 * @return string
-	 */
-	protected function getFlexformData($sheet = '', $name = '', $devlog = true)
-	{
-		$this->setFlexFormData();
-		if (! isset($this->piFlexForm['data'])) {
-			if ($devlog === true) {
+    /**
+     * Extract the requested information from flexform
+     * @param string $sheet
+     * @param string $name
+     * @param boolean $devlog
+     * @return string
+     */
+    protected function getFlexformData($sheet = '', $name = '', $devlog = true)
+    {
+        $this->setFlexFormData();
+        if (! isset($this->piFlexForm['data'])) {
+            if ($devlog === true) {
                 $logger = $this->getLogger();
                 $logger->error('Flexform data not set', []);
-			}
-			return null;
-		}
-		if (! isset($this->piFlexForm['data'][$sheet])) {
-			if ($devlog === true) {
+            }
+            return null;
+        }
+        if (! isset($this->piFlexForm['data'][$sheet])) {
+            if ($devlog === true) {
                 $logger = $this->getLogger();
                 $logger->error('Flexform sheet "' . $sheet - '" not defined', []);
-			}
-			return null;
-		}
-		if (! isset($this->piFlexForm['data'][$sheet]['lDEF'][$name])) {
-			if ($devlog === true) {
+            }
+            return null;
+        }
+        if (! isset($this->piFlexForm['data'][$sheet]['lDEF'][$name])) {
+            if ($devlog === true) {
                 $logger = $this->getLogger();
                 $logger->error('Flexform data [' . $sheet . '][' . $name . '] does not exist', []);
-			}
-			return null;
-		}
-		if (isset($this->piFlexForm['data'][$sheet]['lDEF'][$name]['vDEF'])) {
-			return $this->pi_getFFvalue($this->piFlexForm, $name, $sheet);
-		} else {
-			return $this->piFlexForm['data'][$sheet]['lDEF'][$name];
-		}
-	}
+            }
+            return null;
+        }
+        if (isset($this->piFlexForm['data'][$sheet]['lDEF'][$name]['vDEF'])) {
+            return $this->pi_getFFvalue($this->piFlexForm, $name, $sheet);
+        } else {
+            return $this->piFlexForm['data'][$sheet]['lDEF'][$name];
+        }
+    }
 
     /**
      * @return \TYPO3\CMS\Core\Log\Logger
@@ -368,5 +368,3 @@ class TtNewsExtend
         return $result;
     }
 }
-
-

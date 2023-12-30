@@ -28,7 +28,6 @@ namespace JambageCom\Jfmulticontent\Controller;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-
 /**
 * @author	Juergen Furrer <juergen.furrer@gmail.com>
 * @package	TYPO3
@@ -44,7 +43,7 @@ class TemplaVoilaPlusController
         $pageID = $this->cObj->stdWrap($conf['pageID'], $conf['pageID.']);
         $field = $this->cObj->stdWrap($conf['field'], $conf['field.']);
 
-        $row = NULL;
+        $row = null;
         if ($tsfe->sys_language_content) {
             // SELECT * FROM `pages_language_overlay` WHERE `deleted`=0 AND `hidden`=0 AND `pid`=<mypid> AND `sys_language_uid`=<mylanguageid>
             $queryBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)->getQueryBuilderForTable('pages_language_overlay');
@@ -62,7 +61,7 @@ class TemplaVoilaPlusController
         }
 
         if (!is_array($row)) {
-            // SELECT * FROM `pages` WHERE `deleted`=0 AND `hidden`=0 AND `uid`=<mypid> 
+            // SELECT * FROM `pages` WHERE `deleted`=0 AND `hidden`=0 AND `uid`=<mypid>
             $queryBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)->getQueryBuilderForTable('pages');
             $queryBuilder->setRestrictions(GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer::class));
             $row = $queryBuilder->select('*')
@@ -83,7 +82,7 @@ class TemplaVoilaPlusController
         $flexformXml = '';
         if (isset($row['tx_templavoilaplus_flex'])) {
             $flexformXml = $row['tx_templavoilaplus_flex'];
-        } else if (isset($row['tx_templavoila_flex'])) {
+        } elseif (isset($row['tx_templavoila_flex'])) {
             $flexformXml = $row['tx_templavoila_flex'];
         }
         $page_flex_array = GeneralUtility::xml2array($flexformXml);
@@ -109,13 +108,12 @@ class TemplaVoilaPlusController
 
         return $content;
     }
-    
+
     /**
     * @return \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
     */
-    protected function getTypoScriptFrontendController ()
+    protected function getTypoScriptFrontendController()
     {
         return $GLOBALS['TSFE'];
     }
 }
-

@@ -17,7 +17,6 @@ namespace JambageCom\Jfmulticontent\Log\Writer;
 
 use TYPO3\CMS\Core\Log\LogRecord;
 
- 
 /**
  * Log writer that writes the log records into a file.
  */
@@ -33,11 +32,13 @@ class FileWriter extends \TYPO3\CMS\Core\Log\Writer\FileWriter
     /** @var int */
     protected $mode;
 
-    public function setMode ($param) {
+    public function setMode($param)
+    {
         $this->mode = $param;
     }
 
-    public function getMode () {
+    public function getMode()
+    {
         return $this->mode;
     }
 
@@ -48,7 +49,7 @@ class FileWriter extends \TYPO3\CMS\Core\Log\Writer\FileWriter
      * @return WriterInterface $this
      * @throws \RuntimeException
      */
-    public function writeLog (LogRecord $record)
+    public function writeLog(LogRecord $record)
     {
         $mode = $this->getMode();
         if ($mode == 1 || $mode == 3) {
@@ -60,4 +61,3 @@ class FileWriter extends \TYPO3\CMS\Core\Log\Writer\FileWriter
         }
     }
 }
-

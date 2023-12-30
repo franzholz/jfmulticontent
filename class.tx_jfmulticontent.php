@@ -25,9 +25,8 @@
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-
 /**
- * deprecated: 
+ * deprecated:
  * use the class \JambageCom\Jfmulticontent\Controller\TemplaVoilaPlusController instead
  *
  * @author	Juergen Furrer <juergen.furrer@gmail.com>
@@ -50,4 +49,3 @@ class tx_jfmulticontent
         return $content;
     }
 }
-

@@ -2,7 +2,6 @@
 
 namespace JambageCom\Jfmulticontent\Hooks;
 
-
 /***************************************************************
 *  Copyright notice
 *
@@ -28,7 +27,6 @@ namespace JambageCom\Jfmulticontent\Hooks;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-
 /**
  * 'cms_layout' for the 'jfmulticontent' extension.
  *
@@ -38,36 +36,34 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class CmsBackend
 {
-	/**
-	 * Returns information about this extension's pi1 plugin
-	 *
-	 * @param  array  $params Parameters to the hook
-	 * @param  object $pObj   A reference to calling object
-	 * @return string Information about pi1 plugin
-	 */
-	public function getExtensionSummary ($params, &$pObj)
-	{
+    /**
+     * Returns information about this extension's pi1 plugin
+     *
+     * @param  array  $params Parameters to the hook
+     * @param  object $pObj   A reference to calling object
+     * @return string Information about pi1 plugin
+     */
+    public function getExtensionSummary($params, &$pObj)
+    {
         $result = '';
 
-		if ($params['row']['list_type'] == 'jfmulticontent_pi1') {
-			$data = GeneralUtility::xml2array($params['row']['pi_flexform']);
+        if ($params['row']['list_type'] == 'jfmulticontent_pi1') {
+            $data = GeneralUtility::xml2array($params['row']['pi_flexform']);
 
-			if (is_array($data) && $data['data']['s_general']['lDEF']['style']['vDEF']) {
-				$result = sprintf($GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/Resources/Private/Language/locallang.xlf:cms_layout.style'), '<strong>' . $data['data']['s_general']['lDEF']['style']['vDEF'] . '</strong><br/>');
-			}
-			if (!$result) {
-				$result = $GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/Resources/Private/Language/locallang.xlf:cms_layout.not_configured') . '<br/>';
-			}
-		}
+            if (is_array($data) && $data['data']['s_general']['lDEF']['style']['vDEF']) {
+                $result = sprintf($GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/Resources/Private/Language/locallang.xlf:cms_layout.style'), '<strong>' . $data['data']['s_general']['lDEF']['style']['vDEF'] . '</strong><br/>');
+            }
+            if (!$result) {
+                $result = $GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/Resources/Private/Language/locallang.xlf:cms_layout.not_configured') . '<br/>';
+            }
+        }
 
-		if (
+        if (
             \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('templavoilaplus') ||
             \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('templavoila')
         ) {
-			$result = strip_tags($result);
-		}
-		return $result;
-	}
+            $result = strip_tags($result);
+        }
+        return $result;
+    }
 }
-
-

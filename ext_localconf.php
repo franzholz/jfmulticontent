@@ -1,12 +1,13 @@
 <?php
+
 defined('TYPO3') || die('Access denied.');
 
 call_user_func(function () {
-    if (!defined ('JFMULTICONTENT_EXT')) {
+    if (!defined('JFMULTICONTENT_EXT')) {
         define('JFMULTICONTENT_EXT', 'jfmulticontent');
     }
 
-    if (!defined ('T3JQUERY')) {
+    if (!defined('T3JQUERY')) {
         define('T3JQUERY', false);
     }
 
@@ -52,7 +53,7 @@ call_user_func(function () {
         'list_type',
         1
     );
-    
+
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][JFMULTICONTENT_EXT . 'MigrateFlexformSheetIdentifierUpdate'] =
     \JambageCom\Jfmulticontent\Updates\MigrateFlexformSheetIdentifierUpdate::class;
 
@@ -66,4 +67,3 @@ call_user_func(function () {
         ],
     ];
 });
-
