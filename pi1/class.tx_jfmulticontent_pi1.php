@@ -1751,7 +1751,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
     protected function getLogger()
     {
         /** @var $logger \TYPO3\CMS\Core\Log\Logger */
-        $result = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
+        $result = GeneralUtility::makeInstance(LogManager::class)->getLogger(self::class);
         return $result;
     }
 }

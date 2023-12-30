@@ -152,11 +152,7 @@ class TtNewsExtend
         if (count($this->jsFiles) > 0) {
             foreach ($this->jsFiles as $jsToLoad) {
                 if (T3JQUERY === true) {
-                    $conf = array(
-                        'jsfile' => $jsToLoad,
-                        'tofooter' => ($this->conf['jsInFooter'] || $allJsInFooter),
-                        'jsminify' => $this->conf['jsMinify'],
-                    );
+                    $conf = ['jsfile' => $jsToLoad, 'tofooter' => ($this->conf['jsInFooter'] || $allJsInFooter), 'jsminify' => $this->conf['jsMinify']];
                     tx_t3jquery::addJS('', $conf);
                 } else {
                     $file = $this->getPath($jsToLoad);
@@ -250,7 +246,7 @@ class TtNewsExtend
     {
         if ($this->getPath($script) && ! in_array($script, $this->jsFiles)) {
             if ($first === true) {
-                $this->jsFiles = array_merge(array($script), $this->jsFiles);
+                $this->jsFiles = array_merge([$script], $this->jsFiles);
             } else {
                 $this->jsFiles[] = $script;
             }
@@ -368,7 +364,7 @@ class TtNewsExtend
     protected function getLogger()
     {
         /** @var $logger \TYPO3\CMS\Core\Log\Logger */
-        $result = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
+        $result = GeneralUtility::makeInstance(LogManager::class)->getLogger(self::class);
         return $result;
     }
 }

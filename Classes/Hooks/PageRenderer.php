@@ -278,7 +278,7 @@ class PageRenderer
     protected function getLogger()
     {
         /** @var $logger \TYPO3\CMS\Core\Log\Logger */
-        $result = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
+        $result = GeneralUtility::makeInstance(LogManager::class)->getLogger(self::class);
         return $result;
     }
 }

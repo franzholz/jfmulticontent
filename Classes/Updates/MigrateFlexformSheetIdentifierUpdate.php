@@ -213,8 +213,8 @@ class MigrateFlexformSheetIdentifierUpdate implements UpgradeWizardInterface, Co
         }
         $sql = $query->getSQL();
         $parameters = $query->getParameters();
-        $search = array();
-        $replace = array();
+        $search = [];
+        $replace = [];
         foreach ($parameters as $key => $value) {
             $search[] = ':' . $key;
             $replace[] = '\'' . $value . '\'';
