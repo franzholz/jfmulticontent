@@ -21,6 +21,7 @@
 *
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use JambageCom\Jfmulticontent\Controller\TemplaVoilaPlusController;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -34,7 +35,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class tx_jfmulticontent
 {
-    public $cObj;
+    protected $cObj;
 
     public function getContentFromTemplavoilaField($content, $conf)
     {
@@ -46,5 +47,10 @@ class tx_jfmulticontent
             $controller->getContentFromField($content, $conf);
 
         return $content;
+    }
+
+    public function setContentObjectRenderer(ContentObjectRenderer $cObj): void
+    {
+        $this->cObj = $cObj;
     }
 }

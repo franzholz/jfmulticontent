@@ -24,6 +24,7 @@ namespace JambageCom\Jfmulticontent\Controller;
 *
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer;
@@ -36,7 +37,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 */
 class TemplaVoilaPlusController
 {
-    public $cObj;
+    protected $cObj;
 
     public function getContentFromField($content, $conf)
     {
@@ -116,5 +117,10 @@ class TemplaVoilaPlusController
     protected function getTypoScriptFrontendController()
     {
         return $GLOBALS['TSFE'];
+    }
+
+    public function setContentObjectRenderer(ContentObjectRenderer $cObj): void
+    {
+        $this->cObj = $cObj;
     }
 }

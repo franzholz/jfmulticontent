@@ -24,6 +24,7 @@ namespace JambageCom\Jfmulticontent\Hooks;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\Resource\FilePathSanitizer;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Log\Logger;
@@ -42,7 +43,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class TtNewsExtend
 {
     public $conf = [];
-    public $cObj = null;
+    protected $cObj = null;
     public $extKey = 'jfmulticontent';
     public $jsFiles = [];
     public $js = [];
@@ -366,5 +367,10 @@ class TtNewsExtend
         /** @var $logger \TYPO3\CMS\Core\Log\Logger */
         $result = GeneralUtility::makeInstance(LogManager::class)->getLogger(self::class);
         return $result;
+    }
+
+    public function setContentObjectRenderer(ContentObjectRenderer $cObj): void
+    {
+        $this->cObj = $cObj;
     }
 }

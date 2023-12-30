@@ -52,7 +52,6 @@ call_user_func(function ($extensionKey, $table): void {
             'label' => 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.pages',
             'config' => [
                 'type' => 'group',
-                'internal_type' => 'db',
                 'allowed' => 'pages',
                 'size' => 12,
                 'minitems' => 0,
