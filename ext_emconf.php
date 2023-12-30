@@ -10,7 +10,6 @@ $EM_CONF[$_EXTKEY] = [
     'category' => 'plugin',
     'version' => '2.15.0',
     'state' => 'stable',
-    'clearcacheonload' => 1,
     'author' => 'Franz Holzinger, Jürgen Furrer',
     'author_email' => 'franz@ttproducts.de',
     'author_company' => '',

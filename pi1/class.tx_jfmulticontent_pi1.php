@@ -21,6 +21,7 @@
 *
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
+use TYPO3\CMS\Core\Domain\Repository\PageRepository;
 use TYPO3\CMS\Frontend\Plugin\AbstractPlugin;
 use Sonority\LibJquery\Hooks\PageRenderer;
 use TYPO3\CMS\Core\Service\MarkerBasedTemplateService;
@@ -34,7 +35,6 @@ use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Context\LanguageAspect;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Frontend\Page\PageRepository;
 
 /**
  * Plugin 'Multiple Content' for the 'jfmulticontent' extension.
