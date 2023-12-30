@@ -1069,7 +1069,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 if ($this->conf['config.']['sliderTheme']) {
                     $options[] = 'theme: \'' . static::slashJS($this->conf['config.']['sliderTheme']) . '\'';
                     if (substr($this->confArr['anythingSliderThemeFolder'], 0, 4) === 'EXT:') {
-                        list($extKey, $local) = explode('/', substr($this->confArr['anythingSliderThemeFolder'], 4), 2);
+                        [$extKey, $local] = explode('/', substr($this->confArr['anythingSliderThemeFolder'], 4), 2);
                         $anythingSliderThemeFolder =
                             PathUtility::stripPathSitePrefix(ExtensionManagementUtility::extPath($extKey)) . $local;
                     } else {
