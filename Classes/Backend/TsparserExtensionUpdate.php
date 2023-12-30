@@ -67,7 +67,7 @@ class TsparserExtensionUpdate
     *
     * @return boolean
     */
-    public function checkConfig()
+    public function checkConfig(): bool
     {
         $confDefault = [
             'useStoragePidOnly',

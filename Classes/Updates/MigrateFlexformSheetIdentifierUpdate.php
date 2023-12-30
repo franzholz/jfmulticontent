@@ -139,7 +139,7 @@ class MigrateFlexformSheetIdentifierUpdate implements UpgradeWizardInterface, Co
      * @param string|array &$customMessages Custom messages
      * @return bool Whether everything went smoothly or not
      */
-    public function performUpdate(array &$dbQueries, &$customMessages)
+    public function performUpdate(array &$dbQueries, &$customMessages): bool
     {
         /** @var FlexFormTools $flexFormTools */
         $flexFormTools = GeneralUtility::makeInstance(FlexFormTools::class);
