@@ -1368,7 +1368,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
      * @param array $row record
      * @return void
      */
-    public function addIRREContent(&$a, $context, $row, $view)
+    public function addIRREContent(&$a, $context, $row, $view): void
     {
         $tsfe = $this->getTypoScriptFrontendController();
         /** @var LanguageAspect $languageAspect */
@@ -1401,7 +1401,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
      * Set the contentKey
      * @param string $contentKey
      */
-    public function setContentKey($contentKey = null)
+    public function setContentKey($contentKey = null): void
     {
         $this->contentKey = ($contentKey == null ? $this->extKey : $contentKey);
     }

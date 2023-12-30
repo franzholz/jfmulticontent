@@ -55,7 +55,7 @@ class PageRenderer
      * Set the configuration for the pagerenderer
      * @param array $conf
      */
-    public function setConf($conf)
+    public function setConf($conf): void
     {
         $this->conf = $conf;
     }
@@ -65,7 +65,7 @@ class PageRenderer
     *
     * @return void
     */
-    public function addResources()
+    public function addResources(): void
     {
         $pageRenderer = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class) ;
         // Fix moveJsFromHeaderToFooter (add all scripts to the footer)
@@ -190,7 +190,7 @@ class PageRenderer
      * @param boolean $first
      * @return void
      */
-    public function addJsFile($script = '', $first = false)
+    public function addJsFile($script = '', $first = false): void
     {
         if ($this->getPath($script) && ! in_array($script, $this->jsFiles)) {
             if ($first === true) {
@@ -207,7 +207,7 @@ class PageRenderer
      * @param string $script
      * @return void
      */
-    public function addJS($script = '')
+    public function addJS($script = ''): void
     {
         if (! in_array($script, $this->js)) {
             $this->js[] = $script;
@@ -220,7 +220,7 @@ class PageRenderer
      * @param string $script
      * @return void
      */
-    public function addCssFile($script = '')
+    public function addCssFile($script = ''): void
     {
         if ($this->getPath($script) && !in_array($script, $this->cssFiles)) {
             $this->cssFiles[] = $script;
@@ -234,7 +234,7 @@ class PageRenderer
      * @param string $include for example use "lte IE 7"
      * @return void
      */
-    public function addCssFileInc($script = '', $include = 'IE')
+    public function addCssFileInc($script = '', $include = 'IE'): void
     {
         if ($this->getPath($script) && ! in_array($script, $this->cssFiles) && $include) {
             $this->cssFilesInc[] = [
@@ -250,7 +250,7 @@ class PageRenderer
      * @param string $script
      * @return void
      */
-    public function addCSS($script = '')
+    public function addCSS($script = ''): void
     {
         if (! in_array($script, $this->css)) {
             $this->css[] = $script;

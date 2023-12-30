@@ -139,7 +139,7 @@ class TtNewsExtend
      *
      * @return void
      */
-    public function addResources()
+    public function addResources(): void
     {
         $pagerender = GeneralUtility::makeInstance(PageRenderer::class) ;
         // Fix moveJsFromHeaderToFooter (add all scripts to the footer)
@@ -242,7 +242,7 @@ class TtNewsExtend
      * @param boolean $first
      * @return void
      */
-    public function addJsFile($script = '', $first = false)
+    public function addJsFile($script = '', $first = false): void
     {
         if ($this->getPath($script) && ! in_array($script, $this->jsFiles)) {
             if ($first === true) {
@@ -259,7 +259,7 @@ class TtNewsExtend
      * @param string $script
      * @return void
      */
-    public function addJS($script = '')
+    public function addJS($script = ''): void
     {
         if (! in_array($script, $this->js)) {
             $this->js[] = $script;
@@ -272,7 +272,7 @@ class TtNewsExtend
      * @param string $script
      * @return void
      */
-    public function addCssFile($script = '')
+    public function addCssFile($script = ''): void
     {
         if ($this->getPath($script) && ! in_array($script, $this->cssFiles)) {
             $this->cssFiles[] = $script;
@@ -285,7 +285,7 @@ class TtNewsExtend
      * @param string $script
      * @return void
      */
-    public function addCSS($script = '')
+    public function addCSS($script = ''): void
     {
         if (! in_array($script, $this->css)) {
             $this->css[] = $script;

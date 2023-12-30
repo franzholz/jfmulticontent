@@ -2,7 +2,7 @@
 
 defined('TYPO3') || die('Access denied.');
 
-call_user_func(function () {
+call_user_func(function (): void {
     if (!defined('JFMULTICONTENT_EXT')) {
         define('JFMULTICONTENT_EXT', 'jfmulticontent');
     }
