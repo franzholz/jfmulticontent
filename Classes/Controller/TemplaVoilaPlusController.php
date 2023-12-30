@@ -24,6 +24,7 @@ namespace JambageCom\Jfmulticontent\Controller;
 *
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
+use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -44,7 +45,7 @@ class TemplaVoilaPlusController
         $field = $this->cObj->stdWrap($conf['field'], $conf['field.']);
 
         $row = null;
-        if ($tsfe->sys_language_content) {
+        if (GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('language', 'contentId')) {
             // SELECT * FROM `pages_language_overlay` WHERE `deleted`=0 AND `hidden`=0 AND `pid`=<mypid> AND `sys_language_uid`=<mylanguageid>
             $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages_language_overlay');
             $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
@@ -54,7 +55,7 @@ class TemplaVoilaPlusController
                     $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($pageID, \PDO::PARAM_INT))
                 )
                 ->andWhere(
-                    $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter($tsfe->sys_language_content, \PDO::PARAM_INT))
+                    $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter(GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('language', 'contentId'), \PDO::PARAM_INT))
                 )
                 ->execute()
                 ->fetchAll();

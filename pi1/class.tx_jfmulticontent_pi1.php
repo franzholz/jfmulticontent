@@ -667,7 +667,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['jfmulticontent']['getViews'])
             ) {
                 foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['jfmulticontent']['getViews'] as $_classRef) {
-                    $_procObj = GeneralUtility::getUserObj($_classRef);
+                    $_procObj = GeneralUtility::makeInstance($_classRef);
                     if ($this->conf['config.']['view'] == $_procObj->getIdentifier()) {
                         if (!method_exists($_procObj, 'isActive') || (method_exists($_procObj, 'isActive') && $_procObj->isActive())) {
                             // If the methode 'isActive' not exists, this will be true...

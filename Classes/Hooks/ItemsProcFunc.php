@@ -50,7 +50,7 @@ class ItemsProcFunc
             is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$this->extensionKey]['getViews'])
         ) {
             foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$this->extensionKey]['getViews'] as $_classRef) {
-                $_procObj = GeneralUtility::getUserObj($_classRef);
+                $_procObj = GeneralUtility::makeInstance($_classRef);
                 if (
                     !method_exists($_procObj, 'isActive') ||
                     (method_exists($_procObj, 'isActive') && $_procObj->isActive())
