@@ -24,7 +24,7 @@ namespace JambageCom\Jfmulticontent\Hooks;
 *
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
-
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -59,8 +59,8 @@ class CmsBackend
         }
 
         if (
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('templavoilaplus') ||
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('templavoila')
+            ExtensionManagementUtility::isLoaded('templavoilaplus') ||
+            ExtensionManagementUtility::isLoaded('templavoila')
         ) {
             $result = strip_tags($result);
         }

@@ -24,7 +24,7 @@ namespace JambageCom\Jfmulticontent\Hooks;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-
+use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -149,7 +149,7 @@ class ItemsProcFunc
         }
         $jfmulticontentStyles = [];
         if (isset($config['row']['pid'])) {
-            $pageTS = \TYPO3\CMS\Backend\Utility\BackendUtility::getPagesTSconfig($config['row']['pid']);
+            $pageTS = BackendUtility::getPagesTSconfig($config['row']['pid']);
             $jfmulticontentStyles = GeneralUtility::trimExplode(',', $pageTS['mod.']['jfmulticontent.']['availableStyles'], true);
         }
         $optionList = [];
@@ -179,7 +179,7 @@ class ItemsProcFunc
         }
         $jfmulticontentClasses = [];
         if (isset($config['row']['pid'])) {
-            $pageTS = \TYPO3\CMS\Backend\Utility\BackendUtility::getPagesTSconfig($config['row']['pid']);
+            $pageTS = BackendUtility::getPagesTSconfig($config['row']['pid']);
 
             $jfmulticontentClasses = GeneralUtility::trimExplode(',', $pageTS['mod.']['jfmulticontent.']['classInner'], true);
         }
@@ -247,7 +247,7 @@ class ItemsProcFunc
         }
         $jfmulticontentModes = [];
         if (isset($config['row']['pid'])) {
-            $pageTS = \TYPO3\CMS\Backend\Utility\BackendUtility::getPagesTSconfig($config['row']['pid']);
+            $pageTS = BackendUtility::getPagesTSconfig($config['row']['pid']);
             $jfmulticontentModes = GeneralUtility::trimExplode(',', $pageTS['mod.']['jfmulticontent.']['anythingSliderModes'], true);
         }
         $optionList = [];

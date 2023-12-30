@@ -21,8 +21,7 @@
 *
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
-
-
+use JambageCom\Jfmulticontent\Controller\TemplaVoilaPlusController;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -40,7 +39,7 @@ class tx_jfmulticontent
     public function getContentFromTemplavoilaField($content, $conf)
     {
         $controller = GeneralUtility::makeInstance(
-            \JambageCom\Jfmulticontent\Controller\TemplaVoilaPlusController::class
+            TemplaVoilaPlusController::class
         );
 
         $content =

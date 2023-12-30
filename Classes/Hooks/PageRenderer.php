@@ -27,7 +27,11 @@ namespace JambageCom\Jfmulticontent\Hooks;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-
+use TYPO3\CMS\Core\Utility\VersionNumberUtility;
+use TYPO3\CMS\Frontend\Resource\FilePathSanitizer;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Log\Logger;
+use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -104,7 +108,7 @@ class PageRenderer
             }
             $conf = [];
             $conf['jsdata'] = $temp_js;
-            if (T3JQUERY === true && class_exists(\TYPO3\CMS\Core\Utility\VersionNumberUtility::class) && \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger($this->getExtensionVersion('t3jquery')) >= 1002000) {
+            if (T3JQUERY === true && class_exists(VersionNumberUtility::class) && VersionNumberUtility::convertVersionNumberToInteger($this->getExtensionVersion('t3jquery')) >= 1002000) {
                 $conf['tofooter'] = ($this->conf['jsInFooter'] || $allJsInFooter);
                 $conf['jsminify'] = $this->conf['jsMinify'];
                 $conf['jsinline'] = $this->conf['jsInline'];
@@ -172,7 +176,7 @@ class PageRenderer
     {
         $result = '';
         if ($path != '') {
-            $sanitizer = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\Resource\FilePathSanitizer::class);
+            $sanitizer = GeneralUtility::makeInstance(FilePathSanitizer::class);
             $result = $sanitizer->sanitize($path);
         }
 
@@ -260,21 +264,21 @@ class PageRenderer
      */
     public function getExtensionVersion($key)
     {
-        if (! \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded($key)) {
+        if (! ExtensionManagementUtility::isLoaded($key)) {
             return '';
         }
         $_EXTKEY = $key;
-        include(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($key) . 'ext_emconf.php');
+        include(ExtensionManagementUtility::extPath($key) . 'ext_emconf.php');
         return $EM_CONF[$key]['version'];
     }
 
     /**
-     * @return \TYPO3\CMS\Core\Log\Logger
+     * @return Logger
      */
     protected function getLogger()
     {
         /** @var $logger \TYPO3\CMS\Core\Log\Logger */
-        $result = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
+        $result = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
         return $result;
     }
 }

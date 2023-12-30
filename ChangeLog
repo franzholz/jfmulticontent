@@ -1,3 +1,5 @@
+2023-12-30 Franz Holzinger  <franz@ttproducts.de>
+	* use rector to improve the PHP code
 
 2023-04-11  Franz Holzinger  <franz@ttproducts.de>
     * Implement content plugin wizard by NewContentElement.tsconfig. This must be inserted manually from the page properties TSConfig if needed.

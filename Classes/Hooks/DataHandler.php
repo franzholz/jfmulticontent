@@ -2,6 +2,7 @@
 
 namespace JambageCom\Jfmulticontent\Hooks;
 
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 /***************************************************************
  *  Copyright notice
  *
@@ -27,7 +28,6 @@ namespace JambageCom\Jfmulticontent\Hooks;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-
 /**
  * This class implements a hook to TCEmain to ensure that data is correctly
  * inserted to pages when using TemplaVoilaPlus. It disables automatic TemplaVoilaPlus
@@ -68,8 +68,8 @@ class DataHandler
                         $incomingFieldArray['colPos'] = $confArr['colPosOfIrreContent'];
                         // Workaround for TemplaVoilaPlus
                         if (
-                            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('templavoilaplus') ||
-                            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('templavoila')
+                            ExtensionManagementUtility::isLoaded('templavoilaplus') ||
+                            ExtensionManagementUtility::isLoaded('templavoila')
                         ) {
                             $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tx_templavoilaplus_tcemain']['doNotInsertElementRefsToPage'] = true;
                             $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tx_templavoila_tcemain']['doNotInsertElementRefsToPage'] = true;

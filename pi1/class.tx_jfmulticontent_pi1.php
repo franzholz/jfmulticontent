@@ -21,7 +21,16 @@
 *
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
-
+use TYPO3\CMS\Frontend\Plugin\AbstractPlugin;
+use Sonority\LibJquery\Hooks\PageRenderer;
+use TYPO3\CMS\Core\Service\MarkerBasedTemplateService;
+use TYPO3\CMS\Frontend\Resource\FilePathSanitizer;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer;
+use TYPO3\CMS\Core\Utility\PathUtility;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Log\Logger;
+use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Context\LanguageAspect;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -34,7 +43,7 @@ use TYPO3\CMS\Frontend\Page\PageRepository;
  * @package    TYPO3
  * @subpackage tx_jfmulticontent
  */
-class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
+class tx_jfmulticontent_pi1 extends AbstractPlugin
 {
     public $prefixId      = 'tx_jfmulticontent_pi1';
     public $scriptRelPath = 'pi1/class.tx_jfmulticontent_pi1.php';
@@ -81,16 +90,16 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $tsfe = $this->getTypoScriptFrontendController();
         $this->setFlexFormData();
         $jQueryAvailable = false;
-        if (class_exists(\Sonority\LibJquery\Hooks\PageRenderer::class)) {
+        if (class_exists(PageRenderer::class)) {
             $jQueryAvailable = true;
         }
 
         // get the config from EXT
         $this->confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][JFMULTICONTENT_EXT];
-        $parser = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Service\MarkerBasedTemplateService::class);
+        $parser = GeneralUtility::makeInstance(MarkerBasedTemplateService::class);
         $this->pagerenderer = GeneralUtility::makeInstance(\JambageCom\Jfmulticontent\Hooks\PageRenderer::class);
         $this->pagerenderer->setConf($this->conf);
-        $sanitizer = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\Resource\FilePathSanitizer::class);
+        $sanitizer = GeneralUtility::makeInstance(FilePathSanitizer::class);
 
         // Plugin or template?
         if (
@@ -542,8 +551,8 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                         $row = null;
                         if ($languageAspect->getContentId()) {
                             // SELECT * FROM `pages_language_overlay` WHERE `deleted`=0 AND `hidden`=0 AND `pid`=<mypid> AND `sys_language_uid`=<mylanguageid>
-                            $queryBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)->getQueryBuilderForTable('pages_language_overlay');
-                            $queryBuilder->setRestrictions(GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer::class));
+                            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages_language_overlay');
+                            $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
                             $statement = $queryBuilder->select('*')
                                 ->from('pages_language_overlay')
                                 ->where(
@@ -559,8 +568,8 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
                         if (!is_array($row)) {
                             // SELECT * FROM `pages` WHERE `deleted`=0 AND `hidden`=0 AND `uid`=<mypid>
-                            $queryBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)->getQueryBuilderForTable('pages');
-                            $queryBuilder->setRestrictions(GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer::class));
+                            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages');
+                            $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
                             $statement = $queryBuilder->select('*')
                                 ->from('pages')
                                 ->where(
@@ -597,8 +606,8 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 for ($a = 0; $a < count($content_ids); $a++) {
 
                     // SELECT * FROM `tt_content` WHERE `deleted`=0 AND `hidden`=0 AND `uid`=<mycontentid>
-                    $queryBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-                    $queryBuilder->setRestrictions(GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer::class));
+                    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+                    $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
                     $statement = $queryBuilder->select('*')
                         ->from('tt_content')
                         ->where(
@@ -637,8 +646,8 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 }
 
                 // SELECT * FROM `tt_content` WHERE `deleted`=0 AND `hidden`=0 AND `tx_jfmulticontent_irre_parentid`=<myrecordid>
-                $queryBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-                $queryBuilder->setRestrictions(GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer::class));
+                $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+                $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
                 $statement = $queryBuilder->select('*')
                     ->from('tt_content')
                     ->where(
@@ -1062,7 +1071,7 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                     if (substr($this->confArr['anythingSliderThemeFolder'], 0, 4) === 'EXT:') {
                         list($extKey, $local) = explode('/', substr($this->confArr['anythingSliderThemeFolder'], 4), 2);
                         $anythingSliderThemeFolder =
-                            \TYPO3\CMS\Core\Utility\PathUtility::stripPathSitePrefix(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($extKey)) . $local;
+                            PathUtility::stripPathSitePrefix(ExtensionManagementUtility::extPath($extKey)) . $local;
                     } else {
                         $anythingSliderThemeFolder = $this->confArr['anythingSliderThemeFolder'];
                     }
@@ -1371,7 +1380,7 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         } elseif ($versioningWorkspaceId) {
             $tsfe->sys_page->versionOL('tt_content', $row);
         }
-        $uid = $row['_LOCALIZED_UID'] ? $row['_LOCALIZED_UID'] : $row['uid'];
+        $uid = $row['_LOCALIZED_UID'] ?: $row['uid'];
         if ($row['t3ver_oid']) {
             $uid = $row['t3ver_oid'];
         }
@@ -1414,7 +1423,7 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
     public function renderTemplate()
     {
         $tsfe = $this->getTypoScriptFrontendController();
-        $parser = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Service\MarkerBasedTemplateService::class);
+        $parser = GeneralUtility::makeInstance(MarkerBasedTemplateService::class);
 
         // set the register:key for TS manipulation
         $tsfe->register['key'] = $this->getContentKey();
@@ -1737,12 +1746,12 @@ class tx_jfmulticontent_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
     }
 
     /**
-     * @return \TYPO3\CMS\Core\Log\Logger
+     * @return Logger
      */
     protected function getLogger()
     {
         /** @var $logger \TYPO3\CMS\Core\Log\Logger */
-        $result = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
+        $result = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
         return $result;
     }
 }

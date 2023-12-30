@@ -2,6 +2,8 @@
 
 namespace JambageCom\Jfmulticontent\Backend;
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 /***************************************************************
  *  Copyright notice
  *
@@ -27,8 +29,6 @@ namespace JambageCom\Jfmulticontent\Backend;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-
-
 /**
  * Class that renders fields for the extensionmanager configuration
  *
@@ -86,8 +86,8 @@ class TsparserExtensionUpdate
             'easyAccordionSkinFolder',
         ];
 
-        $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-            \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
+        $extensionConfiguration = GeneralUtility::makeInstance(
+            ExtensionConfiguration::class
         )->get('jfmulticontent');
 
         $confArr = $extensionConfiguration;
