@@ -718,7 +718,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
             $this->templateFile = file_get_contents($incFile);
         }
         if (!$this->templateFile) {
-            $fileName = 'EXT:' . $this->extKey . '/res/tx_jfmulticontent_pi1.tmpl';
+            $fileName = 'EXT:' . $this->extKey . '/Resources/Private/Templates/tx_jfmulticontent_pi1.tmpl';
             $incFile = GeneralUtility::getFileAbsFileName($fileName);
             $this->templateFile = file_get_contents($incFile);
         }
@@ -728,7 +728,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
             $this->templateFileJS = file_get_contents($incFile);
         }
         if (!$this->templateFileJS) {
-            $fileName = 'EXT:' . $this->extKey . '/res/tx_jfmulticontent_pi1.js';
+            $fileName = 'EXT:' . $this->extKey . '/Resources/Private/Templates/tx_jfmulticontent_pi1.js';
             $incFile = GeneralUtility::getFileAbsFileName($fileName);
             $this->templateFileJS = file_get_contents($incFile);
         }

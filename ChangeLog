@@ -1,5 +1,6 @@
-2023-12-30 Franz Holzinger  <franz@ttproducts.de>
+2023-12-31 Franz Holzinger  <franz@ttproducts.de>
     * Do not use the FilePathSanitizer for template files because they may well be outside of the Resources/Public folder.
+    * Move the files from the res folder into Resources/Private/Templates and Resources/Public folder.
 
 2023-12-30 Franz Holzinger  <franz@ttproducts.de>
     * use rector to improve the PHP code

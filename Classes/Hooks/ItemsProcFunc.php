@@ -217,7 +217,7 @@ class ItemsProcFunc
         $confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$this->extensionKey];
         if (! is_dir(GeneralUtility::getFileAbsFileName($confArr['anythingSliderThemeFolder']))) {
             // if the defined folder does not exist, define the default folder
-            $confArr['anythingSliderThemeFolder'] = 'EXT:' . $this->extensionKey . '/res/anythingslider/themes/';
+            $confArr['anythingSliderThemeFolder'] = 'EXT:' . $this->extensionKey . '/Resources/Public/anythingslider/themes/';
         }
         $items = GeneralUtility::get_dirs(GeneralUtility::getFileAbsFileName($confArr['anythingSliderThemeFolder']));
         if (count($items) > 0) {
@@ -283,7 +283,7 @@ class ItemsProcFunc
         $confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$this->extensionKey];
         if (! is_dir(GeneralUtility::getFileAbsFileName($confArr['easyAccordionSkinFolder']))) {
             // if the defined folder does not exist, define the default folder
-            $confArr['easyAccordionSkinFolder'] = 'EXT:' . $this->extensionKey . '/res/easyaccordion/skins/';
+            $confArr['easyAccordionSkinFolder'] = 'EXT:' . $this->extensionKey . '/Resources/Public/easyaccordion/skins/';
         }
         $items = GeneralUtility::get_dirs(GeneralUtility::getFileAbsFileName($confArr['easyAccordionSkinFolder']));
         if (count($items) > 0) {
