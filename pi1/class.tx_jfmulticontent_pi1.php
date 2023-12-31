@@ -25,7 +25,6 @@ use TYPO3\CMS\Core\Domain\Repository\PageRepository;
 use TYPO3\CMS\Frontend\Plugin\AbstractPlugin;
 use Sonority\LibJquery\Hooks\PageRenderer;
 use TYPO3\CMS\Core\Service\MarkerBasedTemplateService;
-use TYPO3\CMS\Frontend\Resource\FilePathSanitizer;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer;
 use TYPO3\CMS\Core\Utility\PathUtility;
@@ -99,7 +98,6 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
         $parser = GeneralUtility::makeInstance(MarkerBasedTemplateService::class);
         $this->pagerenderer = GeneralUtility::makeInstance(\JambageCom\Jfmulticontent\Hooks\PageRenderer::class);
         $this->pagerenderer->setConf($this->conf);
-        $sanitizer = GeneralUtility::makeInstance(FilePathSanitizer::class);
 
         // Plugin or template?
         if (
@@ -714,24 +712,24 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
         }
 
         // The template
-        $incFile = (empty($this->conf['templateFile']) ? '' : $sanitizer->sanitize($this->conf['templateFile']));
+        $incFile = (empty($this->conf['templateFile']) ? '' : GeneralUtility::getFileAbsFileName($this->conf['templateFile']);
 
         if (file_exists($incFile)) {
             $this->templateFile = file_get_contents($incFile);
         }
         if (!$this->templateFile) {
             $fileName = 'EXT:' . $this->extKey . '/res/tx_jfmulticontent_pi1.tmpl';
-            $incFile = $sanitizer->sanitize($fileName);
+            $incFile = GeneralUtility::getFileAbsFileName($fileName);
             $this->templateFile = file_get_contents($incFile);
         }
         // The template for JS
-        $incFile = (empty($this->conf['templateFileJS']) ? '' : $sanitizer->sanitize($this->conf['templateFileJS']));
+        $incFile = (empty($this->conf['templateFileJS']) ? '' : $incFile = GeneralUtility::getFileAbsFileName($this->conf['templateFileJS']);
         if (file_exists($incFile)) {
             $this->templateFileJS = file_get_contents($incFile);
         }
         if (!$this->templateFileJS) {
             $fileName = 'EXT:' . $this->extKey . '/res/tx_jfmulticontent_pi1.js';
-            $incFile = $sanitizer->sanitize($fileName);
+            $incFile = GeneralUtility::getFileAbsFileName($fileName);
             $this->templateFileJS = file_get_contents($incFile);
         }
 
