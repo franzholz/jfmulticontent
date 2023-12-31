@@ -712,7 +712,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
         }
 
         // The template
-        $incFile = (empty($this->conf['templateFile']) ? '' : GeneralUtility::getFileAbsFileName($this->conf['templateFile']);
+        $incFile = (empty($this->conf['templateFile']) ? '' : GeneralUtility::getFileAbsFileName($this->conf['templateFile']));
 
         if (file_exists($incFile)) {
             $this->templateFile = file_get_contents($incFile);
@@ -723,7 +723,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
             $this->templateFile = file_get_contents($incFile);
         }
         // The template for JS
-        $incFile = (empty($this->conf['templateFileJS']) ? '' : $incFile = GeneralUtility::getFileAbsFileName($this->conf['templateFileJS']);
+        $incFile = (empty($this->conf['templateFileJS']) ? '' : $incFile = GeneralUtility::getFileAbsFileName($this->conf['templateFileJS']));
         if (file_exists($incFile)) {
             $this->templateFileJS = file_get_contents($incFile);
         }
