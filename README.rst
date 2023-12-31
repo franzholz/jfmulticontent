@@ -2,7 +2,7 @@ TYPO3 extension jfmulticontent
 ==============================
 
 I have recently adapted the extension jfmulticontent for the TYPO3
-versions 11.5 - 12.3.
+versions 11.5 - 12.4.
 
 Flexform Migration
 ------------------
