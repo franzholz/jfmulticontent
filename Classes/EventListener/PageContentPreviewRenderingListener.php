@@ -6,5 +6,5 @@ use JambageCom\Div2007\Base\PageContentPreviewRenderingListenerBase;
 
 class PageContentPreviewRenderingListener extends PageContentPreviewRenderingListenerBase
 {
-    public $extensionKey = 'Jfmulticontent';
+    public $extensionKey = 'jfmulticontent';
 }
