@@ -615,10 +615,12 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                         ->execute();
                     $row = $statement->fetch();
 
-                    if ($languageAspect->getContentId()) {
-                        $row = $tsfe->sys_page->getRecordOverlay('tt_content', $row, $languageAspect->getContentId(), $languageAspect->getLegacyOverlayType());
-                    } elseif ($versioningWorkspaceId) {
-                        $tsfe->sys_page->versionOL('tt_content', $row);
+                    if (is_array($row)) {
+                        if ($languageAspect->getContentId()) {
+                            $row = $tsfe->sys_page->getRecordOverlay('tt_content', $row, $languageAspect->getContentId(), $languageAspect->getLegacyOverlayType());
+                        } elseif ($versioningWorkspaceId) {
+                            $tsfe->sys_page->versionOL('tt_content', $row);
+                        }
                     }
 
                     if (is_array($row)) {
