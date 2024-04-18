@@ -77,7 +77,6 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
      */
     public function main($content, $conf)
     {
-        $this->content = $content;
         $this->conf = $conf;
         $this->pi_setPiVarDefaults();
         $this->pi_loadLL('LLL:EXT:' . $this->extKey . '/Resources/Private/Language/Pi1/locallang.xlf');
