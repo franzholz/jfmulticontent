@@ -47,11 +47,11 @@ class TemplaVoilaPlusController
 
         $row = null;
         if (GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('language', 'contentId')) {
-            // SELECT * FROM `pages_language_overlay` WHERE `deleted`=0 AND `hidden`=0 AND `pid`=<mypid> AND `sys_language_uid`=<mylanguageid>
-            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages_language_overlay');
+            // SELECT * FROM `pages` WHERE `deleted`=0 AND `hidden`=0 AND `pid`=<mypid> AND `sys_language_uid`=<mylanguageid>
+            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages');
             $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
             $row = $queryBuilder->select('*')
-                ->from('pages_language_overlay')
+                ->from('pages')
                 ->where(
                     $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($pageID, \PDO::PARAM_INT))
                 )
@@ -63,13 +63,14 @@ class TemplaVoilaPlusController
         }
 
         if (!is_array($row)) {
-            // SELECT * FROM `pages` WHERE `deleted`=0 AND `hidden`=0 AND `uid`=<mypid>
+            // SELECT * FROM `pages` WHERE `deleted`=0 AND `hidden`=0 AND `uid`=<mypid> AND sys_language_uid=0
             $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages');
             $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
             $row = $queryBuilder->select('*')
                 ->from('pages')
                 ->where(
-                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($pageID, \PDO::PARAM_INT))
+                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($pageID, \PDO::PARAM_INT)),
+                    $queryBuilder->expr()->eq('sys_language_uid',  $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)
                 )
                 ->execute()
                 ->fetchAll();

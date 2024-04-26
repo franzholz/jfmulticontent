@@ -547,11 +547,11 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                     } else {
                         $row = null;
                         if ($languageAspect->getContentId()) {
-                            // SELECT * FROM `pages_language_overlay` WHERE `deleted`=0 AND `hidden`=0 AND `pid`=<mypid> AND `sys_language_uid`=<mylanguageid>
-                            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages_language_overlay');
+                            // SELECT * FROM `pages` WHERE `deleted`=0 AND `hidden`=0 AND `pid`=<mypid> AND `sys_language_uid`=<mylanguageid>
+                            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages');
                             $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
                             $statement = $queryBuilder->select('*')
-                                ->from('pages_language_overlay')
+                                ->from('pages')
                                 ->where(
                                     $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($page_ids[$a], \PDO::PARAM_INT))
                                 )
@@ -570,7 +570,8 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                             $statement = $queryBuilder->select('*')
                                 ->from('pages')
                                 ->where(
-                                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($page_ids[$a], \PDO::PARAM_INT))
+                                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($page_ids[$a], \PDO::PARAM_INT)),
+                                    $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)
                                 )
                                 ->setMaxResults(1)
                                 ->execute();

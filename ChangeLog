@@ -1,3 +1,8 @@
+pages_language_overlay
+
+2024-04-26 Franz Holzinger  <franz@ttproducts.de>
+    * Fix #15: compatibility TYPO3 9: Replace pages_language_overlay by pages
+
 2024-01-23 Franz Holzinger  <franz@ttproducts.de>
     * Fix Github path: Resources/Private/Templates
 
@@ -28,7 +33,7 @@
 2022-07-21  Franz Holzinger  <franz@ttproducts.de>
     * fix PHP error
     * fix compatibility issues
-    * no typo3db_legacy required 
+    * no typo3db_legacy required
 
 2022-07-18  Franz Holzinger  <franz@ttproducts.de>
     * move language files into Crowdin format supported since TYPO3 9
@@ -70,7 +75,7 @@
 
 2021-01-14  Franz Holzinger  <franz@ttproducts.de>
     * compatibility TYPO3 10.4 and PHP 7.4
-    * compatibility TYPO3 10.4: rewrite flexform conversion tool class MigrateFlexformSheetIdentifierUpdate 
+    * compatibility TYPO3 10.4: rewrite flexform conversion tool class MigrateFlexformSheetIdentifierUpdate
 
 2020-02-10  Franz Holzinger  <franz@ttproducts.de>
     * fix bug  #3: replace GeneralUtility::slashJS by static::slashJS which is a copy of the other slashJS method.
@@ -115,7 +120,7 @@
     * move lib/class.tx_jfmulticontent_cms_layout.php -> Classes/Hooks/CmsBackend.php
     * move lib/class.tx_jfmulticontent_tsparserext.php -> Classes/Backend/TsparserExtensionUpdate.php
     * replace $this->cObj->fileResource by $tsfe->tmpl->getFileName and file_get_contents
-    * add ConnectionPool / queryBuilder SQL queries 
+    * add ConnectionPool / queryBuilder SQL queries
 
 2019-11-07  Franz Holzinger  <franz@ttproducts.de>
     * Coding Guidelines: replace double quote by single quote, " by '
