@@ -31,6 +31,10 @@
     "typo3/cms-core": "^11.5 || ^12.4",
     "jambagecom/div2007": "^1.17.0 || ^2.0"
   },
+  "suggest": {
+    "bugfix/patchlayout": "^0.2",
+    "quellenform/t3x-lib-jquery": "^4"
+  },
   "autoload": {
     "psr-4": {
       "JambageCom\\Jfmulticontent\\": "Classes"
