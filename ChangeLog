@@ -1,7 +1,6 @@
-pages_language_overlay
 
 2024-04-26 Franz Holzinger  <franz@ttproducts.de>
-    * Fix #15: compatibility TYPO3 9: Replace pages_language_overlay by pages
+    * Fix #15: compatibility TYPO3 9: Replace removed table pages_language_overlay by pages
 
 2024-01-23 Franz Holzinger  <franz@ttproducts.de>
     * Fix Github path: Resources/Private/Templates

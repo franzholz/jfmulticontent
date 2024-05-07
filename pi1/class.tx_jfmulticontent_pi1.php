@@ -501,16 +501,15 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 $this->conf['config.']['style'] = $this->lConf['style'];
             }
 
-            $this->lConf['titles']     = $this->getFlexformData('s_title', 'titles');
+            $this->lConf['titles']     = $this->getFlexformData('s_title', 'titles') ?? '';
             $this->lConf['attributes'] = $this->getFlexformData('s_attribute', 'attributes');
 
             $this->lConf['options']         = $this->getFlexformData('s_special', 'options');
             $this->lConf['optionsOverride'] = $this->getFlexformData('s_special', 'optionsOverride');
 
-            if ($this->cObj->data['tx_jfmulticontent_view']) {
+            $this->conf['config.']['view'] = 'content';
+            if (!empty($this->cObj->data['tx_jfmulticontent_view'])) {
                 $this->conf['config.']['view'] = $this->cObj->data['tx_jfmulticontent_view'];
-            } else {
-                $this->conf['config.']['view'] = 'content';
             }
 
             // define the titles to overwrite
@@ -530,7 +529,9 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
 
             $view = $this->conf['views.'][$this->conf['config.']['view'] . '.'];
 
-            if ($this->conf['config.']['view'] == 'page') {
+            if (
+                $this->conf['config.']['view'] == 'page'
+            ) {
                 // get the page ID's
                 $page_ids = GeneralUtility::trimExplode(',', $this->cObj->data['tx_jfmulticontent_pages'], true);
 
@@ -570,8 +571,20 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                             $statement = $queryBuilder->select('*')
                                 ->from('pages')
                                 ->where(
-                                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($page_ids[$a], \PDO::PARAM_INT)),
-                                    $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)
+                                    $queryBuilder->expr()->eq(
+                                        'uid',
+                                        $queryBuilder->createNamedParameter(
+                                            $page_ids[$a],
+                                            \PDO::PARAM_INT
+                                        )
+                                    ),
+                                    $queryBuilder->expr()->eq(
+                                        'sys_language_uid',
+                                        $queryBuilder->createNamedParameter(
+                                            0,
+                                            \PDO::PARAM_INT
+                                        )
+                                    )
                                 )
                                 ->setMaxResults(1)
                                 ->execute();
@@ -590,8 +603,8 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                     }
 
                     if (
-                        $this->titles[$a] == '' ||
-                        !isset($this->titles[$a])
+                        !isset($this->titles[$a]) ||
+                        $this->titles[$a] == ''
                     ) {
                         $this->titles[$a] = $this->cObj->cObjGetSingle($view['title'], $view['title.']);
                     }
@@ -935,17 +948,20 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 if ($this->conf['config.']['accordionCollapsible']) {
                     $options['collapsible'] = 'collapsible:true';
                 }
-                if ($this->conf['config.']['accordionClosed']) {
+
+                if (!empty($this->conf['config.']['accordionClosed'])) {
                     $options['active'] = 'active:false';
                     $options['collapsible'] = 'collapsible:true';
-                } elseif ($this->conf['config.']['accordionRandomContent']) {
+                } elseif (!empty($this->conf['config.']['accordionRandomContent'])) {
                     $options['active'] = 'active:Math.floor(Math.random()*' . $this->contentCount . ')';
                 } elseif ($this->conf['config.']['accordionOpen'] > 0) {
                     $options['active'] = 'active:' . ($this->conf['config.']['accordionOpen'] - 1);
                 }
+
                 if (in_array($this->conf['config.']['accordionEvent'], ['click', 'mouseover'])) {
                     $options['event'] = "event:'{$this->conf['config.']['accordionEvent']}'";
                 }
+
                 if (in_array($this->conf['config.']['accordionHeightStyle'], ['auto', 'fill', 'content'])) {
                     $options['heightStyle'] = "heightStyle:'{$this->conf['config.']['accordionHeightStyle']}'";
                 }
@@ -961,7 +977,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                     $templateCode = $this->outputError('Template TEMPLATE_ACCORDION_JS is missing', true);
                 }
                 $easingAnimation = null;
-                if (!$this->conf['config.']['accordionAnimate']) {
+                if (empty($this->conf['config.']['accordionAnimate'])) {
                     $options['animate'] = 'animate:false';
                 } else {
                     $fx = [];
@@ -975,7 +991,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 }
 
                 // app the open-link-template
-                if ($this->confArr['openExternalLink']) {
+                if (!empty($this->confArr['openExternalLink'])) {
                     $openExtLink = trim($parser->getSubpart($templateCode, '###OPEN_EXTERNAL_LINK###'));
                 } else {
                     $openExtLink = null;
@@ -983,7 +999,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 $templateCode = trim($parser->substituteSubpart($templateCode, '###OPEN_EXTERNAL_LINK###', $openExtLink, 0));
 
                 // open tab by hash
-                if ($this->confArr['tabSelectByHash']) {
+                if (!empty($this->confArr['tabSelectByHash'])) {
                     $tabSelector = trim($parser->getSubpart($templateCode, '###TAB_SELECT_BY_HASH###'));
                 } else {
                     $tabSelector = null;
@@ -991,10 +1007,10 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 $templateCode = trim($parser->substituteSubpart($templateCode, '###TAB_SELECT_BY_HASH###', $tabSelector, 0));
 
                 // overwrite all options if set
-                if ($this->conf['config.']['accordionOptionsOverride']) {
+                if (!empty($this->conf['config.']['accordionOptionsOverride'])) {
                     $options = [$this->conf['config.']['accordionOptions']];
                 } else {
-                    if ($this->conf['config.']['accordionOptions']) {
+                    if (!empty($this->conf['config.']['accordionOptions'])) {
                         $options['options'] = $this->conf['config.']['accordionOptions'];
                     }
                 }
@@ -1677,18 +1693,18 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
      * @param string $sheet
      * @param string $name
      * @param boolean $devlog
-     * @return string | null
+     * @return string
      */
     protected function getFlexformData($sheet = '', $name = '', $devlog = true)
     {
-        $result = null;
+        $result = '';
 
         if (!isset($this->piFlexForm['data'])) {
             if ($devlog === true) {
                 $logger = $this->getLogger();
                 $logger->debug('Flexform data not set.');
             }
-            return null;
+            return $result;
         }
 
         if (!isset($this->piFlexForm['data'][$sheet])) {
@@ -1696,7 +1712,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 $logger = $this->getLogger();
                 $logger->debug('Flexform sheet ' . $sheet . ' not defined');
             }
-            return null;
+            return $result;
         }
 
         if (!isset($this->piFlexForm['data'][$sheet]['lDEF'][$name])) {
@@ -1704,7 +1720,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 $logger = $this->getLogger();
                 $logger->debug('Flexform data [' . $sheet . '][' . $name . '] does not exist');
             }
-            return null;
+            return $result;
         }
 
         if (isset($this->piFlexForm['data'][$sheet]['lDEF'][$name]['vDEF'])) {
