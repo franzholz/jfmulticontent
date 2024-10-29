@@ -39,14 +39,15 @@ patch and create a pull request.
 TSConfig Requirement
 --------------------
 
-You must set TSConfig with one page id like this: ### example:
+You must set TSConfig with one page id like this:
 
-::
+example::
+^^^^^^^
 
    TCEFORM.tt_content.tx_jfmulticontent_contents.PAGE_TSCONFIG_ID = 17
 
 The starting point page record for the plugin does not exist any more in
-TYPO3. A ###PAGE_TSCONFIG_IDLIST### with multiple page ids is not
+TYPO3. A ``###PAGE_TSCONFIG_IDLIST###`` run with multiple page ids is not
 supported at the moment.
 
 Content Plugin Wizard
@@ -60,5 +61,4 @@ Element Wizard
 Sponsors
 --------
 
-The Booklet has been sponsored by made in nature WERBEAGENTUR
-(https://www.made-in-nature.de/leistungen/typo3) .
+The Booklet has been sponsored by `made in nature WERBEAGENTUR <https://www.made-in-nature.de/leistungen/typo3>`_ .
