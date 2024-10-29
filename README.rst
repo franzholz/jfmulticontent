@@ -47,7 +47,7 @@ example::
    TCEFORM.tt_content.tx_jfmulticontent_contents.PAGE_TSCONFIG_ID = 17
 
 The starting point page record for the plugin does not exist any more in
-TYPO3. A '###PAGE_TSCONFIG_IDLIST###' with multiple page ids is not
+TYPO3. A ``###PAGE_TSCONFIG_IDLIST###`` run with multiple page ids is not
 supported at the moment.
 
 Content Plugin Wizard
