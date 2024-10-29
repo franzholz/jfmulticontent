@@ -2,20 +2,18 @@ TYPO3 extension jfmulticontent
 ==============================
 
 I have recently adapted the extension jfmulticontent for the TYPO3
-versions 11.5 - 12.4.
+versions 11.5 - 13.4.
 
 Flexform Migration
 ------------------
 
 For upgrades from a version < 2.10 the upgrade script must be executed
-once in the Install Tool. It is only visible if it is required. All the
-flexform sheet names must have a leading ‘s\_’. This transformation is
+once in the Install Tool. It is only visible if this task is still required.
+All the flexform sheet names must have a leading ‘s\_’. This transformation is
 done in the update script. The extension typo3db_legacy must be
-installed for the upgrade to work. When upgrading from very old versions
+installed for the upgrade to work. When upgrading from a very old version
 < 2 of this extension some more modifications are required, which have
-been only available from the Extension Manager UPDATE script of the
-previous TYPO3 versions. This is not redone by the current upgrade
-scripts.
+been only available from the Extension Manager UPDATE script of older TYPO3 versions. This is not available in the current upgrade scripts.
 
 Third Party Extensions
 ----------------------
@@ -41,8 +39,8 @@ TSConfig Requirement
 
 You must set TSConfig with one page id like this:
 
-example::
-^^^^^^^
+example:
+^^^^^^^^
 
    TCEFORM.tt_content.tx_jfmulticontent_contents.PAGE_TSCONFIG_ID = 17
 
