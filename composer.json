@@ -29,7 +29,7 @@
   "require": {
     "php": "^8.2",
     "typo3/cms-core": "^12.4 || ^13.4",
-    "jambagecom/div2007": "^2.0"
+    "jambagecom/div2007": "^2.2"
   },
   "suggest": {
     "bugfix/patchlayout": "^0.2",
