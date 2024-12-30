@@ -1460,7 +1460,12 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
         $markerArray['KEY'] = $this->getContentKey();
         // replace equalizeClass
         if ($this->conf['config.']['equalize']) {
-            $markerArray['EQUALIZE_CLASS'] = ' '.$this->cObj->stdWrap($this->conf['equalizeClass'], $this->conf['equalizeClass.']);
+            $markerArray['EQUALIZE_CLASS'] =
+                ' ' .
+                $this->cObj->stdWrap(
+                    $this->conf['equalizeClass'],
+                    $this->conf['equalizeClass.'] ?? []
+                );
         } else {
             $markerArray['EQUALIZE_CLASS'] = '';
         }
