@@ -1533,6 +1533,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
             }
 
             // render the content
+            $markerArray['CONTENT'] = '';
             $markerArray['CONTENT_ID'] = $this->content_id[$a] ?? '';
             $markerArray['ID']         = $a + 1;
             $markerArray['TITLE']      = null;
