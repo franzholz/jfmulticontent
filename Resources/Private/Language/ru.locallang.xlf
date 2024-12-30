@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:jfmulticontent/Resources/Private/Language/locallang.xlf" date="2022-07-18T15:20:53Z" product-name="jfmulticontent" target-language="ru">
+    <header/>
+    <body>
+      <trans-unit id="pi1_title" resname="pi1_title">
+        <source>Multiple Content</source>
+        <target state="translated">Объединение содержимого</target>
+      </trans-unit>
+      <trans-unit id="pi1_plus_wiz_description" resname="pi1_plus_wiz_description">
+        <source>Create a multiple content</source>
+        <target state="translated">Создание содержимого из нескольких элементов</target>
+      </trans-unit>
+      <trans-unit id="cms_layout.style" resname="cms_layout.style">
+        <source>Display: %s</source>
+        <target state="translated">Отобразить: %s</target>
+      </trans-unit>
+      <trans-unit id="cms_layout.not_configured" resname="cms_layout.not_configured">
+        <source>Plugin is not configured!</source>
+        <target state="translated">Дополнение не настроено!</target>
+      </trans-unit>
+      <trans-unit id="extmng.updatermsgHeader" resname="extmng.updatermsgHeader">
+        <source>Important!</source>
+        <target state="translated">Важно!</target>
+      </trans-unit>
+      <trans-unit id="extmng.updatermsgInstall" resname="extmng.updatermsgInstall">
+        <source>jfmulticontent comes with a new updater-script which fixes old content elements. You have to run this script once in the Install Tool, if you are updating from an older installation.</source>
+        <target state="needs-translation">jfmulticontent comes with a new updater-script which fixes old content elements. You have to run this script once in the Install Tool, if you are updating from an older installation.</target>
+      </trans-unit>
+      <trans-unit id="updater.back" resname="updater.back">
+        <source>[&lt;- back]</source>
+        <target state="translated">[&lt;-назад]</target>
+      </trans-unit>
+      <trans-unit id="updater.reload" resname="updater.reload">
+        <source>[reload this page]</source>
+        <target state="translated">[обновить эту страницу]</target>
+      </trans-unit>
+      <trans-unit id="updater.warningHeader" resname="updater.warningHeader">
+        <source>Important! Please Read!</source>
+        <target state="translated">Важно! Обязательно прочитайте!</target>
+      </trans-unit>
+      <trans-unit id="updater.nothingtodo" resname="updater.nothingtodo">
+        <source>Nothing to do</source>
+        <target state="translated">Ничего делать не нужно</target>
+      </trans-unit>
+      <trans-unit id="updater.actions" resname="updater.actions">
+        <source>Actions:</source>
+        <target state="translated">Действия:</target>
+      </trans-unit>
+      <trans-unit id="updater.updateresults" resname="updater.updateresults">
+        <source>Update results:</source>
+        <target state="translated">Результаты обновления:</target>
+      </trans-unit>
+      <trans-unit id="updater.warningMsg" resname="updater.warningMsg" xml:space="preserve">
+				<source>
+				The updater manipulates your database and due to the huge amount of configuration variants it is 
+				possible that it &lt;br&gt;might not produce the expected results.&lt;br&gt;
+				So backup your database (at least the table tt_content) or do a t3d export of your site 
+				&lt;strong&gt;BEFORE&lt;/strong&gt; &lt;br&gt;
+				you click on any of the &quot;DO IT&quot; Buttons.
+			</source>
+			<target state="translated">Сценарий обновления работает с базой данных и, из-за огромного количества вариаций настроек возможно &lt;br&gt;не добиться необходимых результатов.&lt;br&gt; Поэтому, сделайте резервную копию своей базы данных (хотя бы таблицы tt_content) или экспортируйте свой сайт в t3d &lt;strong&gt;ПЕРЕД ТЕМ КАК&lt;/strong&gt; &lt;br&gt; Вы нажмете на кнопку "СДЕЛАТЬ".</target></trans-unit>
+      <trans-unit id="updater.lbl_searchFlexForm" resname="updater.lbl_searchFlexForm">
+        <source>Search &quot;old values&quot; in FF</source>
+        <target state="translated">Поиск "старых значений" во внешнем интерфейсе</target>
+      </trans-unit>
+      <trans-unit id="updater.msg_searchFlexForm" resname="updater.msg_searchFlexForm">
+        <source>Search for jfmulticontent content elements with old values in flexforms (These sheets have been renamed with a prefix s_, or the fields where moved to another sheet):</source>
+        <target state="translated">Поиск элементов содержимого jfmulticontent со старыми значениями в формах настроек (эти поля были перенесены на другую вкладку):</target>
+      </trans-unit>
+      <trans-unit id="updater.foundMsg_searchFlexForm" resname="updater.foundMsg_searchFlexForm">
+        <source>Found ###COUNT### content elements.</source>
+        <target state="translated">Найдено ###COUNT## элементов содержимого.</target>
+      </trans-unit>
+      <trans-unit id="updater.question_searchFlexForm" resname="updater.question_searchFlexForm">
+        <source>Should the updater fix this settings?</source>
+        <target state="translated">Исправить найденные настройки?</target>
+      </trans-unit>
+      <trans-unit id="updater.questionInfo_searchFlexForm" resname="updater.questionInfo_searchFlexForm">
+        <source>(If you click &quot;DO IT&quot; all old fields will be moved to the new flexform sheet)</source>
+        <target state="translated">(если щелкнуть "СДЕЛАТЬ", все старые поля будут перемещены на новую вкладку формы настроек)</target>
+      </trans-unit>
+      <trans-unit id="updater.lbl_searchWrongStyle" resname="updater.lbl_searchWrongStyle">
+        <source>Search &quot;wrong style&quot; in FF</source>
+        <target state="translated">Поиск "неверных стилей" в формах настроек</target>
+      </trans-unit>
+      <trans-unit id="updater.msg_searchWrongStyle" resname="updater.msg_searchWrongStyle">
+        <source>Search for jfmulticontent content elements with wrong style in flexforms:</source>
+        <target state="translated">Поиск элементов содержимого jfmulticontent со старыми стилями форм настроек:</target>
+      </trans-unit>
+      <trans-unit id="updater.foundMsg_searchWrongStyle" resname="updater.foundMsg_searchWrongStyle">
+        <source>Found ###COUNT### content elements.</source>
+        <target state="translated">Найдено ###COUNT### элементов содержимого.</target>
+      </trans-unit>
+      <trans-unit id="updater.question_searchWrongStyle" resname="updater.question_searchWrongStyle">
+        <source>Should the updater fix this settings?</source>
+        <target state="translated">Исправить настройки автоматически?</target>
+      </trans-unit>
+      <trans-unit id="updater.questionInfo_searchWrongStyle" resname="updater.questionInfo_searchWrongStyle">
+        <source>(If you click &quot;DO IT&quot; the flexform will be fix with the correct style)</source>
+        <target state="translated">(если нажать "DO IT", формы настроек будут скорректированы)</target>
+      </trans-unit>
+      <trans-unit id="updater.lbl_searchWrongLanguage" resname="updater.lbl_searchWrongLanguage">
+        <source>Search &quot;wrong languages&quot; in contentlist</source>
+        <target state="translated">Поиск "неправильных языков" в списке содержимого</target>
+      </trans-unit>
+      <trans-unit id="updater.msg_searchWrongLanguage" resname="updater.msg_searchWrongLanguage">
+        <source>Search for jfmulticontent content elements with wrong languages in contentlist:</source>
+        <target state="translated">Поиск элементов содержимого jfmulticontent с неверными языками в списке содержимого:</target>
+      </trans-unit>
+      <trans-unit id="updater.foundMsg_searchWrongLanguage" resname="updater.foundMsg_searchWrongLanguage">
+        <source>Found ###COUNT### content elements.</source>
+        <target state="translated">Найдено ###COUNT### элементов содержимого.</target>
+      </trans-unit>
+      <trans-unit id="updater.question_searchWrongLanguage" resname="updater.question_searchWrongLanguage">
+        <source>Should the updater fix this settings?</source>
+        <target state="translated">Исправить настройки автоматически?</target>
+      </trans-unit>
+      <trans-unit id="updater.questionInfo_searchWrongLanguage" resname="updater.questionInfo_searchWrongLanguage">
+        <source>(If you click &quot;DO IT&quot; the contentlist will be fix with the default language)</source>
+        <target state="translated">(если нажать "DO IT", списки содержимого будут исправлены на язык по умолчанию)</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
