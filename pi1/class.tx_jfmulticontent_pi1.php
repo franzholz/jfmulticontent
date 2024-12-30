@@ -888,11 +888,11 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                     $options['show'] = "show:{" . implode(', ', $fx) . "}";
                 }
 
-                // overwrite all options if set
-                if ($this->conf['config.']['tabOptionsOverride']) {
-                    $options = [$this->conf['config.']['tabOptions']];
-                } else {
-                    if ($this->conf['config.']['tabOptions']) {
+                if (isset($this->conf['config.']['tabOptions'])) {
+                    // overwrite all options if set
+                    if (!empty($this->conf['config.']['tabOptionsOverride'])) {
+                        $options = [$this->conf['config.']['tabOptions']];
+                    } else {
                         $options['options'] = $this->conf['config.']['tabOptions'];
                     }
                 }
