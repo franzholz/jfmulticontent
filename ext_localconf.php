@@ -2,13 +2,17 @@
 
 defined('TYPO3') || die('Access denied.');
 
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 call_user_func(function ($extensionKey): void {
     if (!defined('T3JQUERY')) {
         define('T3JQUERY', false);
     }
 
-    $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-        \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
+    $extensionConfiguration = GeneralUtility::makeInstance(
+        ExtensionConfiguration::class
     )->get($extensionKey);
     $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$extensionKey] = $extensionConfiguration;
 
@@ -42,7 +46,7 @@ call_user_func(function ($extensionKey): void {
     // Save the content
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][$extensionKey] = \JambageCom\Jfmulticontent\Hooks\DataHandler::class;
 
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43(
+    ExtensionManagementUtility::addPItoST43(
         $extensionKey,
         'pi1/class.tx_jfmulticontent_pi1.php',
         '_pi1',
