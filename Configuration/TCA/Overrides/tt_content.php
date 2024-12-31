@@ -2,6 +2,10 @@
 
 defined('TYPO3') || die('Access denied.');
 
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 call_user_func(function ($extensionKey, $table): void {
     $listType = $extensionKey . '_pi1';
 
@@ -13,8 +17,10 @@ call_user_func(function ($extensionKey, $table): void {
     }
     $GLOBALS['TCA'][$table]['ctrl']['requestUpdate'] .= ($GLOBALS['TCA'][$table]['ctrl']['requestUpdate'] ? ',' : '') . 'tx_jfmulticontent_view';
 
-    $confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$extensionKey];
-    $colPosOfIrreContent = intval($confArr['colPosOfIrreContent']);
+    $extensionConfiguration = GeneralUtility::makeInstance(
+        ExtensionConfiguration::class
+    )->get($extensionKey);
+    $colPosOfIrreContent = intval($extensionConfiguration['colPosOfIrreContent']);
 
     if (
         !isset($GLOBALS['TCA'][$table]['columns']['colPos']['config']['items'][$colPosOfIrreContent])
@@ -90,7 +96,7 @@ call_user_func(function ($extensionKey, $table): void {
         ],
     ];
 
-    if (!empty($confArr['useStoragePidOnly'])) {
+    if (!empty($extensionConfiguration['useStoragePidOnly'])) {
 
         $foreignTableWhere = 'AND {#tt_content}.{#pid} = ###PAGE_TSCONFIG_ID### AND {#tt_content}.{#hidden} = 0 AND {#tt_content}.{#deleted} = 0 AND {#tt_content}.{#sys_language_uid} IN (0,-1) ORDER BY tt_content.uid';
 
@@ -123,7 +129,6 @@ call_user_func(function ($extensionKey, $table): void {
                 ]
             ]
         ];
-
     } else {
         $temporaryColumns['tx_jfmulticontent_contents'] = [
             'exclude' => 1,
@@ -166,11 +171,9 @@ call_user_func(function ($extensionKey, $table): void {
         ];
     }
 
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns($table, $temporaryColumns);
-
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($listType, 'FILE:EXT:' . $extensionKey . '/Configuration/FlexForms/flexform_ds.xml');
-
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
+    ExtensionManagementUtility::addTCAcolumns($table, $temporaryColumns);
+    ExtensionManagementUtility::addPiFlexFormValue($listType, 'FILE:EXT:' . $extensionKey . '/Configuration/FlexForms/flexform_ds.xml');
+    ExtensionManagementUtility::addPlugin(
         [
             'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
             $listType,

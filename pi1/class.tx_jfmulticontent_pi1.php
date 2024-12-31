@@ -888,11 +888,11 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                     $options['show'] = "show:{" . implode(', ', $fx) . "}";
                 }
 
-                // overwrite all options if set
-                if ($this->conf['config.']['tabOptionsOverride']) {
-                    $options = [$this->conf['config.']['tabOptions']];
-                } else {
-                    if ($this->conf['config.']['tabOptions']) {
+                if (isset($this->conf['config.']['tabOptions'])) {
+                    // overwrite all options if set
+                    if (!empty($this->conf['config.']['tabOptionsOverride'])) {
+                        $options = [$this->conf['config.']['tabOptions']];
+                    } else {
                         $options['options'] = $this->conf['config.']['tabOptions'];
                     }
                 }
@@ -1460,7 +1460,12 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
         $markerArray['KEY'] = $this->getContentKey();
         // replace equalizeClass
         if ($this->conf['config.']['equalize']) {
-            $markerArray['EQUALIZE_CLASS'] = ' '.$this->cObj->stdWrap($this->conf['equalizeClass'], $this->conf['equalizeClass.']);
+            $markerArray['EQUALIZE_CLASS'] =
+                ' ' .
+                $this->cObj->stdWrap(
+                    $this->conf['equalizeClass'],
+                    $this->conf['equalizeClass.'] ?? []
+                );
         } else {
             $markerArray['EQUALIZE_CLASS'] = '';
         }
@@ -1533,6 +1538,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
             }
 
             // render the content
+            $markerArray['CONTENT'] = '';
             $markerArray['CONTENT_ID'] = $this->content_id[$a] ?? '';
             $markerArray['ID']         = $a + 1;
             $markerArray['TITLE']      = null;
