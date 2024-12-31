@@ -129,7 +129,6 @@ call_user_func(function ($extensionKey, $table): void {
                 ]
             ]
         ];
-
     } else {
         $temporaryColumns['tx_jfmulticontent_contents'] = [
             'exclude' => 1,

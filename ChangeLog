@@ -1,5 +1,6 @@
 2024-12-30 Franz Holzinger  <franz@ttproducts.de>
     * Fix #23: replace $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['jfmulticontent'] by ExtensionConfiguration class method
+    * Deprecation no. 97126: TCEforms removed in FlexForm
 
 2024-12-09 Franz Holzinger  <franz@ttproducts.de>
     * compatibility 13, fix #21: Use JambageCom\Div2007\Compatibility\AbstractPlugin

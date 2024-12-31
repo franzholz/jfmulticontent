@@ -11,7 +11,7 @@ frontendErrorMsg = 1
 # cat=basic/enable/040; type=boolean; label=Enable select instead of checkbox: If set, most of checkboxes will turn into selectboxes, so you can choose "from TS"
 useSelectInsteadCheckbox = 0
 
-# cat=basic/enable/050; type=boolean; label=Enable own userFunc in page mode: If set, you have to do the pagerendering with a own userFunc (e.g.: TemplaVoilaPlus, see documentation)
+# cat=basic/enable/050; type=boolean; label=Enable own userFunc in page mode: If set, you have to do the pagerendering with a own userFunc (e.g.: TemplaVoilaPlus)
 useOwnUserFuncForPages = 0
 
 # cat=basic/enable/060; type=boolean; label=Open external links in page-view: If set, the external link in page-view will be opened
