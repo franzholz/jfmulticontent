@@ -2,6 +2,7 @@
     * compatibility lib_jquery: Replace Sonority\LibJquery\Hooks\PageRenderer by Quellenform\LibJquery\Hooks\PageRendererHook
     * move Classes/Hooks/PageRenderer.php into Classes/Hooks/MultiPageRenderer.php
     * remove support for t3jquery
+    * remove enhancement of tt_news
 
 2024-12-30 Franz Holzinger  <franz@ttproducts.de>
     * Fix #23: replace $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['jfmulticontent'] by ExtensionConfiguration class method

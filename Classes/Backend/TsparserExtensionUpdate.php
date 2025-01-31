@@ -71,7 +71,6 @@ class TsparserExtensionUpdate
     {
         $confDefault = [
             'useStoragePidOnly',
-            'ttNewsCodes',
             'useSelectInsteadCheckbox',
             'useOwnUserFuncForPages',
             'openExternalLink',
