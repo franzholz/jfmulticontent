@@ -26,6 +26,7 @@ namespace JambageCom\Jfmulticontent\Controller;
 ***************************************************************/
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Core\Context\Context;
+use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -53,10 +54,10 @@ class TemplaVoilaPlusController
             $row = $queryBuilder->select('*')
                 ->from('pages')
                 ->where(
-                    $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($pageID, \PDO::PARAM_INT))
+                    $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($pageID, Connection::PARAM_INT))
                 )
                 ->andWhere(
-                    $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter(GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('language', 'contentId'), \PDO::PARAM_INT))
+                    $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter(GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('language', 'contentId'), Connection::PARAM_INT))
                 )
                 ->executeQuery()
                 ->fetchAll();
@@ -69,8 +70,8 @@ class TemplaVoilaPlusController
             $row = $queryBuilder->select('*')
                 ->from('pages')
                 ->where(
-                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($pageID, \PDO::PARAM_INT)),
-                    $queryBuilder->expr()->eq('sys_language_uid',  $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)
+                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($pageID, Connection::PARAM_INT)),
+                    $queryBuilder->expr()->eq('sys_language_uid',  $queryBuilder->createNamedParameter(0, Connection::PARAM_INT)
                 )
                 ->executeQuery()
                 ->fetchAll();

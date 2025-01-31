@@ -27,6 +27,7 @@ use Psr\Http\Message\ServerRequestInterface;
 
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Context\LanguageAspect;
+use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer;
 use TYPO3\CMS\Core\Domain\Repository\PageRepository;
@@ -573,10 +574,16 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                             $statement = $queryBuilder->select('*')
                                 ->from('pages')
                                 ->where(
-                                    $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($page_ids[$a], \PDO::PARAM_INT))
+                                    $queryBuilder->expr()->eq(
+                                        'pid',
+                                        $queryBuilder->createNamedParameter(
+                                            $page_ids[$a],
+                                            Connection::PARAM_INT
+                                        )
+                                    )
                                 )
                                 ->andWhere(
-                                    $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter($languageAspect->getContentId(), \PDO::PARAM_INT))
+                                    $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter($languageAspect->getContentId(), Connection::PARAM_INT))
                                 )
                                 ->setMaxResults(1)
                                 ->executeQuery();
@@ -594,14 +601,14 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                                         'uid',
                                         $queryBuilder->createNamedParameter(
                                             $page_ids[$a],
-                                            \PDO::PARAM_INT
+                                            Connection::PARAM_INT
                                         )
                                     ),
                                     $queryBuilder->expr()->eq(
                                         'sys_language_uid',
                                         $queryBuilder->createNamedParameter(
                                             0,
-                                            \PDO::PARAM_INT
+                                            Connection::PARAM_INT
                                         )
                                     )
                                 )
@@ -648,6 +655,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
 
                 // get the informations for every content
                 for ($a = 0; $a < count($content_ids); $a++) {
+                    debug ($content_ids[$a], '$content_ids['. $a . ']');
 
                     // SELECT * FROM `tt_content` WHERE `deleted`=0 AND `hidden`=0 AND `uid`=<mycontentid>
                     $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
@@ -655,7 +663,13 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                     $statement = $queryBuilder->select('*')
                         ->from('tt_content')
                         ->where(
-                            $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($content_ids[$a], \PDO::PARAM_INT))
+                            $queryBuilder->expr()->eq(
+                                'uid',
+                                $queryBuilder->createNamedParameter(
+                                    $content_ids[$a],
+                                    Connection::PARAM_INT
+                                )
+                            )
                         )
                         ->setMaxResults(1)
                         ->executeQuery();
@@ -710,7 +724,13 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 $statement = $queryBuilder->select('*')
                     ->from('tt_content')
                     ->where(
-                        $queryBuilder->expr()->eq('tx_jfmulticontent_irre_parentid', $queryBuilder->createNamedParameter($elementUID, \PDO::PARAM_INT))
+                        $queryBuilder->expr()->eq(
+                            'tx_jfmulticontent_irre_parentid',
+                            $queryBuilder->createNamedParameter(
+                                $elementUID,
+                                Connection::PARAM_INT
+                            )
+                        )
                     )
                     ->orderBy('sorting', 'ASC')
                     ->executeQuery();
