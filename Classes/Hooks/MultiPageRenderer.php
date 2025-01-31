@@ -28,11 +28,13 @@ namespace JambageCom\Jfmulticontent\Hooks;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 use TYPO3\CMS\Core\Utility\VersionNumberUtility;
-use TYPO3\CMS\Frontend\Resource\FilePathSanitizer;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Log\Logger;
 use TYPO3\CMS\Core\Log\LogManager;
+use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Frontend\Resource\FilePathSanitizer;
+
 
 /**
  * This class implements a all needed functions to add Javascripts and Stylesheets to a page
@@ -41,7 +43,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * @package    TYPO3
  * @subpackage tx_jfmulticontent
  */
-class PageRenderer
+class MultiPageRenderer
 {
     public $conf = [];
     public $extKey = 'jfmulticontent';
@@ -67,7 +69,7 @@ class PageRenderer
     */
     public function addResources(): void
     {
-        $pageRenderer = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class) ;
+        $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class) ;
         // Fix moveJsFromHeaderToFooter (add all scripts to the footer)
         if ($pageRenderer->getMoveJsFromHeaderToFooter()) {
             $allJsInFooter = true;

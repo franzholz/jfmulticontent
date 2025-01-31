@@ -21,7 +21,9 @@
 *
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
-use Sonority\LibJquery\Hooks\PageRenderer;
+use Quellenform\LibJquery\Hooks\PageRendererHook;
+
+use Psr\Http\Message\ServerRequestInterface;
 
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Context\LanguageAspect;
@@ -77,8 +79,12 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
      * @param	array		$conf: The PlugIn configuration
      * @return	The content that is displayed on the website
      */
-    public function main($content, $conf)
-    {
+    public function main(
+        string $content,
+        array $conf,
+        ServerRequestInterface $request,
+    ) : string {
+        {
         $this->conf = $conf;
         $this->pi_setPiVarDefaults();
         $this->pi_loadLL('LLL:EXT:' . $this->extKey . '/Resources/Private/Language/Pi1/locallang.xlf');
@@ -90,14 +96,14 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
         $tsfe = $this->getTypoScriptFrontendController();
         $this->setFlexFormData();
         $jQueryAvailable = false;
-        if (class_exists(PageRenderer::class)) {
+        if (class_exists(PageRendererHook::class)) {
             $jQueryAvailable = true;
         }
 
         // get the config from EXT
         $this->confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$this->extKey];
         $parser = GeneralUtility::makeInstance(MarkerBasedTemplateService::class);
-        $this->pagerenderer = GeneralUtility::makeInstance(\JambageCom\Jfmulticontent\Hooks\PageRenderer::class);
+        $this->pagerenderer = GeneralUtility::makeInstance(\JambageCom\Jfmulticontent\Hooks\MultiPageRenderer::class);
         $this->pagerenderer->setConf($this->conf);
 
         // Plugin or template?
@@ -105,7 +111,6 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
             isset($this->cObj->data['list_type']) &&
             $this->cObj->data['list_type'] == $this->extKey . '_pi1'
         ) {
-
             // It's a content, all data from flexform
 
             $this->lConf['style'] = $this->getFlexformData('s_general', 'style');
