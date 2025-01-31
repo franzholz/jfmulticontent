@@ -18,11 +18,10 @@ been only available from the Extension Manager UPDATE script of older TYPO3 vers
 Third Party Extensions
 ----------------------
 
-The extension t3jquery seems not to exist any more and TYPO3 10 will
-provide jQuery for extensions. Any support for t3jquery shall therefore
-be dropped in a later version.
+Any support for the TYPO3 extension t3jquery has
+been dropped.
 
-Now you can use the extension lib_jquery. In this case its
+You can use the extension lib_jquery. In this case its
 jquery-x.min.js library will be used automatically.
 
 The extension patchlayout is recommended to be installed in order to

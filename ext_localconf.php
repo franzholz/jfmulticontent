@@ -7,10 +7,6 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 call_user_func(function ($extensionKey): void {
-    if (!defined('T3JQUERY')) {
-        define('T3JQUERY', false);
-    }
-
     $extensionConfiguration = GeneralUtility::makeInstance(
         ExtensionConfiguration::class
     )->get($extensionKey);

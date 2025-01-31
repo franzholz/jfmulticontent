@@ -60,13 +60,9 @@ class TtNewsExtend
             case 'LIST_ACCORDION': {
                 $content .= $newsObject->displayList();
                 // Add all CSS and JS files
-                if (T3JQUERY === true) {
-                    tx_t3jquery::addJqJS();
-                } else {
-                    $this->addJsFile($this->conf['jQueryLibrary'], true);
-                    $this->addJsFile($this->conf['jQueryEasing']);
-                    $this->addJsFile($this->conf['jQueryUI']);
-                }
+                $this->addJsFile($this->conf['jQueryLibrary'], true);
+                $this->addJsFile($this->conf['jQueryEasing']);
+                $this->addJsFile($this->conf['jQueryUI']);
                 $this->addCssFile($this->conf['jQueryUIstyle']);
                 $this->addResources();
                 break;
@@ -74,12 +70,8 @@ class TtNewsExtend
             case 'LIST_SLIDER': {
                 $content .= $newsObject->displayList();
                 // Add all CSS and JS files
-                if (T3JQUERY === true) {
-                    tx_t3jquery::addJqJS();
-                } else {
-                    $this->addJsFile($this->conf['jQueryLibrary'], true);
-                    $this->addJsFile($this->conf['jQueryEasing']);
-                }
+                $this->addJsFile($this->conf['jQueryLibrary'], true);
+                $this->addJsFile($this->conf['jQueryEasing']);
                 $this->addJsFile($this->conf['sliderJS']);
                 $this->addCssFile($this->conf['sliderCSS']);
                 $this->addResources();
@@ -88,12 +80,8 @@ class TtNewsExtend
             case 'LIST_SLIDEDECK': {
                 $content .= $newsObject->displayList();
                 // Add all CSS and JS files
-                if (T3JQUERY === true) {
-                    tx_t3jquery::addJqJS();
-                } else {
-                    $this->addJsFile($this->conf['jQueryLibrary'], true);
-                    $this->addJsFile($this->conf['jQueryEasing']);
-                }
+                $this->addJsFile($this->conf['jQueryLibrary'], true);
+                $this->addJsFile($this->conf['jQueryEasing']);
                 $this->addJsFile($this->conf['slidedeckJS']);
                 $this->addCssFile($this->conf['slidedeckCSS']);
                 $this->addJsFile($this->conf['jQueryMouseWheel']);
@@ -103,11 +91,7 @@ class TtNewsExtend
             case 'LIST_EASYACCORDION': {
                 $content .= $newsObject->displayList();
                 // Add all CSS and JS files
-                if (T3JQUERY === true) {
-                    tx_t3jquery::addJqJS();
-                } else {
-                    $this->addJsFile($this->conf['jQueryLibrary'], true);
-                }
+                $this->addJsFile($this->conf['jQueryLibrary'], true);
                 $this->addJsFile($this->conf['easyaccordionJS']);
                 $this->addCssFile($this->conf['easyaccordionCSS']);
                 $confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['jfmulticontent'];
@@ -152,21 +136,16 @@ class TtNewsExtend
         // add all defined JS files
         if (count($this->jsFiles) > 0) {
             foreach ($this->jsFiles as $jsToLoad) {
-                if (T3JQUERY === true) {
-                    $conf = ['jsfile' => $jsToLoad, 'tofooter' => ($this->conf['jsInFooter'] || $allJsInFooter), 'jsminify' => $this->conf['jsMinify']];
-                    tx_t3jquery::addJS('', $conf);
-                } else {
-                    $file = $this->getPath($jsToLoad);
-                    if ($file) {
-                        if ($this->conf['jsInFooter'] || $allJsInFooter) {
-                            $pagerender->addJsFooterFile($file, 'text/javascript', $this->conf['jsMinify']);
-                        } else {
-                            $pagerender->addJsFile($file, 'text/javascript', $this->conf['jsMinify']);
-                        }
+                $file = $this->getPath($jsToLoad);
+                if ($file) {
+                    if ($this->conf['jsInFooter'] || $allJsInFooter) {
+                        $pagerender->addJsFooterFile($file, 'text/javascript', $this->conf['jsMinify']);
                     } else {
-                        $logger = $this->getLogger();
-                        $logger->error('File "' . $jsToLoad . '" does not exist!', []);
+                        $pagerender->addJsFile($file, 'text/javascript', $this->conf['jsMinify']);
                     }
+                } else {
+                    $logger = $this->getLogger();
+                    $logger->error('File "' . $jsToLoad . '" does not exist!', []);
                 }
             }
         }
@@ -177,22 +156,15 @@ class TtNewsExtend
             }
             $conf = [];
             $conf['jsdata'] = $temp_js;
-            if (T3JQUERY === true && class_exists(VersionNumberUtility) && VersionNumberUtility::convertVersionNumberToInteger($this->getExtensionVersion('t3jquery')) >= 1002000) {
-                $conf['tofooter'] = ($this->conf['jsInFooter'] || $allJsInFooter);
-                $conf['jsminify'] = $this->conf['jsMinify'];
-                $conf['jsinline'] = $this->conf['jsInline'];
-                tx_t3jquery::addJS('', $conf);
+            // Add script only once
+            $hash = md5($temp_js);
+            if ($this->conf['jsInline']) {
+                $GLOBALS['TSFE']->inlineJS[$hash] = $temp_js;
             } else {
-                // Add script only once
-                $hash = md5($temp_js);
-                if ($this->conf['jsInline']) {
-                    $GLOBALS['TSFE']->inlineJS[$hash] = $temp_js;
+                if ($this->conf['jsInFooter'] || $allJsInFooter) {
+                    $pagerender->addJsFooterInlineCode($hash, $temp_js, $this->conf['jsMinify']);
                 } else {
-                    if ($this->conf['jsInFooter'] || $allJsInFooter) {
-                        $pagerender->addJsFooterInlineCode($hash, $temp_js, $this->conf['jsMinify']);
-                    } else {
-                        $pagerender->addJsInlineCode($hash, $temp_js, $this->conf['jsMinify']);
-                    }
+                    $pagerender->addJsInlineCode($hash, $temp_js, $this->conf['jsMinify']);
                 }
             }
         }

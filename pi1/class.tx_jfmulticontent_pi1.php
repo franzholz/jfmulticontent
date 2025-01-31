@@ -853,7 +853,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 ) {
                     if ($jQueryAvailable) {
                         // nothing
-                    } elseif (T3JQUERY !== true) {
+                    } else {
                         $this->pagerenderer->addJsFile($this->conf['jQueryCookies']);
                     }
                     unset($options['active']);
@@ -935,8 +935,6 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 if ($jQueryAvailable) {
                     $this->pagerenderer->addJsFile($this->conf['jQueryEasing']);
                     $this->pagerenderer->addJsFile($this->conf['jQueryUI']);
-                } elseif (T3JQUERY === true) {
-                    tx_t3jquery::addJqJS();
                 } else {
                     $this->pagerenderer->addJsFile($this->conf['jQueryLibrary'], true);
                     $this->pagerenderer->addJsFile($this->conf['jQueryEasing']);
@@ -1032,8 +1030,6 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 if ($jQueryAvailable) {
                     $this->pagerenderer->addJsFile($this->conf['jQueryEasing']);
                     $this->pagerenderer->addJsFile($this->conf['jQueryUI']);
-                } elseif (T3JQUERY === true) {
-                    tx_t3jquery::addJqJS();
                 } else {
                     $this->pagerenderer->addJsFile($this->conf['jQueryLibrary'], true);
                     $this->pagerenderer->addJsFile($this->conf['jQueryEasing']);
@@ -1162,8 +1158,6 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
 
                 if ($jQueryAvailable) {
                     $this->pagerenderer->addJsFile($this->conf['jQueryEasing']);
-                } elseif (T3JQUERY === true) {
-                    tx_t3jquery::addJqJS();
                 } else {
                     $this->pagerenderer->addJsFile($this->conf['jQueryLibrary'], true);
                     $this->pagerenderer->addJsFile($this->conf['jQueryEasing']);
@@ -1226,8 +1220,6 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
 
                 if ($jQueryAvailable) {
                     $this->pagerenderer->addJsFile($this->conf['jQueryEasing']);
-                } elseif (T3JQUERY === true) {
-                    tx_t3jquery::addJqJS();
                 } else {
                     $this->pagerenderer->addJsFile($this->conf['jQueryLibrary'], true);
                     $this->pagerenderer->addJsFile($this->conf['jQueryEasing']);
@@ -1277,10 +1269,6 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 // Add all CSS and JS files
 
                 if ($jQueryAvailable) {
-                    // nothing
-                } elseif (T3JQUERY === true) {
-                    tx_t3jquery::addJqJS();
-                } else {
                     $this->pagerenderer->addJsFile($this->conf['jQueryLibrary'], true);
                 }
                 $this->pagerenderer->addJsFile($this->conf['easyaccordionJS']);
@@ -1355,8 +1343,6 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
 
                 if ($jQueryAvailable) {
                     $this->pagerenderer->addJsFile($this->conf['jQueryEasing']);
-                } elseif (T3JQUERY === true) {
-                    tx_t3jquery::addJqJS();
                 } else {
                     $this->pagerenderer->addJsFile($this->conf['jQueryLibrary'], true);
                     $this->pagerenderer->addJsFile($this->conf['jQueryEasing']);
