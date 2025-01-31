@@ -587,7 +587,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                                 )
                                 ->setMaxResults(1)
                                 ->executeQuery();
-                            $row = $statement->fetch();
+                            $row = $statement->fetchAssociative();
                         }
 
                         if (!is_array($row)) {
@@ -614,7 +614,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                                 )
                                 ->setMaxResults(1)
                                 ->executeQuery();
-                            $row = $statement->fetch();
+                            $row = $statement->fetchAssociative();
                         }
 
                         if (is_array($row)) {
@@ -673,7 +673,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                         )
                         ->setMaxResults(1)
                         ->executeQuery();
-                    $row = $statement->fetch();
+                    $row = $statement->fetchAssociative();
 
                     if (is_array($row)) {
                         if ($languageAspect->getContentId()) {
@@ -735,7 +735,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                     ->orderBy('sorting', 'ASC')
                     ->executeQuery();
                 $a = 0;
-                while ($row = $statement->fetch()) {
+                while ($row = $statement->fetchAssociative()) {
                     $this->addIRREContent($a, $context, $row, $view);
                 }
             }
