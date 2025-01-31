@@ -12,28 +12,6 @@ call_user_func(function ($extensionKey): void {
     )->get($extensionKey);
     $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$extensionKey] = $extensionConfiguration;
 
-    if ($extensionConfiguration['ttNewsCodes']) {
-        // Add the additional CODES to tt_news
-        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tt_news']['what_to_display'][] = [
-            0 => 'LIST_ACCORDION',
-            1 => 'LIST_ACCORDION'
-        ];
-        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tt_news']['what_to_display'][] = [
-            0 => 'LIST_SLIDER',
-            1 => 'LIST_SLIDER'
-        ];
-        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tt_news']['what_to_display'][] = [
-            0 => 'LIST_SLIDEDECK',
-            1 => 'LIST_SLIDEDECK'
-        ];
-        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tt_news']['what_to_display'][] = [
-            0 => 'LIST_EASYACCORDION',
-            1 => 'LIST_EASYACCORDION'
-        ];
-        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tt_news']['extraCodesHook'][] = \JambageCom\Jfmulticontent\Hooks\TtNewsExtend::class;
-        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tt_news']['extraGlobalMarkerHook'][] = \JambageCom\Jfmulticontent\Hooks\TtNewsExtend::class;
-    }
-
     $listType = 'jfmulticontent_pi1';
 
     // Page module hook
