@@ -222,7 +222,7 @@ class MigrateFlexformSheetIdentifierUpdate implements UpgradeWizardInterface, Co
 
         $sql = str_replace($search, $replace, $sql);
 
-        $result = $query->execute()
+        $result = $query->executeQuery()
             ->fetchAll();
 
         return $result;

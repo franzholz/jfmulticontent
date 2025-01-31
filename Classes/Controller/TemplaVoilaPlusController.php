@@ -58,7 +58,7 @@ class TemplaVoilaPlusController
                 ->andWhere(
                     $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter(GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('language', 'contentId'), \PDO::PARAM_INT))
                 )
-                ->execute()
+                ->executeQuery()
                 ->fetchAll();
         }
 
@@ -72,7 +72,7 @@ class TemplaVoilaPlusController
                     $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($pageID, \PDO::PARAM_INT)),
                     $queryBuilder->expr()->eq('sys_language_uid',  $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)
                 )
-                ->execute()
+                ->executeQuery()
                 ->fetchAll();
         }
 

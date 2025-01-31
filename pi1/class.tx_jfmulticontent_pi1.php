@@ -83,8 +83,8 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
         string $content,
         array $conf,
         ServerRequestInterface $request,
-    ) : string {
-        {
+    ) : string
+    {
         $this->conf = $conf;
         $this->pi_setPiVarDefaults();
         $this->pi_loadLL('LLL:EXT:' . $this->extKey . '/Resources/Private/Language/Pi1/locallang.xlf');
@@ -534,7 +534,10 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 $this->conf['config.'][$this->lConf['style'] . 'OptionsOverride'] = $this->lConf['optionsOverride'];
             }
 
-            $view = $this->conf['views.'][$this->conf['config.']['view'] . '.'];
+            $view = '';
+            if (isset($this->conf['config.']['view'])) {
+                $view = $this->conf['views.'][$this->conf['config.']['view'] . '.'] ?? '';
+            }
 
             if (
                 $this->conf['config.']['view'] == 'page'
@@ -547,11 +550,20 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
 
                     $tsfe->register['pid'] = $page_ids[$a];
 
-                    if ($this->confArr['useOwnUserFuncForPages']) {
-                        // TemplaVoilaPlus will render the content with a userFunc
-                        $innerContent = $this->cObj->cObjGetSingle($view['content'], $view['content.']);
+                    if (
+                        $this->confArr['useOwnUserFuncForPages']
+                    ) {
+                        $innerContent = '';
+                        if (isset($view['content'])) {
+                            // TemplaVoilaPlus will render the content with a userFunc
+                            $innerContent = $this->cObj->cObjGetSingle($view['content'], $view['content.'] ?? '');
+                        }
                         $this->cElements[] = $innerContent;
-                        $this->rels[] = $this->cObj->cObjGetSingle($view['rel'], $view['rel.']);
+                        $relContent = '';
+                        if (isset($view['rel'])) {
+                            $relContent = $this->cObj->cObjGetSingle($view['rel'], $view['rel.'] ?? '');
+                        }
+                        $this->rels[] = $relContent;
                     } else {
                         $row = null;
                         if ($languageAspect->getContentId()) {
@@ -567,7 +579,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                                     $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter($languageAspect->getContentId(), \PDO::PARAM_INT))
                                 )
                                 ->setMaxResults(1)
-                                ->execute();
+                                ->executeQuery();
                             $row = $statement->fetch();
                         }
 
@@ -594,7 +606,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                                     )
                                 )
                                 ->setMaxResults(1)
-                                ->execute();
+                                ->executeQuery();
                             $row = $statement->fetch();
                         }
 
@@ -603,9 +615,18 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                                 $tsfe->register['page_' . $key] = $val;
                             }
                         }
-                        $innerContent = $this->cObj->cObjGetSingle($view['content'], $view['content.']);
-                        $this->cElements[] = $innerContent;
-                        $this->rels[] = $this->cObj->cObjGetSingle($view['rel'], $view['rel.']);
+                        if (is_array($view)) {
+                            $innerContent = '';
+                            if (isset($view['content'])) {
+                                $innerContent = $this->cObj->cObjGetSingle($view['content'], $view['content.'] ?? '');
+                            }
+                            $this->cElements[] = $innerContent;
+                            $relContent = '';
+                            if (isset($view['rel'])) {
+                                 $relContent = $this->cObj->cObjGetSingle($view['rel'], $view['rel.'] ?? '');
+                            }
+                            $this->rels[] = $relContent;
+                        }
                         $this->content_id[$a] = $page_ids[$a];
                     }
 
@@ -613,12 +634,17 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                         !isset($this->titles[$a]) ||
                         $this->titles[$a] == ''
                     ) {
-                        $this->titles[$a] = $this->cObj->cObjGetSingle($view['title'], $view['title.']);
+                        if (isset($view['title'])) {
+                            $this->titles[$a] = $this->cObj->cObjGetSingle($view['title'], $view['title.'] ?? '');
+                        } else {
+                            $this->titles[$a] = '';
+                        }
                     }
                 }
             } elseif ($this->conf['config.']['view'] == 'content') {
                 // get the content ID's
-                $content_ids = GeneralUtility::trimExplode(',', $this->cObj->data['tx_jfmulticontent_contents'], true);
+                $content_ids =
+                    GeneralUtility::trimExplode(',', $this->cObj->data['tx_jfmulticontent_contents'], true);
 
                 // get the informations for every content
                 for ($a = 0; $a < count($content_ids); $a++) {
@@ -632,7 +658,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                             $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($content_ids[$a], \PDO::PARAM_INT))
                         )
                         ->setMaxResults(1)
-                        ->execute();
+                        ->executeQuery();
                     $row = $statement->fetch();
 
                     if (is_array($row)) {
@@ -648,14 +674,27 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                         $tsfe->register['title'] = (isset($this->titles[$a]) && strlen(trim($this->titles[$a])) > 0 ? $this->titles[$a] : $row['header']);
                     }
 
-                    if (!isset($this->titles[$a]) || $this->titles[$a] == '') {
-                        $this->titles[$a] = $this->cObj->cObjGetSingle($view['title'], $view['title.']);
+                    if (
+                        isset($view['title']) &&
+                        (
+                            !isset($this->titles[$a]) ||
+                            $this->titles[$a] == ''
+                        )
+                    ) {
+                        $this->titles[$a] = $this->cObj->cObjGetSingle($view['title'], $view['title.'] ?? '');
                         $tsfe->register['title'] = $this->titles[$a];
                     }
 
-                    $innerContent = $this->cObj->cObjGetSingle($view['content'], $view['content.']);
+                    $innerContent = '';
+                    if (isset($view['content'])) {
+                        $innerContent = $this->cObj->cObjGetSingle($view['content'], $view['content.'] ?? '');
+                    }
                     $this->cElements[] = $innerContent;
-                    $this->rels[] = $this->cObj->cObjGetSingle($view['rel'] ?? '', $view['rel.'] ?? []);
+                    $relContent = '';
+                    if (isset($view['rel'])) {
+                        $relContent = $this->cObj->cObjGetSingle($view['rel'] ?? '', $view['rel.'] ?? []);
+                    }
+                    $this->rels[] = $relContent;
                     $this->content_id[$a] = $content_ids[$a];
                 }
             } elseif ($this->conf['config.']['view'] == 'irre') {
@@ -674,7 +713,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                         $queryBuilder->expr()->eq('tx_jfmulticontent_irre_parentid', $queryBuilder->createNamedParameter($elementUID, \PDO::PARAM_INT))
                     )
                     ->orderBy('sorting', 'ASC')
-                    ->execute();
+                    ->executeQuery();
                 $a = 0;
                 while ($row = $statement->fetch()) {
                     $this->addIRREContent($a, $context, $row, $view);
@@ -1395,13 +1434,27 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
         }
         $tsfe->register['uid'] = $uid;
         $tsfe->register['title'] = (strlen(trim($this->titles[$a])) > 0 ? $this->titles[$a] : $row['header']);
-        if ($this->titles[$a] == '' || !isset($this->titles[$a])) {
-            $this->titles[$a] = $this->cObj->cObjGetSingle($view['title'], $view['title.']);
+        if (
+                $this->titles[$a] == '' ||
+                !isset($this->titles[$a])
+        ) {
+            if (isset($view['title'])) {
+                $this->titles[$a] = $this->cObj->cObjGetSingle($view['title'], $view['title.'] ?? '');
+            } else {
+                $this->titles[$a] = '';
+            }
             $tsfe->register['title'] = $this->titles[$a];
         }
-        $innerContent = $this->cObj->cObjGetSingle($view['content'], $view['content.']);
+        $innerContent = '';
+        if (isset($view['content'])) {
+            $innerContent = $this->cObj->cObjGetSingle($view['content'], $view['content.'] ?? '');
+        }
         $this->cElements[] = $innerContent;
-        $this->rels[] = $this->cObj->cObjGetSingle($view['rel'], $view['rel.']);
+        $relContent = '';
+        if (isset($view['rel'])) {
+            $relContent = $this->cObj->cObjGetSingle($view['rel'], $view['rel.'] ?? '');
+        }
+        $this->rels[] = $relContent;
         $this->content_id[$a] = $row['uid'];
         $a++;
     }
@@ -1450,7 +1503,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
         // Replace default values
         $markerArray['KEY'] = $this->getContentKey();
         // replace equalizeClass
-        if ($this->conf['config.']['equalize']) {
+        if (!empty($this->conf['config.']['equalize'])) {
             $markerArray['EQUALIZE_CLASS'] =
                 ' ' .
                 $this->cObj->stdWrap(
@@ -1602,9 +1655,12 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
             }
             $markerArray['REL'] = htmlspecialchars($this->rels[$a] ?? '');
             // Generate the QUOTE_TITLE
-            $markerArray['DEFAULT_QUOTE_TITLE']   = htmlspecialchars($parser->substituteMarkerArray($this->pi_getLL('default_quote_title_template'), $markerArray, '###|###', 0));
-            $markerArray['TAB_QUOTE_TITLE']       = htmlspecialchars($parser->substituteMarkerArray($this->pi_getLL('tab_quote_title_template'), $markerArray, '###|###', 0));
-            $markerArray['ACCORDION_QUOTE_TITLE'] = htmlspecialchars($parser->substituteMarkerArray($this->pi_getLL('accordion_quote_title_template'), $markerArray, '###|###', 0));
+            $markerArray['DEFAULT_QUOTE_TITLE']   =
+                htmlspecialchars($parser->substituteMarkerArray($this->pi_getLL('default_quote_title_template'), $markerArray, '###|###', 0));
+            $markerArray['TAB_QUOTE_TITLE']       =
+                htmlspecialchars($parser->substituteMarkerArray($this->pi_getLL('tab_quote_title_template'), $markerArray, '###|###', 0));
+            $markerArray['ACCORDION_QUOTE_TITLE'] =
+                htmlspecialchars($parser->substituteMarkerArray($this->pi_getLL('accordion_quote_title_template'), $markerArray, '###|###', 0));
 
             if (isset($this->conf['additionalContentMarkers'])) {
                 $additonalMarkerArray = [];
@@ -1613,7 +1669,8 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 // get additional marker configuration
                 if(count($additionalMarkers) > 0) {
                     foreach($additionalMarkers as $additonalMarker) {
-                        $markerArray[strtoupper($additonalMarker)] = $this->cObj->cObjGetSingle($this->conf['additionalMarkerConf.'][$additonalMarker], $this->conf['additionalMarkerConf.'][$additonalMarker . '.']);
+                        $markerArray[strtoupper($additonalMarker)] =
+                            $this->cObj->cObjGetSingle($this->conf['additionalMarkerConf.'][$additonalMarker], $this->conf['additionalMarkerConf.'][$additonalMarker . '.']);
                     }
                 }
             }
@@ -1639,7 +1696,11 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
             // get additional marker configuration
             if(count($additionalMarkers) > 0) {
                 foreach($additionalMarkers as $additonalMarker) {
-                    $additonalMarkerArray[strtoupper($additonalMarker)] = $this->cObj->cObjGetSingle($this->conf['additionalMarkerConf.'][$additonalMarker], $this->conf['additionalMarkerConf.'][$additonalMarker . '.']);
+                    $additonalMarkerArray[strtoupper($additonalMarker)] =
+                        $this->cObj->cObjGetSingle(
+                            $this->conf['additionalMarkerConf.'][$additonalMarker],
+                            $this->conf['additionalMarkerConf.'][$additonalMarker . '.'] ?? ''
+                        );
                 }
             }
             // add addtional marker content to template
