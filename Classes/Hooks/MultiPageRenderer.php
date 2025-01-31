@@ -80,25 +80,16 @@ class MultiPageRenderer
         // add all defined JS files
         if (count($this->jsFiles) > 0) {
             foreach ($this->jsFiles as $jsToLoad) {
-                if (T3JQUERY === true) {
-                    $conf = [
-                        'jsfile' => $jsToLoad,
-                        'tofooter' => ($this->conf['jsInFooter'] || $allJsInFooter),
-                        'jsminify' => $this->conf['jsMinify'],
-                    ];
-                    tx_t3jquery::addJS('', $conf);
-                } else {
-                    $file = $this->getPath($jsToLoad);
-                    if ($file) {
-                        if ($this->conf['jsInFooter'] || $allJsInFooter) {
-                            $pageRenderer->addJsFooterFile($file, 'text/javascript', $this->conf['jsMinify']);
-                        } else {
-                            $pageRenderer->addJsFile($file, 'text/javascript', $this->conf['jsMinify']);
-                        }
+                $file = $this->getPath($jsToLoad);
+                if ($file) {
+                    if ($this->conf['jsInFooter'] || $allJsInFooter) {
+                        $pageRenderer->addJsFooterFile($file, 'text/javascript', $this->conf['jsMinify']);
                     } else {
-                        $logger = $this->getLogger();
-                        $logger->error('File "' . $jsToLoad . '" does not exist!', []);
+                        $pageRenderer->addJsFile($file, 'text/javascript', $this->conf['jsMinify']);
                     }
+                } else {
+                    $logger = $this->getLogger();
+                    $logger->error('File "' . $jsToLoad . '" does not exist!', []);
                 }
             }
         }
@@ -110,22 +101,15 @@ class MultiPageRenderer
             }
             $conf = [];
             $conf['jsdata'] = $temp_js;
-            if (T3JQUERY === true && class_exists(VersionNumberUtility::class) && VersionNumberUtility::convertVersionNumberToInteger($this->getExtensionVersion('t3jquery')) >= 1002000) {
-                $conf['tofooter'] = ($this->conf['jsInFooter'] || $allJsInFooter);
-                $conf['jsminify'] = $this->conf['jsMinify'];
-                $conf['jsinline'] = $this->conf['jsInline'];
-                tx_t3jquery::addJS('', $conf);
+            // Add script only once
+            $hash = md5($temp_js);
+            if ($this->conf['jsInline']) {
+                $GLOBALS['TSFE']->inlineJS[$hash] = $temp_js;
             } else {
-                // Add script only once
-                $hash = md5($temp_js);
-                if ($this->conf['jsInline']) {
-                    $GLOBALS['TSFE']->inlineJS[$hash] = $temp_js;
+                if ($this->conf['jsInFooter'] || $allJsInFooter) {
+                    $pageRenderer->addJsFooterInlineCode($hash, $temp_js, $this->conf['jsMinify']);
                 } else {
-                    if ($this->conf['jsInFooter'] || $allJsInFooter) {
-                        $pageRenderer->addJsFooterInlineCode($hash, $temp_js, $this->conf['jsMinify']);
-                    } else {
-                        $pageRenderer->addJsInlineCode($hash, $temp_js, $this->conf['jsMinify']);
-                    }
+                    $pageRenderer->addJsInlineCode($hash, $temp_js, $this->conf['jsMinify']);
                 }
             }
         }
