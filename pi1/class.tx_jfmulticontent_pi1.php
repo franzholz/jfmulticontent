@@ -815,7 +815,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
         }
 
         // define the jQuery mode and function
-        if ($this->conf['jQueryNoConflict']) {
+        if (!empty($this->conf['jQueryNoConflict'])) {
             $jQueryNoConflict = 'jQuery.noConflict();';
         } else {
             $jQueryNoConflict = '';
@@ -830,8 +830,8 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                     $this->conf['config.']['column1'],
                     $this->conf['config.']['column2'],
                 ];
-                $this->contentClass = GeneralUtility::trimExplode('|*|', $this->conf['2columnClasses']);
-                $this->contentWrap = GeneralUtility::trimExplode('|*|', $this->conf['columnWrap.']['wrap']);
+                $this->contentClass = GeneralUtility::trimExplode('|*|', $this->conf['2columnClasses'] ?? '');
+                $this->contentWrap = GeneralUtility::trimExplode('|*|', $this->conf['columnWrap.']['wrap'] ?? '');
                 break;
             }
             case '3column' : {
@@ -842,8 +842,8 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                     $this->conf['config.']['column2'],
                     $this->conf['config.']['column3'],
                 ];
-                $this->contentClass = GeneralUtility::trimExplode('|*|', $this->conf['3columnClasses']);
-                $this->contentWrap = GeneralUtility::trimExplode('|*|', $this->conf['columnWrap.']['wrap']);
+                $this->contentClass = GeneralUtility::trimExplode('|*|', $this->conf['3columnClasses'] ?? '');
+                $this->contentWrap = GeneralUtility::trimExplode('|*|', $this->conf['columnWrap.']['wrap'] ?? '');
                 break;
             }
             case '4column' : {
@@ -855,8 +855,8 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                     $this->conf['config.']['column3'],
                     $this->conf['config.']['column4'],
                 ];
-                $this->contentClass = GeneralUtility::trimExplode('|*|', $this->conf['4columnClasses']);
-                $this->contentWrap = GeneralUtility::trimExplode('|*|', $this->conf['columnWrap.']['wrap']);
+                $this->contentClass = GeneralUtility::trimExplode('|*|', $this->conf['4columnClasses'] ?? '');
+                $this->contentWrap = GeneralUtility::trimExplode('|*|', $this->conf['columnWrap.']['wrap'] ?? '');
                 break;
             }
             case '5column' : {
@@ -869,8 +869,8 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                     $this->conf['config.']['column4'],
                     $this->conf['config.']['column5'],
                 ];
-                $this->contentClass = GeneralUtility::trimExplode('|*|', $this->conf['5columnClasses']);
-                $this->contentWrap = GeneralUtility::trimExplode('|*|', $this->conf['columnWrap.']['wrap']);
+                $this->contentClass = GeneralUtility::trimExplode('|*|', $this->conf['5columnClasses'] ?? '');
+                $this->contentWrap = GeneralUtility::trimExplode('|*|', $this->conf['columnWrap.']['wrap'] ?? '');
                 break;
             }
             case 'tab' : {
@@ -1417,10 +1417,12 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
         }
 
         // add the CSS file
-        $this->pagerenderer->addCssFile($this->conf['cssFile']);
+        if (isset($this->conf['cssFile'])) {
+            $this->pagerenderer->addCssFile($this->conf['cssFile']);
+        }
 
         // Add the ressources
-        if (!$this->conf['disableJs']) {
+        if (empty($this->conf['disableJs'])) {
             $this->pagerenderer->addResources();
         }
 
@@ -1570,7 +1572,10 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 break;
             }
         }
-        if ($this->conf['config.']['easyaccordionOpen'] > $this->contentCount) {
+        if (
+            isset($this->conf['config.']['easyaccordionOpen']) &&
+            $this->conf['config.']['easyaccordionOpen'] > $this->contentCount
+        ) {
             $this->conf['config.']['easyaccordionOpen'] = $this->contentCount;
         }
 
@@ -1595,7 +1600,10 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 $markerArray['ATTRIBUTE'] .= $this->cObj->stdWrap($this->classes[$a], ['wrap' => ' class="' . $this->contentClass[$a] . '"', 'required' => 1]);
             }
             // Set the active class for the active slide
-            if (($a + 1) ==  $this->conf['config.']['easyaccordionOpen']) {
+            if (
+                isset($this->conf['config.']['easyaccordionOpen']) &&
+                ($a + 1) ==  $this->conf['config.']['easyaccordionOpen']
+            ) {
                 $markerArray['EASYACCORDION_ACTIVE'] = 'class="active"';
             } else {
                 $markerArray['EASYACCORDION_ACTIVE'] = '';
@@ -1617,7 +1625,10 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
             $tsfe->register['id']         = $markerArray['ID'];
             $tsfe->register['title']      = $markerArray['TITLE'];
 
-            $markerArray['TAB_KEY'] = $this->cObj->cObjGetSingle($this->conf['tabKey'], $this->conf['tabKey.']);
+            if (isset($this->conf['tabKey'])) {
+                $markerArray['TAB_KEY'] =
+                    $this->cObj->cObjGetSingle($this->conf['tabKey'], $this->conf['tabKey.']);
+            }
 
             // define the used wrap
             if ($a == 0) {
