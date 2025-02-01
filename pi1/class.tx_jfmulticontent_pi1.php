@@ -117,12 +117,13 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
             $this->lConf['style'] = $this->getFlexformData('s_general', 'style');
 
             if ($this->lConf['style'] != 'typoscript') {
-                $this->lConf['columnOrder'] = $this->getFlexformData('s_general', 'columnOrder', in_array($this->lConf['style'], ['2column', '3column', '4column', '5column']));
-                $this->lConf['column1']     = $this->getFlexformData('s_general', 'column1', in_array($this->lConf['style'], ['2column', '3column', '4column', '5column']));
-                $this->lConf['column2']     = $this->getFlexformData('s_general', 'column2', in_array($this->lConf['style'], ['2column', '3column', '4column', '5column']));
-                $this->lConf['column3']     = $this->getFlexformData('s_general', 'column3', in_array($this->lConf['style'], ['3column', '4column', '5column']));
-                $this->lConf['column4']     = $this->getFlexformData('s_general', 'column4', in_array($this->lConf['style'], ['4column', '5column']));
-                $this->lConf['column5']     = $this->getFlexformData('s_general', 'column5', in_array($this->lConf['style'], ['5column']));
+                $this->lConf['columnOrder'] =
+                    $this->getFlexformData('s_general', 'columnOrder', in_array($this->lConf['style'], ['2column', '3column', '4column', '5column']));
+                $this->lConf['column1']     = intval($this->getFlexformData('s_general', 'column1', in_array($this->lConf['style'], ['2column', '3column', '4column', '5column'])));
+                $this->lConf['column2']     = intval($this->getFlexformData('s_general', 'column2', in_array($this->lConf['style'], ['2column', '3column', '4column', '5column'])));
+                $this->lConf['column3']     = intval($this->getFlexformData('s_general', 'column3', in_array($this->lConf['style'], ['3column', '4column', '5column'])));
+                $this->lConf['column4']     = intval($this->getFlexformData('s_general', 'column4', in_array($this->lConf['style'], ['4column', '5column'])));
+                $this->lConf['column5']     = intval($this->getFlexformData('s_general', 'column5', in_array($this->lConf['style'], ['5column'])));
                 $this->lConf['equalize']    = $this->getFlexformData('s_general', 'equalize', in_array($this->lConf['style'], ['1column', '2column', '3column', '4column', '5column']));
 
                 $debuglog = ($this->lConf['style'] == 'tab');
@@ -557,14 +558,24 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                         $innerContent = '';
                         if (isset($view['content'])) {
                             // TemplaVoilaPlus will render the content with a userFunc
-                            $innerContent = $this->cObj->cObjGetSingle($view['content'], $view['content.'] ?? '');
+                            $innerContent =
+                                $this->cObj->cObjGetSingle(
+                                    $view['content'],
+                                    $view['content.'] ?? ''
+                                );
                         }
-                        $this->cElements[] = $innerContent;
                         $relContent = '';
                         if (isset($view['rel'])) {
-                            $relContent = $this->cObj->cObjGetSingle($view['rel'], $view['rel.'] ?? '');
+                            $relContent =
+                                $this->cObj->cObjGetSingle(
+                                    $view['rel'],
+                                    $view['rel.'] ?? ''
+                                );
                         }
-                        $this->rels[] = $relContent;
+                        if ($innerContent) {
+                            $this->cElements[] = $innerContent;
+                            $this->rels[] = $relContent;
+                        }
                     } else {
                         $row = null;
                         if ($languageAspect->getContentId()) {
@@ -622,41 +633,57 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                                 $tsfe->register['page_' . $key] = $val;
                             }
                         }
+
                         if (is_array($view)) {
                             $innerContent = '';
                             if (isset($view['content'])) {
-                                $innerContent = $this->cObj->cObjGetSingle($view['content'], $view['content.'] ?? '');
+                                $innerContent =
+                                    $this->cObj->cObjGetSingle(
+                                        $view['content'],
+                                        $view['content.'] ?? ''
+                                    );
                             }
-                            $this->cElements[] = $innerContent;
                             $relContent = '';
                             if (isset($view['rel'])) {
-                                 $relContent = $this->cObj->cObjGetSingle($view['rel'], $view['rel.'] ?? '');
+                                 $relContent =
+                                    $this->cObj->cObjGetSingle(
+                                        $view['rel'],
+                                        $view['rel.'] ?? ''
+                                    );
                             }
-                            $this->rels[] = $relContent;
-                        }
-                        $this->content_id[$a] = $page_ids[$a];
-                    }
+                            if ($innerContent) {
+                                $this->cElements[] = $innerContent;
+                                $this->rels[] = $relContent;
+                                $this->content_id[$a] = $page_ids[$a];
 
-                    if (
-                        !isset($this->titles[$a]) ||
-                        $this->titles[$a] == ''
-                    ) {
-                        if (isset($view['title'])) {
-                            $this->titles[$a] = $this->cObj->cObjGetSingle($view['title'], $view['title.'] ?? '');
-                        } else {
-                            $this->titles[$a] = '';
+                                if (
+                                    !isset($this->titles[$a]) ||
+                                    $this->titles[$a] == ''
+                                ) {
+                                    if (isset($view['title'])) {
+                                        $this->titles[$a] =
+                                        $this->cObj->cObjGetSingle(
+                                            $view['title'],
+                                            $view['title.'] ?? ''
+                                        );
+                                    } else {
+                                        $this->titles[$a] = '';
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             } elseif ($this->conf['config.']['view'] == 'content') {
                 // get the content ID's
-                $content_ids =
-                    GeneralUtility::trimExplode(',', $this->cObj->data['tx_jfmulticontent_contents'], true);
+                $content_ids = [];
+                if (!empty($this->cObj->data['tx_jfmulticontent_contents'])) {
+                    $content_ids =
+                        GeneralUtility::trimExplode(',', $this->cObj->data['tx_jfmulticontent_contents'], true);
+                }
 
                 // get the informations for every content
                 for ($a = 0; $a < count($content_ids); $a++) {
-                    debug ($content_ids[$a], '$content_ids['. $a . ']');
-
                     // SELECT * FROM `tt_content` WHERE `deleted`=0 AND `hidden`=0 AND `uid`=<mycontentid>
                     $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
                     $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
@@ -695,21 +722,35 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                             $this->titles[$a] == ''
                         )
                     ) {
-                        $this->titles[$a] = $this->cObj->cObjGetSingle($view['title'], $view['title.'] ?? '');
+                        $this->titles[$a] =
+                            $this->cObj->cObjGetSingle(
+                                $view['title'],
+                                $view['title.'] ?? ''
+                            );
                         $tsfe->register['title'] = $this->titles[$a];
                     }
 
                     $innerContent = '';
                     if (isset($view['content'])) {
-                        $innerContent = $this->cObj->cObjGetSingle($view['content'], $view['content.'] ?? '');
+                        $innerContent =
+                            $this->cObj->cObjGetSingle(
+                                $view['content'],
+                                $view['content.'] ?? ''
+                            );
                     }
-                    $this->cElements[] = $innerContent;
                     $relContent = '';
                     if (isset($view['rel'])) {
-                        $relContent = $this->cObj->cObjGetSingle($view['rel'] ?? '', $view['rel.'] ?? []);
+                        $relContent =
+                            $this->cObj->cObjGetSingle(
+                                $view['rel'],
+                                $view['rel.'] ?? ''
+                            );
                     }
-                    $this->rels[] = $relContent;
-                    $this->content_id[$a] = $content_ids[$a];
+                    if ($innerContent) {
+                        $this->cElements[] = $innerContent;
+                        $this->rels[] = $relContent;
+                        $this->content_id[$a] = $content_ids[$a];
+                    }
                 }
             } elseif ($this->conf['config.']['view'] == 'irre') {
                 // get the content ID's
@@ -748,15 +789,20 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['jfmulticontent']['getViews'] as $_classRef) {
                     $_procObj = GeneralUtility::makeInstance($_classRef);
                     if ($this->conf['config.']['view'] == $_procObj->getIdentifier()) {
-                        if (!method_exists($_procObj, 'isActive') || (method_exists($_procObj, 'isActive') && $_procObj->isActive())) {
+                        if (
+                            !method_exists($_procObj, 'isActive') ||
+                            (method_exists($_procObj, 'isActive') && $_procObj->isActive())
+                        ) {
                             // If the methode 'isActive' not exists, this will be true...
                             $_procObj->main($this->content, $this->conf, $this);
                             $this->titles = $_procObj->getTitles();
                             $innerContent = $_procObj->getElements();
-                            $this->cElements[] = $innerContent;
-                            $this->content_id = $_procObj->getIds();
-                            if (method_exists($_procObj, 'getRels')) {
-                                $this->rels = $_procObj->getRels();
+                            if ($innerContent) {
+                                $this->cElements[] = $innerContent;
+                                $this->content_id = $_procObj->getIds();
+                                if (method_exists($_procObj, 'getRels')) {
+                                    $this->rels = $_procObj->getRels();
+                                }
                             }
                         }
                     }
@@ -767,7 +813,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
         } else {
             // TS config will be used
             // define the key of the element
-            if ($this->conf['config.']['contentKey']) {
+            if (!empty($this->conf['config.']['contentKey'])) {
                 $this->setContentKey($this->conf['config.']['contentKey']);
             } else {
                 $this->setContentKey('jfmulticontent_ts1');
@@ -775,17 +821,37 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
             // Render the contents
             if (count($this->conf['contents.']) > 0) {
                 foreach ($this->conf['contents.'] as $key => $contents) {
-                    $title = trim($this->cObj->cObjGetSingle($contents['title'], $contents['title.']));
-                    $innerContent = trim($this->cObj->cObjGetSingle($contents['content'], $contents['content.']));
+                    $title =
+                        trim(
+                            $this->cObj->cObjGetSingle(
+                                $contents['title'],
+                                $contents['title.'] ?? '')
+                             );
+                    $innerContent =
+                        trim(
+                            $this->cObj->cObjGetSingle(
+                                $contents['content'],
+                                $contents['content.'] ?? ''
+                            )
+                        );
                     if ($innerContent) {
                         $this->titles[] = $title;
                         $this->cElements[] = $innerContent;
-                        $this->rels[] = $this->cObj->cObjGetSingle($contents['rel'], $contents['rel.']);
-                        $this->content_id[] = $this->cObj->stdWrap($contents['id'], $contents['id.']);
+                        $this->rels[] =
+                            $this->cObj->cObjGetSingle(
+                                $contents['rel'],
+                                $contents['rel.'] ?? ''
+                            );
+                        $this->content_id[] =
+                            $this->cObj->stdWrap(
+                                $contents['id'],
+                                $contents['id.'] ?? ''
+                            );
                     }
                 }
             }
         }
+
         $this->contentCount = count($this->cElements);
         // return false, if there is no element
         if ($this->contentCount == 0) {
@@ -793,7 +859,11 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
         }
 
         // The template
-        $incFile = (empty($this->conf['templateFile']) ? '' : GeneralUtility::getFileAbsFileName($this->conf['templateFile']));
+        $incFile = (
+                empty($this->conf['templateFile']) ?
+                '' :
+                GeneralUtility::getFileAbsFileName($this->conf['templateFile'])
+            );
 
         if (file_exists($incFile)) {
             $this->templateFile = file_get_contents($incFile);
@@ -896,7 +966,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 if ($this->conf['config.']['tabRandomContent']) {
                     $options['active'] = 'active:Math.floor(Math.random()*' . $this->contentCount . ')';
                 } elseif (is_numeric($this->conf['config.']['tabOpen'])) {
-                    $options['active'] = 'active:' . ($this->conf['config.']['tabOpen'] - 1);
+                    $options['active'] = 'active:' . strval(intval($this->conf['config.']['tabOpen']) - 1);
                 }
                 if (in_array($this->conf['config.']['tabEvent'], ['click', 'mouseover'])) {
                     $options['event'] = 'event:\'' . $this->conf['config.']['tabEvent'] . '\'';
@@ -1642,7 +1712,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
             // override the CONTENT
             if (
                 $this->templatePart == 'TEMPLATE_COLUMNS' &&
-                $this->conf['config.']['columnOrder']
+                !empty($this->conf['config.']['columnOrder'])
             ) {
                 switch ($this->conf['config.']['columnOrder']) {
                     case 1: {
@@ -1650,7 +1720,11 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                         foreach ($this->cElements as $key => $cElements) {
                             $test = ($key - $a) / $this->contentCount;
                             if (intval($test) == $test) {
-                                $markerArray['CONTENT'] .= $this->cObj->stdWrap($this->cElements[$key], ['wrap' => $wrap]);
+                                $markerArray['CONTENT'] .=
+                                    $this->cObj->stdWrap(
+                                        $this->cElements[$key],
+                                        ['wrap' => $wrap]
+                                    );
                                 $addContent = true;
                             }
                         }
@@ -1681,17 +1755,34 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
             } else {
                 // wrap the content
                 $markerArray['CONTENT'] =
-                    $this->cObj->stdWrap($this->cElements[$a] ?? '', ['wrap' => $wrap]);
+                    $this->cObj->stdWrap(
+                        $this->cElements[$a] ?? '',
+                        ['wrap' => $wrap]
+                    );
                 $addContent = true;
             }
             $markerArray['REL'] = htmlspecialchars($this->rels[$a] ?? '');
             // Generate the QUOTE_TITLE
             $markerArray['DEFAULT_QUOTE_TITLE']   =
                 htmlspecialchars($parser->substituteMarkerArray($this->pi_getLL('default_quote_title_template'), $markerArray, '###|###', 0));
-            $markerArray['TAB_QUOTE_TITLE']       =
-                htmlspecialchars($parser->substituteMarkerArray($this->pi_getLL('tab_quote_title_template'), $markerArray, '###|###', 0));
+            $markerArray['TAB_QUOTE_TITLE'] =
+                htmlspecialchars(
+                    $parser->substituteMarkerArray(
+                        $this->pi_getLL('tab_quote_title_template'),
+                        $markerArray,
+                        '###|###',
+                        0
+                    )
+                );
             $markerArray['ACCORDION_QUOTE_TITLE'] =
-                htmlspecialchars($parser->substituteMarkerArray($this->pi_getLL('accordion_quote_title_template'), $markerArray, '###|###', 0));
+                htmlspecialchars(
+                    $parser->substituteMarkerArray(
+                        $this->pi_getLL('accordion_quote_title_template'),
+                        $markerArray,
+                        '###|###',
+                        0
+                    )
+                );
 
             if (isset($this->conf['additionalContentMarkers'])) {
                 $additonalMarkerArray = [];
@@ -1701,14 +1792,17 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 if(count($additionalMarkers) > 0) {
                     foreach($additionalMarkers as $additonalMarker) {
                         $markerArray[strtoupper($additonalMarker)] =
-                            $this->cObj->cObjGetSingle($this->conf['additionalMarkerConf.'][$additonalMarker], $this->conf['additionalMarkerConf.'][$additonalMarker . '.']);
+                            $this->cObj->cObjGetSingle(
+                                $this->conf['additionalMarkerConf.'][$additonalMarker],
+                                $this->conf['additionalMarkerConf.'][$additonalMarker . '.'] ?? ''
+                            );
                     }
                 }
             }
 
             if (
                 $markerArray['CONTENT'] ||
-                ($addContent && $this->confArr['showEmptyContent'])
+                ($addContent && !empty($this->confArr['showEmptyContent']))
             ) {
                 // add content to COLUMNS
                 $columns .= $parser->substituteMarkerArray($columnCode, $markerArray, '###|###', 0);
@@ -1841,7 +1935,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
      */
     protected function getPageRepository(): PageRepository
     {
-        return $this->getTypoScriptFrontendController()->sys_page ?: GeneralUtility::makeInstance(PageRepository::class);
+        return $this->getTypoScriptFrontendController()->sys_page ?? GeneralUtility::makeInstance(PageRepository::class);
     }
 
     /**
