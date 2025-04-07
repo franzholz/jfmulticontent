@@ -60,6 +60,7 @@ class DataHandler
             ) {
                 foreach ($pObj->datamap['tt_content'] as $key => $val) {
                     if (
+                        isset($val['list_type'], $val['tx_jfmulticontent_view']) &&
                         $val['list_type'] == 'jfmulticontent_pi1' &&
                         $val['tx_jfmulticontent_view'] == 'irre'
                     ) {
