@@ -27,7 +27,7 @@
     "GPL-2.0-or-later"
   ],
   "require": {
-    "php": "^8.2",
+    "php": "^8.3",
     "typo3/cms-core": "^12.4 || ^13.4",
     "jambagecom/div2007": "^2.2"
   },
@@ -49,7 +49,11 @@
   },
   "extra": {
     "typo3/cms": {
-      "extension-key": "jfmulticontent"
+      "extension-key": "jfmulticontent",
+      "version": "2.16.2",
+      "Package": {
+          "providesPackages": {}
+      }
     }
   },
   "require-dev": {
