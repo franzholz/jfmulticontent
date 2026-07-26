@@ -7,6 +7,7 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 call_user_func(function ($extensionKey, $table): void {
+    $pluginSignature = $extensionKey . '_pi1';
     $listType = $extensionKey . '_pi1';
 
     $GLOBALS['TCA'][$table]['types']['list']['subtypes_excludelist'][$listType] = 'layout,pages';
@@ -172,7 +173,7 @@ call_user_func(function ($extensionKey, $table): void {
     }
 
     ExtensionManagementUtility::addTCAcolumns($table, $temporaryColumns);
-    ExtensionManagementUtility::addPiFlexFormValue($listType, 'FILE:EXT:' . $extensionKey . '/Configuration/FlexForms/flexform_ds.xml');
+    ExtensionManagementUtility::addPiFlexFormValue('*', 'FILE:EXT:' . $extensionKey . '/Configuration/FlexForms/flexform_ds.xml', $pluginSignature);
     ExtensionManagementUtility::addPlugin(
         [
             'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
