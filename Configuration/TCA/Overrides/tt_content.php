@@ -8,15 +8,21 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 call_user_func(function ($extensionKey, $table): void {
     $pluginSignature = $extensionKey . '_pi1';
-    $listType = $extensionKey . '_pi1';
+    $cType = 'jfmulticontent_plugin';
 
-    $GLOBALS['TCA'][$table]['types']['list']['subtypes_excludelist'][$listType] = 'layout,pages';
-    $GLOBALS['TCA'][$table]['types']['list']['subtypes_addlist'][$listType] = 'tx_jfmulticontent_view,tx_jfmulticontent_pages,tx_jfmulticontent_contents,tx_jfmulticontent_irre,pi_flexform';
-    // Add reload field to tt_content
-    if (!isset($GLOBALS['TCA'][$table]['ctrl']['requestUpdate'])) {
-        $GLOBALS['TCA'][$table]['ctrl']['requestUpdate'] = '';
-    }
-    $GLOBALS['TCA'][$table]['ctrl']['requestUpdate'] .= ($GLOBALS['TCA'][$table]['ctrl']['requestUpdate'] ? ',' : '') . 'tx_jfmulticontent_view';
+    ExtensionManagementUtility::addTcaSelectItem(
+        'tt_content',
+        'CType',
+        [
+            'label' => 'JfMulticontent Slider Element', // Name im Backend
+            'value' => $cType,
+            'group' => 'default', // Steuert das Tab im Erstellungs-Wizard (z.B. 'default', 'special')
+            'description' => 'Erstellt ein neues Slider-Inhaltselement für jfmulticontent', // Infotext
+            'icon' => 'content-text', // Das gewünschte Backend-Icon
+        ],
+        'textmedia', // Positionierung im Dropdown
+        'after'
+    );
 
     $extensionConfiguration = GeneralUtility::makeInstance(
         ExtensionConfiguration::class
