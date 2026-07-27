@@ -1,0 +1,14 @@
+
+# 1. Das Plugin-Setup für das Rendering definieren
+plugin.tx_jfmulticontent_pi1 = USER
+plugin.tx_jfmulticontent_pi1 {
+    userFunc = JambageCom\Jfmulticontent\Controller\MainController->main
+}
+
+# 2. Das Plugin an die Standard-Inhaltsausgabe von TYPO3 koppeln
+tt_content.list.20.jfmulticontent_pi1 = < plugin.tx_jfmulticontent_pi1
+
+
+@import 'EXT:jfmulticontent/Configuration/TypoScript/setup.typoscript'
+
+
