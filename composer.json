@@ -28,11 +28,11 @@
   ],
   "require": {
     "php": "^8.2",
-    "typo3/cms-core": "^12.4 || ^13.4",
-    "jambagecom/div2007": "^2.2"
+    "typo3/cms-core": "^14.3",
+    "jambagecom/div2007": "^2.4"
   },
   "suggest": {
-    "bugfix/patchlayout": "^0.2",
+    "bugfix/patchlayout": "^0.4",
     "quellenform/t3x-lib-jquery": "^4"
   },
   "autoload": {

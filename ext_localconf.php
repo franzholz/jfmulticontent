@@ -20,17 +20,6 @@ call_user_func(function ($extensionKey): void {
     // Save the content
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][$extensionKey] = \JambageCom\Jfmulticontent\Hooks\DataHandler::class;
 
-    ExtensionManagementUtility::addPItoST43(
-        $extensionKey,
-        'pi1/class.tx_jfmulticontent_pi1.php',
-        '_pi1',
-        'list_type',
-        1
-    );
-
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][$extensionKey . 'MigrateFlexformSheetIdentifierUpdate'] =
-    \JambageCom\Jfmulticontent\Updates\MigrateFlexformSheetIdentifierUpdate::class;
-
     $GLOBALS['TYPO3_CONF_VARS']['LOG']['JambageCom']['Jfmulticontent'] = [
         'writerConfiguration' => [
             \TYPO3\CMS\Core\Log\LogLevel::DEBUG => [
