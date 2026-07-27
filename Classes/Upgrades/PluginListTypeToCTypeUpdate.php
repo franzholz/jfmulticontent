@@ -13,7 +13,7 @@ use TYPO3\CMS\Install\Updates\AbstractListTypeToCTypeUpdate;
 
 
 
-#[UpgradeWizard('ttBoardPluginListTypeToCTypeUpdate')]
+#[UpgradeWizard('jfmulticontentPluginListTypeToCTypeUpdate')]
 final class PluginListTypeToCTypeUpdate extends AbstractListTypeToCTypeUpdate
 {
     public function __construct(private readonly ConnectionPool $connectionPool)

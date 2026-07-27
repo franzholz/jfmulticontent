@@ -40,6 +40,7 @@ class TemplaVoilaPlusController
 {
     protected $cObj;
 
+    #[AsAllowedCallable]
     public function getContentFromField($content, $conf)
     {
         $tsfe = $this->getTypoScriptFrontendController();

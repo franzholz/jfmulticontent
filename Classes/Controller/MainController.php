@@ -83,6 +83,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
      * @param	array		$conf: The PlugIn configuration
      * @return	The content that is displayed on the website
      */
+    #[AsAllowedCallable]
     public function main(
         string $content,
         array $conf,

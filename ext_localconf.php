@@ -29,5 +29,9 @@ call_user_func(function ($extensionKey): void {
             ]
         ],
     ];
+
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['jfmulticontentPluginListTypeToCTypeUpdate'] =
+    \JambageCom\Jfmulticontent\Upgrades\PluginListTypeToCTypeUpdate::class;
+
 }, 'jfmulticontent');
 
