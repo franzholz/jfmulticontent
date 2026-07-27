@@ -1,4 +1,7 @@
 <?php
+
+namespace JambageCom\Jfmulticontent\Controller;
+
 /***************************************************************
 *  Copyright notice
 *
