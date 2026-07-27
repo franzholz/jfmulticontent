@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'jfmulticontent-plugin' => [
+        'provider' => BitmapIconProvider::class,
+        'source' => 'EXT:jfmulticontent/Resources/Public/Icons/Extension.giff'
+    ],
     'extensions-jfmulticontent-wizard' => [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
         // The source bitmap file

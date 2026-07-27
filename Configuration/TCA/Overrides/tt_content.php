@@ -7,15 +7,14 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 call_user_func(function ($extensionKey, $table): void {
-    $pluginSignature = $extensionKey . '_pi1';
-    $cType = 'jfmulticontent_plugin';
+    $pluginSignature = 'jfmulticontent_plugin';
 
     ExtensionManagementUtility::addTcaSelectItem(
         'tt_content',
         'CType',
         [
             'label' => 'JfMulticontent Slider Element', // Name im Backend
-            'value' => $cType,
+            'value' => $pluginSignature,
             'group' => 'default', // Steuert das Tab im Erstellungs-Wizard (z.B. 'default', 'special')
             'description' => 'Erstellt ein neues Slider-Inhaltselement für jfmulticontent', // Infotext
             'icon' => 'content-text', // Das gewünschte Backend-Icon
@@ -24,10 +23,22 @@ call_user_func(function ($extensionKey, $table): void {
         'after'
     );
 
+    $GLOBALS['TCA'][$table]['types'][$pluginSignature] = [
+        'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+        --palette--;;general,
+        header;LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.header,
+        pi_flexform,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+        --palette--;;hidden,
+        --palette--;;access,
+        ',
+    ];
+
     $extensionConfiguration = GeneralUtility::makeInstance(
         ExtensionConfiguration::class
     )->get($extensionKey);
-    $colPosOfIrreContent = intval($extensionConfiguration['colPosOfIrreContent']);
+    $colPosOfIrreContent = intval($extensionConfiguration['colPosOfIrreContent'] ?? 0);
 
     if (
         !isset($GLOBALS['TCA'][$table]['columns']['colPos']['config']['items'][$colPosOfIrreContent])
@@ -179,14 +190,20 @@ call_user_func(function ($extensionKey, $table): void {
     }
 
     ExtensionManagementUtility::addTCAcolumns($table, $temporaryColumns);
-    ExtensionManagementUtility::addPiFlexFormValue('*', 'FILE:EXT:' . $extensionKey . '/Configuration/FlexForms/flexform_ds.xml', $pluginSignature);
+    ExtensionManagementUtility::addPiFlexFormValue(
+        '*',
+        'FILE:EXT:' . $extensionKey . '/Configuration/FlexForms/flexform_ds.xml',
+        $pluginSignature
+    );
     ExtensionManagementUtility::addPlugin(
         [
             'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
-            $listType,
-            'EXT:' . $extensionKey . '/Resources/Public/Icons/Extension.gif'
+            'value' => $pluginSignature,
+            'icon' => 'jfmulticontent-plugin',
+            'group' => 'plugin',
+            'description' => 'jfmulticontent plugin '
         ],
-        'list_type',
-        $extensionKey
+        'CType',
+        $extensionKey,
     );
 }, 'jfmulticontent', basename(__FILE__, '.php'));
