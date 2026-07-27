@@ -1,13 +1,14 @@
 <?php
 
+use TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider;
+
 return [
     'jfmulticontent-plugin' => [
         'provider' => BitmapIconProvider::class,
         'source' => 'EXT:jfmulticontent/Resources/Public/Icons/Extension.giff'
     ],
     'extensions-jfmulticontent-wizard' => [
-        'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
-        // The source bitmap file
+        'provider' => BitmapIconProvider::class,
         'source' => 'EXT:jfmulticontent/Resources/Public/Icons/ce_wiz.gif'
     ],
 ];
