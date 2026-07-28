@@ -1,9 +1,8 @@
 <?php
+declare(strict_types=1);
 
 namespace JambageCom\Jfmulticontent\Backend;
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 /***************************************************************
  *  Copyright notice
  *
@@ -36,6 +35,10 @@ use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
  * @package    TYPO3
  * @subpackage tx_jfmulticontent
  */
+
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+
 class TsparserExtensionUpdate
 {
     /**
@@ -43,6 +46,7 @@ class TsparserExtensionUpdate
      *
      * @return	string
      */
+    #[AsAllowedCallable]
     public function render(&$params, &$tsObj)
     {
         $out = '';

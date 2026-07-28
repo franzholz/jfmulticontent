@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace JambageCom\Jfmulticontent\Controller;
 
@@ -50,7 +51,7 @@ use JambageCom\Div2007\Compatibility\AbstractPlugin;
  * @package    TYPO3
  * @subpackage tx_jfmulticontent
  */
-class tx_jfmulticontent_pi1 extends AbstractPlugin
+class MainController extends AbstractPlugin
 {
     public $prefixId      = 'tx_jfmulticontent_pi1';
     public $scriptRelPath = 'pi1/class.tx_jfmulticontent_pi1.php';

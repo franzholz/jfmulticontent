@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 defined('TYPO3') || die('Access denied.');
 
@@ -29,9 +30,5 @@ call_user_func(function ($extensionKey): void {
             ]
         ],
     ];
-
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['jfmulticontentPluginListTypeToCTypeUpdate'] =
-    \JambageCom\Jfmulticontent\Upgrades\PluginListTypeToCTypeUpdate::class;
-
 }, 'jfmulticontent');
 
