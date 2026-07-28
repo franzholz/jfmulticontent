@@ -12,3 +12,9 @@ services:
       - name: event.listener
         identifier: 'jfmulticontentCodeListener'
         event: TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent
+
+  JambageCom\Jfmulticontent\Upgrades\PluginListTypeToCTypeUpdate:
+    tags:
+      - name: install.upgradewizard
+
+

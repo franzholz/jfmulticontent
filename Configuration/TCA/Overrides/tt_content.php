@@ -200,7 +200,7 @@ call_user_func(function ($extensionKey, $table): void {
         [
             'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
             'value' => $pluginSignature,
-            'icon' => 'jfmulticontent-plugin',
+            'icon' => 'extensions-jfmulticontent-plugin',
             'group' => 'plugin',
             'description' => 'jfmulticontent plugin '
         ],
