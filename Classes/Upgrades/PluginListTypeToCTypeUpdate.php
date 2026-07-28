@@ -5,17 +5,17 @@ declare(strict_types=1);
 namespace JambageCom\Jfmulticontent\Upgrades;
 
 use Doctrine\DBAL\Schema\Column;
+
+use TYPO3\CMS\Core\Attribute\UpgradeWizard;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
-
-use TYPO3\CMS\Install\Attribute\UpgradeWizard;
-use TYPO3\CMS\Install\Updates\AbstractListTypeToCTypeUpdate;
-
-
+use TYPO3\CMS\Core\Upgrades\AbstractListTypeToCTypeUpdate;
+use TYPO3\CMS\Core\Upgrades\UpgradeWizardInterface;
+// use TYPO3\CMS\Install\Updates\UpgradeWizardInterface; // Das hier verlangt Ihre Fehlermeldung!
 
 
 #[UpgradeWizard('jfmulticontentPluginListTypeToCTypeUpdate')]
-final class PluginListTypeToCTypeUpdate extends AbstractListTypeToCTypeUpdate
+final class PluginListTypeToCTypeUpdate extends AbstractListTypeToCTypeUpdate implements UpgradeWizardInterface
 {
     public function __construct(private readonly ConnectionPool $connectionPool)
     {
