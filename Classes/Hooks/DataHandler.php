@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace JambageCom\Jfmulticontent\Hooks;
 
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 /***************************************************************
  *  Copyright notice
  *
@@ -38,6 +37,12 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
  * @package    TYPO3
  * @subpackage tx_jfmulticontent
  */
+
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+
 class DataHandler
 {
     /**
@@ -65,9 +70,13 @@ class DataHandler
                         $val['list_type'] == 'jfmulticontent_pi1' &&
                         $val['tx_jfmulticontent_view'] == 'irre'
                     ) {
+                        $extensionConfiguration = GeneralUtility::makeInstance(
+                            ExtensionConfiguration::class
+                        )->get('jfmulticontent');
+
+                        // get
                         // Change the colPos of the IRRE tt_content values
-                        $confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['jfmulticontent'];
-                        $incomingFieldArray['colPos'] = $confArr['colPosOfIrreContent'];
+                        $incomingFieldArray['colPos'] = $extensionConfiguration['colPosOfIrreContent'];
                         // Workaround for TemplaVoilaPlus
                         if (
                             ExtensionManagementUtility::isLoaded('templavoilaplus') ||

@@ -11,10 +11,11 @@ use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Upgrades\AbstractListTypeToCTypeUpdate;
 use TYPO3\CMS\Core\Upgrades\UpgradeWizardInterface;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 // use TYPO3\CMS\Install\Updates\UpgradeWizardInterface; // Das hier verlangt Ihre Fehlermeldung!
 
-
-#[UpgradeWizard('jfmulticontentPluginListTypeToCTypeUpdate')]
+#[UpgradeWizard('jfmulticontent_pluginListTypeToCTypeUpdate')]
 final class PluginListTypeToCTypeUpdate extends AbstractListTypeToCTypeUpdate implements UpgradeWizardInterface
 {
     public function __construct(private readonly ConnectionPool $connectionPool)

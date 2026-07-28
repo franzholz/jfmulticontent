@@ -29,6 +29,7 @@ use Quellenform\LibJquery\Hooks\PageRendererHook;
 
 use Psr\Http\Message\ServerRequestInterface;
 
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Context\LanguageAspect;
 use TYPO3\CMS\Core\Database\Connection;
@@ -106,8 +107,12 @@ class MainController extends AbstractPlugin
             $jQueryAvailable = true;
         }
 
+        $extensionConfiguration = GeneralUtility::makeInstance(
+            ExtensionConfiguration::class
+        )->get($this->extKey);
+
         // get the config from EXT
-        $this->confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$this->extKey];
+        $this->confArr = $extensionConfiguration;
         $parser = GeneralUtility::makeInstance(MarkerBasedTemplateService::class);
         $this->pagerenderer = GeneralUtility::makeInstance(\JambageCom\Jfmulticontent\Hooks\MultiPageRenderer::class);
         $this->pagerenderer->setConf($this->conf);
