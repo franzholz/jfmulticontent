@@ -14,11 +14,11 @@ call_user_func(function ($extensionKey, $table): void {
         'tt_content',
         'CType',
         [
-            'label' => 'JfMulticontent Slider Element', // Name im Backend
+            'label' => 'LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
             'value' => $pluginSignature,
-            'group' => 'default', // Steuert das Tab im Erstellungs-Wizard (z.B. 'default', 'special')
-            'description' => 'Erstellt ein neues Slider-Inhaltselement für jfmulticontent', // Infotext
-            'icon' => 'content-text', // Das gewünschte Backend-Icon
+            'group' => 'plugins', // Steuert das Tab im Erstellungs-Wizard (z.B. 'default', 'special')
+            'description' => 'LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1.description',
+            'icon' => 'extensions-jfmulticontent-wizard', // Das gewünschte Backend-Icon
         ],
         'textmedia', // Positionierung im Dropdown
         'after'
@@ -28,11 +28,15 @@ call_user_func(function ($extensionKey, $table): void {
         'showitem' => '
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
         --palette--;;general,
-        header;LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.header,
+        --palette--;;headers,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:plugin,
         pi_flexform,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+        --palette--;;language,
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
-        --palette--;;hidden,
+        hidden,
         --palette--;;access,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended
         ',
     ];
 
@@ -208,3 +212,5 @@ call_user_func(function ($extensionKey, $table): void {
         $extensionKey,
     );
 }, 'jfmulticontent', basename(__FILE__, '.php'));
+
+
