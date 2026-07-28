@@ -42,9 +42,12 @@ class TemplaVoilaPlusController
     protected $cObj;
 
     #[AsAllowedCallable]
-    public function getContentFromField($content, $conf)
+    public function getContentFromField(string $content, array $conf)
     {
-        $tsfe = $this->getTypoScriptFrontendController();
+        $request = $this->cObj->getRequest();
+        if (!($request instanceof ServerRequestInterface)) {
+            return;
+        }
         $pageID = $this->cObj->stdWrap($conf['pageID'], $conf['pageID.']);
         $field = $this->cObj->stdWrap($conf['field'], $conf['field.']);
 
@@ -72,17 +75,28 @@ class TemplaVoilaPlusController
             $row = $queryBuilder->select('*')
                 ->from('pages')
                 ->where(
-                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($pageID, Connection::PARAM_INT)),
-                    $queryBuilder->expr()->eq('sys_language_uid',  $queryBuilder->createNamedParameter(0, Connection::PARAM_INT)
+                    $queryBuilder->expr()
+                        ->eq('uid',
+                             $queryBuilder->createNamedParameter($pageID, Connection::PARAM_INT)
+                        ),
+                    $queryBuilder->expr()
+                        ->eq('sys_language_uid',
+                             $queryBuilder->createNamedParameter(0, Connection::PARAM_INT)
+                        )
                 )
                 ->executeQuery()
                 ->fetchAll();
         }
 
         if (is_array($row)) {
+            $registers = $request->getAttribute('frontend.typoscript.registers', []);
             foreach ($row as $key => $val) {
-                $tsfe->register['page_' . $key] = $val;
+                $registers['page_' . $key] = $val;
             }
+            $modifiedRequest = $request->withAttribute('frontend.typoscript.registers', $registers);
+            $GLOBALS['REQUEST'] = $modifiedRequest;
+            $this->cObj->setRequest($modifiedRequest);
+            $request = $modifiedRequest;
         }
 
         $flexformXml = '';
@@ -99,7 +113,11 @@ class TemplaVoilaPlusController
                 if (count($page_flex_array['data']['sDEF']['lDEF']) > 0) {
                     foreach ($page_flex_array['data']['sDEF']['lDEF'] as $key => $fields) {
                         if ($key == $field) {
-                            $content_ids = array_merge($content_ids, GeneralUtility::trimExplode(',', $fields['vDEF']));
+                            $content_ids =
+                                array_merge(
+                                    $content_ids,
+                                    GeneralUtility::trimExplode(',', $fields['vDEF'])
+                                );
                         }
                     }
                 }
@@ -107,20 +125,18 @@ class TemplaVoilaPlusController
         }
 
         $content = null;
+        $registers = $request->getAttribute('frontend.typoscript.registers', []);
         foreach ($content_ids as $content_id) {
-            $tsfe->register['uid'] = $content_id;
+            $registers = $request->getAttribute('frontend.typoscript.registers', []);
+            $registers['uid'] = $content_id;
+            $modifiedRequest = $request->withAttribute('frontend.typoscript.registers', $registers);
+            $this->cObj->setRequest($modifiedRequest);
+            $GLOBALS['REQUEST'] = $modifiedRequest;
             $content .= $this->cObj->cObjGetSingle($conf['contentRender'], $conf['contentRender.']);
+            $request = $modifiedRequest;
         }
 
         return $content;
-    }
-
-    /**
-    * @return \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
-    */
-    protected function getTypoScriptFrontendController()
-    {
-        return $GLOBALS['TSFE'];
     }
 
     public function setContentObjectRenderer(ContentObjectRenderer $cObj): void

@@ -36,28 +36,39 @@ namespace JambageCom\Jfmulticontent\Backend;
  * @subpackage tx_jfmulticontent
  */
 
+use Psr\Http\Message\ServerRequestInterface;
+
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
 
-class TsparserExtensionUpdate
+
+final class TsparserExtensionUpdate
 {
+    public function __construct(
+        private readonly LanguageServiceFactory $languageServiceFactory
+    ) {}
+
     /**
      * Shows the update Message
      *
      * @return	string
      */
-    #[AsAllowedCallable]
-    public function render(&$params, &$tsObj)
+    public function render(array $parameters): string
     {
         $out = '';
 
         if ($this->checkConfig() === false) {
+            $languageService =
+                $this->languageServiceFactory
+                    ->createFromUserPreferences($GLOBALS['BE_USER']);
+
             $out .= '
     <div style="position:absolute;top:10px;right:10px; width:300px;">
         <div class="typo3-message message-information">
-            <div class="message-header">' . $GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/Resources/Private/Language/locallang.xlf:extmng.updatermsgInstall') . '</div>
+            <div class="message-header">' . $languageService->sL('LLL:EXT:jfmulticontent/Resources/Private/Language/locallang.xlf:extmng.updatermsgInstall') . '</div>
             <div class="message-body">
-                ' . $GLOBALS['LANG']->sL('LLL:EXT:jfmulticontent/Resources/Private/Language/locallang.xlf:extmng.updatermsg') . '<br />
+                ' . $languageService->sL('LLL:EXT:jfmulticontent/Resources/Private/Language/locallang.xlf:extmng.updatermsg') . '<br />
             </div>
         </div>
     </div>';
@@ -73,32 +84,39 @@ class TsparserExtensionUpdate
     */
     public function checkConfig(): bool
     {
-        $confDefault = [
-            'useStoragePidOnly',
-            'useSelectInsteadCheckbox',
-            'useOwnUserFuncForPages',
-            'openExternalLink',
-            'showEmptyContent',
-            'tabSelectByHash',
-            'colPosOfIrreContent',
-            'style',
-            'classInner',
-            'frontendErrorMsg',
-            'anythingSliderThemeFolder',
-            'anythingSliderModes',
-            'easyAccordionSkinFolder',
-        ];
+        $result = false;
 
-        $extensionConfiguration = GeneralUtility::makeInstance(
-            ExtensionConfiguration::class
-        )->get('jfmulticontent');
+        $request = $GLOBALS['REQUEST'];
 
-        $confArr = $extensionConfiguration;
-        foreach ($confDefault as $val) {
-            if (!isset($confArr[$val]) && !isset($_POST['data'][$val])) {
-                return false;
+        if ($request instanceof ServerRequestInterface) {
+            $confDefault = [
+                'useStoragePidOnly',
+                'useSelectInsteadCheckbox',
+                'useOwnUserFuncForPages',
+                'openExternalLink',
+                'showEmptyContent',
+                'tabSelectByHash',
+                'colPosOfIrreContent',
+                'style',
+                'classInner',
+                'frontendErrorMsg',
+                'anythingSliderThemeFolder',
+                'anythingSliderModes',
+                'easyAccordionSkinFolder',
+            ];
+            $parsedBody = $request->getParsedBody();
+
+            $extensionConfiguration = GeneralUtility::makeInstance(
+                ExtensionConfiguration::class
+            )->get('jfmulticontent');
+
+            foreach ($confDefault as $val) {
+                if (!isset($extensionConfiguration[$val]) && !isset($parsedBody['data'][$val])) {
+                    return false;
+                }
             }
+            $result = true;
         }
-        return true;
+        return $result;
     }
 }
