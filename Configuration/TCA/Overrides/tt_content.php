@@ -7,6 +7,8 @@ use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
+use JambageCom\Jfmulticontent\Hooks\ItemsProcFunc;
+
 call_user_func(function ($extensionKey, $table): void {
     $pluginSignature = 'jfmulticontent_plugin';
 
@@ -40,6 +42,9 @@ call_user_func(function ($extensionKey, $table): void {
         ',
     ];
 
+
+
+
     $extensionConfiguration = GeneralUtility::makeInstance(
         ExtensionConfiguration::class
     )->get($extensionKey);
@@ -53,7 +58,6 @@ call_user_func(function ($extensionKey, $table): void {
                 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.colPosOfIrreContent',
                 $colPosOfIrreContent
         ];
-        //     $GLOBALS['TCA']['tt_content']['columns']['colPos']['config']['disableNoMatchingValueElement'] = 1; // I have commented this out.
     }
 
     $temporaryColumns = [
@@ -72,7 +76,7 @@ call_user_func(function ($extensionKey, $table): void {
                     ['LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.view.I.1', 'page'],
                     ['LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.view.I.2', 'irre'],
                 ],
-                'itemsProcFunc' => \JambageCom\Jfmulticontent\Hooks\ItemsProcFunc::class . '->getViews',
+                'itemsProcFunc' => ItemsProcFunc::class . '->getViews',
             ]
         ],
         'tx_jfmulticontent_pages' => [
@@ -159,15 +163,14 @@ call_user_func(function ($extensionKey, $table): void {
             'label' => 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.contents',
             'config' => [
                 'type' => 'group',
-                'internal_type' => 'db',
                 'allowed' => 'tt_content',
                 'size' => 12,
                 'minitems' => 0,
                 'maxitems' => 1000,
                 'suggestOptions' => [
-                'default' => [
-                    'pidList' => '###PAGE_TSCONFIG_ID###',
-                ],
+                   'default' => [
+                        'pidList' => '###PAGE_TSCONFIG_ID###',
+                    ],
                 ],
                 'fieldControl' => [
                     'elementBrowser' => [
@@ -195,11 +198,13 @@ call_user_func(function ($extensionKey, $table): void {
     }
 
     ExtensionManagementUtility::addTCAcolumns($table, $temporaryColumns);
+
     ExtensionManagementUtility::addPiFlexFormValue(
         '*',
         'FILE:EXT:' . $extensionKey . '/Configuration/FlexForms/flexform_ds.xml',
         $pluginSignature
     );
+
     ExtensionManagementUtility::addPlugin(
         [
             'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',

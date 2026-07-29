@@ -28,13 +28,16 @@ namespace JambageCom\Jfmulticontent\Hooks;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 use TYPO3\CMS\Core\Log\Logger;
 use TYPO3\CMS\Core\Log\LogManager;
+use TYPO3\CMS\Core\Page\AssetCollector;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\Resource\FilePathSanitizer;
+
 
 
 /**
@@ -105,7 +108,12 @@ class MultiPageRenderer
             // Add script only once
             $hash = md5($temp_js);
             if ($this->conf['jsInline']) {
-                $GLOBALS['TSFE']->inlineJS[$hash] = $temp_js;
+                GeneralUtility::makeInstance(AssetCollector::class)
+                    ->addInlineJavaScript(
+                        $hash,      // Eindeutiger Identifier (ersetzt den Array-Key)
+                        $temp_js,   // Der eigentliche JavaScript-Code
+                        []          // Optionale Attribute wie ['type' => 'javascript/blocked']
+                    );
             } else {
                 if ($this->conf['jsInFooter'] || $allJsInFooter) {
                     $pageRenderer->addJsFooterInlineCode($hash, $temp_js, $this->conf['jsMinify']);

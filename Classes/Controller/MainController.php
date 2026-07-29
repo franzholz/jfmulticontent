@@ -100,7 +100,7 @@ class MainController extends AbstractPlugin
         /** @var LanguageAspect $languageAspect */
         $languageAspect = $context->getAspect('language');
         $versioningWorkspaceId = $context->getPropertyFromAspect('workspace', 'id');
-        $tsfe = $this->getTypoScriptFrontendController();
+        $pageRepository = $this->getPageRepository();
         $this->setFlexFormData();
         $jQueryAvailable = false;
         if (class_exists(PageRendererHook::class)) {
@@ -559,8 +559,7 @@ class MainController extends AbstractPlugin
 
                 // get the informations for every page
                 for ($a = 0; $a < count($page_ids); $a++) {
-
-                    $tsfe->register['pid'] = $page_ids[$a];
+                    $this->cObj->register['pid'] = $page_ids[$a];
 
                     if (
                         $this->confArr['useOwnUserFuncForPages']
@@ -640,7 +639,7 @@ class MainController extends AbstractPlugin
 
                         if (is_array($row)) {
                             foreach ($row as $key => $val) {
-                                $tsfe->register['page_' . $key] = $val;
+                                $this->cObj->register['page_' . $key] = $val;
                             }
                         }
 
@@ -714,15 +713,20 @@ class MainController extends AbstractPlugin
 
                     if (is_array($row)) {
                         if ($languageAspect->getContentId()) {
-                            $row = $tsfe->sys_page->getRecordOverlay('tt_content', $row, $languageAspect->getContentId(), $languageAspect->getLegacyOverlayType());
+                            $row =
+                                $pageRepository->getLanguageOverlay(
+                                    'tt_content',
+                                    $row,
+                                    $languageAspect
+                                );
                         } elseif ($versioningWorkspaceId) {
-                            $tsfe->sys_page->versionOL('tt_content', $row);
+                            $pageRepository->versionOL('tt_content', $row);
                         }
                     }
 
                     if (is_array($row)) {
-                        $tsfe->register['uid'] = !empty($row['_LOCALIZED_UID']) ? $row['_LOCALIZED_UID'] : $row['uid'];
-                        $tsfe->register['title'] = (isset($this->titles[$a]) && strlen(trim($this->titles[$a])) > 0 ? $this->titles[$a] : $row['header']);
+                        $this->cObj->register['uid'] = !empty($row['_LOCALIZED_UID']) ? $row['_LOCALIZED_UID'] : $row['uid'];
+                        $this->cObj->register['title'] = (isset($this->titles[$a]) && strlen(trim($this->titles[$a])) > 0 ? $this->titles[$a] : $row['header']);
                     }
 
                     if (
@@ -737,7 +741,7 @@ class MainController extends AbstractPlugin
                                 $view['title'],
                                 $view['title.'] ?? ''
                             );
-                        $tsfe->register['title'] = $this->titles[$a];
+                        $this->cObj->register['title'] = $this->titles[$a];
                     }
 
                     $innerContent = '';
@@ -1520,22 +1524,27 @@ class MainController extends AbstractPlugin
      */
     public function addIRREContent(&$a, $context, $row, $view): void
     {
-        $tsfe = $this->getTypoScriptFrontendController();
+        $pageRepository = $this->getPageRepository();
         /** @var LanguageAspect $languageAspect */
         $languageAspect = $context->getAspect('language');
         $versioningWorkspaceId = $context->getPropertyFromAspect('workspace', 'id');
 
         if ($languageAspect->getContentId()) {
-            $row = $tsfe->sys_page->getRecordOverlay('tt_content', $row, $languageAspect->getContentId(), $languageAspect->getLegacyOverlayType());
+                $row =
+                    $pageRepository->getLanguageOverlay(
+                        'tt_content',
+                        $row,
+                        $languageAspect
+                    );
         } elseif ($versioningWorkspaceId) {
-            $tsfe->sys_page->versionOL('tt_content', $row);
+            $pageRepository->versionOL->versionOL('tt_content', $row);
         }
-        $uid = $row['_LOCALIZED_UID'] ?: $row['uid'];
+        $uid = $row['_LOCALIZED_UID'] ?? $row['uid'];
         if ($row['t3ver_oid']) {
             $uid = $row['t3ver_oid'];
         }
-        $tsfe->register['uid'] = $uid;
-        $tsfe->register['title'] = (strlen(trim($this->titles[$a])) > 0 ? $this->titles[$a] : $row['header']);
+        $this->cObj->register['uid'] = $uid;
+        $this->cObj->register['title'] = (strlen(trim($this->titles[$a])) > 0 ? $this->titles[$a] : $row['header']);
         if (
                 $this->titles[$a] == '' ||
                 !isset($this->titles[$a])
@@ -1545,7 +1554,7 @@ class MainController extends AbstractPlugin
             } else {
                 $this->titles[$a] = '';
             }
-            $tsfe->register['title'] = $this->titles[$a];
+            $this->cObj->register['title'] = $this->titles[$a];
         }
         $innerContent = '';
         if (isset($view['content'])) {
@@ -1586,17 +1595,16 @@ class MainController extends AbstractPlugin
      */
     public function renderTemplate()
     {
-        $tsfe = $this->getTypoScriptFrontendController();
         $parser = GeneralUtility::makeInstance(MarkerBasedTemplateService::class);
 
         // set the register:key for TS manipulation
-        $tsfe->register['key'] = $this->getContentKey();
+        $this->cObj->register['key'] = $this->getContentKey();
 
         $markerArray = $this->additionalMarker;
 
         // Define string with all classes
         $markerArray['COLUMN_CLASSES'] = implode('', $this->classes);
-        $tsfe->register['COLUMN_CLASSES'] = $markerArray['COLUMN_CLASSES'];
+        $this->cObj->register['COLUMN_CLASSES'] = $markerArray['COLUMN_CLASSES'];
 
         // get the template
         if (!$templateCode = $parser->getSubpart($this->templateFile, '###' . $this->templatePart . '###')) {
@@ -1701,9 +1709,9 @@ class MainController extends AbstractPlugin
                 $markerArray['TITLE'] = $this->titles[$a];
             }
 
-            $tsfe->register['content_id'] = $markerArray['CONTENT_ID'];
-            $tsfe->register['id']         = $markerArray['ID'];
-            $tsfe->register['title']      = $markerArray['TITLE'];
+            $this->cObj->register['content_id'] = $markerArray['CONTENT_ID'];
+            $this->cObj->register['id']         = $markerArray['ID'];
+            $this->cObj->register['title']      = $markerArray['TITLE'];
 
             if (isset($this->conf['tabKey'])) {
                 $markerArray['TAB_KEY'] =
@@ -1945,15 +1953,7 @@ class MainController extends AbstractPlugin
      */
     protected function getPageRepository(): PageRepository
     {
-        return $this->getTypoScriptFrontendController()->sys_page ?? GeneralUtility::makeInstance(PageRepository::class);
-    }
-
-    /**
-     * @return \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
-     */
-    protected function getTypoScriptFrontendController()
-    {
-        return $GLOBALS['TSFE'];
+        return GeneralUtility::makeInstance(PageRepository::class);
     }
 
     /**
