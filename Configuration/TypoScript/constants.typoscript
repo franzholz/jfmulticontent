@@ -80,8 +80,6 @@ plugin.tx_jfmulticontent_pi1 {
 	# cat=plugin.tx_jfmulticontent/file/170; type=file[css]; label=Booklet CSS-File: Location of the Booklet CSS-file
 	file.bookletCSS = EXT:jfmulticontent/Resources/Public/booklet/jquery.booklet-1.4.2.css
 
-
-
 	# cat=plugin.tx_jfmulticontent/typo/010; type=string; label=2 Column Classes: Wrap of the classname for 2 Column
 	2columnClasses = c|l |*| c|r
 

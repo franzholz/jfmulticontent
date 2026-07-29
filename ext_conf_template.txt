@@ -62,8 +62,6 @@ style.booklet = 1
 # cat=style/110; type=boolean; label=Enable typoscript: Enables the typoscript-Style for the backend
 style.typoscript = 0
 
-
-
 # cat=style/20; type=string; label=Class Inner: Possible values to wrap in column classes (,16,20,25,33,38,40,50,60,62,66,75,80)
 classInner = ,16,20,25,33,38,40,50,60,62,66,75,80
 
