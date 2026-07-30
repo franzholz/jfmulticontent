@@ -12,7 +12,6 @@ use JambageCom\Jfmulticontent\Hooks\ItemsProcFunc;
 call_user_func(function ($extensionKey, $table): void {
     $pluginSignature = 'jfmulticontent_plugin';
 
-/*
     ExtensionManagementUtility::addTcaSelectItem(
         'tt_content',
         'CType',
@@ -42,89 +41,87 @@ call_user_func(function ($extensionKey, $table): void {
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended
         ',
     ];
-*/
+
+    $extensionConfiguration = GeneralUtility::makeInstance(
+        ExtensionConfiguration::class
+    )->get($extensionKey);
+    $colPosOfIrreContent = intval($extensionConfiguration['colPosOfIrreContent'] ?? 0);
+
+    if (
+        !isset($GLOBALS['TCA'][$table]['columns']['colPos']['config']['items'][$colPosOfIrreContent])
+    ) {
+        // Add the new colPos to the array, only if the ID does not exist...
+        $GLOBALS['TCA'][$table]['columns']['colPos']['config']['items'][$colPosOfIrreContent] = [
+                'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.colPosOfIrreContent',
+                $colPosOfIrreContent
+        ];
+    }
+
+    $temporaryColumns = [
+        'tx_jfmulticontent_view' => [
+            'exclude' => 1,
+            'onChange' => 'reload',
+            'label' => 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.view',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'size' => 1,
+                'maxitems' => 1,
+                'default' => 'content',
+                'items' => [
+                    ['LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.view.I.0', 'content'],
+                    ['LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.view.I.1', 'page'],
+                    ['LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.view.I.2', 'irre'],
+                ],
+                'itemsProcFunc' => ItemsProcFunc::class . '->getViews',
+            ]
+        ],
+        'tx_jfmulticontent_pages' => [
+            'exclude' => 1,
+            'displayCond' => 'FIELD:tx_jfmulticontent_view:IN:page',
+            'label' => 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.pages',
+            'config' => [
+                'type' => 'group',
+                'allowed' => 'pages',
+                'size' => 12,
+                'minitems' => 0,
+                'maxitems' => 1000,
+                'wizards' => [
+                    'suggest' => [
+                        'type' => 'suggest',
+                    ],
+                ],
+            ]
+        ],
+        'tx_jfmulticontent_irre' => [
+            'exclude' => 1,
+            'displayCond' => 'FIELD:tx_jfmulticontent_view:IN:irre',
+            'label' => 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.irre',
+            'config' => [
+                'type' => 'inline',
+                'foreign_table' => 'tt_content',
+                'foreign_field' => 'tx_jfmulticontent_irre_parentid',
+                'foreign_sortby' => 'sorting',
+                'foreign_label' => 'header',
+                'maxitems' => 1000,
+                'appearance' => [
+                    'showSynchronizationLink' => false,
+                    'showAllLocalizationLink' => false,
+                    'showPossibleLocalizationRecords' => false,
+                    'showRemovedLocalizationRecords' => false,
+                    'expandSingle' => true,
+                    'newRecordLinkAddTitle' => true,
+                    'useSortable' => true,
+                ],
+                'behaviour' => [
+                    'localizationMode' => 'select',
+                ],
+            ]
+        ],
+    ];
 
 
-    // $extensionConfiguration = GeneralUtility::makeInstance(
-    //     ExtensionConfiguration::class
-    // )->get($extensionKey);
-    // $colPosOfIrreContent = intval($extensionConfiguration['colPosOfIrreContent'] ?? 0);
-    //
-    // if (
-    //     !isset($GLOBALS['TCA'][$table]['columns']['colPos']['config']['items'][$colPosOfIrreContent])
-    // ) {
-    //     // Add the new colPos to the array, only if the ID does not exist...
-    //     $GLOBALS['TCA'][$table]['columns']['colPos']['config']['items'][$colPosOfIrreContent] = [
-    //             'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.colPosOfIrreContent',
-    //             $colPosOfIrreContent
-    //     ];
-    // }
-    //
-    // $temporaryColumns = [
-    //     'tx_jfmulticontent_view' => [
-    //         'exclude' => 1,
-    //         'onChange' => 'reload',
-    //         'label' => 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.view',
-    //         'config' => [
-    //             'type' => 'select',
-    //             'renderType' => 'selectSingle',
-    //             'size' => 1,
-    //             'maxitems' => 1,
-    //             'default' => 'content',
-    //             'items' => [
-    //                 ['LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.view.I.0', 'content'],
-    //                 ['LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.view.I.1', 'page'],
-    //                 ['LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.view.I.2', 'irre'],
-    //             ],
-    //             'itemsProcFunc' => ItemsProcFunc::class . '->getViews',
-    //         ]
-    //     ],
-    //     'tx_jfmulticontent_pages' => [
-    //         'exclude' => 1,
-    //         'displayCond' => 'FIELD:tx_jfmulticontent_view:IN:page',
-    //         'label' => 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.pages',
-    //         'config' => [
-    //             'type' => 'group',
-    //             'allowed' => 'pages',
-    //             'size' => 12,
-    //             'minitems' => 0,
-    //             'maxitems' => 1000,
-    //             'wizards' => [
-    //                 'suggest' => [
-    //                     'type' => 'suggest',
-    //                 ],
-    //             ],
-    //         ]
-    //     ],
-    //     'tx_jfmulticontent_irre' => [
-    //         'exclude' => 1,
-    //         'displayCond' => 'FIELD:tx_jfmulticontent_view:IN:irre',
-    //         'label' => 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.irre',
-    //         'config' => [
-    //             'type' => 'inline',
-    //             'foreign_table' => 'tt_content',
-    //             'foreign_field' => 'tx_jfmulticontent_irre_parentid',
-    //             'foreign_sortby' => 'sorting',
-    //             'foreign_label' => 'header',
-    //             'maxitems' => 1000,
-    //             'appearance' => [
-    //                 'showSynchronizationLink' => false,
-    //                 'showAllLocalizationLink' => false,
-    //                 'showPossibleLocalizationRecords' => false,
-    //                 'showRemovedLocalizationRecords' => false,
-    //                 'expandSingle' => true,
-    //                 'newRecordLinkAddTitle' => true,
-    //                 'useSortable' => true,
-    //             ],
-    //             'behaviour' => [
-    //                 'localizationMode' => 'select',
-    //             ],
-    //         ]
-    //     ],
-    // ];
 
-
-/*
     if (!empty($extensionConfiguration['useStoragePidOnly'])) {
 
         $foreignTableWhere = 'AND {#tt_content}.{#pid} = ###PAGE_TSCONFIG_ID### AND {#tt_content}.{#hidden} = 0 AND {#tt_content}.{#deleted} = 0 AND {#tt_content}.{#sys_language_uid} IN (0,-1) ORDER BY tt_content.uid';
@@ -199,8 +196,8 @@ call_user_func(function ($extensionKey, $table): void {
         ];
     }
 
-    */
-/*
+
+
     ExtensionManagementUtility::addTCAcolumns($table, $temporaryColumns);
 
     ExtensionManagementUtility::addPiFlexFormValue(
@@ -208,20 +205,18 @@ call_user_func(function ($extensionKey, $table): void {
         'FILE:EXT:' . $extensionKey . '/Configuration/FlexForms/flexform_ds.xml',
         $pluginSignature
     );
-*/
 
-
-    // ExtensionManagementUtility::addPlugin(
-    //     [
-    //         'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
-    //         'value' => $pluginSignature,
-    //         'icon' => 'extensions-jfmulticontent-plugin',
-    //         'group' => 'plugin',
-    //         'description' => 'jfmulticontent plugin '
-    //     ],
-    //     'CType',
-    //     $extensionKey,
-    // );
+    ExtensionManagementUtility::addPlugin(
+        [
+            'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
+            'value' => $pluginSignature,
+            'icon' => 'extensions-jfmulticontent-plugin',
+            'group' => 'plugin',
+            'description' => 'jfmulticontent plugin '
+        ],
+        'CType',
+        $extensionKey,
+    );
 }, 'jfmulticontent', basename(__FILE__, '.php'));
 
 
