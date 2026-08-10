@@ -5,675 +5,675 @@
     <body>
       <trans-unit id="tt_content.list_type_pi1" resname="tt_content.list_type_pi1">
         <source>Multiple Content</source>
-        <target state="needs-translation">Multiple Content</target>
+        <target state="translated">Több tartalom</target>
       </trans-unit>
       <trans-unit id="tt_content.colPosOfIrreContent" resname="tt_content.colPosOfIrreContent">
         <source>Multiple Content</source>
-        <target state="needs-translation">Multiple Content</target>
+        <target state="translated">Több tartalom</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.view" resname="tt_content.tx_jfmulticontent.view">
         <source>View</source>
-        <target state="needs-translation">View</target>
+        <target state="translated">Nézet</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.view.I.0" resname="tt_content.tx_jfmulticontent.view.I.0">
         <source>Contents</source>
-        <target state="needs-translation">Contents</target>
+        <target state="translated">Tartalmak</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.view.I.1" resname="tt_content.tx_jfmulticontent.view.I.1">
         <source>Pages</source>
-        <target state="needs-translation">Pages</target>
+        <target state="translated">Oldalak</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.view.I.2" resname="tt_content.tx_jfmulticontent.view.I.2">
         <source>Inline content</source>
-        <target state="needs-translation">Inline content</target>
+        <target state="translated">Inline tartalom</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.pages" resname="tt_content.tx_jfmulticontent.pages">
         <source>Pages to display</source>
-        <target state="needs-translation">Pages to display</target>
+        <target state="translated">Megjelenítendő oldalak</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.contents" resname="tt_content.tx_jfmulticontent.contents">
         <source>Contents to display</source>
-        <target state="needs-translation">Contents to display</target>
+        <target state="translated">Megjelenítendő tartalmak</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.irre" resname="tt_content.tx_jfmulticontent.irre">
         <source>Insert inline content</source>
-        <target state="needs-translation">Insert inline content</target>
+        <target state="translated">Inline tartalom beszúrása</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.contents_add" resname="tt_content.tx_jfmulticontent.contents_add">
         <source>Create new record</source>
-        <target state="needs-translation">Create new record</target>
+        <target state="translated">Új rekord létrehozása</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.contents_edit" resname="tt_content.tx_jfmulticontent.contents_edit">
         <source>Edit</source>
-        <target state="needs-translation">Edit</target>
+        <target state="translated">Szerkesztés</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sheet_general" resname="tt_content.tx_jfmulticontent.sheet_general">
         <source>General</source>
-        <target state="needs-translation">General</target>
+        <target state="translated">Általános</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style" resname="tt_content.tx_jfmulticontent.style">
         <source>Style</source>
-        <target state="needs-translation">Style</target>
+        <target state="translated">Stílus</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style.I.0" resname="tt_content.tx_jfmulticontent.style.I.0">
         <source>2 columns</source>
-        <target state="needs-translation">2 columns</target>
+        <target state="translated">2 oszlop</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style.I.1" resname="tt_content.tx_jfmulticontent.style.I.1">
         <source>3 columns</source>
-        <target state="needs-translation">3 columns</target>
+        <target state="translated">3 oszlop</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style.I.2" resname="tt_content.tx_jfmulticontent.style.I.2">
         <source>4 columns</source>
-        <target state="needs-translation">4 columns</target>
+        <target state="translated">4 oszlop</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style.I.6" resname="tt_content.tx_jfmulticontent.style.I.6">
         <source>5 columns</source>
-        <target state="needs-translation">5 columns</target>
+        <target state="translated">5 oszlop</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style.I.3" resname="tt_content.tx_jfmulticontent.style.I.3">
         <source>Tabs</source>
-        <target state="needs-translation">Tabs</target>
+        <target state="translated">Lapfülek</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style.I.4" resname="tt_content.tx_jfmulticontent.style.I.4">
         <source>Accordion</source>
-        <target state="needs-translation">Accordion</target>
+        <target state="translated">Harmonika</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style.I.5" resname="tt_content.tx_jfmulticontent.style.I.5">
         <source>Slider</source>
-        <target state="needs-translation">Slider</target>
+        <target state="translated">Csúszka</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style.I.7" resname="tt_content.tx_jfmulticontent.style.I.7">
         <source>SlideDeck</source>
-        <target state="needs-translation">SlideDeck</target>
+        <target state="translated">SlideDeck</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style.I.8" resname="tt_content.tx_jfmulticontent.style.I.8">
         <source>easyAccordion</source>
-        <target state="needs-translation">easyAccordion</target>
+        <target state="translated">easyAccordion</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style.I.9" resname="tt_content.tx_jfmulticontent.style.I.9">
         <source>Booklet</source>
-        <target state="needs-translation">Booklet</target>
+        <target state="translated">Booklet</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.style.I.10" resname="tt_content.tx_jfmulticontent.style.I.10">
         <source>TypoScript</source>
-        <target state="needs-translation">TypoScript</target>
+        <target state="translated">TypoScript</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.columnOrder" resname="tt_content.tx_jfmulticontent.columnOrder">
         <source>Column Order</source>
-        <target state="needs-translation">Column Order</target>
+        <target state="translated">Oszlopsorrend</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.0" resname="tt_content.tx_jfmulticontent.columnOrder.I.0">
         <source>only one row (no repeat)</source>
-        <target state="needs-translation">only one row (no repeat)</target>
+        <target state="translated">csak egy sor (nincs ismétlés)</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.1" resname="tt_content.tx_jfmulticontent.columnOrder.I.1">
         <source>left to right, top to down</source>
-        <target state="needs-translation">left to right, top to down</target>
+        <target state="translated">balról jobbra, fentről lefelé</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.2" resname="tt_content.tx_jfmulticontent.columnOrder.I.2">
         <source>right to left, top to down</source>
-        <target state="needs-translation">right to left, top to down</target>
+        <target state="translated">jobbról balra, fentről lefelé</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.3" resname="tt_content.tx_jfmulticontent.columnOrder.I.3">
         <source>top to down, left to right</source>
-        <target state="needs-translation">top to down, left to right</target>
+        <target state="translated">fentről lefelé, balról jobbra</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.columnOrder.I.4" resname="tt_content.tx_jfmulticontent.columnOrder.I.4">
         <source>top to down, right to left</source>
-        <target state="needs-translation">top to down, right to left</target>
+        <target state="translated">fentről lefelé, jobbról balra</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.column1" resname="tt_content.tx_jfmulticontent.column1">
         <source>Column class 1</source>
-        <target state="needs-translation">Column class 1</target>
+        <target state="translated">Oszlop osztály 1</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.column2" resname="tt_content.tx_jfmulticontent.column2">
         <source>Column class 2</source>
-        <target state="needs-translation">Column class 2</target>
+        <target state="translated">Oszlop osztály 2</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.column3" resname="tt_content.tx_jfmulticontent.column3">
         <source>Column class 3</source>
-        <target state="needs-translation">Column class 3</target>
+        <target state="translated">Oszlop osztály 3</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.column4" resname="tt_content.tx_jfmulticontent.column4">
         <source>Column class 4</source>
-        <target state="needs-translation">Column class 4</target>
+        <target state="translated">Oszlop osztály 4</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.column5" resname="tt_content.tx_jfmulticontent.column5">
         <source>Column class 5</source>
-        <target state="needs-translation">Column class 5</target>
+        <target state="translated">Oszlop osztály 5</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.equalize" resname="tt_content.tx_jfmulticontent.equalize">
         <source>Equalize columns</source>
-        <target state="needs-translation">Equalize columns</target>
+        <target state="translated">Oszlopok egyenlősítése</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sheet_title" resname="tt_content.tx_jfmulticontent.sheet_title">
         <source>Title</source>
-        <target state="needs-translation">Title</target>
+        <target state="translated">Cím</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.titles" resname="tt_content.tx_jfmulticontent.titles">
         <source>Overwrite titles (One title per line)</source>
-        <target state="needs-translation">Overwrite titles (One title per line)</target>
+        <target state="translated">Címek felülírása (soronként egy cím)</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sheet_attribute" resname="tt_content.tx_jfmulticontent.sheet_attribute">
         <source>Attributes</source>
-        <target state="needs-translation">Attributes</target>
+        <target state="translated">Attribútumok</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.attributes" resname="tt_content.tx_jfmulticontent.attributes">
         <source>Attributes for columns (One set of attributes per line)</source>
-        <target state="needs-translation">Attributes for columns (One set of attributes per line)</target>
+        <target state="translated">Oszlopok attribútumai (soronként egy attribútumkészlet)</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sheet_options" resname="tt_content.tx_jfmulticontent.sheet_options">
         <source>Options</source>
-        <target state="needs-translation">Options</target>
+        <target state="translated">Beállítások</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabCollapsible" resname="tt_content.tx_jfmulticontent.tabCollapsible">
         <source>Collapsible</source>
-        <target state="needs-translation">Collapsible</target>
+        <target state="translated">Összecsukható</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabFxHeight" resname="tt_content.tx_jfmulticontent.tabFxHeight">
         <source>FX height</source>
-        <target state="needs-translation">FX height</target>
+        <target state="translated">FX magasság</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabFxOpacity" resname="tt_content.tx_jfmulticontent.tabFxOpacity">
         <source>FX opacity</source>
-        <target state="needs-translation">FX opacity</target>
+        <target state="translated">FX átlátszóság</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabFxDuration" resname="tt_content.tx_jfmulticontent.tabFxDuration">
         <source>FX duration</source>
-        <target state="needs-translation">FX duration</target>
+        <target state="translated">FX időtartam</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabFxDuration.I.0" resname="tt_content.tx_jfmulticontent.tabFxDuration.I.0">
         <source>Default (Normal)</source>
-        <target state="needs-translation">Default (Normal)</target>
+        <target state="translated">Alapértelmezett (Normál)</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabFxDuration.I.1" resname="tt_content.tx_jfmulticontent.tabFxDuration.I.1">
         <source>Slow</source>
-        <target state="needs-translation">Slow</target>
+        <target state="translated">Lassú</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabFxDuration.I.2" resname="tt_content.tx_jfmulticontent.tabFxDuration.I.2">
         <source>Normal</source>
-        <target state="needs-translation">Normal</target>
+        <target state="translated">Normál</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabFxDuration.I.3" resname="tt_content.tx_jfmulticontent.tabFxDuration.I.3">
         <source>Fast</source>
-        <target state="needs-translation">Fast</target>
+        <target state="translated">Gyors</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabHideEffect" resname="tt_content.tx_jfmulticontent.tabHideEffect">
         <source>Hide Effect</source>
-        <target state="needs-translation">Hide Effect</target>
+        <target state="translated">Elrejtési effektus</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabHideEffect.I.1" resname="tt_content.tx_jfmulticontent.tabHideEffect.I.1">
         <source>None</source>
-        <target state="needs-translation">None</target>
+        <target state="translated">Nincs</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabHideEffect.I.2" resname="tt_content.tx_jfmulticontent.tabHideEffect.I.2">
         <source>fade</source>
-        <target state="needs-translation">fade</target>
+        <target state="translated">fade</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabHideEffect.I.3" resname="tt_content.tx_jfmulticontent.tabHideEffect.I.3">
         <source>slide</source>
-        <target state="needs-translation">slide</target>
+        <target state="translated">slide</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabHideTransition" resname="tt_content.tx_jfmulticontent.tabHideTransition">
         <source>Hide transition</source>
-        <target state="needs-translation">Hide transition</target>
+        <target state="translated">Elrejtési átmenet</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabHideTransitiondir" resname="tt_content.tx_jfmulticontent.tabHideTransitiondir">
         <source>Hide transition dircetion</source>
-        <target state="needs-translation">Hide transition dircetion</target>
+        <target state="translated">Elrejtési átmenet iránya</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabHideTransitionduration" resname="tt_content.tx_jfmulticontent.tabHideTransitionduration">
         <source>Hide transition duration (in ms)</source>
-        <target state="needs-translation">Hide transition duration (in ms)</target>
+        <target state="translated">Elrejtési átmenet időtartama (ms)</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabShowEffect" resname="tt_content.tx_jfmulticontent.tabShowEffect">
         <source>Show Effect</source>
-        <target state="needs-translation">Show Effect</target>
+        <target state="translated">Megjelenési effektus</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabShowEffect.I.1" resname="tt_content.tx_jfmulticontent.tabShowEffect.I.1">
         <source>None</source>
-        <target state="needs-translation">None</target>
+        <target state="translated">Nincs</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabShowEffect.I.2" resname="tt_content.tx_jfmulticontent.tabShowEffect.I.2">
         <source>fade</source>
-        <target state="needs-translation">fade</target>
+        <target state="translated">fade</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabShowEffect.I.3" resname="tt_content.tx_jfmulticontent.tabShowEffect.I.3">
         <source>slide</source>
-        <target state="needs-translation">slide</target>
+        <target state="translated">slide</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabShowTransition" resname="tt_content.tx_jfmulticontent.tabShowTransition">
         <source>Show transition</source>
-        <target state="needs-translation">Show transition</target>
+        <target state="translated">Megjelenési átmenet</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabShowTransitiondir" resname="tt_content.tx_jfmulticontent.tabShowTransitiondir">
         <source>Show transition dircetion</source>
-        <target state="needs-translation">Show transition dircetion</target>
+        <target state="translated">Megjelenési átmenet iránya</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabShowTransitionduration" resname="tt_content.tx_jfmulticontent.tabShowTransitionduration">
         <source>Show transition duration (in ms)</source>
-        <target state="needs-translation">Show transition duration (in ms)</target>
+        <target state="translated">Megjelenési átmenet időtartama (ms)</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabEvent" resname="tt_content.tx_jfmulticontent.tabEvent">
         <source>Event</source>
-        <target state="needs-translation">Event</target>
+        <target state="translated">Esemény</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabEvent.I.1" resname="tt_content.tx_jfmulticontent.tabEvent.I.1">
         <source>Click</source>
-        <target state="needs-translation">Click</target>
+        <target state="translated">Kattintás</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabEvent.I.2" resname="tt_content.tx_jfmulticontent.tabEvent.I.2">
         <source>Mouseover</source>
-        <target state="needs-translation">Mouseover</target>
+        <target state="translated">Mouseover</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabHeightStyle" resname="tt_content.tx_jfmulticontent.tabHeightStyle">
         <source>Height Style</source>
-        <target state="needs-translation">Height Style</target>
+        <target state="translated">Magasság stílusa</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabHeightStyle.I.1" resname="tt_content.tx_jfmulticontent.tabHeightStyle.I.1">
         <source>Auto</source>
-        <target state="needs-translation">Auto</target>
+        <target state="translated">Automatikus</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabHeightStyle.I.2" resname="tt_content.tx_jfmulticontent.tabHeightStyle.I.2">
         <source>Fill</source>
-        <target state="needs-translation">Fill</target>
+        <target state="translated">Kitöltés</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabHeightStyle.I.3" resname="tt_content.tx_jfmulticontent.tabHeightStyle.I.3">
         <source>Content</source>
-        <target state="needs-translation">Content</target>
+        <target state="translated">Tartalom</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabOpen" resname="tt_content.tx_jfmulticontent.tabOpen">
         <source>Opened content</source>
-        <target state="needs-translation">Opened content</target>
+        <target state="translated">Megnyitott tartalom</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabRandomContent" resname="tt_content.tx_jfmulticontent.tabRandomContent">
         <source>Open random content</source>
-        <target state="needs-translation">Open random content</target>
+        <target state="translated">Véletlen tartalom megnyitása</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabCookieExpires" resname="tt_content.tx_jfmulticontent.tabCookieExpires">
         <source>Cookie expiration (If set, the &quot;opened&quot; option will be ignored)</source>
-        <target state="needs-translation">Cookie expiration (If set, the "opened" option will be ignored)</target>
+        <target state="translated">Cookie lejárata (Ha be van állítva, a „megnyitott” opció figyelmen kívül marad)</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.tabCookieRoot" resname="tt_content.tx_jfmulticontent.tabCookieRoot">
         <source>Set cookie path to root &quot;/&quot;</source>
-        <target state="needs-translation">Set cookie path to root "/"</target>
+        <target state="translated">Cookie-útvonal beállítása a gyökérre „/”</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionAutoHeight" resname="tt_content.tx_jfmulticontent.accordionAutoHeight">
         <source>Auto height</source>
-        <target state="needs-translation">Auto height</target>
+        <target state="translated">Automatikus magasság</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionCollapsible" resname="tt_content.tx_jfmulticontent.accordionCollapsible">
         <source>Collapsible</source>
-        <target state="needs-translation">Collapsible</target>
+        <target state="translated">Összecsukható</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionClosed" resname="tt_content.tx_jfmulticontent.accordionClosed">
         <source>Closed at startup</source>
-        <target state="needs-translation">Closed at startup</target>
+        <target state="translated">Indításkor zárt</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionOpen" resname="tt_content.tx_jfmulticontent.accordionOpen">
         <source>Opened content</source>
-        <target state="needs-translation">Opened content</target>
+        <target state="translated">Megnyitott tartalom</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionRandomContent" resname="tt_content.tx_jfmulticontent.accordionRandomContent">
         <source>Open random content</source>
-        <target state="needs-translation">Open random content</target>
+        <target state="translated">Véletlen tartalom megnyitása</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionEvent" resname="tt_content.tx_jfmulticontent.accordionEvent">
         <source>Event</source>
-        <target state="needs-translation">Event</target>
+        <target state="translated">Esemény</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionEvent.I.0" resname="tt_content.tx_jfmulticontent.accordionEvent.I.0">
         <source>Default (Click)</source>
-        <target state="needs-translation">Default (Click)</target>
+        <target state="translated">Alapértelmezett (Kattintás)</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionEvent.I.1" resname="tt_content.tx_jfmulticontent.accordionEvent.I.1">
         <source>Click</source>
-        <target state="needs-translation">Click</target>
+        <target state="translated">Kattintás</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionEvent.I.2" resname="tt_content.tx_jfmulticontent.accordionEvent.I.2">
         <source>Mouseover</source>
-        <target state="needs-translation">Mouseover</target>
+        <target state="translated">Mouseover</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionHeightStyle" resname="tt_content.tx_jfmulticontent.accordionHeightStyle">
         <source>Height Style</source>
-        <target state="needs-translation">Height Style</target>
+        <target state="translated">Magasság stílusa</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionHeightStyle.I.1" resname="tt_content.tx_jfmulticontent.accordionHeightStyle.I.1">
         <source>Auto</source>
-        <target state="needs-translation">Auto</target>
+        <target state="translated">Automatikus</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionHeightStyle.I.2" resname="tt_content.tx_jfmulticontent.accordionHeightStyle.I.2">
         <source>Fill</source>
-        <target state="needs-translation">Fill</target>
+        <target state="translated">Kitöltés</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionHeightStyle.I.3" resname="tt_content.tx_jfmulticontent.accordionHeightStyle.I.3">
         <source>Content</source>
-        <target state="needs-translation">Content</target>
+        <target state="translated">Tartalom</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionAnimate" resname="tt_content.tx_jfmulticontent.accordionAnimate">
         <source>Animation</source>
-        <target state="needs-translation">Animation</target>
+        <target state="translated">Animáció</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionAnimated" resname="tt_content.tx_jfmulticontent.accordionAnimated">
         <source>Animation</source>
-        <target state="needs-translation">Animation</target>
+        <target state="translated">Animáció</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionAnimated.I.0" resname="tt_content.tx_jfmulticontent.accordionAnimated.I.0">
         <source>Default (Slide)</source>
-        <target state="needs-translation">Default (Slide)</target>
+        <target state="translated">Alapértelmezett (Slide)</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionAnimated.I.1" resname="tt_content.tx_jfmulticontent.accordionAnimated.I.1">
         <source>BounceSlide</source>
-        <target state="needs-translation">BounceSlide</target>
+        <target state="translated">BounceSlide</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionAnimated.I.2" resname="tt_content.tx_jfmulticontent.accordionAnimated.I.2">
         <source>easeslide</source>
-        <target state="needs-translation">easeslide</target>
+        <target state="translated">easeslide</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionTransition" resname="tt_content.tx_jfmulticontent.accordionTransition">
         <source>Type of transition</source>
-        <target state="needs-translation">Type of transition</target>
+        <target state="translated">Átmenet típusa</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionTransition.I.0" resname="tt_content.tx_jfmulticontent.accordionTransition.I.0">
         <source>Use Animation</source>
-        <target state="needs-translation">Use Animation</target>
+        <target state="translated">Animáció használata</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionTransitiondir" resname="tt_content.tx_jfmulticontent.accordionTransitiondir">
         <source>Direction of transition</source>
-        <target state="needs-translation">Direction of transition</target>
+        <target state="translated">Átmenet iránya</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.accordionTransitionduration" resname="tt_content.tx_jfmulticontent.accordionTransitionduration">
         <source>Duration of transition (in ms)</source>
-        <target state="needs-translation">Duration of transition (in ms)</target>
+        <target state="translated">Átmenet időtartama (ms)</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderWidth" resname="tt_content.tx_jfmulticontent.sliderWidth">
         <source>Width</source>
-        <target state="needs-translation">Width</target>
+        <target state="translated">Szélesség</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderHeight" resname="tt_content.tx_jfmulticontent.sliderHeight">
         <source>Height</source>
-        <target state="needs-translation">Height</target>
+        <target state="translated">Magasság</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderResizeContents" resname="tt_content.tx_jfmulticontent.sliderResizeContents">
         <source>Resize contents</source>
-        <target state="needs-translation">Resize contents</target>
+        <target state="translated">Tartalmak átméretezése</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderTheme" resname="tt_content.tx_jfmulticontent.sliderTheme">
         <source>Theme</source>
-        <target state="needs-translation">Theme</target>
+        <target state="translated">Téma</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderTheme.I.0" resname="tt_content.tx_jfmulticontent.sliderTheme.I.0">
         <source>default</source>
-        <target state="needs-translation">default</target>
+        <target state="translated">alapértelmezett</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderMode" resname="tt_content.tx_jfmulticontent.sliderMode">
         <source>Mode</source>
-        <target state="needs-translation">Mode</target>
+        <target state="translated">Mód</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderOpen" resname="tt_content.tx_jfmulticontent.sliderOpen">
         <source>Opened content</source>
-        <target state="needs-translation">Opened content</target>
+        <target state="translated">Megnyitott tartalom</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderRandomContent" resname="tt_content.tx_jfmulticontent.sliderRandomContent">
         <source>Open random content</source>
-        <target state="needs-translation">Open random content</target>
+        <target state="translated">Véletlen tartalom megnyitása</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderHashTags" resname="tt_content.tx_jfmulticontent.sliderHashTags">
         <source>Change URL (hash tag)</source>
-        <target state="needs-translation">Change URL (hash tag)</target>
+        <target state="translated">URL módosítása (hash)</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderBuildArrows" resname="tt_content.tx_jfmulticontent.sliderBuildArrows">
         <source>Build Arrows</source>
-        <target state="needs-translation">Build Arrows</target>
+        <target state="translated">Nyilak létrehozása</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderToggleArrows" resname="tt_content.tx_jfmulticontent.sliderToggleArrows">
         <source>Toggle Arrows</source>
-        <target state="needs-translation">Toggle Arrows</target>
+        <target state="translated">Nyilak váltása</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderNavigation" resname="tt_content.tx_jfmulticontent.sliderNavigation">
         <source>Show navigation</source>
-        <target state="needs-translation">Show navigation</target>
+        <target state="translated">Navigáció megjelenítése</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderStartStop" resname="tt_content.tx_jfmulticontent.sliderStartStop">
         <source>Show start/stop</source>
-        <target state="needs-translation">Show start/stop</target>
+        <target state="translated">Indítás/leállítás megjelenítése</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderPanelFromHeader" resname="tt_content.tx_jfmulticontent.sliderPanelFromHeader">
         <source>Paneltext from title</source>
-        <target state="needs-translation">Paneltext from title</target>
+        <target state="translated">Panelszöveg a címből</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderToggleControls" resname="tt_content.tx_jfmulticontent.sliderToggleControls">
         <source>Toggle Controls</source>
-        <target state="needs-translation">Toggle Controls</target>
+        <target state="translated">Vezérlők váltása</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderAutoStart" resname="tt_content.tx_jfmulticontent.sliderAutoStart">
         <source>Start autoplay</source>
-        <target state="needs-translation">Start autoplay</target>
+        <target state="translated">Autoplay indítása</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderPauseOnHover" resname="tt_content.tx_jfmulticontent.sliderPauseOnHover">
         <source>Pause on mouseover</source>
-        <target state="needs-translation">Pause on mouseover</target>
+        <target state="translated">Szüneteltetés egér fölött</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderAllowRapidChange" resname="tt_content.tx_jfmulticontent.sliderAllowRapidChange">
         <source>Allow rapid change</source>
-        <target state="needs-translation">Allow rapid change</target>
+        <target state="translated">Gyors váltás engedélyezése</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderResumeOnVideoEnd" resname="tt_content.tx_jfmulticontent.sliderResumeOnVideoEnd">
         <source>Resume on video end</source>
-        <target state="needs-translation">Resume on video end</target>
+        <target state="translated">Folytatás a videó végén</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderStopAtEnd" resname="tt_content.tx_jfmulticontent.sliderStopAtEnd">
         <source>Stop at end</source>
-        <target state="needs-translation">Stop at end</target>
+        <target state="translated">Leállítás a végén</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderPlayRtl" resname="tt_content.tx_jfmulticontent.sliderPlayRtl">
         <source>Play rtl</source>
-        <target state="needs-translation">Play rtl</target>
+        <target state="translated">Lejátszás rtl módban</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderTransition" resname="tt_content.tx_jfmulticontent.sliderTransition">
         <source>Type of transition</source>
-        <target state="needs-translation">Type of transition</target>
+        <target state="translated">Átmenet típusa</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderTransitiondir" resname="tt_content.tx_jfmulticontent.sliderTransitiondir">
         <source>Direction of transition</source>
-        <target state="needs-translation">Direction of transition</target>
+        <target state="translated">Átmenet iránya</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderTransitionduration" resname="tt_content.tx_jfmulticontent.sliderTransitionduration">
         <source>Duration of transition (in ms)</source>
-        <target state="needs-translation">Duration of transition (in ms)</target>
+        <target state="translated">Átmenet időtartama (ms)</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.sliderAutoplay" resname="tt_content.tx_jfmulticontent.sliderAutoplay">
         <source>Autoplay</source>
-        <target state="needs-translation">Autoplay</target>
+        <target state="translated">Autoplay</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.slidedeckHeight" resname="tt_content.tx_jfmulticontent.slidedeckHeight">
         <source>Height in px</source>
-        <target state="needs-translation">Height in px</target>
+        <target state="translated">Magasság px-ben</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.slidedeckTransition" resname="tt_content.tx_jfmulticontent.slidedeckTransition">
         <source>Type of transition</source>
-        <target state="needs-translation">Type of transition</target>
+        <target state="translated">Átmenet típusa</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.slidedeckTransitiondir" resname="tt_content.tx_jfmulticontent.slidedeckTransitiondir">
         <source>Direction of transition</source>
-        <target state="needs-translation">Direction of transition</target>
+        <target state="translated">Átmenet iránya</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.slidedeckTransitionduration" resname="tt_content.tx_jfmulticontent.slidedeckTransitionduration">
         <source>Duration of transition (in ms)</source>
-        <target state="needs-translation">Duration of transition (in ms)</target>
+        <target state="translated">Átmenet időtartama (ms)</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.slidedeckStart" resname="tt_content.tx_jfmulticontent.slidedeckStart">
         <source>Opened content</source>
-        <target state="needs-translation">Opened content</target>
+        <target state="translated">Megnyitott tartalom</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.slidedeckActivecorner" resname="tt_content.tx_jfmulticontent.slidedeckActivecorner">
         <source>Add indicator for overlapping</source>
-        <target state="needs-translation">Add indicator for overlapping</target>
+        <target state="translated">Átfedés-jelző hozzáadása</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.slidedeckIndex" resname="tt_content.tx_jfmulticontent.slidedeckIndex">
         <source>Activate slide indexes</source>
-        <target state="needs-translation">Activate slide indexes</target>
+        <target state="translated">Diaindexek aktiválása</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.slidedeckScroll" resname="tt_content.tx_jfmulticontent.slidedeckScroll">
         <source>Activate mousewheel</source>
-        <target state="needs-translation">Activate mousewheel</target>
+        <target state="translated">Egérgörgő aktiválása</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.slidedeckKeys" resname="tt_content.tx_jfmulticontent.slidedeckKeys">
         <source>Activate activation keys</source>
-        <target state="needs-translation">Activate activation keys</target>
+        <target state="translated">Aktiváló billentyűk engedélyezése</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.slidedeckHidespines" resname="tt_content.tx_jfmulticontent.slidedeckHidespines">
         <source>Hide spines</source>
-        <target state="needs-translation">Hide spines</target>
+        <target state="translated">Könyvgerincek elrejtése</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.easyaccordionSkin" resname="tt_content.tx_jfmulticontent.easyaccordionSkin">
         <source>Skin</source>
-        <target state="needs-translation">Skin</target>
+        <target state="translated">Felület</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.easyaccordionSkin.I.0" resname="tt_content.tx_jfmulticontent.easyaccordionSkin.I.0">
         <source>From Typoscript</source>
-        <target state="needs-translation">From Typoscript</target>
+        <target state="translated">TypoScript-ból</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.easyaccordionOpen" resname="tt_content.tx_jfmulticontent.easyaccordionOpen">
         <source>Opened content</source>
-        <target state="needs-translation">Opened content</target>
+        <target state="translated">Megnyitott tartalom</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.easyaccordionWidth" resname="tt_content.tx_jfmulticontent.easyaccordionWidth">
         <source>Width</source>
-        <target state="needs-translation">Width</target>
+        <target state="translated">Szélesség</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.easyaccordionSlideNum" resname="tt_content.tx_jfmulticontent.easyaccordionSlideNum">
         <source>Show numbers</source>
-        <target state="needs-translation">Show numbers</target>
+        <target state="translated">Számok megjelenítése</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletWidth" resname="tt_content.tx_jfmulticontent.bookletWidth">
         <source>Width</source>
-        <target state="needs-translation">Width</target>
+        <target state="translated">Szélesség</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletHeight" resname="tt_content.tx_jfmulticontent.bookletHeight">
         <source>Height</source>
-        <target state="needs-translation">Height</target>
+        <target state="translated">Magasság</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletSpeed" resname="tt_content.tx_jfmulticontent.bookletSpeed">
         <source>Speed (in ms)</source>
-        <target state="needs-translation">Speed (in ms)</target>
+        <target state="translated">Sebesség (ms)</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletStartingPage" resname="tt_content.tx_jfmulticontent.bookletStartingPage">
         <source>Starting page</source>
-        <target state="needs-translation">Starting page</target>
+        <target state="translated">Kezdő oldal</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletRTL" resname="tt_content.tx_jfmulticontent.bookletRTL">
         <source>Direction right to left</source>
-        <target state="needs-translation">Direction right to left</target>
+        <target state="translated">Irány jobbról balra</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletTransition" resname="tt_content.tx_jfmulticontent.bookletTransition">
         <source>Type of transition</source>
-        <target state="needs-translation">Type of transition</target>
+        <target state="translated">Átmenet típusa</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletTransitiondir" resname="tt_content.tx_jfmulticontent.bookletTransitiondir">
         <source>Direction of transition</source>
-        <target state="needs-translation">Direction of transition</target>
+        <target state="translated">Átmenet iránya</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletPagePadding" resname="tt_content.tx_jfmulticontent.bookletPagePadding">
         <source>Page padding</source>
-        <target state="needs-translation">Page padding</target>
+        <target state="translated">Oldal belső térköze</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletPageNumbers" resname="tt_content.tx_jfmulticontent.bookletPageNumbers">
         <source>Show page numbers</source>
-        <target state="needs-translation">Show page numbers</target>
+        <target state="translated">Oldalszámok megjelenítése</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletManual" resname="tt_content.tx_jfmulticontent.bookletManual">
         <source>Manual page turning</source>
-        <target state="needs-translation">Manual page turning</target>
+        <target state="translated">Kézi lapozás</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletShadows" resname="tt_content.tx_jfmulticontent.bookletShadows">
         <source>Show shadows</source>
-        <target state="needs-translation">Show shadows</target>
+        <target state="translated">Árnyékok megjelenítése</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletClosed" resname="tt_content.tx_jfmulticontent.bookletClosed">
         <source>Booklet closed</source>
-        <target state="needs-translation">Booklet closed</target>
+        <target state="translated">Booklet zárva</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletCovers" resname="tt_content.tx_jfmulticontent.bookletCovers">
         <source>Show covers</source>
-        <target state="needs-translation">Show covers</target>
+        <target state="translated">Borítók megjelenítése</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletAutoCenter" resname="tt_content.tx_jfmulticontent.bookletAutoCenter">
         <source>Center closed booklet</source>
-        <target state="needs-translation">Center closed booklet</target>
+        <target state="translated">Zárt booklet középre igazítása</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletHash" resname="tt_content.tx_jfmulticontent.bookletHash">
         <source>Use hash</source>
-        <target state="needs-translation">Use hash</target>
+        <target state="translated">Hash használata</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletKeyboard" resname="tt_content.tx_jfmulticontent.bookletKeyboard">
         <source>Use keyboard</source>
-        <target state="needs-translation">Use keyboard</target>
+        <target state="translated">Billentyűzet használata</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletAuto" resname="tt_content.tx_jfmulticontent.bookletAuto">
         <source>Autoplay</source>
-        <target state="needs-translation">Autoplay</target>
+        <target state="translated">Autoplay</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletDelay" resname="tt_content.tx_jfmulticontent.bookletDelay">
         <source>Delay for autoplay</source>
-        <target state="needs-translation">Delay for autoplay</target>
+        <target state="translated">Autoplay késleltetése</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletOverlays" resname="tt_content.tx_jfmulticontent.bookletOverlays">
         <source>Activate overlay</source>
-        <target state="needs-translation">Activate overlay</target>
+        <target state="translated">Overlay aktiválása</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletArrows" resname="tt_content.tx_jfmulticontent.bookletArrows">
         <source>Show arrows</source>
-        <target state="needs-translation">Show arrows</target>
+        <target state="translated">Nyilak megjelenítése</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletArrowsHide" resname="tt_content.tx_jfmulticontent.bookletArrowsHide">
         <source>Hide arrows if mouseout</source>
-        <target state="needs-translation">Hide arrows if mouseout</target>
+        <target state="translated">Nyilak elrejtése egér elhúzásakor</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.bookletHovers" resname="tt_content.tx_jfmulticontent.bookletHovers">
         <source>Hover effect</source>
-        <target state="needs-translation">Hover effect</target>
+        <target state="translated">Hover-effektus</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.typoscriptInfo" resname="tt_content.tx_jfmulticontent.typoscriptInfo">
         <source>All settings will be taken from typoscript!</source>
-        <target state="needs-translation">All settings will be taken from typoscript!</target>
+        <target state="translated">Minden beállítás a typoscriptből kerül átvételre!</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.autoplayDuration" resname="tt_content.tx_jfmulticontent.autoplayDuration">
         <source>Delay for autoplay (in ms)</source>
-        <target state="needs-translation">Delay for autoplay (in ms)</target>
+        <target state="translated">Autoplay késleltetése (ms)</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.autoplayContinuing" resname="tt_content.tx_jfmulticontent.autoplayContinuing">
         <source>Continuing</source>
-        <target state="needs-translation">Continuing</target>
+        <target state="translated">Folyamatos</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.autoplayCycle" resname="tt_content.tx_jfmulticontent.autoplayCycle">
         <source>Cycle</source>
-        <target state="needs-translation">Cycle</target>
+        <target state="translated">Ciklus</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.options" resname="tt_content.tx_jfmulticontent.options">
         <source>Insert your own options</source>
-        <target state="needs-translation">Insert your own options</target>
+        <target state="translated">Saját beállítások beszúrása</target>
       </trans-unit>
       <trans-unit id="tt_content.tx_jfmulticontent.optionsOverride" resname="tt_content.tx_jfmulticontent.optionsOverride">
         <source>Override all options</source>
-        <target state="needs-translation">Override all options</target>
+        <target state="translated">Összes beállítás felülírása</target>
       </trans-unit>
       <trans-unit id="tt_content.pi_flexform.from_ts" resname="tt_content.pi_flexform.from_ts">
         <source>From Typoscript</source>
-        <target state="needs-translation">From Typoscript</target>
+        <target state="translated">TypoScript-ból</target>
       </trans-unit>
       <trans-unit id="tt_content.pi_flexform.no" resname="tt_content.pi_flexform.no">
         <source>No</source>
-        <target state="needs-translation">No</target>
+        <target state="translated">Nem</target>
       </trans-unit>
       <trans-unit id="tt_content.pi_flexform.yes" resname="tt_content.pi_flexform.yes">
         <source>Yes</source>
-        <target state="needs-translation">Yes</target>
+        <target state="translated">Igen</target>
       </trans-unit>
       <trans-unit id="browserlink_tab" resname="browserlink_tab">
         <source>Multicontent</source>
-        <target state="needs-translation">Multicontent</target>
+        <target state="translated">Multicontent</target>
       </trans-unit>
     </body>
   </file>
