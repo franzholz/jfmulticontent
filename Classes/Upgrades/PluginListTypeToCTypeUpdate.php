@@ -4,32 +4,31 @@ declare(strict_types=1);
 
 namespace JambageCom\Jfmulticontent\Upgrades;
 
-use Doctrine\DBAL\Schema\Column;
-
 use TYPO3\CMS\Core\Attribute\UpgradeWizard;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Upgrades\AbstractListTypeToCTypeUpdate;
 use TYPO3\CMS\Core\Upgrades\UpgradeWizardInterface;
+use TYPO3\CMS\Core\Upgrades\RepeatableInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-// use TYPO3\CMS\Install\Updates\UpgradeWizardInterface; // Das hier verlangt Ihre Fehlermeldung!
-
 #[UpgradeWizard('jfmulticontent_pluginListTypeToCTypeUpdate')]
-final class PluginListTypeToCTypeUpdate extends AbstractListTypeToCTypeUpdate implements UpgradeWizardInterface
+final class PluginListTypeToCTypeUpdate implements UpgradeWizardInterface, RepeatableInterface
 {
+    private const TABLE_CONTENT = 'tt_content';
+    private const TABLE_BACKEND_USER_GROUPS = 'be_groups';
+
     public function __construct(private readonly ConnectionPool $connectionPool)
     {
-        $this->validateRequirementsFixed();
     }
 
+    /**
+     * Maps the old list_type identifier to the new modern CType identifier.
+     */
     protected function getListTypeToCTypeMapping(): array
     {
-        $mapping = [
+        return [
             'jfmulticontent_pi1' => 'jfmulticontent_plugin',
         ];
-
-        return $mapping;
     }
 
     public function getTitle(): string
@@ -42,66 +41,80 @@ final class PluginListTypeToCTypeUpdate extends AbstractListTypeToCTypeUpdate im
         return 'Migrates the list_type jfmulticontent_pi1 to the CType jfmulticontent_plugin.';
     }
 
+    /**
+     * Strictly required by the UpgradeWizardInterface in TYPO3 13/14.
+     *
+     * @return array<class-string<\TYPO3\CMS\Core\Upgrades\UpgradeWizardInterface>>
+     */
+    public function getPrerequisites(): array
+    {
+        return [];
+    }
+
+    /**
+     * Safe schema check for TYPO3 13/14 using createSchemaManager().
+     */
     protected function columnsExistInContentTable(): bool
     {
-        $schemaManager =
-            $this->connectionPool
-                ->getConnectionForTable(self::TABLE_CONTENT)
-                ->createSchemaManager();
+        $connection = $this->connectionPool->getConnectionForTable(self::TABLE_CONTENT);
+        $columns = array_keys($connection->createSchemaManager()->listTableColumns(self::TABLE_CONTENT));
 
-        $tableColumnNames = array_flip(
-            array_map(
-                static fn(Column $column) => $column->getName(),
-                $schemaManager->listTableColumns(self::TABLE_CONTENT)
-            )
-        );
-
-        foreach (['CType', 'list_type'] as $column) {
-            if (!isset($tableColumnNames[$column])) {
-                return false;
-            }
-        }
-
-        return true;
+        return in_array('ctype', $columns, true) && in_array('list_type', $columns, true);
     }
 
     protected function columnsExistInBackendUserGroupsTable(): bool
     {
-        $schemaManager =
-            $this->connectionPool
-                ->getConnectionForTable(self::TABLE_BACKEND_USER_GROUPS)
-                ->createSchemaManager();
+        $connection = $this->connectionPool->getConnectionForTable(self::TABLE_BACKEND_USER_GROUPS);
+        $columns = array_keys($connection->createSchemaManager()->listTableColumns(self::TABLE_BACKEND_USER_GROUPS));
 
-        return isset($schemaManager->listTableColumns(self::TABLE_BACKEND_USER_GROUPS)['explicit_allowdeny']);
+        return in_array('explicit_allowdeny', $columns, true);
+    }
+
+    /**
+     * Main check wrapper for TYPO3 Upgrade system.
+     */
+    public function updateNecessary(): bool
+    {
+        return $this->hasContentElementsToUpdate() || $this->hasBackendUserGroupsToUpdate();
     }
 
     protected function hasContentElementsToUpdate(): bool
     {
-        $listTypesToUpdate = array_keys($this->getListTypeToCTypeMapping());
+        if (!$this->columnsExistInContentTable()) {
+            return false;
+        }
 
+        $listTypesToUpdate = array_keys($this->getListTypeToCTypeMapping());
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable(self::TABLE_CONTENT);
         $queryBuilder->getRestrictions()->removeAll();
-        $queryBuilder
-            ->count('uid')
-            ->from(self::TABLE_CONTENT)
-            ->where(
-                $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('list')),
-                    $queryBuilder->expr()->in(
-                        'list_type',
-                        $queryBuilder->createNamedParameter($listTypesToUpdate, Connection::PARAM_STR_ARRAY)
-                    ),
-            );
 
-        return (bool)$queryBuilder->executeQuery()->fetchOne();
+        $count = (int)$queryBuilder
+        ->count('uid')
+        ->from(self::TABLE_CONTENT)
+        ->where(
+            $queryBuilder->expr()->eq('ctype', $queryBuilder->createNamedParameter('list')),
+                $queryBuilder->expr()->in(
+                    'list_type',
+                    $queryBuilder->createNamedParameter($listTypesToUpdate, Connection::PARAM_STR_ARRAY)
+                )
+        )
+        ->executeQuery()
+        ->fetchOne();
+
+        return $count > 0;
     }
 
     protected function hasBackendUserGroupsToUpdate(): bool
     {
+        if (!$this->columnsExistInBackendUserGroupsTable() || $this->hasNoLegacyBackendGroupsExplicitAllowDenyConfiguration()) {
+            return false;
+        }
+
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable(self::TABLE_BACKEND_USER_GROUPS);
         $queryBuilder->getRestrictions()->removeAll();
 
         $searchConstraints = [];
-        foreach ($this->getListTypeToCTypeMapping() as $listType) {
+        foreach ($this->getListTypeToCTypeMapping() as $listType => $contentType) {
             $searchConstraints[] = $queryBuilder->expr()->like(
                 'explicit_allowdeny',
                 $queryBuilder->createNamedParameter(
@@ -110,70 +123,77 @@ final class PluginListTypeToCTypeUpdate extends AbstractListTypeToCTypeUpdate im
             );
         }
 
-        $queryBuilder
-            ->count('uid')
-            ->from(self::TABLE_BACKEND_USER_GROUPS)
-            ->where(
-                $queryBuilder->expr()->or(...$searchConstraints),
-            );
+        $count = (int)$queryBuilder
+        ->count('uid')
+        ->from(self::TABLE_BACKEND_USER_GROUPS)
+        ->where($queryBuilder->expr()->or(...$searchConstraints))
+        ->executeQuery()
+        ->fetchOne();
 
-        return (bool)$queryBuilder->executeQuery()->fetchOne();
+        return $count > 0;
     }
 
-    /**
-     * Returns true, if no legacy explicit_allowdeny be_groups configuration is found. Note, that we can not rely
-     * BackendGroupsExplicitAllowDenyMigration status here, since the update must also be executed for new
-     * TYPO3 v13+ installations, where BackendGroupsExplicitAllowDenyMigration is not required.
-     */
     protected function hasNoLegacyBackendGroupsExplicitAllowDenyConfiguration(): bool
     {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable(self::TABLE_BACKEND_USER_GROUPS);
         $queryBuilder->getRestrictions()->removeAll();
-        $queryBuilder
-            ->count('uid')
-            ->from(self::TABLE_BACKEND_USER_GROUPS)
-            ->where(
-                $queryBuilder->expr()->like(
-                    'explicit_allowdeny',
-                    $queryBuilder->createNamedParameter(
-                        '%ALLOW%'
-                    )
-                ),
-            );
-        return (int)$queryBuilder->executeQuery()->fetchOne() === 0;
+
+        $count = (int)$queryBuilder
+        ->count('uid')
+        ->from(self::TABLE_BACKEND_USER_GROUPS)
+        ->where(
+            $queryBuilder->expr()->like('explicit_allowdeny', $queryBuilder->createNamedParameter('%ALLOW%'))
+        )
+        ->executeQuery()
+        ->fetchOne();
+
+        return $count === 0;
+    }
+
+    /**
+     * Main execution wrapper required by TYPO3 Upgrade system.
+     */
+    public function executeUpdate(): bool
+    {
+        $this->updateContentElements();
+        $this->updateBackendUserGroups();
+        return true;
     }
 
     protected function getContentElementsToUpdate(string|int $listType): array
     {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable(self::TABLE_CONTENT);
         $queryBuilder->getRestrictions()->removeAll();
-        $queryBuilder
-            ->select('uid')
-            ->from(self::TABLE_CONTENT)
-            ->where(
-                $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('list')),
-                    $queryBuilder->expr()->eq('list_type', $queryBuilder->createNamedParameter((string) $listType)),
-            );
 
-        return $queryBuilder->executeQuery()->fetchAllAssociative();
+        return $queryBuilder
+        ->select('uid')
+        ->from(self::TABLE_CONTENT)
+        ->where(
+            $queryBuilder->expr()->eq('ctype', $queryBuilder->createNamedParameter('list')),
+                $queryBuilder->expr()->eq('list_type', $queryBuilder->createNamedParameter((string)$listType))
+        )
+        ->executeQuery()
+        ->fetchAllAssociative();
     }
 
-    protected function getBackendUserGroupsToUpdate(string $listType): array
+    protected function getBackendUserGroupsToUpdate(string|int $listType): array
     {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable(self::TABLE_BACKEND_USER_GROUPS);
         $queryBuilder->getRestrictions()->removeAll();
-        $queryBuilder
-            ->select('uid', 'explicit_allowdeny')
-            ->from(self::TABLE_BACKEND_USER_GROUPS)
-            ->where(
-                $queryBuilder->expr()->like(
-                    'explicit_allowdeny',
-                    $queryBuilder->createNamedParameter(
-                        '%' . $queryBuilder->escapeLikeWildcards('tt_content:list_type:' . $listType) . '%'
-                    )
-                ),
-            );
-        return $queryBuilder->executeQuery()->fetchAllAssociative();
+
+        return $queryBuilder
+        ->select('uid', 'explicit_allowdeny')
+        ->from(self::TABLE_BACKEND_USER_GROUPS)
+        ->where(
+            $queryBuilder->expr()->like(
+                'explicit_allowdeny',
+                $queryBuilder->createNamedParameter(
+                    '%' . $queryBuilder->escapeLikeWildcards('tt_content:list_type:' . $listType) . '%'
+                )
+            )
+        )
+        ->executeQuery()
+        ->fetchAllAssociative();
     }
 
     protected function updateContentElements(): void
@@ -185,10 +205,10 @@ final class PluginListTypeToCTypeUpdate extends AbstractListTypeToCTypeUpdate im
                 $connection->update(
                     self::TABLE_CONTENT,
                     [
-                        'CType' => $contentType,
+                        'ctype' => $contentType,
                         'list_type' => '',
                     ],
-                    ['uid' => (int) $record['uid']]
+                    ['uid' => (int)$record['uid']]
                 );
             }
         }
@@ -215,28 +235,6 @@ final class PluginListTypeToCTypeUpdate extends AbstractListTypeToCTypeUpdate im
                     ],
                     ['uid' => (int)$record['uid']]
                 );
-            }
-        }
-    }
-
-    private function validateRequirementsFixed(): void
-    {
-        if ($this->getTitle() === '') {
-            throw new \RuntimeException('The update class "' . static::class . '" must provide a title by extending "getTitle()"', 1785104584);
-        }
-        if ($this->getDescription() === '') {
-            throw new \RuntimeException('The update class "' . static::class . '" must provide a description by extending "getDescription()"', 1785104618);
-        }
-        if ($this->getListTypeToCTypeMapping() === []) {
-            throw new \RuntimeException('The update class "' . static::class . '" does not provide a "list_type" to "CType" migration mapping', 1785104632);
-        }
-
-        foreach ($this->getListTypeToCTypeMapping() as $listType => $contentElement) {
-            if (!is_string($listType) && !is_int($listType) || $listType === '') {
-                throw new \RuntimeException('Invalid mapping item "' . $listType . '" in class "' . static::class, 1785104646);
-            }
-            if (!is_string($contentElement) || $contentElement === '') {
-                throw new \RuntimeException('Invalid mapping item "' . $contentElement . '" in class "' . static::class, 1785104654);
             }
         }
     }

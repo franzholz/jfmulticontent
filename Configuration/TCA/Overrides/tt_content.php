@@ -6,6 +6,7 @@ defined('TYPO3') || die('Access denied.');
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\SelectItemUtility\SelectItem;
 
 use JambageCom\Jfmulticontent\Hooks\ItemsProcFunc;
 
@@ -200,22 +201,16 @@ call_user_func(function ($extensionKey, $table): void {
 
     ExtensionManagementUtility::addTCAcolumns($table, $temporaryColumns);
 
-    ExtensionManagementUtility::addPiFlexFormValue(
-        '*',
-        'FILE:EXT:' . $extensionKey . '/Configuration/FlexForms/flexform_ds.xml',
-        $pluginSignature
-    );
-
+    // TYPO3 v14 Kombination: Plugin registrieren UND FlexForm ohne Deprecation anhängen
     ExtensionManagementUtility::addPlugin(
-        [
-            'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
-            'value' => $pluginSignature,
-            'icon' => 'extensions-jfmulticontent-plugin',
-            'group' => 'plugin',
-            'description' => 'jfmulticontent plugin '
-        ],
-        'CType',
-        $extensionKey,
+        new SelectItem(
+            label: 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
+            value: $pluginSignature,
+            icon: 'extensions-jfmulticontent-plugin',
+            group: 'plugin',
+            description: 'jfmulticontent plugin'
+        ),
+        'FILE:EXT:' . $extensionKey . '/Configuration/FlexForms/flexform_ds.xml' // NEU: FlexForm direkt hier übergeben!
     );
 }, 'jfmulticontent', basename(__FILE__, '.php'));
 

@@ -4,16 +4,14 @@ services:
     autoconfigure: true
     public: false
 
+  # This automatically registers all classes in the Classes folder,
+  # including your UpgradeWizards via their PHP attributes.
   JambageCom\Jfmulticontent\:
     resource: '../Classes/*'
 
+  # PSR-14 Event Listener registration remains valid for TYPO3 13/14
   JambageCom\Jfmulticontent\EventListener\PageContentPreviewRenderingListener:
     tags:
       - name: event.listener
         identifier: 'jfmulticontentCodeListener'
         event: TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent
-
-  JambageCom\Jfmulticontent\Upgrades\PluginListTypeToCTypeUpdate:
-    tags:
-      - name: install.upgradewizard
-
