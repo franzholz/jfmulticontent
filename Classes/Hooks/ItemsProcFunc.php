@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace JambageCom\Jfmulticontent\Hooks;
 
@@ -25,7 +26,9 @@ namespace JambageCom\Jfmulticontent\Hooks;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 
 /**
  * 'itemsProcFunc' for the 'jfmulticontent' extension.
@@ -130,8 +133,11 @@ class ItemsProcFunc
                 'EXT:' . $this->extensionKey . '/Resources/Public/Icons/selicon_tt_content_tx_jfmulticontent_style_10.png',
             ],
         ];
-        $confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$this->extensionKey];
-        $styles = $confArr['style'];
+
+        $extensionConfiguration = GeneralUtility::makeInstance(
+            ExtensionConfiguration::class
+        )->get($this->extensionKey);
+        $styles = $extensionConfiguration['style'];
 
         if (count($styles) > 0) {
             foreach ($styles as $key => $val) {
@@ -174,9 +180,12 @@ class ItemsProcFunc
      */
     public function getClassInner($config, $item)
     {
-        $confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$this->extensionKey];
-        $availableClasses = GeneralUtility::trimExplode(',', $confArr['classInner']);
-        if (count($availableClasses) < 1 || !$confArr['classInner']) {
+        $extensionConfiguration = GeneralUtility::makeInstance(
+            ExtensionConfiguration::class
+        )->get($this->extensionKey);
+
+        $availableClasses = GeneralUtility::trimExplode(',', $extensionConfiguration['classInner']);
+        if (count($availableClasses) < 1 || !$extensionConfiguration['classInner']) {
             $availableClasses = ['', '16', '20', '25', '33', '38', '40', '50', '60', '62', '66', '75', '80'];
         }
         $jfmulticontentClasses = [];
@@ -214,12 +223,15 @@ class ItemsProcFunc
      */
     public function getAnythingSliderThemes($config, $item)
     {
-        $confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$this->extensionKey];
-        if (! is_dir(GeneralUtility::getFileAbsFileName($confArr['anythingSliderThemeFolder']))) {
+        $extensionConfiguration = GeneralUtility::makeInstance(
+            ExtensionConfiguration::class
+        )->get($this->extensionKey);
+
+        if (! is_dir(GeneralUtility::getFileAbsFileName($extensionConfiguration['anythingSliderThemeFolder']))) {
             // if the defined folder does not exist, define the default folder
-            $confArr['anythingSliderThemeFolder'] = 'EXT:' . $this->extensionKey . '/Resources/Public/anythingslider/themes/';
+            $extensionConfiguration['anythingSliderThemeFolder'] = 'EXT:' . $this->extensionKey . '/Resources/Public/anythingslider/themes/';
         }
-        $items = GeneralUtility::get_dirs(GeneralUtility::getFileAbsFileName($confArr['anythingSliderThemeFolder']));
+        $items = GeneralUtility::get_dirs(GeneralUtility::getFileAbsFileName($extensionConfiguration['anythingSliderThemeFolder']));
         if (count($items) > 0) {
             $optionList = [];
             foreach ($items as $key => $item) {
@@ -242,9 +254,12 @@ class ItemsProcFunc
      */
     public function getAnythingSliderModes($config, $item)
     {
-        $confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$this->extensionKey];
-        $availableModes = GeneralUtility::trimExplode(',', $confArr['anythingSliderModes']);
-        if (count($availableModes) < 1 || ! $confArr['anythingSliderModes']) {
+        $extensionConfiguration = GeneralUtility::makeInstance(
+            ExtensionConfiguration::class
+        )->get($this->extensionKey);
+
+        $availableModes = GeneralUtility::trimExplode(',', $extensionConfiguration['anythingSliderModes']);
+        if (count($availableModes) < 1 || ! $extensionConfiguration['anythingSliderModes']) {
             $availableModes = ['horizontal', 'vertical', 'fade'];
         }
         $jfmulticontentModes = [];
@@ -280,12 +295,15 @@ class ItemsProcFunc
      */
     public function getEasyaccordionSkin($config, $item)
     {
-        $confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$this->extensionKey];
-        if (! is_dir(GeneralUtility::getFileAbsFileName($confArr['easyAccordionSkinFolder']))) {
+        $extensionConfiguration = GeneralUtility::makeInstance(
+            ExtensionConfiguration::class
+        )->get($this->extensionKey);
+
+        if (! is_dir(GeneralUtility::getFileAbsFileName($extensionConfiguration['easyAccordionSkinFolder']))) {
             // if the defined folder does not exist, define the default folder
-            $confArr['easyAccordionSkinFolder'] = 'EXT:' . $this->extensionKey . '/Resources/Public/easyaccordion/skins/';
+            $extensionConfiguration['easyAccordionSkinFolder'] = 'EXT:' . $this->extensionKey . '/Resources/Public/easyaccordion/skins/';
         }
-        $items = GeneralUtility::get_dirs(GeneralUtility::getFileAbsFileName($confArr['easyAccordionSkinFolder']));
+        $items = GeneralUtility::get_dirs(GeneralUtility::getFileAbsFileName($extensionConfiguration['easyAccordionSkinFolder']));
         if (count($items) > 0) {
             $optionList = [];
             foreach ($items as $key => $item) {

@@ -1,4 +1,8 @@
 <?php
+declare(strict_types=1);
+
+namespace JambageCom\Jfmulticontent\Controller;
+
 /***************************************************************
 *  Copyright notice
 *
@@ -25,6 +29,7 @@ use Quellenform\LibJquery\Hooks\PageRendererHook;
 
 use Psr\Http\Message\ServerRequestInterface;
 
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Context\LanguageAspect;
 use TYPO3\CMS\Core\Database\Connection;
@@ -40,6 +45,9 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 use JambageCom\Div2007\Compatibility\AbstractPlugin;
 
+
+
+
 /**
  * Plugin 'Multiple Content' for the 'jfmulticontent' extension.
  *
@@ -47,7 +55,7 @@ use JambageCom\Div2007\Compatibility\AbstractPlugin;
  * @package    TYPO3
  * @subpackage tx_jfmulticontent
  */
-class tx_jfmulticontent_pi1 extends AbstractPlugin
+class MainController extends AbstractPlugin
 {
     public $prefixId      = 'tx_jfmulticontent_pi1';
     public $scriptRelPath = 'pi1/class.tx_jfmulticontent_pi1.php';
@@ -80,6 +88,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
      * @param	array		$conf: The PlugIn configuration
      * @return	The content that is displayed on the website
      */
+    #[AsAllowedCallable]
     public function main(
         string $content,
         array $conf,
@@ -94,16 +103,20 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
         /** @var LanguageAspect $languageAspect */
         $languageAspect = $context->getAspect('language');
         $versioningWorkspaceId = $context->getPropertyFromAspect('workspace', 'id');
-        $tsfe = $this->getTypoScriptFrontendController();
+        $pageRepository = $this->getPageRepository();
         $this->setFlexFormData();
         $jQueryAvailable = false;
         if (class_exists(PageRendererHook::class)) {
             $jQueryAvailable = true;
         }
 
+        $extensionConfiguration = GeneralUtility::makeInstance(
+            ExtensionConfiguration::class
+        )->get($this->extKey);
+
         // get the config from EXT
-        $this->confArr = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$this->extKey];
-        $parser = GeneralUtility::makeInstance(MarkerBasedTemplateService::class);
+        $this->confArr = $extensionConfiguration;
+        $templateService = GeneralUtility::makeInstance(MarkerBasedTemplateService::class);
         $this->pagerenderer = GeneralUtility::makeInstance(\JambageCom\Jfmulticontent\Hooks\MultiPageRenderer::class);
         $this->pagerenderer->setConf($this->conf);
 
@@ -549,8 +562,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
 
                 // get the informations for every page
                 for ($a = 0; $a < count($page_ids); $a++) {
-
-                    $tsfe->register['pid'] = $page_ids[$a];
+                    $this->cObj->register['pid'] = $page_ids[$a];
 
                     if (
                         $this->confArr['useOwnUserFuncForPages']
@@ -630,7 +642,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
 
                         if (is_array($row)) {
                             foreach ($row as $key => $val) {
-                                $tsfe->register['page_' . $key] = $val;
+                                $this->cObj->register['page_' . $key] = $val;
                             }
                         }
 
@@ -704,15 +716,20 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
 
                     if (is_array($row)) {
                         if ($languageAspect->getContentId()) {
-                            $row = $tsfe->sys_page->getRecordOverlay('tt_content', $row, $languageAspect->getContentId(), $languageAspect->getLegacyOverlayType());
+                            $row =
+                                $pageRepository->getLanguageOverlay(
+                                    'tt_content',
+                                    $row,
+                                    $languageAspect
+                                );
                         } elseif ($versioningWorkspaceId) {
-                            $tsfe->sys_page->versionOL('tt_content', $row);
+                            $pageRepository->versionOL('tt_content', $row);
                         }
                     }
 
                     if (is_array($row)) {
-                        $tsfe->register['uid'] = !empty($row['_LOCALIZED_UID']) ? $row['_LOCALIZED_UID'] : $row['uid'];
-                        $tsfe->register['title'] = (isset($this->titles[$a]) && strlen(trim($this->titles[$a])) > 0 ? $this->titles[$a] : $row['header']);
+                        $this->cObj->register['uid'] = !empty($row['_LOCALIZED_UID']) ? $row['_LOCALIZED_UID'] : $row['uid'];
+                        $this->cObj->register['title'] = (isset($this->titles[$a]) && strlen(trim($this->titles[$a])) > 0 ? $this->titles[$a] : $row['header']);
                     }
 
                     if (
@@ -727,7 +744,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                                 $view['title'],
                                 $view['title.'] ?? ''
                             );
-                        $tsfe->register['title'] = $this->titles[$a];
+                        $this->cObj->register['title'] = $this->titles[$a];
                     }
 
                     $innerContent = '';
@@ -1034,31 +1051,32 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 // get the Template of the Javascript
                 $markerArray = [];
                 // get the template
-                if (!$templateCode = trim($parser->getSubpart($this->templateFileJS, '###TEMPLATE_TAB_JS###'))) {
+                if (!$templateCode = trim($templateService->getSubpart($this->templateFileJS, '###TEMPLATE_TAB_JS###'))) {
                     $templateCode = $this->outputError('Template TEMPLATE_TAB_JS is missing', true);
                 }
 
                 // open tab by hash
                 if ($this->confArr['tabSelectByHash']) {
-                    $tabSelector = trim($parser->getSubpart($templateCode, '###TAB_SELECT_BY_HASH###'));
+                    $tabSelector = trim($templateService->getSubpart($templateCode, '###TAB_SELECT_BY_HASH###'));
                 } else {
                     $tabSelector = null;
                 }
-                $templateCode = trim($parser->substituteSubpart($templateCode, '###TAB_SELECT_BY_HASH###', $tabSelector, 0));
+                $templateCode = trim($templateService->substituteSubpart($templateCode, '###TAB_SELECT_BY_HASH###', $tabSelector, 0));
 
                 // app the open-link-template
                 if ($this->confArr['openExternalLink']) {
-                    $openExtLink = trim($parser->getSubpart($templateCode, '###OPEN_EXTERNAL_LINK###'));
+                    $openExtLink = trim($templateService->getSubpart($templateCode, '###OPEN_EXTERNAL_LINK###'));
                 } else {
                     $openExtLink = null;
                 }
-                $templateCode = trim($parser->substituteSubpart($templateCode, '###OPEN_EXTERNAL_LINK###', $openExtLink, 0));
+
+                $templateCode = trim($templateService->substituteSubpart($templateCode, '###OPEN_EXTERNAL_LINK###', $openExtLink, 0));
 
                 // Replace default values
                 $markerArray['KEY'] = $this->getContentKey();
                 $markerArray['PREG_QUOTE_KEY'] = preg_quote($this->getContentKey(), '/');
                 $markerArray['OPTIONS'] = implode(', ', $options);
-                $templateCode = $parser->substituteMarkerArray($templateCode, $markerArray, '###|###', 0);
+                $templateCode = $templateService->substituteMarkerArray($templateCode, $markerArray, '###|###', 0);
 
                 // Add all CSS and JS files
                 if ($jQueryAvailable) {
@@ -1107,7 +1125,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 $markerArray['TRANS_DURATION'] = (is_numeric($this->conf['config.']['accordionTransitionduration']) ? $this->conf['config.']['accordionTransitionduration'] : 1000);
 
                 // get the template for the Javascript
-                if (!$templateCode = trim($parser->getSubpart($this->templateFileJS, '###TEMPLATE_ACCORDION_JS###'))) {
+                if (!$templateCode = trim($templateService->getSubpart($this->templateFileJS, '###TEMPLATE_ACCORDION_JS###'))) {
                     $templateCode = $this->outputError('Template TEMPLATE_ACCORDION_JS is missing', true);
                 }
                 $easingAnimation = null;
@@ -1126,19 +1144,19 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
 
                 // app the open-link-template
                 if (!empty($this->confArr['openExternalLink'])) {
-                    $openExtLink = trim($parser->getSubpart($templateCode, '###OPEN_EXTERNAL_LINK###'));
+                    $openExtLink = trim($templateService->getSubpart($templateCode, '###OPEN_EXTERNAL_LINK###'));
                 } else {
                     $openExtLink = null;
                 }
-                $templateCode = trim($parser->substituteSubpart($templateCode, '###OPEN_EXTERNAL_LINK###', $openExtLink, 0));
+                $templateCode = trim($templateService->substituteSubpart($templateCode, '###OPEN_EXTERNAL_LINK###', $openExtLink, 0));
 
                 // open tab by hash
                 if (!empty($this->confArr['tabSelectByHash'])) {
-                    $tabSelector = trim($parser->getSubpart($templateCode, '###TAB_SELECT_BY_HASH###'));
+                    $tabSelector = trim($templateService->getSubpart($templateCode, '###TAB_SELECT_BY_HASH###'));
                 } else {
                     $tabSelector = null;
                 }
-                $templateCode = trim($parser->substituteSubpart($templateCode, '###TAB_SELECT_BY_HASH###', $tabSelector, 0));
+                $templateCode = trim($templateService->substituteSubpart($templateCode, '###TAB_SELECT_BY_HASH###', $tabSelector, 0));
 
                 // overwrite all options if set
                 if (!empty($this->conf['config.']['accordionOptionsOverride'])) {
@@ -1152,7 +1170,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 // Replace default values
                 $markerArray['OPTIONS'] = implode(', ', $options);
                 // Replace all markers
-                $templateCode = $parser->substituteMarkerArray($templateCode, $markerArray, '###|###', 0);
+                $templateCode = $templateService->substituteMarkerArray($templateCode, $markerArray, '###|###', 0);
 
                 // Add all CSS and JS files
 
@@ -1274,14 +1292,14 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 // get the Template of the Javascript
                 $markerArray = [];
                 // get the template
-                if (!$templateCode = trim($parser->getSubpart($this->templateFileJS, '###TEMPLATE_SLIDER_JS###'))) {
+                if (!$templateCode = trim($templateService->getSubpart($this->templateFileJS, '###TEMPLATE_SLIDER_JS###'))) {
                     $templateCode = $this->outputError('Template TEMPLATE_SLIDER_JS is missing', true);
                 }
 
                 // Replace default values
                 $markerArray['KEY'] = $this->getContentKey();
                 $markerArray['OPTIONS'] = implode(', ', $options);
-                $templateCode = $parser->substituteMarkerArray($templateCode, $markerArray, '###|###', 0);
+                $templateCode = $templateService->substituteMarkerArray($templateCode, $markerArray, '###|###', 0);
 
                 // Add all CSS and JS files
 
@@ -1334,7 +1352,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 }
 
                 // get the template for the Javascript
-                if (!$templateCode = trim($parser->getSubpart($this->templateFileJS, '###TEMPLATE_SLIDEDECK_JS###'))) {
+                if (!$templateCode = trim($templateService->getSubpart($this->templateFileJS, '###TEMPLATE_SLIDEDECK_JS###'))) {
                     $templateCode = $this->outputError('Template TEMPLATE_SLIDEDECK_JS is missing', true);
                 }
                 // Replace default values
@@ -1343,7 +1361,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 $markerArray['HEIGHT']  = ($this->conf['config.']['slidedeckHeight'] > 0 ? $this->conf['config.']['slidedeckHeight'] : 300);
                 $markerArray['OPTIONS'] = implode(', ', $options);
                 // Replace all markers
-                $templateCode = $parser->substituteMarkerArray($templateCode, $markerArray, '###|###', 0);
+                $templateCode = $templateService->substituteMarkerArray($templateCode, $markerArray, '###|###', 0);
 
                 // Add all CSS and JS files
 
@@ -1384,7 +1402,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 }
 
                 // get the template for the Javascript
-                if (!$templateCode = trim($parser->getSubpart($this->templateFileJS, '###TEMPLATE_EASYACCORDION_JS###'))) {
+                if (!$templateCode = trim($templateService->getSubpart($this->templateFileJS, '###TEMPLATE_EASYACCORDION_JS###'))) {
                     $templateCode = $this->outputError('Template TEMPLATE_EASYACCORDION_JS is missing', true);
                 }
                 // Replace default values
@@ -1393,7 +1411,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 $markerArray['WIDTH']   = ($this->conf['config.']['easyaccordionWidth'] > 0 ? $this->conf['config.']['easyaccordionWidth'] : 600);
                 $markerArray['OPTIONS'] = implode(', ', $options);
                 // Replace all markers
-                $templateCode = $parser->substituteMarkerArray($templateCode, $markerArray, '###|###', 0);
+                $templateCode = $templateService->substituteMarkerArray($templateCode, $markerArray, '###|###', 0);
 
                 // Add all CSS and JS files
 
@@ -1456,7 +1474,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 }
 
                 // get the template for the Javascript
-                if (!$templateCode = trim($parser->getSubpart($this->templateFileJS, '###TEMPLATE_BOOKLET_JS###'))) {
+                if (!$templateCode = trim($templateService->getSubpart($this->templateFileJS, '###TEMPLATE_BOOKLET_JS###'))) {
                     $templateCode = $this->outputError('Template TEMPLATE_BOOKLET_JS is missing', true);
                 }
 
@@ -1466,7 +1484,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 $markerArray['OPTIONS'] = implode(",\n		", $options);
 
                 // Replace all markers
-                $templateCode = $parser->substituteMarkerArray($templateCode, $markerArray, '###|###', 0);
+                $templateCode = $templateService->substituteMarkerArray($templateCode, $markerArray, '###|###', 0);
 
                 // Add all CSS and JS files
 
@@ -1510,22 +1528,27 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
      */
     public function addIRREContent(&$a, $context, $row, $view): void
     {
-        $tsfe = $this->getTypoScriptFrontendController();
+        $pageRepository = $this->getPageRepository();
         /** @var LanguageAspect $languageAspect */
         $languageAspect = $context->getAspect('language');
         $versioningWorkspaceId = $context->getPropertyFromAspect('workspace', 'id');
 
         if ($languageAspect->getContentId()) {
-            $row = $tsfe->sys_page->getRecordOverlay('tt_content', $row, $languageAspect->getContentId(), $languageAspect->getLegacyOverlayType());
+                $row =
+                    $pageRepository->getLanguageOverlay(
+                        'tt_content',
+                        $row,
+                        $languageAspect
+                    );
         } elseif ($versioningWorkspaceId) {
-            $tsfe->sys_page->versionOL('tt_content', $row);
+            $pageRepository->versionOL->versionOL('tt_content', $row);
         }
-        $uid = $row['_LOCALIZED_UID'] ?: $row['uid'];
+        $uid = $row['_LOCALIZED_UID'] ?? $row['uid'];
         if ($row['t3ver_oid']) {
             $uid = $row['t3ver_oid'];
         }
-        $tsfe->register['uid'] = $uid;
-        $tsfe->register['title'] = (strlen(trim($this->titles[$a])) > 0 ? $this->titles[$a] : $row['header']);
+        $this->cObj->register['uid'] = $uid;
+        $this->cObj->register['title'] = (strlen(trim($this->titles[$a])) > 0 ? $this->titles[$a] : $row['header']);
         if (
                 $this->titles[$a] == '' ||
                 !isset($this->titles[$a])
@@ -1535,7 +1558,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
             } else {
                 $this->titles[$a] = '';
             }
-            $tsfe->register['title'] = $this->titles[$a];
+            $this->cObj->register['title'] = $this->titles[$a];
         }
         $innerContent = '';
         if (isset($view['content'])) {
@@ -1576,20 +1599,19 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
      */
     public function renderTemplate()
     {
-        $tsfe = $this->getTypoScriptFrontendController();
-        $parser = GeneralUtility::makeInstance(MarkerBasedTemplateService::class);
+        $templateService = GeneralUtility::makeInstance(MarkerBasedTemplateService::class);
 
         // set the register:key for TS manipulation
-        $tsfe->register['key'] = $this->getContentKey();
+        $this->cObj->register['key'] = $this->getContentKey();
 
         $markerArray = $this->additionalMarker;
 
         // Define string with all classes
         $markerArray['COLUMN_CLASSES'] = implode('', $this->classes);
-        $tsfe->register['COLUMN_CLASSES'] = $markerArray['COLUMN_CLASSES'];
+        $this->cObj->register['COLUMN_CLASSES'] = $markerArray['COLUMN_CLASSES'];
 
         // get the template
-        if (!$templateCode = $parser->getSubpart($this->templateFile, '###' . $this->templatePart . '###')) {
+        if (!$templateCode = $templateService->getSubpart($this->templateFile, '###' . $this->templatePart . '###')) {
             $templateCode = $this->outputError('Template ' . $this->templatePart . ' is missing', false);
         }
         // Replace default values
@@ -1605,12 +1627,12 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
         } else {
             $markerArray['EQUALIZE_CLASS'] = '';
         }
-        $templateCode = $parser->substituteMarkerArray($templateCode, $markerArray, '###|###', 0);
+        $templateCode = $templateService->substituteMarkerArray($templateCode, $markerArray, '###|###', 0);
 
         // Get the title template
-        $titleCode = $parser->getSubpart($templateCode, '###TITLES###');
+        $titleCode = $templateService->getSubpart($templateCode, '###TITLES###');
         // Get the column template
-        $columnCode = $parser->getSubpart($templateCode, '###COLUMNS###');
+        $columnCode = $templateService->getSubpart($templateCode, '###COLUMNS###');
         // Define the contentWrap
         switch (count($this->contentWrap)) {
             case 1 : {
@@ -1691,9 +1713,9 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 $markerArray['TITLE'] = $this->titles[$a];
             }
 
-            $tsfe->register['content_id'] = $markerArray['CONTENT_ID'];
-            $tsfe->register['id']         = $markerArray['ID'];
-            $tsfe->register['title']      = $markerArray['TITLE'];
+            $this->cObj->register['content_id'] = $markerArray['CONTENT_ID'];
+            $this->cObj->register['id']         = $markerArray['ID'];
+            $this->cObj->register['title']      = $markerArray['TITLE'];
 
             if (isset($this->conf['tabKey'])) {
                 $markerArray['TAB_KEY'] =
@@ -1764,10 +1786,10 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
             $markerArray['REL'] = htmlspecialchars($this->rels[$a] ?? '');
             // Generate the QUOTE_TITLE
             $markerArray['DEFAULT_QUOTE_TITLE']   =
-                htmlspecialchars($parser->substituteMarkerArray($this->pi_getLL('default_quote_title_template'), $markerArray, '###|###', 0));
+                htmlspecialchars($templateService->substituteMarkerArray($this->pi_getLL('default_quote_title_template'), $markerArray, '###|###', 0));
             $markerArray['TAB_QUOTE_TITLE'] =
                 htmlspecialchars(
-                    $parser->substituteMarkerArray(
+                    $templateService->substituteMarkerArray(
                         $this->pi_getLL('tab_quote_title_template'),
                         $markerArray,
                         '###|###',
@@ -1776,7 +1798,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 );
             $markerArray['ACCORDION_QUOTE_TITLE'] =
                 htmlspecialchars(
-                    $parser->substituteMarkerArray(
+                    $templateService->substituteMarkerArray(
                         $this->pi_getLL('accordion_quote_title_template'),
                         $markerArray,
                         '###|###',
@@ -1805,14 +1827,14 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 ($addContent && !empty($this->confArr['showEmptyContent']))
             ) {
                 // add content to COLUMNS
-                $columns .= $parser->substituteMarkerArray($columnCode, $markerArray, '###|###', 0);
+                $columns .= $templateService->substituteMarkerArray($columnCode, $markerArray, '###|###', 0);
                 // add content to TITLE
-                $titles .= $parser->substituteMarkerArray($titleCode, $markerArray, '###|###', 0);
+                $titles .= $templateService->substituteMarkerArray($titleCode, $markerArray, '###|###', 0);
             }
         }
         $return_string = $templateCode;
-        $return_string = $parser->substituteSubpart($return_string, '###TITLES###', $titles, 0);
-        $return_string = $parser->substituteSubpart($return_string, '###COLUMNS###', $columns, 0);
+        $return_string = $templateService->substituteSubpart($return_string, '###TITLES###', $titles, 0);
+        $return_string = $templateService->substituteSubpart($return_string, '###COLUMNS###', $columns, 0);
 
         if (isset($this->conf['additionalMarkers'])) {
             $additonalMarkerArray = [];
@@ -1829,7 +1851,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
                 }
             }
             // add addtional marker content to template
-            $return_string = $parser->substituteMarkerArray($return_string, $additonalMarkerArray, '###|###', 0);
+            $return_string = $templateService->substituteMarkerArray($return_string, $additonalMarkerArray, '###|###', 0);
         }
 
         return $return_string;
@@ -1935,15 +1957,7 @@ class tx_jfmulticontent_pi1 extends AbstractPlugin
      */
     protected function getPageRepository(): PageRepository
     {
-        return $this->getTypoScriptFrontendController()->sys_page ?? GeneralUtility::makeInstance(PageRepository::class);
-    }
-
-    /**
-     * @return \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
-     */
-    protected function getTypoScriptFrontendController()
-    {
-        return $GLOBALS['TSFE'];
+        return GeneralUtility::makeInstance(PageRepository::class);
     }
 
     /**

@@ -1,0 +1,12 @@
+
+plugin.tx_jfmulticontent_pi1 = USER
+plugin.tx_jfmulticontent_pi1 {
+    userFunc = JambageCom\Jfmulticontent\Controller\MainController->main
+}
+
+tt_content.list.20.jfmulticontent_pi1 = < plugin.tx_jfmulticontent_pi1
+
+
+@import 'EXT:jfmulticontent/Configuration/TypoScript/setup.typoscript'
+
+

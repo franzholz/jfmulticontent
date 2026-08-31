@@ -1,3 +1,6 @@
+2026-07-28  Franz Holzinger  <franz@ttproducts.de>
+    * compatibility with TYPO3 14.3
+
 2025-01-31 Franz Holzinger  <franz@ttproducts.de>
     * compatibility lib_jquery: Replace Sonority\LibJquery\Hooks\PageRenderer by Quellenform\LibJquery\Hooks\PageRendererHook
     * move Classes/Hooks/PageRenderer.php into Classes/Hooks/MultiPageRenderer.php

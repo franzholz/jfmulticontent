@@ -1,26 +1,52 @@
 <?php
+declare(strict_types=1);
 
 defined('TYPO3') || die('Access denied.');
 
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\SelectItemUtility\SelectItem;
+
+use JambageCom\Jfmulticontent\Hooks\ItemsProcFunc;
 
 call_user_func(function ($extensionKey, $table): void {
-    $listType = $extensionKey . '_pi1';
+    $pluginSignature = 'jfmulticontent_plugin';
 
-    $GLOBALS['TCA'][$table]['types']['list']['subtypes_excludelist'][$listType] = 'layout,pages';
-    $GLOBALS['TCA'][$table]['types']['list']['subtypes_addlist'][$listType] = 'tx_jfmulticontent_view,tx_jfmulticontent_pages,tx_jfmulticontent_contents,tx_jfmulticontent_irre,pi_flexform';
-    // Add reload field to tt_content
-    if (!isset($GLOBALS['TCA'][$table]['ctrl']['requestUpdate'])) {
-        $GLOBALS['TCA'][$table]['ctrl']['requestUpdate'] = '';
-    }
-    $GLOBALS['TCA'][$table]['ctrl']['requestUpdate'] .= ($GLOBALS['TCA'][$table]['ctrl']['requestUpdate'] ? ',' : '') . 'tx_jfmulticontent_view';
+    ExtensionManagementUtility::addTcaSelectItem(
+        'tt_content',
+        'CType',
+        [
+            'label' => 'LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
+            'value' => $pluginSignature,
+            'group' => 'plugins', // Steuert das Tab im Erstellungs-Wizard (z.B. 'default', 'special')
+            'description' => 'LLL:EXT:jfmulticontent/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1.description',
+            'icon' => 'extensions-jfmulticontent-wizard', // Das gewünschte Backend-Icon
+        ],
+        'textmedia', // Positionierung im Dropdown
+        'after'
+    );
+
+    $GLOBALS['TCA'][$table]['types'][$pluginSignature] = [
+        'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+        --palette--;;general,
+        --palette--;;headers,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:plugin,
+        pi_flexform,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+        --palette--;;language,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+        hidden,
+        --palette--;;access,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended
+        ',
+    ];
 
     $extensionConfiguration = GeneralUtility::makeInstance(
         ExtensionConfiguration::class
     )->get($extensionKey);
-    $colPosOfIrreContent = intval($extensionConfiguration['colPosOfIrreContent']);
+    $colPosOfIrreContent = intval($extensionConfiguration['colPosOfIrreContent'] ?? 0);
 
     if (
         !isset($GLOBALS['TCA'][$table]['columns']['colPos']['config']['items'][$colPosOfIrreContent])
@@ -30,7 +56,6 @@ call_user_func(function ($extensionKey, $table): void {
                 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.colPosOfIrreContent',
                 $colPosOfIrreContent
         ];
-        //     $GLOBALS['TCA']['tt_content']['columns']['colPos']['config']['disableNoMatchingValueElement'] = 1; // I have commented this out.
     }
 
     $temporaryColumns = [
@@ -49,7 +74,7 @@ call_user_func(function ($extensionKey, $table): void {
                     ['LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.view.I.1', 'page'],
                     ['LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.view.I.2', 'irre'],
                 ],
-                'itemsProcFunc' => \JambageCom\Jfmulticontent\Hooks\ItemsProcFunc::class . '->getViews',
+                'itemsProcFunc' => ItemsProcFunc::class . '->getViews',
             ]
         ],
         'tx_jfmulticontent_pages' => [
@@ -96,6 +121,8 @@ call_user_func(function ($extensionKey, $table): void {
         ],
     ];
 
+
+
     if (!empty($extensionConfiguration['useStoragePidOnly'])) {
 
         $foreignTableWhere = 'AND {#tt_content}.{#pid} = ###PAGE_TSCONFIG_ID### AND {#tt_content}.{#hidden} = 0 AND {#tt_content}.{#deleted} = 0 AND {#tt_content}.{#sys_language_uid} IN (0,-1) ORDER BY tt_content.uid';
@@ -136,15 +163,14 @@ call_user_func(function ($extensionKey, $table): void {
             'label' => 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_jfmulticontent.contents',
             'config' => [
                 'type' => 'group',
-                'internal_type' => 'db',
                 'allowed' => 'tt_content',
                 'size' => 12,
                 'minitems' => 0,
                 'maxitems' => 1000,
                 'suggestOptions' => [
-                'default' => [
-                    'pidList' => '###PAGE_TSCONFIG_ID###',
-                ],
+                   'default' => [
+                        'pidList' => '###PAGE_TSCONFIG_ID###',
+                    ],
                 ],
                 'fieldControl' => [
                     'elementBrowser' => [
@@ -171,15 +197,21 @@ call_user_func(function ($extensionKey, $table): void {
         ];
     }
 
+
+
     ExtensionManagementUtility::addTCAcolumns($table, $temporaryColumns);
-    ExtensionManagementUtility::addPiFlexFormValue($listType, 'FILE:EXT:' . $extensionKey . '/Configuration/FlexForms/flexform_ds.xml');
+
+    // TYPO3 v14 Kombination: Plugin registrieren UND FlexForm ohne Deprecation anhängen
     ExtensionManagementUtility::addPlugin(
-        [
-            'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
-            $listType,
-            'EXT:' . $extensionKey . '/Resources/Public/Icons/Extension.gif'
-        ],
-        'list_type',
-        $extensionKey
+        new SelectItem(
+            label: 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
+            value: $pluginSignature,
+            icon: 'extensions-jfmulticontent-plugin',
+            group: 'plugin',
+            description: 'jfmulticontent plugin'
+        ),
+        'FILE:EXT:' . $extensionKey . '/Configuration/FlexForms/flexform_ds.xml' // NEU: FlexForm direkt hier übergeben!
     );
 }, 'jfmulticontent', basename(__FILE__, '.php'));
+
+

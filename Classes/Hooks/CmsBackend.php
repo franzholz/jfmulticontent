@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace JambageCom\Jfmulticontent\Hooks;
 
@@ -47,7 +48,10 @@ class CmsBackend
     {
         $result = '';
 
-        if ($params['row']['list_type'] == 'jfmulticontent_pi1') {
+        if (
+            isset($params['row']['list_type']) &&
+            $params['row']['list_type'] == 'jfmulticontent_pi1'
+        ) {
             $data = GeneralUtility::xml2array($params['row']['pi_flexform']);
 
             if (is_array($data) && $data['data']['s_general']['lDEF']['style']['vDEF']) {
